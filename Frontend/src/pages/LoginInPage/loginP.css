@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: black;
+}
+/*_____________________________________________________________________________loginP-nav  */
+.loginP-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  align-items: center;
+  height: 40px;
+  /* border: solid red 3px; */
+  width: 100%; /* Ensure it spans the full width */
+  position: fixed; /* Fix it to the top */
+  top: 0; /* Pin it to the top of the viewport */
+  left: 0; /* Align it to the left of the viewport */
+  z-index: 1000; /* Ensure it appears above other elements */
+  background-color: #000000; /* Optional: Set a background to avoid transparency */
+  overflow: hidden; /* Prevents scrolling within the nav */
+  border-bottom: solid rgba(0, 238, 255, 0.313) 1px;
+}
+
+/*................................................................................... Logo  */
+
+
+.logoD {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: -5px;
+  font-family: sans-serif;
+  margin-left: 30px;
+  font-weight: 5px;
+  font-size: 1.5em;
+  /* border: solid red 3px; */
+}
+.logoD h5 {
+  color: rgb(0, 238, 255);
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo {
+    width: 20px; /* Adjust the logo size for smaller screens */
+    height: 20px; /* Adjust the height for smaller screens */
+  }
+}
+
+/*_______________________________________________________________________________LogoinP-container  */
+.loginP-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: solid red 3px; */
+  background-image: url("E:\11.My web Projects\7.Dhunlay\Frontend\public\img2.jpg"); /* Use forward slashes */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 100vh; /* Matches the viewport height */
+  width: 100%; /* Matches the full width of the viewport */
+  margin: 0; /* Removes default margins */
+  padding: 0; /* Removes default padding */
+  overflow: hidden; /* Ensures no scrollbars appear */
+  
+}
+
+.loginP-form {
+    width: 30em;
+    height: 20em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid rgb(0, 238, 255) 1px;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent background with some opacity */
+    backdrop-filter: blur(10px); /* Applies the blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    gap: 10px;
+    padding: 20px; /* Optional: Adds padding for inner spacing */
+    border-radius: 10px; /* Optional: Smoothens the edges */
+    /* margin-left: 45em;
+    margin-bottom: 5em; */
+  }
+  .loginP-form h2{
+    font-family: sans-serif;
+    color:rgb(0, 0, 0) ;
+    background-color: transparent;
+    margin-bottom: 1em;
+  }
+.input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: solid rgb(0, 238, 255) 1px; */
+  background-color: transparent;
+  gap: 10px;
+}
+.input-group label{
+    font-family: sans-serif;
+    color: rgb(3, 3, 3);
+    background-color: transparent;
+}
+.input-group input {
+    font-family: sans-serif;
+    color: whitesmoke;
+    background-color: rgba(196, 193, 193, 0.288); /* Subtle background */
+    border: 1px solid transparent; /* Border set to transparent by default */
+    border-radius: 8px; /* Rounded corners */
+    padding: 12px 15px; /* Ensures sufficient inner spacing */
+    font-size: 16px; /* Readable font size */
+    outline: none; /* Removes default browser outline */
+    transition: all 0.3s ease; /* Smooth hover and focus transitions */
+    width: 100%; /* Full width of parent container */
+    box-sizing: border-box; /* Includes padding in the element's width/height */
+  }
+  
+  /* Placeholder styling */
+  .input-group input::placeholder {
+    color: #cfcfcf; /* Placeholder text color */
+    opacity: 0.8; /* Slightly transparent */
+  }
+  
+  /* Hover effect */
+  .input-group input:hover {
+    border-color: #4dd0e1; /* Highlight border on hover */
+  }
+  
+  /* Focus effect */
+  .input-group input:focus {
+    border-color: #ffffff; /* Bright border on focus */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight background change */
+    color: #ffffff; /* Text remains visible */
+  }
+
+  .loginP-button {
+    position: relative; /* Required for pseudo-elements */
+    background-color: transparent; /* Transparent background */
+    color: whitesmoke; /* Text color */
+    font-family: sans-serif; /* Font style */
+    font-size: 16px; /* Text size */
+    padding: 12px 20px; /* Inner spacing */
+    border: none; /* No default border */
+    cursor: pointer; /* Pointer cursor on hover */
+    overflow: hidden; /* Hides pseudo-element overflow */
+    transition: color 0.3s ease; /* Smooth text color transition */
+  }
+  
+  .loginP-button::before {
+    content: ''; /* Adds an empty pseudo-element */
+    position: absolute; /* Position relative to the button */
+    bottom: 0; /* Aligns to the bottom */
+    left: 0; /* Starts from the left */
+    width: 0%; /* Initial width of the border effect */
+    height: 2px; /* Height of the border */
+    background-color: #4dd0e1; /* Light blue border color */
+    transition: width 0.3s ease; /* Smooth width transition */
+  }
+  
+  .loginP-button:hover {
+    color: #4dd0e1; /* Changes text color on hover */
+  }
+  
+  .loginP-button:hover::before {
+    width: 100%; /* Expands the border to full width */
+  }
+  
+  /* Active/Pressed effect */
+  .loginP-button:active {
+    transform: scale(0.98); /* Slight shrinking effect */
+  }
+  
+  .loginP-error{
+    background-color: transparent;
+    font-family: sans-serif;
+    color: red;
+  }

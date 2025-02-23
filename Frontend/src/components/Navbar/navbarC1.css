@@ -1,0 +1,62 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap');
+
+.navbar-C1 {
+  height: 50px;
+  width: auto;
+  display: flex;
+
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: solid red 3px; */
+  background-color: transparent;
+  margin-left: 7em;
+}
+
+/* __________________________________________________________Navigation Menu Styles */
+.navbar-C1-Opt {
+  list-style-type: none; /* Remove bullets */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Arrange items horizontally */
+  background-color:transparent; /* Navbar background color (violet) */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Align items vertically */
+  height: auto; /* Navbar height */
+  font-family: "Inconsolata", serif;
+  
+ 
+}
+
+/* ...............................................List Item Styles */
+.navbar-C1-Opt li {
+  margin: 0 15px; /* Space between list items */
+}
+
+/* .....................................................Link Styles */
+.navbar-C1-Opt a {
+  text-decoration: none; /* Remove underline */
+  font-family: "Inconsolata", serif;
+  font-size: 0.9rem; /* Font size */
+  font-weight: 100; /* Use 100 for very slim text */
+  color: #e6e0e0; /* Light gray color for a softer look */
+  margin: 0; /* Optional: Remove margin for tighter spacing */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* ................................................Hover Effect for Links */
+.navbar-C1-Opt a:hover {
+  color: rgb(0, 238, 255); /* Gold color on hover */
+}
+
+/* ___________________________________________________________________________________Responsive Design */
+@media (max-width: 768px) {
+  .navbar-C1-Opt  {
+    flex-direction: column; /* Stack items vertically */
+    height: auto; /* Adjust height */
+  }
+  .navbar-C1-Opt  li {
+    margin: 10px 0; /* Adjust spacing for vertical layout */
+  }
+}

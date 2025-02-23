@@ -10,6 +10,8 @@
   "author": "Himanshu Shukla",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "chalk": "^5.4.1",
     "colors": "^1.4.0",
     "compression": "^1.7.5",
@@ -18,7 +20,9 @@
     "express-async-errors": "^3.1.1",
     "helmet": "^8.0.0",
     "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.4",
+    "nodemailer": "^6.10.0",
     "nodemon": "^3.1.9"
   }
 }
