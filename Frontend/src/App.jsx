@@ -1,8 +1,11 @@
 import React, { Suspense, lazy, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import ProtectedRoute from "./components/AuthenticateUser/authUser"; // Import the ProtectedRoute component
-
+import Loader from "./components/Loding/loadingC1";
+import LoadingP from "./components/Loding/loadingP";
 const Home = lazy(() => import("./pages/HomeP/home_in_P"));
+import Dashboard from "./pages/Dashboard/dashBoard";
+import Analytics from "./pages/Analytics/analytics";
 const Login = lazy(() => import("./pages/LoginInPage/loginP"));
 const Register = lazy(() => import("./pages/LoginInPage/regesterP"));
 const Meta = lazy(() => import("./components/MetaDataForm/Form"));
@@ -33,52 +36,58 @@ function MainApp() {
         console.log(data);
 
         if (!response.ok) {
-          console.error(
-            "Error fetching user:",
-            data.message || "Unknown error"
-          );
+          console.error("Error fetching user:", data.message || "Unknown error");
           setUser(null);
         } else {
           setUser(data);
 
-          //  Dynamic navigations
-          //1.
-          if (
-            window.location.pathname === "/home" ||
-            window.location.pathname === "/home"
-          ) {
-            navigate(`/home/${data._id}`);
-          }
-          //2.
-          if (
-            window.location.pathname === "/meta"
-           
-          ) {
-            navigate(`/meta/${data._id}`);
-          }
+          // Introduce a delay of 1.5 seconds before navigation
+          setTimeout(() => {
+            if (window.location.pathname === "/home") {
+              navigate(`/home/${data._id}`);
+            }
+            if (window.location.pathname === "/meta") {
+              navigate(`/meta/${data._id}`);
+            }
+            if (window.location.pathname === "/analytics") {
+              navigate(`/analytics/${data._id}`);
+            }
+            if (window.location.pathname === "/dashboard") {
+              navigate(`/dashboard/${data._id}`);
+            }
+          }, 100);
         }
       } catch (error) {
-        console.error("Network error while fetching user:", error);
+        console.error("📺(app.jsx) Network error while fetching user:", error);
         setUser(null);
       } finally {
-        setLoading(false);
+        // Ensure the loader is shown for at least 1.5 seconds
+        setTimeout(() => {
+          setLoading(false);
+        }, 100);
       }
     };
 
     fetchUserData();
   }, []);
-
   if (loading) {
-    return <div className="Loading">Checking authentication...</div>;
+    return <div className="Loading"> <LoadingP></LoadingP></div>;
   }
 
   return (
-    <Suspense fallback={<div className="Loading">Loading...</div>}>
+    <Suspense fallback={<div className="Loading"><Loader></Loader></div>}>
       <Routes>
+      
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
+        
           <Route path="/home/:id" element={<Home />} />
           <Route path="/meta/:id" element={<Meta />} />
+          <Route path="/" element={<Home />}>
+          <Route path="dashboard/:id" element={<Dashboard />} />
+          <Route path="analytics/:id" element={<Analytics />} />
+          {/* <Route path="analytics" element={<Analytics />} /> */}
+        </Route>
         </Route>
 
         {/* Public Routes */}

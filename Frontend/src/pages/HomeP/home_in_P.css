@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,24 +7,27 @@
 
 /* !_________________________________________|| HEADER ||____________________________________________*/
 
-/* ____________________________________ \ navbar \_______________________________ */
+/* ? ____________________________________ \ navbar \_______________________________ */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 30px;
+  height: 5vh; /* Responsive height */
   background-color: rgb(0, 0, 0);
   color: #fff;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 20px; /* Apply padding on top/bottom and both sides */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1vh 2vw; /* Responsive padding */
+  box-shadow: 0 0.5vh 0.8vh rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
-  border-bottom: solid rgba(0, 238, 255, 0.4) 1px;
+  border-bottom: solid rgb(58, 58, 58) min(0.05vw, 0.3px);
+
+  /* Responsive border thickness */
+  border-radius: 0.5vw;
 }
 
 .navbar-show {
@@ -34,20 +38,17 @@
   transform: translateY(-100%);
 }
 
-/* -------------------------------------------------------------------------logo */
+/** -------------------------------------------------------------------------logo */
 .logo {
-  width: 40px; 
-  height: 40px; 
+  width: 2vw; /* Responsive width */
+  height: 2vw; /* Responsive height */
   background-image: url("E:\11.My web Projects\7.Dhunlay\Frontend\public\Dhun_logo.jpg");
-  background-size: cover; /* Ensure the image covers the entire circle */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent image from repeating */
-  display: block; /* Make the element a block-level element */
-
-  border-radius: 50%; /* Makes the logo circular */
-  transition: transform 0.3s ease; /* Smooth transition for hover effect */
-  
-  /* border: red solid 3px; */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 
 .logoD {
@@ -55,11 +56,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: -5px;
+  gap: -0.5vw;
   font-family: sans-serif;
-  font-weight: 5px;
-  font-size: 1.5em;
+  font-weight: 5000;
+  font-size: 1.6vw; /* Responsive font size */
 }
+
 .logoD h5 {
   color: rgb(0, 238, 255);
 }
@@ -67,72 +69,236 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .logo {
-    width: 20px; /* Adjust the logo size for smaller screens */
-    height: 20px; /* Adjust the height for smaller screens */
+    width: 7vw;
+    height: 7vw;
   }
 }
-
-/*.......................................................................Signin*/
+/**.......................................................................centerEl*/
+.centerEl {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  width: 40vw;
+  background-color: rgba(20, 20, 20, 0.89);
+  
+}
+.earnings {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inconsolata", serif;
+  background-color: rgba(20, 20, 20, 0.89);
+  width: 20vw;
+  height: 5vh;
+  border-radius: 0.5vw;
+}
+.earnings p {
+  color: rgb(0, 255, 255);
+  font-weight: 600;
+  font-size: 1.1vw;
+}
+.upcomingFeat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Inconsolata", serif;
+  background-color: rgba(20, 20, 20, 0.89);
+  width: 15vw;
+  height: 5vh;
+  border-radius: 0.5vw;
+}
+.upcomingFeat p {
+  color: rgb(0, 255, 255);
+  font-weight: 600;
+  font-size: 1.1vw;
+}
+/**.......................................................................Signin*/
 .signIn {
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  gap: -0.3rem;
-  /* border: solid red 3px; */
+  gap: 0.3vw;
   width: auto;
-  margin-right: 30px;
+  margin-right: 2vw;
 }
+
 .signIn button {
   all: unset;
-  background-color: transparent; 
-
-  font-family: "Inconsolata", serif; 
-  font-size: 0.9rem; 
-  padding: 8px 16px; 
-  border-radius: 5px; 
-  cursor: pointer; 
+  background-color: transparent;
+  font-family: "Inconsolata", serif;
+  font-size: 1.2vw; /* Responsive font size */
+  padding: 1vh 2vw;
+  border-radius: 0.5vw;
+  cursor: pointer;
   width: auto;
 }
+
 .signIn h4 {
   font-family: "Inconsolata", serif;
-  font-size: 0.9rem; 
-  font-weight: 100; 
-  color: #e6e0e0;
+  font-size: 1vw;
+  font-weight: 600;
+  color: #ffffff;
   margin: 0;
 }
 
 .signIn h4:hover {
-  color: rgb(0, 255, 208); 
+  color: rgb(0, 238, 255);
 }
 
 /*! ________________________________________| MAIN |___________________________________________________ */
 
-/* ____________________________________ \ SECTION 11 \_______________________________ */
-.Home-p-section-11-content {
-  width: 100%; 
-  background-color: rgb(0, 0, 0); 
-  color: white; 
-  min-height: 100vh; 
-  padding: 20px; 
-  box-sizing: border-box; 
-  height: 150vh;
+.Home-p-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  height: 100vh; /* Ensures full screen height */
+  box-sizing: border-box;
+  padding: 0;
+  gap: 0.4vw; /* Responsive gap */
 }
 
 .content h2 {
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
 }
 
 .content p {
   line-height: 1.6;
 }
 
+/* ?____________________________________ \ SECTION 1 \_______________________________ */
 
-/*--------------------section-01...............*/
+/**-------------------- Home-p-section-11 ...............*/
 
 .Home-p-section-11 {
-  margin-top: 50px;
-  border: red solid 3px;
-  height: 30vh;
-  width: auto;
+  /* border: red solid 0.3vw; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 90vh;
+  width: 17vw; /* Responsive width */
+  margin-top: 9vh;
+  margin-left: 0.5vw;
+  background-color: rgba(48, 49, 49, 0.788);
+}
+.Home-p-section-111 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(6, 6, 6);
+  height: 7vh;
+  width: 15vw; /* Responsive width */
+  margin-top: 1vh;
+  font-family: "Inconsolata", serif;
+
+  padding: 0.1rem;
+  gap: 1vh;
+  border-radius: 0.4vw;
+  
+}
+.Home-p-section-111-userName {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 238, 255);
+  font-weight: 1000;
+  gap: 1vw;
+  font-size: 1.1vw;
+}
+.Home-p-section-111-userId {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: rgb(1, 238, 255);
+  font-weight: 500;
+}
+.Home-p-section-112 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: center;
+  background-color: rgb(6, 6, 6);
+  height: 70vh;
+  width: 16vw; /* Responsive width */
+  margin-top: 1vh;
+  border-radius: 0.4vw;
+}
+.Home-p-section-113 {
+  background-color: rgb(6, 6, 6);
+  height: 10vh;
+  width: 16vw; /* Responsive width */
+  margin-top: 1vh;
+  border-radius: 0.4vw;
+}
+
+/* ?____________________________________ \ SECTION 2 \_______________________________ */
+
+/**-------------------- Home-p-section-21 ...............*/
+
+.Home-p-section-21 {
+  margin-top: 9vh;
+  /* border: red solid 0.3vw; */
+  height: 90vh;
+  width: 81vw; /* Responsive width */
+}
+
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .navbar {
+    border-bottom: solid rgb(255, 247, 0) 0.2vw;
+  }
+}
+
+/*?------------------------ | TABLETS |------------------------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    border-bottom: solid rgb(255, 145, 0) 0.2vw;
+  }
+}
+
+/*?------------------------ | SMALL LAPTOPS |------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    border-bottom: solid rgb(4, 255, 0) 0.2vw;
+  }
+}
+
+/*?------------------------ | LAPTOPS AND DESKTOPS |------------------------- */
+@media (min-width: 1025px) {
+  .navbar {
+    border-bottom: solid rgba(0, 238, 255, 0) min(0.05vw, 0.3px);
+  }
+}
+
+/*! ________________________________________| scroll bar css |___________________________________________________ */
+/* Scrollbar styling for Webkit browsers */
+.Home-p-section-21::-webkit-scrollbar {
+  width: 0.5vw; /* Responsive width based on viewport width */
+}
+
+.Home-p-section-21::-webkit-scrollbar-track {
+  background: transparent; /* Keeping it transparent */
+  border-radius: 1vw; /* Responsive border-radius */
+}
+
+.Home-p-section-21::-webkit-scrollbar-thumb {
+  background: rgb(1, 238, 255); /* Thumb color */
+  border-radius: 1vw; /* Responsive border-radius */
+}
+
+.Home-p-section-21::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 200, 230); /* Slightly darker color on hover */
 }

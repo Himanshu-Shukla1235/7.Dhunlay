@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./loginP.css";
 import Navbar from "../../components/Navbar/navbarC2";
 
-import Loading from "../../components/Loding/lodingC1";
+import Loading from "../../components/Loding/loadingC1";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +23,7 @@ const SignInPage = () => {
       });
 
       const data = await response.json();
-      setLoading(false);
+      // setLoading(false);
 
       if (!response.ok) {
         throw new Error(data.message || "Failed to sign in");
@@ -31,12 +31,17 @@ const SignInPage = () => {
 
       // ✅ Ensure user data exists and contains an ID
       if (data.user && data.user.id) {
-        window.location.href = `/home/${data.user.id}`; // ✅ Dynamic redirect
+        setTimeout(() => {
+          window.location.href = `/home/${data.user.id}`; // ✅ Dynamic redirect
+        }, 1500);
       } else {
         throw new Error("User ID not found in response");
       }
     } catch (err) {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
+
       setError(err.message || "Something went wrong");
     }
   };
@@ -80,7 +85,7 @@ const SignInPage = () => {
             />
           </div>
           <button type="submit" className="loginP-button" disabled={loading}>
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? <Loading></Loading> : "Sign In"}
           </button>
           {error && <p className="loginP-error">{error}</p>}
         </form>

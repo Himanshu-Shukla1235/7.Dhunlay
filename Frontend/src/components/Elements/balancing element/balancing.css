@@ -1,0 +1,52 @@
+.bar {
+    width: 20vw;
+    height: 1vh;
+    background: #ffdaaf;
+    border-radius: 30px;
+    transform: rotate(-15deg);
+    animation: up-down 3s ease-in-out infinite alternate;
+  }
+  
+  .ball {
+    position: relative;
+    bottom: 2vh;
+    left: calc(100% - 2vw);
+    width: 4vw;
+    height: 4vw;
+    background: #fff;
+    border-radius: 50%;
+    animation: ball-move 3s ease-in-out infinite alternate;
+  }
+  
+  .ball::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: 10%;
+    width: 10%;
+    height: 10%;
+    background: #000;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+  
+  @keyframes up-down {
+    from {
+      transform: rotate(-15deg);
+    }
+    to {
+      transform: rotate(15deg);
+    }
+  }
+  
+  @keyframes ball-move {
+    from {
+      left: calc(100% - 4vw);
+      transform: rotate(360deg);
+    }
+    to {
+      left: calc(0% - 2vw);
+      transform: rotate(0deg);
+    }
+  }
+  

@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .hover-border {
+    position: absolute;
+    inset: -4px;
+    border: 1px solid black;
+    border-radius: 50%;
+  }
+  

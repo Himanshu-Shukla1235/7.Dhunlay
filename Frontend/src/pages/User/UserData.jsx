@@ -1,31 +1,51 @@
-// File: ./pages/UserProfile/UserProfile.jsx
+import { createContext, useContext, useState, useEffect } from "react";
 
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+const UserContext = createContext(null);
 
-function UserProfile() {
-  const { userId } = useParams(); // Access the dynamic userId from the URL
+export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    // Fetch user data from the backend API using the userId
-    fetch(`/api/users/${userId}`)
-      .then((response) => response.json())
-      .then((data) => setUserData(data))
-      .catch((error) => console.error('Error fetching user data:', error));
-  }, [userId]);
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/userData/me", {
+          method: "GET",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+        });
 
-  if (!userData) {
-    return <div>Loading...</div>;
-  }
+        const data = await response.json();
+
+        if (response.ok) {
+          setUserData(data);
+        } else {
+          console.error("📺 Error fetching user:", data.message || "Unknown error");
+          setUserData(null);
+        }
+      } catch (error) {
+        console.error("📺 Network error:", error);
+        setUserData(null);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   return (
-    <div>
-      <h1>User Profile for {userData.name}</h1>
-      <p>Email: {userData.email}</p>
-      {/* Render other user details as needed */}
-    </div>
+    <UserContext.Provider value={{ userData, setUserData }}>
+      {children}
+    </UserContext.Provider>
   );
-}
+};
 
-export default UserProfile;
+// Custom hook for easy context consumption
+export const useUser = () => {
+  const context = useContext(UserContext);
+  if (!context) {
+    throw new Error("useUser must be used within a UserProvider");
+  }
+  return context;
+};
+
+// Default export (optional, if you prefer named exports only, you can remove this)
+export default UserContext;

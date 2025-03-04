@@ -1,69 +1,62 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
-import "./home_in_P.css"; // Import the CSS file
-import Navbar from "../../components/Navbar/navbarC1";
+import React from "react";
+import { useNavigate, Outlet } from "react-router-dom";
+import "./home_in_P.css"; 
+import ListComponent from "../../components/homePcomp/listItemsC1";
+import { useUser } from "../User/UserData"; 
+import PersonIcon from '@mui/icons-material/Person';
+import Balancing from "../../components/Elements/balancing element/balancing";
 
 const HomeP = () => {
-  const [isNavVisible, setIsNavVisible] = useState(true); // Controls navbar visibility
-  const [lastScrollY, setLastScrollY] = useState(0); // Tracks the last scroll position
-  const navigate = useNavigate(); // React Router navigation
-
-  // Scroll handler to manage navbar visibility
-  const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY && currentScrollY > 50) {
-      // Scrolling down and past a threshold: Hide the navbar
-      setIsNavVisible(false);
-    } else {
-      // Scrolling up: Show the navbar
-      setIsNavVisible(true);
-    }
-
-    setLastScrollY(currentScrollY);
-  }, [lastScrollY]);
-
-  useEffect(() => {
-    // Attach the scroll listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [handleScroll]);
+  const navigate = useNavigate();
+  const { userData } = useUser(); 
 
   return (
     <>
-      <header
-        className={`navbar ${isNavVisible ? "navbar-show" : "navbar-hide"}`}
-      >
+      <header className="navbar ">
         <div className="logoD">
           <div className="logo"></div>
           <h5>
-            <span >Dhun</span>
+            <span>Dhun</span>
             <span style={{ color: "white" }}>lay</span>
           </h5>
         </div>
-        
-        <Navbar />
+        <div className="centerEl">
+        {/* <div className="earnings"><p>Earnings : <span style={{color:"white"}}>0$</span></p></div> */}
+      
+        {/* <div className="upcomingFeat"><p>TotalUploads: <span style={{color:"white"}}>0</span></p></div>
+        <div className="upcomingFeat"><p>TotalUploads: <span style={{color:"white"}}>0</span></p></div> */}
+        </div>
+       
         <div className="signIn">
           <button onClick={() => navigate("/Login")}>
-            <h4>SignIn</h4>
-          </button>
-          <h4>/</h4>
-          <button onClick={() => navigate("/Login")}>
-            <h4>Register</h4>
+            <h4>SignOut</h4>
           </button>
         </div>
       </header>
 
+      {/* //!_____________________________________________| MAIN |_________________________________________*/}
+      <main className="Home-p-main">
+        <section className="Home-p-section-1">
+          <div className="Home-p-section-11">
+            <div className="Home-p-section-111">
+              <p className="Home-p-section-111-userName">
+                <PersonIcon /> {userData.username}
+              </p>
+            </div>
+            <div className="Home-p-section-112">
+              <ListComponent />
+            </div>
+            <div className="Home-p-section-113"></div>
+          </div>
+        </section>
 
-      <main className="Home-p-section-11-content">
-      <section className="Home-p-section-1">
-          <div className="Home-p-section-11"></div>
+        {/* Page Content will be rendered here */}
+        <section className="Home-p-section-2">
+        <div className="Home-p-section-21"><Outlet /></div>
+          
         </section>
       </main>
+      
       <footer></footer>
     </>
   );

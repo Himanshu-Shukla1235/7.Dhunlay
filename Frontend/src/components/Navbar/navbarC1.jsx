@@ -1,7 +1,21 @@
-import React from "react";
-import "./navbarC1.css"; // Import the CSS file for the Navbar
 
+import React, { useState, useEffect } from "react";
+import "./navbarC1.css"; // Import the CSS file for the Navbar
+import "./navbarC1List.css";
 const Navbar = ({ isVisible }) => {
+
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <main className="navbar-C1">
       <ul class="navbar-C1-Opt">

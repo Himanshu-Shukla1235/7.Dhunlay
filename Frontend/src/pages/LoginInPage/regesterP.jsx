@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./regesterP.css";
 import Navbar from "../../components/Navbar/navbarC2";
-import Loading from "../../components/Loding/lodingC1";
+import Loading from "../../components/Loding/loadingC1";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState(""); // Changed to 'setUsername'

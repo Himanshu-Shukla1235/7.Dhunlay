@@ -19,7 +19,7 @@ const getUserById = async (req, res) => {
 
 // Get current logged-in user (for authentication)
 const getCurrentUser = async (req, res) => {
-    console.log("get current user detected");
+    console.log("🧑‍💻get current user detected");
   try {
     const userId = req.user.id; // Assuming authentication middleware adds `req.user`
     const user = await User.findById(userId);

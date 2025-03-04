@@ -1,12 +1,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap');
 
-.navbar-C1 {
-  height: 4vh;
+.navbar-C1List {
+  height: 5vh;
   width: auto;
   display: flex;
 
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   /* border: solid red 3px; */
@@ -15,31 +15,28 @@
 }
 
 /* __________________________________________________________Navigation Menu Styles */
-.navbar-C1-Opt {
+.navbar-C1List-Opt {
   list-style-type: none; /* Remove bullets */
   margin: 0;
   padding: 0;
-  display: flex; /* Enable flexbox */
-  flex-direction: column; /* Arrange items in a column */
-  align-items: center; /* Center items horizontally */
-  background-color: transparent;
-  height: auto;
+  display: flex; /* Arrange items horizontally */
+  background-color:transparent; /* Navbar background color (violet) */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Align items vertically */
+  height: auto; /* Navbar height */
   font-family: "Inconsolata", serif;
 }
 
-/* Add spacing between list items */
-
-
 /* ...............................................List Item Styles */
-.navbar-C1-Opt li {
-  margin:  1.5vw 0;
+.navbar-C1List-Opt li {
+  margin: 0 1.5vw;
 }
 
 /* .....................................................Link Styles */
-.navbar-C1-Opt a {
+.navbar-C1List-Opt a {
   text-decoration: none; /* Remove underline */
   font-family: "Inconsolata", serif;
-  font-size: 1vw;
+  font-size: 1.2vw;
   font-weight: 600; /* Use 100 for very slim text */
   color: #ffffff; /* Light gray color for a softer look */
   margin: 0; /* Optional: Remove margin for tighter spacing */
@@ -47,14 +44,14 @@
 }
 
 /* ................................................Hover Effect for Links */
-.navbar-C1-Opt a:hover {
+.navbar-C1List-Opt a:hover {
   color: rgb(0, 238, 255); /* Gold color on hover */
 }
 
 /*! ________________________________________| Responsive Designs |___________________________________________________ */
 /*?------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
-  .navbar-C1{
+  .navbar-C1List{
     display: none;
   }
 }

@@ -35,8 +35,8 @@
   text-decoration: none; /* Remove underline */
 
   font-size: 0.9rem; /* Font size */
-  font-weight: 100; /* Use 100 for very slim text */
-  color: #e6e0e0; /* Light gray color for a softer look */
+  font-weight: 600; /* Use 100 for very slim text */
+  color: #ffffff; /* Light gray color for a softer look */
   margin: 0; /* Optional: Remove margin for tighter spacing */
   transition: color 0.3s ease; /* Smooth color transition */
   font-family: "Inconsolata", serif;
