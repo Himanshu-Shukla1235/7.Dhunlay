@@ -1,4 +1,4 @@
-const User = require("../Models/user"); // Adjust path as necessary
+const User = require("../Models/UserDetailsModels/user"); // Adjust path as necessary
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken"); // Ensure JWT is required at the top of your file
 const nodemailer = require("nodemailer");
@@ -108,7 +108,6 @@ const registerUser = async (req, res) => {
       });
     }
 
-
     const user = await User.create({
       username,
       email,
@@ -208,7 +207,7 @@ const loginUser = async (req, res) => {
     }
 
     // Ensure password is selected from the DB
-    const user = await User.findOne({ email }).select('+password');
+    const user = await User.findOne({ email }).select("+password");
     console.log("User from DB:", user);
 
     if (!user) {
@@ -217,8 +216,6 @@ const loginUser = async (req, res) => {
         message: "User not registered.",
       });
     }
-
-    
 
     // // Directly compare for debugging purposes
     // const isPasswordCorrect = await bcrypt.compare(password, user.password);

@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../Models/user"); // Adjust the path to your User model
+const User = require("../Models/UserDetailsModels/user"); // Adjust the path to your User model
 
 const authenticateUser = async (req, res, next) => {
   console.log("🔍 Authentication middleware triggered...");
