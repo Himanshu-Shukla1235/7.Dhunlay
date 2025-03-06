@@ -1,0 +1,63 @@
+.ourPlans-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 79vw;
+    height: 500%;
+    padding: 0.45vw;
+    text-align: center;
+    color: white;
+    background-color: #1e1e1e; /* Dark background */
+    border-radius: 1vw;
+    gap: 0.7vw;
+    border: gold 0.12vw solid;
+    /* border-top: none; */
+}
+/* ?____________________________________ \ SECTION 2 \_______________________________ */
+.ourPlans-main-sec-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    width: 30vw;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0.5vw;
+  font-family: "Inconsolata", serif;
+}
+.ourPlans-main-sec-1 h2{
+    color: rgb(0, 238, 255);
+    font-size: 1.5vw;
+}
+
+
+/* ?____________________________________ \ SECTION 2 \_______________________________ */
+.ourPlans-main-sec-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 77vw;
+    background-color: rgba(0, 0, 0, 0.185);
+    border-radius: 0.5vw;
+    font-family: "Inconsolata", serif;
+    gap: 1vw;
+  }
+
+
+/* ?____________________________________ \ SECTION 3 \_______________________________ */
+.ourPlans-main-sec-3 {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+  justify-content: center;
+  align-items: center;
+  height: 90vh; /* Let height adjust dynamically */
+  width: 77vw;
+  background-color: rgba(0, 0, 0, 0.185);
+  border-radius: 0.5vw;
+  font-family: "Inconsolata", serif;
+  gap: 1.5vw;
+padding: 0.2vw;
+}

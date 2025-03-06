@@ -278,6 +278,13 @@
   background: linear-gradient(90deg, transparent, rgba(255, 217, 2, 0.916), transparent);
   animation: shine 2s linear infinite;
 }
+.star-icon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.2vw; /* Adjust size */
+  color: gold; /* Optional: Change icon color */
+}
 
 @keyframes shine {
   0% {
@@ -288,9 +295,20 @@
   }
 }
 
-.Home-p-section-113 h2{
+.Home-p-section-113 a {
+  all: unset;
   font-family: "Inconsolata", serif;
+  width: 14vw;
+  height: 7vh;
+  /* border: solid red 3px; */
+
+  /* Center text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+
 
 /* ?____________________________________ \ SECTION 2 \_______________________________ */
 

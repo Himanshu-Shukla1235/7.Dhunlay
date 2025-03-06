@@ -4,27 +4,26 @@ import "./home_in_P.css";
 import ListComponent from "../../components/homePcomp/listItemsC1";
 import { useUser } from "../User/UserData";
 import PersonIcon from "@mui/icons-material/Person";
-import Balancing from "../../components/Elements/balancing element/balancing";
+import StarIcon from "@mui/icons-material/Star";
 
 const HomeP = () => {
   const navigate = useNavigate();
   const { userData } = useUser();
 
+  // If userData is not available, show a loading message
+  if (!userData) {
+    return <div className="loading">Loading...</div>;
+  }
+
   return (
     <>
-      <header className="navbar ">
+      <header className="navbar">
         <div className="logoD">
           <div className="logo"></div>
           <h5>
             <span>Dhun</span>
             <span style={{ color: "white" }}>lay</span>
           </h5>
-        </div>
-        <div className="centerEl">
-          {/* <div className="earnings"><p>Earnings : <span style={{color:"white"}}>0$</span></p></div> */}
-
-          {/* <div className="upcomingFeat"><p>TotalUploads: <span style={{color:"white"}}>0</span></p></div>
-        <div className="upcomingFeat"><p>TotalUploads: <span style={{color:"white"}}>0</span></p></div> */}
         </div>
 
         <div className="signIn">
@@ -36,7 +35,6 @@ const HomeP = () => {
 
       {/* //!_____________________________________________| MAIN |_________________________________________*/}
       <main className="Home-p-main">
-
         <section className="Home-p-section-1">
           <div className="Home-p-section-11">
             <div className="Home-p-section-111">
@@ -47,7 +45,15 @@ const HomeP = () => {
             <div className="Home-p-section-112">
               <ListComponent />
             </div>
-            <div className="Home-p-section-113"><div className="Home-p-section-1131"><a>OurPlans</a></div></div>
+            <div className="Home-p-section-113">
+              <div className="Home-p-section-1131">
+                <a href="/ourPlans">
+                  {" "}
+                  <StarIcon sx={{ fontSize: 15 }} className="star-icon" />
+                  OurPlans
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 

@@ -1,0 +1,137 @@
+/* Container */
+.cardsC1-container {
+    /* border: red solid 3px; */
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    padding: 2vw;
+   
+    border-radius: 1vw;
+}
+
+/* Card Box */
+.cardsC1-card_box {
+    width: 20vw;  /* Responsive width */
+    min-width: 250px; /* Prevents the card from becoming too small */
+    height: auto;
+    border-radius: 2vw;  /* Responsive border-radius */
+    padding: 2vw;
+    text-align: center;
+    box-shadow: 0 2vw 5vw rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    color: white;
+    /* border: red solid 3px; */
+}
+
+.cardsC1-card_circle{
+    width: 1vw;
+    height: 1vw;
+    background-color: white;
+    border-radius: 100vw;
+
+}
+
+.cardsC1-card-label {
+    width: 1vw;
+    height: 1vw;
+    background-color: rgba(255, 4, 4, 0.726);
+    position: absolute;
+    top: 0;  /* Align to top */
+    left: 50%; /* Move to the center horizontally */
+    transform: translateX(-50%); /* Adjust back by half of its width */
+    border-radius: 50%; /* Make it a perfect circle */
+    margin-top: 1.5vw;
+}
+
+/* Hover Effect */
+.cardsC1-card_box:hover {
+    transform: scale(1.05);
+}
+
+/* Label */
+.cardsC1-label {
+    position: absolute;
+    top: -1vw; /* Position slightly above the card */
+    left: 50%; /* Move to the center horizontally */
+    transform: translateX(-50%); /* Adjust back by half of its width */
+    padding: 1vw 1.5vw;
+    font-size: 1vw;
+    font-weight: bold;
+    text-transform: uppercase;
+   
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.23);
+    background-color: rgba(187, 15, 15, 0); /* Ensure it has a background */
+    border-radius: 0.5vw; /* Optional: Round edges */
+    margin-top: 1.5vw;
+}
+
+
+/* Card Content */
+.cardsC1-card_content {
+    height: 60vh;
+    /* border: red solid 3px; */
+}
+
+/* Title */
+.cardsC1-card_content h2 {
+    font-size: 2vw;
+    margin: 1vw 0;
+}
+
+/* Price */
+.cardsC1-card_price {
+    font-size: 1.8vw;
+    font-weight: bold;
+}
+
+/* Description */
+.cardsC1-card_description {
+    font-size: 1.2vw;
+    margin: 1vw 0;
+}
+
+/* Features */
+.cardsC1-card_features {
+    margin-top: 1vw;
+    list-style: none;
+    padding: 0;
+    font-size: 1.2vw;
+}
+
+.cardsC1-card_features li {
+    margin: 0.5vw 0;
+    padding: 0.5vw;
+    border-bottom: 0.1vw solid rgba(255, 255, 255, 0.2);
+}
+
+/* Subscribe Button */
+.cardsC1-subscribe_btn {
+    width: 13vw;
+    height: 8vh;
+    margin-top: 1.5vw;
+    padding: 1vw 1.5vw;
+    border: none;
+    font-size: 1.5vw;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 1vw;
+    background: black;
+    color: white;
+    transition: 0.3s;
+}
+.cardsC1-subscribe_btn h4 {
+    font-size: 1.2vw;
+    color: rgb(255, 255, 255);
+}
+
+/* When hovering over the button, change h4 text color */
+.cardsC1-subscribe_btn:hover h4 {
+    color: rgb(0, 0, 0);
+}
+
+.cardsC1-subscribe_btn:hover {
+    background: gold;
+    transform: scale(1.05);
+}

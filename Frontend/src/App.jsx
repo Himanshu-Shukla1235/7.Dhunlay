@@ -4,11 +4,15 @@ import ProtectedRoute from "./components/AuthenticateUser/authUser"; // Import t
 import Loader from "./components/Loding/loadingC1";
 import LoadingP from "./components/Loding/loadingP";
 const Home = lazy(() => import("./pages/HomeP/home_in_P"));
-import Dashboard from "./pages/Dashboard/dashBoard";
-import Analytics from "./pages/Analytics/analytics";
+const Dashboard = lazy(() => import("./pages/Dashboard/dashBoard"));
+const Analytics = lazy(() => import("./pages/Analytics/analytics"));
+
 const Login = lazy(() => import("./pages/LoginInPage/loginP"));
 const Register = lazy(() => import("./pages/LoginInPage/regesterP"));
 const Meta = lazy(() => import("./components/MetaDataForm/Form"));
+const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
+import Card from "./components/Cards/cardsC1";
+import Palette from "./components/colorPalette/colPalette";
 
 function App() {
   return (
@@ -36,7 +40,10 @@ function MainApp() {
         console.log(data);
 
         if (!response.ok) {
-          console.error("Error fetching user:", data.message || "Unknown error");
+          console.error(
+            "Error fetching user:",
+            data.message || "Unknown error"
+          );
           setUser(null);
         } else {
           setUser(data);
@@ -55,6 +62,9 @@ function MainApp() {
             if (window.location.pathname === "/dashboard") {
               navigate(`/dashboard/${data._id}`);
             }
+            if (window.location.pathname === "/ourPlans") {
+              navigate(`/ourPlans/${data._id}`);
+            }
           }, 100);
         }
       } catch (error) {
@@ -71,28 +81,44 @@ function MainApp() {
     fetchUserData();
   }, []);
   if (loading) {
-    return <div className="Loading"> <LoadingP></LoadingP></div>;
+    return (
+      <div className="Loading">
+        {" "}
+        <LoadingP></LoadingP>
+      </div>
+    );
   }
 
   return (
-    <Suspense fallback={<div className="Loading"><Loader></Loader></div>}>
+    <Suspense
+      fallback={
+        <div className="Loading">
+          <Loader></Loader>
+        </div>
+      }
+    >
       <Routes>
-      
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
-        
           <Route path="/home/:id" element={<Home />} />
           <Route path="/meta/:id" element={<Meta />} />
           <Route path="/" element={<Home />}>
-          <Route path="dashboard/:id" element={<Dashboard />} />
-          <Route path="analytics/:id" element={<Analytics />} />
-          {/* <Route path="analytics" element={<Analytics />} /> */}
-        </Route>
+            <Route path="dashboard/:id" element={<Dashboard />} />
+            <Route path="analytics/:id" element={<Analytics />} />
+            <Route path="ourPlans/:id" element={<OurPlans />} />
+            {/* <Route path="analytics" element={<Analytics />} /> */}
+          </Route>
         </Route>
 
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        {/* this is testing  */}
+        <Route path="/test" element={<Card />} />
+
+        {/* Color palette */}
+        <Route path="/palette" element={<Palette />} />
 
         {/* Catch-all 404 Page */}
         <Route path="*" element={<div>404 - Page Not Found</div>} />

@@ -1,0 +1,86 @@
+/* General Page Styling */
+
+/* Container for the Color Palette */
+.colPalette-container {
+    height: 250px;
+    width: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    background: #1e1e1e; /* Dark background for contrast */
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Color Palette Row */
+.colPalette-palette {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    gap: 10px; /* Spacing between colors */
+}
+
+/* Color Blocks */
+.colPalette-color {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    transition: flex 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+/* Hover Effect - Expands and Adds Depth */
+.colPalette-color:hover {
+    flex: 2;
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* Text Display (Initially Hidden) */
+.colPalette-color span {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Show HEX Code on Hover */
+.colPalette-color:hover span {
+    opacity: 1;
+}
+
+/* Copied Message */
+.colPalette-copied-message {
+    position: absolute;
+    bottom: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .colPalette-container {
+        width: 90%;
+        height: 220px;
+    }
+
+    .colPalette-palette {
+        gap: 5px;
+    }
+
+    .colPalette-color:hover {
+        flex: 1.5;
+    }
+}
