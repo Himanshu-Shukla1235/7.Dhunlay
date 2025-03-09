@@ -9,8 +9,9 @@ const Analytics = lazy(() => import("./pages/Analytics/analytics"));
 
 const Login = lazy(() => import("./pages/LoginInPage/loginP"));
 const Register = lazy(() => import("./pages/LoginInPage/regesterP"));
-const Meta = lazy(() => import("./components/MetaDataForm/Form"));
+const Meta = lazy(() => import("./components/MetaDataForm/MusicUploadForm"));
 const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
+const Features = lazy(() => import("./pages/Features/features"));
 import Card from "./components/Cards/cardsC1";
 import Palette from "./components/colorPalette/colPalette";
 
@@ -65,6 +66,9 @@ function MainApp() {
             if (window.location.pathname === "/ourPlans") {
               navigate(`/ourPlans/${data._id}`);
             }
+            if (window.location.pathname === "/features") {
+              navigate(`/features/${data._id}`);
+            }
           }, 100);
         }
       } catch (error) {
@@ -106,6 +110,7 @@ function MainApp() {
             <Route path="dashboard/:id" element={<Dashboard />} />
             <Route path="analytics/:id" element={<Analytics />} />
             <Route path="ourPlans/:id" element={<OurPlans />} />
+            <Route path="features/:id" element={<Features />} />
             {/* <Route path="analytics" element={<Analytics />} /> */}
           </Route>
         </Route>

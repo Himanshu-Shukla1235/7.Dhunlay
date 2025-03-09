@@ -16,7 +16,7 @@ const Dashboard = () => {
           <div className="dashBoard-main-sec-11-steping">
             <Steping />
           </div>
-          <h2>Dashboard</h2>
+          <h2>Dash<span style={{color:"white"}}>board</span></h2>
         </div>
       </div>
 

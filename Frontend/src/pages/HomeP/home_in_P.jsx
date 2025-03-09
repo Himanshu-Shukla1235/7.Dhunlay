@@ -5,7 +5,9 @@ import ListComponent from "../../components/homePcomp/listItemsC1";
 import { useUser } from "../User/UserData";
 import PersonIcon from "@mui/icons-material/Person";
 import StarIcon from "@mui/icons-material/Star";
-
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import InfoIcon from "@mui/icons-material/Info";
+import Tooltip from "@mui/material/Tooltip";
 const HomeP = () => {
   const navigate = useNavigate();
   const { userData } = useUser();
@@ -25,7 +27,18 @@ const HomeP = () => {
             <span style={{ color: "white" }}>lay</span>
           </h5>
         </div>
-
+        <div className="centerEl">
+      <Tooltip title="Support">
+        <span>
+          <SupportAgentIcon className="icon1" />
+        </span>
+      </Tooltip>
+      <Tooltip title="About Us">
+        <span>
+          <InfoIcon className="icon2" />
+        </span>
+      </Tooltip>
+    </div>
         <div className="signIn">
           <button onClick={() => navigate("/Login")}>
             <h4>SignOut</h4>

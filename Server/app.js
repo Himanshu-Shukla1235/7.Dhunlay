@@ -19,6 +19,7 @@ const authRouter = require("./Routes/authR");
 const MetaData = require("./Routes/MetaDataR");
 const testmeta = require("./Routes/MetaDataR");
 const userData = require("./Routes/UserDataR");
+const authenticateUser = require("./Middlewares/authenticationM");
 const PORT = process.env.PORT || 3000;
 
 //__________________________________________ Middlewares _________________________________________________
@@ -40,7 +41,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser()); // Ensure cookies can be parsed
 
 //  Apply auth middleware before routes if authentication is required
-
+// app.use(authenticateUser)
 //..... Routes
 app.use("/api/auth", authRouter);
 app.use(authMiddleware);

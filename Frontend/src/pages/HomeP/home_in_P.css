@@ -79,43 +79,28 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1vw;
+  gap: 2vw;
   width: 40vw;
-  background-color: rgba(20, 20, 20, 0.89);
+  background-color: rgba(107, 106, 106, 0);
   
 }
-.earnings {
+.centerEl {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-family: "Inconsolata", serif;
-  background-color: rgba(20, 20, 20, 0.89);
-  width: 20vw;
-  height: 5vh;
-  border-radius: 0.5vw;
+  gap: 15px; /* Adds spacing between icons */
 }
-.earnings p {
-  color: rgb(0, 255, 255);
-  font-weight: 600;
-  font-size: 1.1vw;
+
+.icon1:hover {
+  color: #00eeff; /* Light blue color on hover */
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
 }
-.upcomingFeat {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  font-family: "Inconsolata", serif;
-  background-color: rgba(20, 20, 20, 0.89);
-  width: 15vw;
-  height: 5vh;
-  border-radius: 0.5vw;
+.icon2:hover{
+  color: #00eeff; /* Light blue color on hover */
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
 }
-.upcomingFeat p {
-  color: rgb(0, 255, 255);
-  font-weight: 600;
-  font-size: 1.1vw;
-}
+
+
 /**.......................................................................Signin*/
 .signIn {
   display: flex;
@@ -204,7 +189,6 @@
   padding: 0.1rem;
   gap: 1vh;
   border-radius: 0.4vw;
-  
 }
 .Home-p-section-111-userName {
   display: flex;
@@ -275,7 +259,12 @@
   width: calc(100% + 0.3vw);
   height: calc(100% + 0.3vw);
   border-radius: 8px;
-  background: linear-gradient(90deg, transparent, rgba(255, 217, 2, 0.916), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 217, 2, 0.916),
+    transparent
+  );
   animation: shine 2s linear infinite;
 }
 .star-icon {
@@ -309,11 +298,11 @@
   text-align: center;
 }
 
-
 /* ?____________________________________ \ SECTION 2 \_______________________________ */
 
 /**-------------------- Home-p-section-21 ...............*/
-
+.Home-p-section-2 {
+}
 .Home-p-section-21 {
   margin-top: 9vh;
   /* border: red solid 0.3vw; */
@@ -326,6 +315,17 @@
 @media (max-width: 480px) {
   .navbar {
     border-bottom: solid rgb(255, 247, 0) 0.2vw;
+  }
+  .Home-p-section-11 {
+    display: none;
+  }
+  .Home-p-section-2 {
+    width: 100%;
+    /* border: red solid 3px; */
+  }
+  .Home-p-section-21{
+    /* border: red solid 3px; */
+    width: 100%;
   }
 }
 

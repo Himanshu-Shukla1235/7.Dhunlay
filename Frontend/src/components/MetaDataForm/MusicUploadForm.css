@@ -1,0 +1,40 @@
+.music-form-container {
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.music-form-container h2 {
+  text-align: center;
+}
+
+.music-form-container input,
+.music-form-container select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.music-form-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.music-form-container button:hover {
+  background-color: #45a049;
+}
+
+.music-form-container p {
+  color: red;
+  font-size: 12px;
+}

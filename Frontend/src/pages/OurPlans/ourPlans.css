@@ -36,15 +36,49 @@
 .ourPlans-main-sec-2 {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    height: 20vh;
+    height: 25vh;
     width: 77vw;
     background-color: rgba(0, 0, 0, 0.185);
     border-radius: 0.5vw;
     font-family: "Inconsolata", serif;
     gap: 1vw;
+    
   }
+  .ourPlans-main-sec-21{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 13vw;
+    height: 20vh;
+    background-color: rgba(0, 0, 0, 0.975);
+    margin: 0.5vw;
+    border-radius: 1vw;
+    padding: 0.5vw;
+  }
+
+  .ourPlans-main-sec-21 p{
+    font-size: 1vw;
+  }
+  
+  .ourPlans-main-sec-22 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50vw;
+    height: 20vh;
+    background-color: rgba(0, 0, 0, 0.313);
+    margin: 0.5vw;
+    border-left: solid 2px; 
+    border-image: linear-gradient(to bottom, #00EEFF 50%, white 50%) 1;
+    border-top-right-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    padding: 0.5vw;
+}
+
 
 
 /* ?____________________________________ \ SECTION 3 \_______________________________ */
@@ -53,11 +87,49 @@
   flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
   justify-content: center;
   align-items: center;
-  height: 90vh; /* Let height adjust dynamically */
+  height: auto; /* Let height adjust dynamically */
   width: 77vw;
   background-color: rgba(0, 0, 0, 0.185);
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
   gap: 1.5vw;
-padding: 0.2vw;
+padding-top: 2vw;
+padding-bottom: 3vw;
+}
+.ourPlans-main-sec-32{
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Let height adjust dynamically */
+  gap: 1.5vw;
+padding-top: 1vw;
+padding-bottom: 3vw;
+/* border: red solid 3px; */
+}
+.ourPlans-main-sec-31 h2 {
+  color: #ffffff;
+  font-weight: 900; /* Maximum font-weight */
+  text-transform: uppercase; /* Optional: Makes text more prominent */
+  letter-spacing: 1px; /* Optional: Enhances readability */
+  font-size: 1.7vw; /* Optional: Increases size for more impact */
+}
+
+
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .ourPlans-main{
+    width: 100%;
+  }
+  .ourPlans-main-sec-22{
+    display: none;
+  } 
+  .ourPlans-main-sec-3 {
+    gap: 1vw;
+  }
+  .ourPlans-main-sec-32{
+    gap: 3vw;
+  } 
 }
