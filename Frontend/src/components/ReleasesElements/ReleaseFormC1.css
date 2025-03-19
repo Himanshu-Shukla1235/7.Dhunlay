@@ -1,0 +1,13 @@
+.ReleaseForm-main{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    align-items: center;
+    background-color: black;
+    border: solid 3px red;
+    width: 100vw;
+}
+.step1-main{
+    font-family: sans-serif;
+    
+}

@@ -14,7 +14,8 @@ const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
 const Features = lazy(() => import("./pages/Features/features"));
 import Card from "./components/Cards/cardsC1";
 import Palette from "./components/colorPalette/colPalette";
-
+import TestPage from "./components/test";
+import ReleaseUserForm from "./components/ReleasesElements/ReleaseFormC1";
 function App() {
   return (
     <BrowserRouter>
@@ -119,9 +120,11 @@ function MainApp() {
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<TestPage />} />
+        <Route path="/release"  element={<ReleaseUserForm></ReleaseUserForm>}></Route>
 
         {/* this is testing  */}
-        <Route path="/test" element={<Card />} />
+        <Route path="/test" element={<TestPage />} />
 
         {/* Color palette */}
         <Route path="/palette" element={<Palette />} />

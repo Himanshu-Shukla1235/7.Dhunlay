@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import "./home_in_P.css";
 import ListComponent from "../../components/homePcomp/listItemsC1";
@@ -11,7 +11,11 @@ import Tooltip from "@mui/material/Tooltip";
 const HomeP = () => {
   const navigate = useNavigate();
   const { userData } = useUser();
-
+  useEffect(() => {
+    if (window.location.pathname === "/") {
+      navigate("/dashboard"); // Redirect to default page
+    }
+  }, [navigate]);
   // If userData is not available, show a loading message
   if (!userData) {
     return <div className="loading">Loading...</div>;
@@ -28,17 +32,17 @@ const HomeP = () => {
           </h5>
         </div>
         <div className="centerEl">
-      <Tooltip title="Support">
-        <span>
-          <SupportAgentIcon className="icon1" />
-        </span>
-      </Tooltip>
-      <Tooltip title="About Us">
-        <span>
-          <InfoIcon className="icon2" />
-        </span>
-      </Tooltip>
-    </div>
+          <Tooltip title="Support">
+            <span>
+              <SupportAgentIcon className="icon1" />
+            </span>
+          </Tooltip>
+          <Tooltip title="About Us">
+            <span>
+              <InfoIcon className="icon2" />
+            </span>
+          </Tooltip>
+        </div>
         <div className="signIn">
           <button onClick={() => navigate("/Login")}>
             <h4>SignOut</h4>

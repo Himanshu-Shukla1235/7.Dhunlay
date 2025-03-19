@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap');
+
 .listItems-sec-1 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     height: 60vh;
-    /* border: red solid 3px; */
+    padding: 2vw;
     gap: 2vw;
     padding-top: 3vh;
     padding-bottom: 1vh;
     overflow-y: auto; /* Keeps scrolling enabled */
+    -ms-overflow-style: none; /* Hide scrollbar for Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    /* border: red solid 2px; */
 }
 
 /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
@@ -17,64 +21,52 @@
     display: none;
 }
 
-/* Hide scrollbar for Firefox */
-.listItems-sec-1 {
-    scrollbar-width: none;
-}
-
-/* Optional: Hide scrollbar for Edge and IE */
-.listItems-sec-1 {
-    -ms-overflow-style: none;
-}
-
-
 /* Centering the Links */
 .listItems-sec-1 a {
     all: unset; /* Removes all inherited/default styles */
     display: flex;
-    justify-content: flex-start; /* Centers text inside */
+    justify-content: flex-start; /* Aligns text inside */
     align-items: center; /* Centers text inside */
     font-family: "Inconsolata", serif;
-    width: 8vw; /* Adjusted for better centering */
-    height: 4vh; /* Set a height to ensure proper alignment */
-    text-align: center; /* Ensures text alignment */
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Smooth transition */
-    border-radius: 0.5vw; /* Optional: Rounded corners */
+    width: 8vw; /* Adjusted width */
+    height: 4vh; /* Set a height for alignment */
+    text-align: center;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    border-radius: 0.5vw;
     font-weight: 600;
     padding: 1vw;
     cursor: pointer;
-    font-size: 1.1vw;
+    font-size: 1vw;
+    color: white; /* Ensure consistent text color */
 }
 
 /* Hover Effect */
 .listItems-sec-1 a:hover {
-    background-color: rgba(0, 238, 255, 0.393); /* Red background with transparency */
-    color: white; /* Text color change */
-    transform: scale(1.05); /* Slightly enlarges on hover */
+    background-color: #00eeff16;
+    color: white;
+    transform: scale(1.05);
 }
 
-  /* Icon styling */
+/* Icon styling */
 .menu-icon {
-    font-size: 0.5vw;
+    font-size: 1vw; /* Increased for better visibility */
     color: white;
     margin-right: 1vw;
 }
 
-/* Hover effect */
+/* Active State */
+.listItems-sec-1-items.active {
+    background-color: #e9ebec10;
+    border-left: 0.01vw solid #00EEFF;
+    color: #fff;
+}
+
+/* Hover effect for items */
 .listItems-sec-1-items:hover {
     background: white;
     color: black;
 }
 
 .listItems-sec-1-items:hover .menu-icon {
-    color: rgb(0, 200, 255);
-}
-
-/* Hide scrollbar */
-.listItems-sec-1::-webkit-scrollbar {
-    display: none;
-}
-
-.listItems-sec-1 {
-    scrollbar-width: none; /* Firefox */
+    color: #00EEFF;
 }

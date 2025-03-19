@@ -1,0 +1,24 @@
+.buttonC1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #090909;
+    padding: 0.7em 2vw; /* Width-based padding */
+    font-size: 1.2vw; /* Scalable font size */
+    border-radius: 0.5vw; /* Responsive border radius */
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 0.2vw solid #e8e8e8; /* Responsive border */
+    transition: all 0.3s;
+    box-shadow: 0.6vw 0.6vw 1.2vw #c5c5c51b, -0.6vw -0.6vw 1.2vw #ffffff2b; /* Scalable shadow */
+    width: 10vw; /* Responsive button width */
+    height: 2em; /* Keeps height relative to font size */
+    margin: 1vw; /* Scalable margin */
+  }
+  
+  .buttonC1:active {
+    color: #666;
+    box-shadow: inset 0.4vw 0.4vw 1.2vw #c5c5c5, inset -0.4vw -0.4vw 1.2vw #ffffff;
+  }
+  

@@ -1,0 +1,63 @@
+/* ReleaseFormStepper.css */
+
+/* Stepper Container */
+.custom-stepper {
+ 
+  background-color: #1e1e1e00; /* Dark background */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100vw;
+}
+
+/* Stepper Connector Lines */
+.MuiStepConnector-line {
+  border-color: #9e9e9e !important; /* Grey by default */
+}
+
+/* Default Step Color */
+.custom-step .MuiStepLabel-label {
+  color: #ffffff !important; /* White step labels */
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+/* Active Step */
+.custom-step.active .MuiStepLabel-label {
+  font-weight: bold;
+  color: #00EEFF !important; /* Orange active step */
+}
+
+/* Completed Step */
+.custom-step.completed .MuiStepLabel-label {
+  color: #4caf50 !important; /* Green for completed step */
+}
+
+/* Customizing the Step Icon */
+.custom-step .MuiStepIcon-root {
+  color: #9e9e9e !important; /* Default step icon color */
+}
+
+/* Active Step Icon */
+.custom-step.active .MuiStepIcon-root {
+  color: #00EEFF !important; /* Orange for active step icon */
+}
+
+/* Completed Step Icon */
+.custom-step.completed .MuiStepIcon-root {
+  color: #4caf50 !important; /* Green for completed step icon */
+}
+
+/* Change Hover Effect */
+.custom-step .MuiStepLabel-label:hover {
+  color: #ffcc00 !important; /* Yellow on hover */
+}
+
+.step-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: #4caf50 3px solid;
+  padding: 1vw;
+
+}
