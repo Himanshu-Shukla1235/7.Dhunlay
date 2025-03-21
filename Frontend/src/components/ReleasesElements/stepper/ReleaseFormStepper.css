@@ -7,6 +7,7 @@
   padding: 20px;
   border-radius: 10px;
   width: 100vw;
+  height: 95vh;
 }
 
 /* Stepper Connector Lines */
@@ -57,7 +58,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: #4caf50 3px solid;
+  /* border: #4caf50 3px solid; */
   padding: 1vw;
 
+}
+.step-content-heading{
+  color: #00EEFF;
 }

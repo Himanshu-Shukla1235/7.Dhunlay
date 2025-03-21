@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios"; // Import Axios
 import StepperComponent from "./stepper/ReleaseFormStepper";
 import "./ReleaseFormC1.css";
 import InputC1 from "../Inputs/inputC1";
@@ -8,10 +9,45 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import FileUploaderC1 from "../fileUploaded/fileUploaderC1";
+
 const ReleaseUserForm = () => {
   const [activeStep, setActiveStep] = useState(0);
 
-  // Step Components
+  //Data to be posted to the server
+
+  let formDataPost = {};
+  //hadling the final submisiion
+  const handleSubmit = async () => {
+    formDataPost = { ...formData }; // Save data globally
+    setLoading(true);
+    setMessage("");
+
+    const data = new FormData();
+    data.append("songName", formData.songName);
+    data.append("artist", formData.artist);
+    data.append("file", formData.file);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/upload",
+        data,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+
+      setMessage(response.data.message);
+      alert("Song Submitted Successfully!");
+    } catch (error) {
+      console.error("Error uploading:", error);
+      setMessage("Upload failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+  // ---------------------------*** Step Components *** --------------------------------
+
+  //step-1-------------------------------------------------------------------------------------
   const Step1 = () => {
     const [songDetails, setSongDetails] = useState({
       songName: "",
@@ -24,6 +60,11 @@ const ReleaseUserForm = () => {
       lyrics: "",
       lyricsFile: null,
     });
+
+    // Update formDataPost when songDetails changes
+    useEffect(() => {
+      formDataPost = { ...songDetails };
+    }, [songDetails]);
 
     // Function to handle text input changes
     const handleChange = (field, value) => {
@@ -55,7 +96,15 @@ const ReleaseUserForm = () => {
 
     return (
       <div className="step1-main">
-        <h2>Step 1: Enter Song Details</h2>
+        <h2
+          style={{
+            color: "#00EEFF",
+            fontFamily: "sans-serif",
+            fontWeight: "lighter",
+          }}
+        >
+          Step 1: Enter Song Details
+        </h2>
 
         {/* Song Title */}
         <label className="step1-label-1">Song Name:</label>
@@ -169,6 +218,8 @@ const ReleaseUserForm = () => {
     );
   };
 
+  // step-2
+
   const Step2 = () => {
     const [songFile, setSongFile] = useState(null);
     const [coverArt, setCoverArt] = useState(null);
@@ -186,10 +237,21 @@ const ReleaseUserForm = () => {
         setCoverArt(file);
       }
     };
-
+  // Update formDataPost when songDetails changes
+  useEffect(() => {
+    formDataPost = { ...songFile,...coverArt };
+  }, [songFile,coverArt]);
     return (
       <div>
-        <h2>Step 2: Upload Your Song and Cover Art</h2>
+        <h2
+          style={{
+            color: "#00EEFF",
+            fontFamily: "sans-serif",
+            fontWeight: "lighter",
+          }}
+        >
+          Step 2: Upload Your Song and Cover Art
+        </h2>
 
         {/* Song Upload */}
         <input
@@ -235,9 +297,19 @@ const ReleaseUserForm = () => {
       </div>
     );
   };
+
+  // step-3
   const Step3 = () => (
     <div>
-      <h2>Step 3: Select Distribution Platforms</h2>
+      <h2
+        style={{
+          color: "#00EEFF",
+          fontFamily: "sans-serif",
+          fontWeight: "lighter",
+        }}
+      >
+        Step 3: Select Distribution Platforms
+      </h2>
       <label>
         <input type="checkbox" /> Spotify
       </label>
@@ -252,13 +324,19 @@ const ReleaseUserForm = () => {
     </div>
   );
 
+  // step-4
   const Step4 = () => (
     <div>
-      <h2>Step 4: Finalize & Submit</h2>
+      <h2
+        style={{
+          color: "#00EEFF",
+          fontFamily: "sans-serif",
+          fontWeight: "lighter",
+        }}
+      >
+        Step 4: Finalize & Submit
+      </h2>
       <p>Review your details and submit your song for distribution.</p>
-      <button onClick={() => alert("Song Submitted Successfully!")}>
-        Submit
-      </button>
     </div>
   );
 
