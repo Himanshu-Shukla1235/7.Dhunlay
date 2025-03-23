@@ -272,63 +272,69 @@ const ReleaseUserForm = () => {
     formDataPost = { ...songFile,...coverArt };
   }, [songFile,coverArt]);
     return (
-      <div>
-        <h2
-          style={{
-            color: "",
-            fontFamily: "sans-serif",
-            fontWeight: "lighter",
-          }}
-        >
-          Step 2: Upload Your Song and Cover Art
-        </h2>
 
-        {/* Song Upload */}
-        <input
-          type="file"
-          accept="audio/*"
-          id="upload-song"
-          style={{ display: "none" }}
-          onChange={handleSongUpload}
-        />
-        <label htmlFor="upload-song">
-          <Button
-            variant="contained"
-            component="span"
-            startIcon={<CloudUploadIcon />}
-            color="primary"
-          >
-            Upload Song
-          </Button>
-        </label>
-        {songFile && <p>Uploaded Song: {songFile.name}</p>}
+      <div className="step2-main">
+        <h2>Step 2: Upload Your Song and Cover Art</h2>
+        <div className="step2-main1">
+          {/* Song Upload */}
+          <h3>Info about the song (format, size, other info)</h3>
+          <div className="step2-main11">
+            <input
+              type="file"
+              accept="audio/*"
+              id="upload-song"
+              style={{ display: "none" }}
+              onChange={handleSongUpload}
+            />
+            <label htmlFor="upload-song">
+              {/* <Button
+                variant="contained"
+                component="span"
+                startIcon={<CloudUploadIcon />}
+                color="primary"
+              >
+                Upload Song
+              </Button> */}
+              <FileUploaderC1></FileUploaderC1>
+            </label>
+          </div>
+          {songFile && <p>Uploaded Song: {songFile.name}</p>}
 
-        <br />
 
-        {/* Cover Art Upload */}
-        <input
-          type="file"
-          accept="image/*"
-          id="upload-cover"
-          style={{ display: "none" }}
-          onChange={handleCoverArtUpload}
-        />
-        <label htmlFor="upload-cover">
-          <Button
-            variant="contained"
-            component="span"
-            startIcon={<CloudUploadIcon />}
-            color="primary"
-          >
-            Upload Cover Art
-          </Button>
-        </label>
-        {coverArt && <p>Uploaded Cover Art: {coverArt.name}</p>}
+        </div>
+
+        <div className="step2-main1">
+          {/* Cover Art Upload */}
+          <h3>Info about the song (format, size, other info)</h3>
+          <div className="step2-main11">
+            <input
+              type="file"
+              accept="image/*"
+              id="upload-cover"
+              style={{ display: "none" }}
+              onChange={handleCoverArtUpload}
+            />
+            <label htmlFor="upload-cover">
+              {/* <Button
+                variant="contained"
+                component="span"
+                startIcon={<CloudUploadIcon />}
+                color="primary"
+              >
+                Upload Cover Art
+              </Button> */}
+              <FileUploaderC1></FileUploaderC1>
+            </label>
+          </div>
+          {coverArt && <p>Uploaded Cover Art: {coverArt.name}</p>}
+        </div>
       </div>
     );
   };
 
+
   // step-3---------------------------------------------------------------------------------------------
+
   const Step3 = () => (
     <div>
       <h2
