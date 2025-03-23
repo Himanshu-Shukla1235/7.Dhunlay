@@ -7,7 +7,8 @@
   padding: 20px;
   border-radius: 10px;
   width: 100vw;
-  height: 95vh;
+  min-height: 160vh;
+  height: auto;
 }
 
 /* Stepper Connector Lines */
@@ -25,7 +26,7 @@
 /* Active Step */
 .custom-step.active .MuiStepLabel-label {
   font-weight: bold;
-  color: #00EEFF !important; /* Orange active step */
+  color: #00eeffc3 !important; /* Orange active step */
 }
 
 /* Completed Step */
@@ -40,7 +41,7 @@
 
 /* Active Step Icon */
 .custom-step.active .MuiStepIcon-root {
-  color: #00EEFF !important; /* Orange for active step icon */
+  color: #00eeffc3!important; /* Orange for active step icon */
 }
 
 /* Completed Step Icon */
@@ -60,7 +61,10 @@
   align-items: center;
   /* border: #4caf50 3px solid; */
   padding: 1vw;
+
+
 }
 .step-content-heading{
   color: #00EEFF;
+
 }

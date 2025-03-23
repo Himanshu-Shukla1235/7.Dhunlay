@@ -1,5 +1,5 @@
-import React, { useState,useEffect } from "react";
-// import axios from "axios"; // Import Axios
+import React, { useState ,useEffect} from "react";
+// Import Axios
 import StepperComponent from "./stepper/ReleaseFormStepper";
 import "./ReleaseFormC1.css";
 import InputC1 from "../Inputs/inputC1";
@@ -16,16 +16,14 @@ const ReleaseUserForm = () => {
   //Data to be posted to the server
 
   let formDataPost = {};
+
   //hadling the final submisiion
   const handleSubmit = async () => {
-    formDataPost = { ...formData }; // Save data globally
+   
     setLoading(true);
     setMessage("");
 
-    const data = new FormData();
-    data.append("songName", formData.songName);
-    data.append("artist", formData.artist);
-    data.append("file", formData.file);
+   const data=formDataPost ;
 
     try {
       const response = await axios.post(
@@ -98,7 +96,7 @@ const ReleaseUserForm = () => {
       <div className="step1-main">
         <h2
           style={{
-            color: "#00EEFF",
+            color: "#00eeffc3",
             fontFamily: "sans-serif",
             fontWeight: "lighter",
           }}
@@ -156,7 +154,7 @@ const ReleaseUserForm = () => {
               </div>
             ))}
             <IconButton color="primary" onClick={() => handleAddField(field)}>
-              <AddCircleIcon />
+              <AddCircleIcon  sx={{color:"grey"}}/>
             </IconButton>
           </div>
         ))}
@@ -218,7 +216,7 @@ const ReleaseUserForm = () => {
     );
   };
 
-  // step-2
+  // step-2 --------------------------------------------------------------------------------------------
 
   const Step2 = () => {
     const [songFile, setSongFile] = useState(null);
@@ -226,17 +224,49 @@ const ReleaseUserForm = () => {
 
     const handleSongUpload = (event) => {
       const file = event.target.files[0];
+    
       if (file) {
+        // Validate file type
+        const allowedTypes = ["audio/mpeg", "audio/wav", "audio/ogg"];
+        if (!allowedTypes.includes(file.type)) {
+          alert("Please upload a valid audio file (MP3, WAV, OGG).");
+          return;
+        }
+    
+        // Validate file size (e.g., 10MB limit)
+        const maxSize = 10 * 1024 * 1024; // 10MB
+        if (file.size > maxSize) {
+          alert("File size should be less than 10MB.");
+          return;
+        }
+    
         setSongFile(file);
       }
     };
+    
 
     const handleCoverArtUpload = (event) => {
       const file = event.target.files[0];
+    
       if (file) {
+        // Validate file type (allowing only image formats)
+        const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+        if (!allowedTypes.includes(file.type)) {
+          alert("Please upload a valid image file (JPEG, PNG, WEBP).");
+          return;
+        }
+    
+        // Validate file size (e.g., max 5MB)
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        if (file.size > maxSize) {
+          alert("File size should be less than 5MB.");
+          return;
+        }
+    
         setCoverArt(file);
       }
     };
+    
   // Update formDataPost when songDetails changes
   useEffect(() => {
     formDataPost = { ...songFile,...coverArt };
@@ -300,7 +330,9 @@ const ReleaseUserForm = () => {
     );
   };
 
-  // step-3
+
+  // step-3---------------------------------------------------------------------------------------------
+
   const Step3 = () => (
     <div>
       <h2
