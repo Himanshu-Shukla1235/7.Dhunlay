@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 // Import Axios
 import StepperComponent from "./stepper/ReleaseFormStepper";
 import "./ReleaseFormC1.css";
@@ -19,11 +19,10 @@ const ReleaseUserForm = () => {
 
   //hadling the final submisiion
   const handleSubmit = async () => {
-   
     setLoading(true);
     setMessage("");
 
-   const data=formDataPost ;
+    const data = formDataPost;
 
     try {
       const response = await axios.post(
@@ -154,7 +153,7 @@ const ReleaseUserForm = () => {
               </div>
             ))}
             <IconButton color="primary" onClick={() => handleAddField(field)}>
-              <AddCircleIcon  sx={{color:"grey"}}/>
+              <AddCircleIcon sx={{ color: "grey" }} />
             </IconButton>
           </div>
         ))}
@@ -222,9 +221,10 @@ const ReleaseUserForm = () => {
     const [songFile, setSongFile] = useState(null);
     const [coverArt, setCoverArt] = useState(null);
 
+
     const handleSongUpload = (event) => {
       const file = event.target.files[0];
-    
+
       if (file) {
         // Validate file type
         const allowedTypes = ["audio/mpeg", "audio/wav", "audio/ogg"];
@@ -232,22 +232,21 @@ const ReleaseUserForm = () => {
           alert("Please upload a valid audio file (MP3, WAV, OGG).");
           return;
         }
-    
+
         // Validate file size (e.g., 10MB limit)
         const maxSize = 10 * 1024 * 1024; // 10MB
         if (file.size > maxSize) {
           alert("File size should be less than 10MB.");
           return;
         }
-    
+
         setSongFile(file);
       }
     };
-    
 
     const handleCoverArtUpload = (event) => {
       const file = event.target.files[0];
-    
+
       if (file) {
         // Validate file type (allowing only image formats)
         const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
@@ -255,24 +254,23 @@ const ReleaseUserForm = () => {
           alert("Please upload a valid image file (JPEG, PNG, WEBP).");
           return;
         }
-    
+
         // Validate file size (e.g., max 5MB)
         const maxSize = 5 * 1024 * 1024; // 5MB
         if (file.size > maxSize) {
           alert("File size should be less than 5MB.");
           return;
         }
-    
+
         setCoverArt(file);
       }
     };
-    
-  // Update formDataPost when songDetails changes
-  useEffect(() => {
-    formDataPost = { ...songFile,...coverArt };
-  }, [songFile,coverArt]);
-    return (
 
+    // Update formDataPost when songDetails changes
+    useEffect(() => {
+      formDataPost = { ...songFile, ...coverArt };
+    }, [songFile, coverArt]);
+    return (
       <div className="step2-main">
         <h2>Step 2: Upload Your Song and Cover Art</h2>
         <div className="step2-main1">
@@ -299,8 +297,6 @@ const ReleaseUserForm = () => {
             </label>
           </div>
           {songFile && <p>Uploaded Song: {songFile.name}</p>}
-
-
         </div>
 
         <div className="step2-main1">
@@ -332,11 +328,11 @@ const ReleaseUserForm = () => {
     );
   };
 
-
   // step-3---------------------------------------------------------------------------------------------
 
-  const Step3 = () => (
-    <div>
+  const Step3 = () => {}
+  (
+    <div className="step3-main">
       <h2
         style={{
           color: "#00EEFF",
@@ -346,15 +342,15 @@ const ReleaseUserForm = () => {
       >
         Step 3: Select Distribution Platforms
       </h2>
-      <label>
+      <label className="step3-main-label-1">
         <input type="checkbox" /> Spotify
       </label>
       <br />
-      <label>
+      <label className="step3-main-label-2">
         <input type="checkbox" /> Apple Music
       </label>
       <br />
-      <label>
+      <label className="step3-main-label-3">
         <input type="checkbox" /> YouTube Music
       </label>
     </div>
