@@ -9,5 +9,54 @@
 }
 .step1-main{
     font-family: sans-serif;
-    
+    /* color: white; */
+}
+.step1-main h2{
+    color: white;
+}
+.step2-main{
+    font-family: sans-serif;
+    /* border: 1px #00EEFF solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    width: 50%;
+    /* background-color: rgb(67, 67, 67); */
+}
+.step2-main h2{
+    /* font-family: sans-serif; */
+    color: white;
+}
+.step2-main1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: rgba(19, 129, 239, 0.904) 0.1px solid;
+    padding: 2vw 5vw;
+    width: 100%;
+    gap: 3vw;
+    background-color: rgb(7, 7, 7);
+}
+.step2-main1 h3{
+    font-family: monospace;
+    font-weight: 100;
+    line-height: 3vh;
+    color: rgb(181, 181, 181);
+    font-size: 1vw;
+    width: 40%;
+}
+
+.step2-main11{
+    height: 15vw;
+    width: 70%;
+    /* margin: 0px 5px ; */
+    background-color: #131313;
+    border-radius: 10px;
+    border: 0.1px solid rgba(181, 181, 181, 0.696);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff99;
 }

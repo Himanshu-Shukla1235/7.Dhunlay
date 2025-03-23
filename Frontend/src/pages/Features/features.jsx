@@ -2,6 +2,7 @@ import React from "react";
 import "./features.css";
 
 const features = () => {
+  return(
   <>
     <div className="features-main">
       <div className="features-main-sec-1">
@@ -12,7 +13,8 @@ const features = () => {
         </div>
       </div>
     </div>
-  </>;
+  </>
+  )
 };
 
 export default features;

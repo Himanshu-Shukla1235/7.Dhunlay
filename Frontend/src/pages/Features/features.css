@@ -13,7 +13,7 @@
     background-color: #1e1e1e; /* Dark background */
     border-radius: 1vw;
     gap: 0.7vw;
-    border: solid red 3px;
+    /* border: solid red 3px; */
   }
   
 /* ?____________________________________ \ SECTION 1 \_______________________________ */
@@ -24,8 +24,7 @@
     align-items: center;
     height: 6vh;
     width: 30vw;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.596);
     border-radius: 0.5vw;
     font-family: "Inconsolata", serif;
   }
-  

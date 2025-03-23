@@ -1,5 +1,5 @@
 .custum-file-upload {
-  height: 200px;
+  height: 100px;
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
 
 .custum-file-upload .icon svg {
   height: 80px;
-  fill: rgba(75, 85, 99, 1);
+  /* fill: rgb(75, 85, 99); */
 }
 
 .custum-file-upload .text {
@@ -33,10 +33,10 @@
   justify-content: center;
 }
 
-.custum-file-upload .text span {
+/* .custum-file-upload .text span {
   font-weight: 400;
   color: rgb(255, 255, 255);
-}
+} */
 
 .custum-file-upload input {
   display: none;
