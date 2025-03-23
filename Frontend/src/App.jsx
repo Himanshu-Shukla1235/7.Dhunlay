@@ -11,7 +11,10 @@ const Login = lazy(() => import("./pages/LoginInPage/loginP"));
 const Register = lazy(() => import("./pages/LoginInPage/regesterP"));
 const Meta = lazy(() => import("./components/MetaDataForm/MusicUploadForm"));
 const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
-const Features = lazy(() => import("./pages/Features/features"));
+
+const FeaturesArtist = lazy(() => import("./pages/FeaturesArtist/featuresArtist"));
+const FeaturesLabel = lazy(() => import("./pages/FeaturesLabel/featuresLabel"));
+
 import Card from "./components/Cards/cardsC1";
 import Palette from "./components/colorPalette/colPalette";
 import TestPage from "./components/test";
@@ -68,8 +71,11 @@ function MainApp() {
             if (window.location.pathname === "/ourPlans") {
               navigate(`/ourPlans/${data._id}`);
             }
-            if (window.location.pathname === "/features") {
-              navigate(`/features/${data._id}`);
+            if (window.location.pathname === "/features_artist") {
+              navigate(`/features_artist/${data._id}`);
+            }
+            if (window.location.pathname === "/features_label") {
+              navigate(`/features_label/${data._id}`);
             }
           }, 100);
         }
@@ -112,7 +118,8 @@ function MainApp() {
             <Route path="dashboard/:id" element={<Dashboard />} />
             <Route path="analytics/:id" element={<Analytics />} />
             <Route path="ourPlans/:id" element={<OurPlans />} />
-            <Route path="features/:id" element={<Features />} />
+            <Route path="features_artist/:id" element={<FeaturesArtist />} />
+            <Route path="features_label/:id" element={<FeaturesLabel />} />
             {/* <Route path="analytics" element={<Analytics />} /> */}
           </Route>
         </Route>
