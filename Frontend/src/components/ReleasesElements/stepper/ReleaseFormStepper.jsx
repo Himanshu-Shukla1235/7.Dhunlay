@@ -2,10 +2,9 @@ import React from "react";
 import { Stepper, Step, StepLabel } from "@mui/material";
 import "./ReleaseFormStepper.css"; // Import the CSS file
 
-
 const steps = ["Step 1", "Step 2", "Step 3", "Step 4"];
 
-const StepperComponent = ({ activeStep, stepContent = [] }) => {
+const StepperComponent = ({ activeStep, stepContent = [], heading }) => {
   return (
     <div className="custom-stepper">
       {/* Stepper Navigation */}
