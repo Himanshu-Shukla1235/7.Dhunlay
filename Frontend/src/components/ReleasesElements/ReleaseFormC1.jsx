@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
+// Import Axios
 import StepperComponent from "./stepper/ReleaseFormStepper";
 import "./ReleaseFormC1.css";
 import InputC1 from "../Inputs/inputC1";
@@ -8,10 +9,43 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import FileUploaderC1 from "../fileUploaded/fileUploaderC1";
+
 const ReleaseUserForm = () => {
   const [activeStep, setActiveStep] = useState(0);
 
-  // Step Components
+  //Data to be posted to the server
+
+  let formDataPost = {};
+
+  //hadling the final submisiion
+  const handleSubmit = async () => {
+   
+    setLoading(true);
+    setMessage("");
+
+   const data=formDataPost ;
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/upload",
+        data,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+
+      setMessage(response.data.message);
+      alert("Song Submitted Successfully!");
+    } catch (error) {
+      console.error("Error uploading:", error);
+      setMessage("Upload failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+  // ---------------------------*** Step Components *** --------------------------------
+
+  //step-1-------------------------------------------------------------------------------------
   const Step1 = () => {
     const [songDetails, setSongDetails] = useState({
       songName: "",
@@ -24,6 +58,11 @@ const ReleaseUserForm = () => {
       lyrics: "",
       lyricsFile: null,
     });
+
+    // Update formDataPost when songDetails changes
+    useEffect(() => {
+      formDataPost = { ...songDetails };
+    }, [songDetails]);
 
     // Function to handle text input changes
     const handleChange = (field, value) => {
@@ -55,7 +94,15 @@ const ReleaseUserForm = () => {
 
     return (
       <div className="step1-main">
-        <h2>Step 1: Enter Song Details</h2>
+        <h2
+          style={{
+            color: "#00eeffc3",
+            fontFamily: "sans-serif",
+            fontWeight: "lighter",
+          }}
+        >
+          Step 1: Enter Song Details
+        </h2>
 
         {/* Song Title */}
         <label className="step1-label-1">Song Name:</label>
@@ -107,7 +154,7 @@ const ReleaseUserForm = () => {
               </div>
             ))}
             <IconButton color="primary" onClick={() => handleAddField(field)}>
-              <AddCircleIcon />
+              <AddCircleIcon  sx={{color:"grey"}}/>
             </IconButton>
           </div>
         ))}
@@ -169,25 +216,63 @@ const ReleaseUserForm = () => {
     );
   };
 
+  // step-2 --------------------------------------------------------------------------------------------
+
   const Step2 = () => {
     const [songFile, setSongFile] = useState(null);
     const [coverArt, setCoverArt] = useState(null);
 
     const handleSongUpload = (event) => {
       const file = event.target.files[0];
+    
       if (file) {
+        // Validate file type
+        const allowedTypes = ["audio/mpeg", "audio/wav", "audio/ogg"];
+        if (!allowedTypes.includes(file.type)) {
+          alert("Please upload a valid audio file (MP3, WAV, OGG).");
+          return;
+        }
+    
+        // Validate file size (e.g., 10MB limit)
+        const maxSize = 10 * 1024 * 1024; // 10MB
+        if (file.size > maxSize) {
+          alert("File size should be less than 10MB.");
+          return;
+        }
+    
         setSongFile(file);
       }
     };
+    
 
     const handleCoverArtUpload = (event) => {
       const file = event.target.files[0];
+    
       if (file) {
+        // Validate file type (allowing only image formats)
+        const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+        if (!allowedTypes.includes(file.type)) {
+          alert("Please upload a valid image file (JPEG, PNG, WEBP).");
+          return;
+        }
+    
+        // Validate file size (e.g., max 5MB)
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        if (file.size > maxSize) {
+          alert("File size should be less than 5MB.");
+          return;
+        }
+    
         setCoverArt(file);
       }
     };
-
+    
+  // Update formDataPost when songDetails changes
+  useEffect(() => {
+    formDataPost = { ...songFile,...coverArt };
+  }, [songFile,coverArt]);
     return (
+
       <div className="step2-main">
         <h2>Step 2: Upload Your Song and Cover Art</h2>
         <div className="step2-main1">
@@ -214,6 +299,7 @@ const ReleaseUserForm = () => {
             </label>
           </div>
           {songFile && <p>Uploaded Song: {songFile.name}</p>}
+
 
         </div>
 
@@ -246,9 +332,20 @@ const ReleaseUserForm = () => {
     );
   };
 
+
+  // step-3---------------------------------------------------------------------------------------------
+
   const Step3 = () => (
     <div>
-      <h2>Step 3: Select Distribution Platforms</h2>
+      <h2
+        style={{
+          color: "#00EEFF",
+          fontFamily: "sans-serif",
+          fontWeight: "lighter",
+        }}
+      >
+        Step 3: Select Distribution Platforms
+      </h2>
       <label>
         <input type="checkbox" /> Spotify
       </label>
@@ -263,13 +360,19 @@ const ReleaseUserForm = () => {
     </div>
   );
 
+  // step-4
   const Step4 = () => (
     <div>
-      <h2>Step 4: Finalize & Submit</h2>
+      <h2
+        style={{
+          color: "#00EEFF",
+          fontFamily: "sans-serif",
+          fontWeight: "lighter",
+        }}
+      >
+        Step 4: Finalize & Submit
+      </h2>
       <p>Review your details and submit your song for distribution.</p>
-      <button onClick={() => alert("Song Submitted Successfully!")}>
-        Submit
-      </button>
     </div>
   );
 
