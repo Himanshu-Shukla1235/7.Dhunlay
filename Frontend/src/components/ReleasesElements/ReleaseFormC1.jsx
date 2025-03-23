@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import axios from "axios"; // Import Axios
+import React, { useState,useEffect } from "react";
+// import axios from "axios"; // Import Axios
 import StepperComponent from "./stepper/ReleaseFormStepper";
 import "./ReleaseFormC1.css";
 import InputC1 from "../Inputs/inputC1";
@@ -242,7 +242,6 @@ const ReleaseUserForm = () => {
     formDataPost = { ...songFile,...coverArt };
   }, [songFile,coverArt]);
     return (
-<<<<<<< HEAD
       <div className="step2-main">
         <h2>Step 2: Upload Your Song and Cover Art</h2>
         <div className="step2-main1">
@@ -269,18 +268,6 @@ const ReleaseUserForm = () => {
             </label>
           </div>
           {songFile && <p>Uploaded Song: {songFile.name}</p>}
-=======
-      <div>
-        <h2
-          style={{
-            color: "#00EEFF",
-            fontFamily: "sans-serif",
-            fontWeight: "lighter",
-          }}
-        >
-          Step 2: Upload Your Song and Cover Art
-        </h2>
->>>>>>> 639677bdf883f3deb0d42226be53ad6bcd7d556f
 
         </div>
 
@@ -313,10 +300,7 @@ const ReleaseUserForm = () => {
     );
   };
 
-<<<<<<< HEAD
-=======
   // step-3
->>>>>>> 639677bdf883f3deb0d42226be53ad6bcd7d556f
   const Step3 = () => (
     <div>
       <h2
