@@ -57,37 +57,87 @@ const mongoose = require("mongoose");
  * }
  */
 
-
 // Save Song Metadata
-const saveSong = async (req, res) => {
-  try {
-    console.log("🎵 Song metadata detected");
 
-    // Convert userId to ObjectId if it exists
-    if (req.body.submittedBy?.userId) {
-      req.body.submittedBy.userId = new mongoose.Types.ObjectId(
-        req.body.submittedBy.userId
-      );
+
+const saveSong = async (req, res) => {
+  console.log("new song upload triggred")
+  try {
+    const {
+      songName, // Corrected from songTitle
+      primaryArtists, // Corrected from primaryArtist
+      featuringArtists,
+      authors, // Corrected from author
+      composers, // Corrected from composer
+      musicProducers, // Corrected from musicProducer
+      musicDirectors, // Corrected from musicDirector
+      C_line,
+      p_line, // Corrected from P_line
+      labelName,
+      lyrics,
+      lyricsFile,
+      language,
+      genere, // Corrected from genres
+      //----------------------------step2
+      songFile,
+      coverArt,
+      //----------------------------step3
+      releaseDate,
+      isrc,
+      upc,
+      explicitContent,
+      distributionPlatform, // Corrected from distributionPlatforms
+    } = req.body;
+
+    // Convert explicitContent to boolean
+    const explicitContentBool = explicitContent === "yes" ? true : false;
+
+    // Creating metadata object properly
+    const metadata = {
+      isrc,
+      upc,
+    };
+    const Songfile={
+      url:songFile
     }
 
-    // Create and save new song
-    const song = new Song(req.body);
-    await song.save();
+    // Create a new song instance
+    const newSong = await Song.create({
+      songTitle: songName,
+      primaryArtist: primaryArtists,
+      featuringArtists,
+      author: authors,
+      composer: composers,
+      musicProducer: musicProducers,
+      musicDirector: musicDirectors,
+      lyrics,
+      lyricsFile,
+      C_line,
+      P_line: p_line, // Mapping correctly
+      labelName,
+      genres: genere, // Mapping correctly
+      language,
+      coverArt,
+      songFile:Songfile,
+      explicitContent: explicitContentBool, // Convert properly
+      distributionPlatforms: distributionPlatform, // Mapping correctly
+      metadata, // Assigning the metadata object
+      releaseDate,
+    });
 
     res.status(201).json({
       success: true,
-      message: "✅ Song metadata saved successfully",
-      data: song,
+      message: "Song uploaded successfully",
+      data: newSong,
     });
   } catch (error) {
-    console.error("❌ Error saving song:", error);
-    res.status(500).json({
-      success: false,
-      message: "Internal server error",
-      error: error.message,
-    });
+    console.error("Error uploading song:", error);
+    res.status(500).json({ success: false, message: "Internal Server Error", error });
   }
 };
+
+module.exports = { saveSong };
+
 
 // Simple Test Function
 const test = async (req, res) => {
@@ -100,4 +150,3 @@ const test = async (req, res) => {
 };
 
 module.exports = { saveSong, test };
-

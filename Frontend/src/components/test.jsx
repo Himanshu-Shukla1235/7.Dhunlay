@@ -1,21 +1,15 @@
 import React, { useState } from "react";
-import StepperComponent from "./ReleasesElements/stepper/ReleaseFormStepper";
-import ReleaseUserForm from "./ReleasesElements/ReleaseFormC1";
-import InputC1 from "./Inputs/inputC1";
-import "./styles.css";
-import ButtonC1 from "./Buttons/buttonC1";
-
+import Selector from "./selectors/selectC1";
+import { Typography, Container, Box } from "@mui/material";
 import FileUploaderC1 from "./fileUploaded/fileUploaderC1";
+const SelectorTestPage = () => {
 
 
-const Test = () => {
+
+
   return (
-    <>
-      <div className="test-main">
-      <FileUploaderC1></FileUploaderC1>
-      </div>
-    </>
+    <><FileUploaderC1></FileUploaderC1></>
   );
 };
 
-export default Test;
+export default SelectorTestPage;

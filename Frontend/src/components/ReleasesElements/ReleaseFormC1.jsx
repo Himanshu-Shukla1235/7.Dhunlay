@@ -4,49 +4,135 @@ import StepperComponent from "./stepper/ReleaseFormStepper";
 import "./ReleaseFormC1.css";
 import InputC1 from "../Inputs/inputC1";
 import ButtonC1 from "../Buttons/buttonC1";
-import { IconButton, TextField, Button } from "@mui/material";
+import {
+  IconButton,
+  TextField,
+  Button,
+  Box,
+  Typography,
+  Paper,
+  MenuItem,
+  FormControl,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+} from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import FileUploaderC1 from "../fileUploaded/fileUploaderC1";
-
+import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
+import CustomDatePicker from "../Datepicker/datePickerC1";
+import Selector from "../selectors/selectC1";
 const ReleaseUserForm = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   //Data to be posted to the server
 
-  let formDataPost = {};
+  var [formDataPost, setFormDataPost] = useState({
+    //------------------------------------step1
+    songName: "",
+    primaryArtists: [""],
+    featuringArtists: [""],
+    authors: [""],
+    composers: [""],
+    musicProducers: [""],
+    musicDirectors: [""],
 
-  //hadling the final submisiion
+    C_line: "",
+    p_line: "",
+    labelName: "",
+    lyrics: "",
+    lyricsFile: null,
+
+    language: "",
+    genere: "",
+    //----------------------------step2
+    songFile: null,
+
+    coverArt: null,
+    //----------------------------step3
+    releaseDate: null,
+    isrc: "",
+    upc: "",
+    explicitContent: "no",
+    distributionPlatform: [],
+  });
+
   const handleSubmit = async () => {
-    setLoading(true);
-    setMessage("");
-
-    const data = formDataPost;
-
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/upload",
-        data,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      // Ensure formDataPost is not empty and contains meaningful data
+      if (
+        !formDataPost ||
+        Object.values(formDataPost).every(
+          (value) =>
+            value === "" || (Array.isArray(value) && value.length === 0)
+        )
+      ) {
+        console.error("❌ No valid data to submit");
+        return;
+      }
 
-      setMessage(response.data.message);
-      alert("Song Submitted Successfully!");
+      console.log("📤 Submitting Data:", formDataPost);
+
+      const response = await fetch("http://localhost:3000/api/metadata/meta", {
+        method: "POST",
+        credentials: "include", // ✅ Allows cookies
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formDataPost),
+      });
+
+      // Handle HTTP errors before parsing JSON
+      if (!response.ok) {
+        const errorText = await response.text(); // Get raw response
+        console.error(`❌ HTTP Error ${response.status}: ${errorText}`);
+        return;
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        console.log("✅ Song uploaded successfully:", data);
+        // Optional: Reset form state after successful submission
+        setFormDataPost({
+          songName: "",
+          primaryArtists: [""],
+          featuringArtists: [""],
+          authors: [""],
+          composers: [""],
+          musicProducers: [""],
+          musicDirectors: [""],
+          C_line: "",
+          p_line: "",
+          labelName: "",
+          lyrics: "",
+          lyricsFile: "",
+          language: "",
+          genere: "",
+          songFile: "",
+          coverArt: "",
+          releaseDate: "",
+          isrc: "",
+          upc: "",
+          explicitContent: "no",
+          distributionPlatform: [],
+        });
+      } else {
+        console.error("❌ Error uploading song:", data.message);
+      }
     } catch (error) {
-      console.error("Error uploading:", error);
-      setMessage("Upload failed. Please try again.");
-    } finally {
-      setLoading(false);
+      console.error("❌ Network error:", error.message);
     }
   };
+
   // ---------------------------*** Step Components *** --------------------------------
 
   //step-1-------------------------------------------------------------------------------------
-  const Step1 = () => {
-    const [songDetails, setSongDetails] = useState({
+  const Step1 = ({ setFormDataPost, onNext }) => {
+    // Local state for song details
+    const [localData, setLocalData] = useState({
       songName: "",
       primaryArtists: [""],
       featuringArtists: [""],
@@ -58,37 +144,40 @@ const ReleaseUserForm = () => {
       lyricsFile: null,
     });
 
-    // Update formDataPost when songDetails changes
-    useEffect(() => {
-      formDataPost = { ...songDetails };
-    }, [songDetails]);
-
-    // Function to handle text input changes
+    // Function to handle text input changes locally
     const handleChange = (field, value) => {
-      setSongDetails((prev) => ({ ...prev, [field]: value }));
+      setLocalData((prev) => ({ ...prev, [field]: value }));
     };
 
-    // Function to add a new input field
+    // Function to add a new input field locally
     const handleAddField = (field) => {
-      setSongDetails((prev) => ({
+      setLocalData((prev) => ({
         ...prev,
-        [field]: [...prev[field], ""],
+        [field]: [...(prev[field] || []), ""],
       }));
     };
 
-    // Function to remove an input field
+    // Function to remove an input field locally
     const handleRemoveField = (field, index) => {
-      setSongDetails((prev) => ({
+      setLocalData((prev) => ({
         ...prev,
         [field]: prev[field].filter((_, i) => i !== index),
       }));
     };
 
+    // Function to handle lyrics file upload locally
     const handleLyricsUpload = (event) => {
       const file = event.target.files[0];
       if (file) {
-        setSongDetails((prev) => ({ ...prev, lyricsFile: file }));
+        setLocalData((prev) => ({ ...prev, lyricsFile: file }));
       }
+    };
+
+    // Function to save local data to global state and move to next step
+    const handleNextClick = () => {
+      setFormDataPost((prev) => ({ ...prev, ...localData }));
+      // Call onNext if provided to move to the next step.
+      if (onNext) onNext();
     };
 
     return (
@@ -107,7 +196,7 @@ const ReleaseUserForm = () => {
         <label className="step1-label-1">Song Name:</label>
         <InputC1
           placeholder="Enter the Title"
-          value={songDetails.songName}
+          value={localData.songName || formDataPost.songName}
           onChange={(e) => handleChange("songName", e.target.value)}
         />
         <br />
@@ -123,7 +212,7 @@ const ReleaseUserForm = () => {
         ].map(({ label, field }) => (
           <div key={field}>
             <label className="step1-label-2">{label}(s):</label>
-            {songDetails[field].map((_, index) => (
+            {localData[field]?.map((value, index) => (
               <div
                 key={index}
                 style={{
@@ -135,14 +224,14 @@ const ReleaseUserForm = () => {
               >
                 <InputC1
                   placeholder={`Enter ${label} Name`}
-                  value={songDetails[field][index]}
+                  value={value}
                   onChange={(e) => {
-                    const newValues = [...songDetails[field]];
+                    const newValues = [...localData[field]];
                     newValues[index] = e.target.value;
                     handleChange(field, newValues);
                   }}
                 />
-                {songDetails[field].length > 1 && (
+                {localData[field].length > 1 && (
                   <IconButton
                     color="error"
                     onClick={() => handleRemoveField(field, index)}
@@ -160,7 +249,7 @@ const ReleaseUserForm = () => {
 
         {/* Lyrics Section */}
         <label className="step1-label" style={{ color: "white" }}>
-          <p sx={{ fontFamily: "sans-serif" }}>Lyrics (if any):</p>
+          <p style={{ fontFamily: "sans-serif" }}>Lyrics (if any):</p>
         </label>
         <TextField
           label="Write Lyrics"
@@ -169,7 +258,7 @@ const ReleaseUserForm = () => {
           rows={4}
           variant="outlined"
           fullWidth
-          value={songDetails.lyrics}
+          value={localData.lyrics || formDataPost.lyrics}
           onChange={(e) => handleChange("lyrics", e.target.value)}
           sx={{
             "& .MuiInputBase-input::placeholder": {
@@ -188,7 +277,7 @@ const ReleaseUserForm = () => {
           style={{ marginBottom: "1vw" }}
         />
 
-        {/* File Input */}
+        {/* File Input for Lyrics */}
         <input
           type="file"
           accept=".txt,.doc,.pdf"
@@ -207,196 +296,429 @@ const ReleaseUserForm = () => {
             Upload Lyrics File
           </Button>
         </label>
-        {songDetails.lyricsFile && (
-          <p>Uploaded: {songDetails.lyricsFile.name}</p>
-        )}
+        {/* {localData.lyricsFile && <p>Uploaded: {localData.lyricsFile.name}</p>} */}
         <br />
+
+        {activeStep < stepContent.length - 1 ? (
+          <ButtonC1
+            content={"Next"}
+            onClick={() => {
+              setActiveStep(activeStep + 1);
+              handleNextClick();
+            }}
+          ></ButtonC1>
+        ) : (
+          <button onClick={() => alert("Process Completed!")}>Finish</button>
+        )}
       </div>
     );
   };
 
   // step-2 --------------------------------------------------------------------------------------------
 
-  const Step2 = () => {
+  const Step2 = ({ stepContent }) => {
     const [songFile, setSongFile] = useState(null);
-    const [coverArt, setCoverArt] = useState(null);
+    const [coverFile, setCoverFile] = useState(null);
 
+    // 🎵 Function to handle song file upload
+    const MAX_SONG_SIZE_MB = 1000; // Max 5MB for song
+    const MAX_COVER_SIZE_MB = 2; // Max 2MB for cover image
+    const MIN_COVER_RESOLUTION = { width: 1440, height: 1440 };
+    const MAX_COVER_RESOLUTION = { width: 3000, height: 3000 };
 
-    const handleSongUpload = (event) => {
-      const file = event.target.files[0];
+    // 🎵 Function to handle song upload
+    const handleSongUpload = (file) => {
+      if (!file) return;
 
-      if (file) {
-        // Validate file type
-        const allowedTypes = ["audio/mpeg", "audio/wav", "audio/ogg"];
-        if (!allowedTypes.includes(file.type)) {
-          alert("Please upload a valid audio file (MP3, WAV, OGG).");
-          return;
-        }
+      const fileSizeMB = file.size / (1024 * 1024); // Convert bytes to MB
 
-        // Validate file size (e.g., 10MB limit)
-        const maxSize = 10 * 1024 * 1024; // 10MB
-        if (file.size > maxSize) {
-          alert("File size should be less than 10MB.");
-          return;
-        }
-
-        setSongFile(file);
+      if (!file.name.toLowerCase().endsWith(".wav")) {
+        alert("Invalid format! Please upload a .wav file.");
+        return;
       }
+
+      if (fileSizeMB > MAX_SONG_SIZE_MB) {
+        alert(
+          `Song file is too large! Max allowed size is ${MAX_SONG_SIZE_MB}MB.`
+        );
+        return;
+      }
+
+      setSongFile(file);
     };
 
-    const handleCoverArtUpload = (event) => {
-      const file = event.target.files[0];
+    // 🎨 Function to handle cover image upload
+    const handleCoverUpload = (file) => {
+      if (!file) return;
 
-      if (file) {
-        // Validate file type (allowing only image formats)
-        const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
-        if (!allowedTypes.includes(file.type)) {
-          alert("Please upload a valid image file (JPEG, PNG, WEBP).");
-          return;
-        }
+      const fileSizeMB = file.size / (1024 * 1024); // Convert bytes to MB
 
-        // Validate file size (e.g., max 5MB)
-        const maxSize = 5 * 1024 * 1024; // 5MB
-        if (file.size > maxSize) {
-          alert("File size should be less than 5MB.");
-          return;
-        }
-
-        setCoverArt(file);
+      if (
+        !file.name.toLowerCase().endsWith(".jpeg") &&
+        !file.name.toLowerCase().endsWith(".jpg")
+      ) {
+        alert("Invalid format! Please upload a .jpeg file.");
+        return;
       }
+
+      if (fileSizeMB > MAX_COVER_SIZE_MB) {
+        alert(
+          `Cover image is too large! Max allowed size is ${MAX_COVER_SIZE_MB}MB.`
+        );
+        return;
+      }
+
+      // Check image resolution
+      const img = new Image();
+      const objectURL = URL.createObjectURL(file);
+      img.src = objectURL;
+
+      img.onload = () => {
+        if (
+          img.width < MIN_COVER_RESOLUTION.width ||
+          img.height < MIN_COVER_RESOLUTION.height ||
+          img.width > MAX_COVER_RESOLUTION.width ||
+          img.height > MAX_COVER_RESOLUTION.height
+        ) {
+          alert(
+            `Invalid resolution! Cover image must be between ${MIN_COVER_RESOLUTION.width}x${MIN_COVER_RESOLUTION.height}px and ${MAX_COVER_RESOLUTION.width}x${MAX_COVER_RESOLUTION.height}px.`
+          );
+          URL.revokeObjectURL(objectURL); // Free memory
+          return;
+        }
+
+        setCoverFile(file);
+        URL.revokeObjectURL(objectURL); // Free memory after validation
+      };
     };
 
-    // Update formDataPost when songDetails changes
-    useEffect(() => {
-      formDataPost = { ...songFile, ...coverArt };
-    }, [songFile, coverArt]);
+    // Function to save local data to global state and move to the next step
+    const handleNextClick = () => {
+      setFormDataPost((prev) => ({
+        ...prev,
+        songFile: songFile, // Store song file
+        coverArt: coverFile, // Store cover file
+      }));
+    };
+
     return (
       <div className="step2-main">
-        <h2>Step 2: Upload Your Song and Cover Art</h2>
-        <div className="step2-main1">
-          {/* Song Upload */}
-          <h3>Info about the song (format, size, other info)</h3>
-          <div className="step2-main11">
-            <input
-              type="file"
-              accept="audio/*"
-              id="upload-song"
-              style={{ display: "none" }}
-              onChange={handleSongUpload}
-            />
-            <label htmlFor="upload-song">
-              {/* <Button
-                variant="contained"
-                component="span"
-                startIcon={<CloudUploadIcon />}
-                color="primary"
-              >
-                Upload Song
-              </Button> */}
-              <FileUploaderC1></FileUploaderC1>
-            </label>
-          </div>
-          {songFile && <p>Uploaded Song: {songFile.name}</p>}
+        <div>
+          <h2
+            style={{
+              color: "#00eeffc3",
+              fontFamily: "sans-serif",
+              fontWeight: "lighter",
+            }}
+          >
+            Step 2 : Upload Song File
+          </h2>
         </div>
-
+        {/* Song Upload */}
         <div className="step2-main1">
-          {/* Cover Art Upload */}
-          <h3>Info about the song (format, size, other info)</h3>
-          <div className="step2-main11">
-            <input
-              type="file"
-              accept="image/*"
-              id="upload-cover"
-              style={{ display: "none" }}
-              onChange={handleCoverArtUpload}
-            />
-            <label htmlFor="upload-cover">
-              {/* <Button
-                variant="contained"
-                component="span"
-                startIcon={<CloudUploadIcon />}
-                color="primary"
-              >
-                Upload Cover Art
-              </Button> */}
-              <FileUploaderC1></FileUploaderC1>
-            </label>
+          <div className="step-2-main1-left">
+            <h3>Song Upload</h3>
           </div>
-          {coverArt && <p>Uploaded Cover Art: {coverArt.name}</p>}
+          <div className="step-2-main1-right">
+            {" "}
+            <label className="file-upload">
+              <input
+                type="file"
+                accept="audio/*"
+                onChange={(e) => handleSongUpload(e.target.files[0])}
+              />
+              <span className="file-text">Upload Song</span>
+            </label>
+            {/* {songFile && <p>Selected: {songFile.name}</p>} */}
+          </div>
+        </div>{" "}
+        {/* Cover Art Upload */}
+        <div className="step2-main2" style={{ marginTop: "1rem" }}>
+          <div className="step2-main2-left">
+            <h3>Cover Art Upload</h3>
+          </div>
+          <div className="step2-main2-right">
+            <label className="file-upload">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleCoverUpload(e.target.files[0])}
+              />
+              <span className="file-text">Upload Cover</span>
+            </label>
+            {/* {coverFile && <p>Selected: {coverFile.name}</p>} */}
+          </div>
+        </div>
+        {/* Navigation */}
+        <div>
+          {activeStep > 0 && (
+            <ButtonC1
+              content={"Back"}
+              onClick={() => setActiveStep(activeStep - 1)}
+            />
+          )}
+
+          <ButtonC1
+            content={"Next"}
+            onClick={() => {
+              setActiveStep(activeStep + 1);
+              handleNextClick();
+            }}
+          />
+        </div>
+      </div>
+    );
+  };
+  // step-3---------------------------------------------------------------------------------------------
+  const Step3 = () => {
+    // Initialize local state from the corresponding global state values.
+    const [localData, setLocalData] = useState({
+      releaseDate: formDataPost.releaseDate,
+      isrc: formDataPost.isrc,
+      upc: formDataPost.upc,
+      explicitContent: formDataPost.explicitContent,
+      distributionPlatform: formDataPost.distributionPlatform,
+    });
+
+    const handleChange = (field, value) => {
+      setLocalData((prev) => ({
+        ...prev,
+        [field]: value,
+      }));
+    };
+
+    const platforms = [
+      "Spotify",
+      "Apple Music",
+      "YouTube Music",
+      "Amazon Music",
+      "Tidal",
+      "Deezer",
+    ];
+
+    // Save local changes to the global state and move to next step.
+
+    const handleNextClick = () => {
+      setFormDataPost((prev) => ({
+        ...prev,
+        ...localData,
+      }));
+    };
+
+    return (
+      <div className="step-3-main">
+        {/* ISRC Field */}
+        <Typography variant="body1" color="#bbb">
+          ISRC (optional)
+        </Typography>
+        <InputC1
+          placeholder="ISRC"
+          value={localData.isrc}
+          onChange={(e) => handleChange("isrc", e.target.value)}
+        />
+        <br />
+
+        {/* UPC Field */}
+        <Typography variant="body1" color="#bbb">
+          UPC (optional)
+        </Typography>
+        <InputC1
+          placeholder="UPC"
+          value={localData.upc}
+          onChange={(e) => handleChange("upc", e.target.value)}
+        />
+        <br />
+        <br />
+
+        {/* Release Date Picker */}
+        <div className="step3-main-datepicker">
+          <Typography variant="body1" color="#bbb">
+            Enter Release Date
+          </Typography>
+          <CustomDatePicker
+            value={localData.releaseDate}
+            onChange={(date) => handleChange("releaseDate", date)}
+          />
+        </div>
+        <br />
+        <br />
+
+        {/* Explicit Content Selection */}
+        <Typography variant="body1" color="#bbb">
+          Explicit Content
+        </Typography>
+        <FormControl component="fieldset">
+          <RadioGroup
+            row
+            value={localData.explicitContent}
+            onChange={(e) => handleChange("explicitContent", e.target.value)}
+          >
+            <FormControlLabel
+              value="yes"
+              control={<Radio sx={{ color: "#bbb" }} />}
+              label="Yes"
+            />
+            <FormControlLabel
+              value="no"
+              control={<Radio sx={{ color: "#bbb" }} />}
+              label="No"
+            />
+          </RadioGroup>
+        </FormControl>
+        <br />
+        <br />
+
+        {/* Distribution Platform Selection */}
+        <Typography variant="body1" color="#bbb">
+          Select Distribution Platforms
+        </Typography>
+        <br />
+        <Selector
+          options={platforms}
+          value={localData.distributionPlatform}
+          onChange={(value) => handleChange("distributionPlatform", value)}
+        />
+        <br />
+
+        {/* navigation */}
+        {activeStep > 0 && (
+          <ButtonC1
+            content={"back"}
+            onClick={() => setActiveStep(activeStep - 1)}
+          ></ButtonC1>
+        )}
+
+        {activeStep < stepContent.length - 1 ? (
+          <ButtonC1
+            content={"Next"}
+            onClick={() => {
+              setActiveStep(activeStep + 1);
+              handleNextClick();
+            }}
+          ></ButtonC1>
+        ) : (
+          <button onClick={() => alert("Process Completed!")}>Finish</button>
+        )}
+      </div>
+    );
+  };
+
+  // step4-------------------------------------
+  const Step4 = ({ formDataPost }) => {
+    return (
+      <div className="step4-main" style={{ color: "white", padding: "1rem" }}>
+        <h2>Review Your Submission</h2>
+        <p>
+          <strong>Song Name:</strong> {formDataPost.songName || "NA"}
+        </p>
+        <p>
+          <strong>Primary Artists:</strong>{" "}
+          {formDataPost.primaryArtists?.length
+            ? formDataPost.primaryArtists.join(", ")
+            : "NA"}
+        </p>
+        <p>
+          <strong>Featuring Artists:</strong>{" "}
+          {formDataPost.featuringArtists?.length
+            ? formDataPost.featuringArtists.join(", ")
+            : "NA"}
+        </p>
+        <p>
+          <strong>Authors:</strong>{" "}
+          {formDataPost.authors?.length
+            ? formDataPost.authors.join(", ")
+            : "NA"}
+        </p>
+        <p>
+          <strong>Composers:</strong>{" "}
+          {formDataPost.composers?.length
+            ? formDataPost.composers.join(", ")
+            : "NA"}
+        </p>
+        <p>
+          <strong>Music Producers:</strong>{" "}
+          {formDataPost.musicProducers?.length
+            ? formDataPost.musicProducers.join(", ")
+            : "NA"}
+        </p>
+        <p>
+          <strong>Music Directors:</strong>{" "}
+          {formDataPost.musicDirectors?.length
+            ? formDataPost.musicDirectors.join(", ")
+            : "NA"}
+        </p>
+        <p>
+          <strong>Lyrics:</strong> {formDataPost.lyrics || "NA"}
+        </p>
+        <p>
+          <strong>Lyrics File:</strong>{" "}
+          {formDataPost.lyricsFile ? formDataPost.lyricsFile.name : "NA"}
+        </p>
+        <p>
+          <strong>Song File:</strong>{" "}
+          {formDataPost.songFile ? formDataPost.songFile.name : "NA"}
+        </p>
+        <p>
+          <strong>Cover Art:</strong>{" "}
+          {formDataPost.coverArt ? formDataPost.coverArt.name : "NA"}
+        </p>
+        <p>
+          <strong>Release Date:</strong>{" "}
+          {formDataPost.releaseDate
+            ? formDataPost.releaseDate.toString()
+            : "NA"}
+        </p>
+        <p>
+          <strong>ISRC:</strong> {formDataPost.isrc || "NA"}
+        </p>
+        <p>
+          <strong>UPC:</strong> {formDataPost.upc || "NA"}
+        </p>
+        <p>
+          <strong>Explicit Content:</strong>{" "}
+          {formDataPost.explicitContent || "NA"}
+        </p>
+        <p>
+          <strong>Distribution Platforms:</strong>{" "}
+          {formDataPost.distributionPlatform?.length
+            ? formDataPost.distributionPlatform.join(", ")
+            : "NA"}
+        </p>
+
+        {/* navigation */}
+        <div>
+          {" "}
+          {activeStep > 0 && (
+            <ButtonC1
+              content={"Back"}
+              onClick={() => setActiveStep(activeStep - 1)}
+            />
+          )}
+          <button
+            onClick={() => {
+              alert("Process Completed!");
+              handleSubmit();
+            }}
+          >
+            Finish
+          </button>
         </div>
       </div>
     );
   };
 
-  // step-3---------------------------------------------------------------------------------------------
-
-  const Step3 = () => {}
-  (
-    <div className="step3-main">
-      <h2
-        style={{
-          color: "#00EEFF",
-          fontFamily: "sans-serif",
-          fontWeight: "lighter",
-        }}
-      >
-        Step 3: Select Distribution Platforms
-      </h2>
-      <label className="step3-main-label-1">
-        <input type="checkbox" /> Spotify
-      </label>
-      <br />
-      <label className="step3-main-label-2">
-        <input type="checkbox" /> Apple Music
-      </label>
-      <br />
-      <label className="step3-main-label-3">
-        <input type="checkbox" /> YouTube Music
-      </label>
-    </div>
-  );
-
-  // step-4
-  const Step4 = () => (
-    <div>
-      <h2
-        style={{
-          color: "#00EEFF",
-          fontFamily: "sans-serif",
-          fontWeight: "lighter",
-        }}
-      >
-        Step 4: Finalize & Submit
-      </h2>
-      <p>Review your details and submit your song for distribution.</p>
-    </div>
-  );
-
   // Array of Step Components
-  const stepContent = [<Step1 />, <Step2 />, <Step3 />, <Step4 />];
+  const stepContent = [
+    <Step1 setFormDataPost={setFormDataPost} />,
+    <Step2 />,
+    <Step3 />,
+    <Step4 formDataPost={formDataPost} />,
+  ];
 
   return (
     <>
       <div className="ReleaseForm-main">
         <StepperComponent activeStep={activeStep} stepContent={stepContent} />
-
-        {/* Navigation Buttons */}
-        <div className="stepper-buttons">
-          {activeStep > 0 && (
-            <ButtonC1
-              content={"back"}
-              onClick={() => setActiveStep(activeStep - 1)}
-            ></ButtonC1>
-          )}
-          {activeStep < stepContent.length - 1 ? (
-            <ButtonC1
-              content={"Next"}
-              onClick={() => setActiveStep(activeStep + 1)}
-            ></ButtonC1>
-          ) : (
-            <button onClick={() => alert("Process Completed!")}>Finish</button>
-          )}
-        </div>
       </div>
     </>
   );
