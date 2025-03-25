@@ -33,7 +33,6 @@ app.use(
   })
 );
 
-
 app.use(helmet());
 app.use(compression());
 app.use(express.json());
@@ -44,8 +43,9 @@ app.use(cookieParser()); // Ensure cookies can be parsed
 // app.use(authenticateUser)
 //..... Routes
 app.use("/api/auth", authRouter);
-app.use(authMiddleware);
 app.use("/api/metadata", MetaData);
+app.use(authMiddleware);
+
 app.use("/api/metadata", testmeta);
 app.use("/api/userData", userData);
 

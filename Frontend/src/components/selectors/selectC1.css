@@ -1,0 +1,75 @@
+.step-3-main {
+  background-color: rgba(10, 10, 10, 0.95); /* Darker with higher opacity */
+  color: white;
+  padding: 2vw;
+  border-radius: 1vw;
+  max-width: 40vw;
+  margin: auto;
+  box-shadow: 0 0.4vw 1vw rgba(255, 255, 255, 0.08); /* Subtle glow effect */
+}
+
+/* Form Control */
+.MuiFormControl-root {
+  margin-bottom: 1vw;
+  width: 100%;
+}
+
+/* Input & Dropdown Styling */
+input, select {
+  background: rgba(20, 20, 20, 0.98); /* Darker Input */
+  border: 0.1vw solid rgba(100, 100, 100, 0.5); /* Softer but visible border */
+  color: #eee;
+  padding: 1vw;
+  border-radius: 0.8vw;
+  width: 100%;
+  font-size: 1.2vw;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  display: block;
+}
+
+/* Focus Effects */
+input:focus, select:focus {
+  border-color: rgba(200, 200, 200, 0.6);
+  outline: none;
+  background: rgba(30, 30, 30, 1);
+}
+
+/* Dropdown Positioning */
+.platform-select {
+  margin-top: 0.4vw;
+  width: 100%;
+  padding: 1vw;
+  background: rgba(20, 20, 20, 0.98);
+  border: 0.1vw solid rgba(100, 100, 100, 0.5);
+  color: #eee;
+  border-radius: 0.8vw;
+  font-size: 1.2vw;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  display: block;
+}
+
+/* Adjusting the Dropdown Options */
+.platform-select option {
+  background: rgba(20, 20, 20, 1);
+  color: #eee;
+  padding: 1vw;
+}
+
+/* Highlight selected options */
+.platform-select option:checked {
+  background: rgba(40, 40, 40, 1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .step-3-main {
+      padding: 4vw;
+      max-width: 80vw;
+  }
+
+  input, select, .platform-select {
+      font-size: 3vw;
+      padding: 2vw;
+      border-radius: 1.2vw;
+  }
+}
