@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState, useEffect } from "react";
+import  { Suspense, lazy, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import ProtectedRoute from "./components/AuthenticateUser/authUser"; // Import the ProtectedRoute component
 import Loader from "./components/Loding/loadingC1";
@@ -12,7 +12,7 @@ const Register = lazy(() => import("./pages/LoginInPage/regesterP"));
 const Meta = lazy(() => import("./components/MetaDataForm/MusicUploadForm"));
 const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
 const Features = lazy(() => import("./pages/Features/features"));
-import Card from "./components/Cards/cardsC1";
+// import Card from "./components/Cards/cardsC1";
 import Palette from "./components/colorPalette/colPalette";
 import TestPage from "./components/test";
 import ReleaseUserForm from "./components/ReleasesElements/ReleaseFormC1";
