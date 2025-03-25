@@ -32,7 +32,7 @@
 .features-main-sec-11{
   width: 80%;
   /* border: 1px solid orange; */
-  margin: 5vw 0 0 0;
+  margin: 1vw 0 0 0;
   font-size: 3vw;
   display: flex;
   flex-direction: column;
@@ -41,12 +41,30 @@
   gap: 4vw;
   overflow: hidden;
 }
+
+.heading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border:  1px solid blue; */
+  gap: 10px;
+}
+.heading-stacking{
+  position: relative;
+}
+.heading h4{
+  font-family: "Inconsolata", serif;
+  font-size: 1.5vw;
+  color: rgb(0, 238, 255);
+}
+
 .features-main-sec-11 h2 {
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   text-transform: uppercase;
   font-weight: 900;
   line-height: 4vw;
   font-size: 3.5vw;
+  margin-top: 2vw;
   overflow: hidden;
   opacity: 0; 
   transform: translateY(5vw); 
@@ -81,3 +99,32 @@
   margin-top: -3vw;
 }
 
+.division{
+  width: 90%;
+  border: .5px solid rgba(128, 128, 128, 0.29);
+  margin: 5vw;
+}
+
+/* <--------------------------------------- SECTION-2 ----------------------------------------------> */
+.features-main-sec-2{
+  width: 95%;
+  /* border: 1px solid red; */
+}
+.features-main-sec-2 h2{
+  font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 4vw;
+  font-size: 3vw;
+  overflow: hidden;
+  /* opacity: 0; 
+  transform: translateY(5vw); 
+  animation: fadeUp 0.7s ease-out forwards; */
+  margin-bottom: 5vw;
+}
+.features-main-sec-21{
+  /* border: 1px solid green; */
+  padding: 2vw 0;
+  background-color: rgb(24, 24, 24);
+  border-radius: 20px;
+}
