@@ -59,9 +59,8 @@ const mongoose = require("mongoose");
 
 // Save Song Metadata
 
-
 const saveSong = async (req, res) => {
-  console.log("new song upload triggred")
+  console.log("new song upload triggred");
   try {
     const {
       songName, // Corrected from songTitle
@@ -97,9 +96,9 @@ const saveSong = async (req, res) => {
       isrc,
       upc,
     };
-    const Songfile={
-      url:songFile
-    }
+    const Songfile = {
+      fileUrl: songFile,
+    };
 
     // Create a new song instance
     const newSong = await Song.create({
@@ -118,7 +117,7 @@ const saveSong = async (req, res) => {
       genres: genere, // Mapping correctly
       language,
       coverArt,
-      songFile:Songfile,
+      songFile: Songfile,
       explicitContent: explicitContentBool, // Convert properly
       distributionPlatforms: distributionPlatform, // Mapping correctly
       metadata, // Assigning the metadata object
@@ -132,12 +131,13 @@ const saveSong = async (req, res) => {
     });
   } catch (error) {
     console.error("Error uploading song:", error);
-    res.status(500).json({ success: false, message: "Internal Server Error", error });
+    res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error", error });
   }
 };
 
 module.exports = { saveSong };
-
 
 // Simple Test Function
 const test = async (req, res) => {

@@ -40,13 +40,14 @@
   align-items: center;
   justify-content: center;
   /* border: #00eeff 0.1px solid; */
-  background-color: rgba(77, 77, 77, 0.155);
+  background-color: rgba(77, 77, 77, 0.224);
   padding: 2vw 2vw;
   width: 50vw;
   gap: 3vw;
   
 
   height: 35vh;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
 }
 .step2-main1 h3 {
   font-family: monospace;
