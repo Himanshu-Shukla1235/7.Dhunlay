@@ -12,7 +12,10 @@ const Register = lazy(() => import("./pages/LoginInPage/regesterP"));
 const Meta = lazy(() => import("./components/MetaDataForm/MusicUploadForm"));
 const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
 
-const FeaturesArtist = lazy(() => import("./pages/FeaturesArtist/featuresArtist"));
+const ReleasesP = lazy(() => import("./pages/Releases/releasesP"));
+const FeaturesArtist = lazy(() =>
+  import("./pages/FeaturesArtist/featuresArtist")
+);
 const FeaturesLabel = lazy(() => import("./pages/FeaturesLabel/featuresLabel"));
 
 import Card from "./components/Cards/cardsC1";
@@ -26,7 +29,6 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 function MainApp() {
   const [user, setUser] = useState(null);
@@ -77,6 +79,15 @@ function MainApp() {
             if (window.location.pathname === "/features_label") {
               navigate(`/features_label/${data._id}`);
             }
+            if (window.location.pathname === "/features_label") {
+              navigate(`/features_label/${data._id}`);
+            }
+            if (window.location.pathname === "/release") {
+              navigate(`/release/${data._id}`);
+            }
+            if (window.location.pathname === "/releases") {
+              navigate(`/releases/${data._id}`);
+            }
           }, 100);
         }
       } catch (error) {
@@ -119,7 +130,15 @@ function MainApp() {
             <Route path="analytics/:id" element={<Analytics />} />
             <Route path="ourPlans/:id" element={<OurPlans />} />
             <Route path="features_artist/:id" element={<FeaturesArtist />} />
-            <Route path="features_label/:id" element={<FeaturesLabel />} />
+            <Route path="features_label/:id" element={<FeaturesLabel />} />{" "}
+            <Route
+              path="/release/:id"
+              element={<ReleaseUserForm></ReleaseUserForm>}
+            ></Route>
+            <Route
+              path="/releases/:id"
+              element={<ReleasesP></ReleasesP>}
+            ></Route>
             {/* <Route path="analytics" element={<Analytics />} /> */}
           </Route>
         </Route>
@@ -128,7 +147,6 @@ function MainApp() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register" element={<TestPage />} />
-        <Route path="/release"  element={<ReleaseUserForm></ReleaseUserForm>}></Route>
 
         {/* this is testing  */}
         <Route path="/test" element={<TestPage />} />

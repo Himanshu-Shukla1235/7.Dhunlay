@@ -1,99 +1,47 @@
-import { useState } from "react";
+import { useEffect } from "react";
 
-const FileUploader = () => {
-  const [imageFile, setImageFile] = useState(null);
-  const [musicFile, setMusicFile] = useState(null);
-  const [uploadingImage, setUploadingImage] = useState(false);
-  const [uploadingMusic, setUploadingMusic] = useState(false);
-  const [imageUrl, setImageUrl] = useState("");
-  const [musicUrl, setMusicUrl] = useState("");
+const Checkout = () => {
+    const handlePayment = async () => {
+        const res = await fetch("http://localhost:5000/create-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amount: 500, currency: "INR" }),
+        });
+        const order = await res.json();
 
-  // Handle file selection
-  const handleFileChange = (event, type) => {
-    if (type === "image") {
-      setImageFile(event.target.files[0]);
-    } else if (type === "music") {
-      setMusicFile(event.target.files[0]);
-    }
-  };
+        const options = {
+            key: "YOUR_RAZORPAY_KEY_ID",
+            amount: order.amount,
+            currency: order.currency,
+            order_id: order.id,
+            name: "Dhunlay",
+            description: "Payment for music service",
+            handler: async (response) => {
+                const verifyRes = await fetch("http://localhost:5000/verify-payment", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(response),
+                });
 
-  // Upload function
-  const handleUpload = async (file, type) => {
-    if (!file) {
-      alert(`Please select a ${type} file first!`);
-      return;
-    }
+                const verifyData = await verifyRes.json();
+                alert(verifyData.message);
+            },
+            prefill: { name: "User", email: "user@example.com", contact: "9999999999" },
+            theme: { color: "#3399cc" },
+        };
 
-    if (type === "image") {
-      setUploadingImage(true);
-    } else {
-      setUploadingMusic(true);
-    }
+        const razor = new window.Razorpay(options);
+        razor.open();
+    };
 
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", type === "image" ? "Himanshu" : "Himanshu"); // ✅ Use separate presets
-    formData.append("chunk_size", 6000000); // ✅ Set chunk size (6MB for large files)
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.async = true;
+        document.body.appendChild(script);
+    }, []);
 
-    try {
-      const response = await fetch(
-        "https://api.cloudinary.com/v1_1/dysuiz4wn/upload", // ✅ Correct endpoint for both image & music
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-
-      const data = await response.json();
-      if (type === "image") {
-        setImageUrl(data.secure_url);
-        console.log("✅ Image Uploaded:", data.secure_url);
-      } else {
-        setMusicUrl(data.secure_url);
-        console.log("✅ Music Uploaded:", data.secure_url);
-      }
-    } catch (error) {
-      console.error(`❌ Upload failed for ${type}:`, error);
-    } finally {
-      if (type === "image") {
-        setUploadingImage(false);
-      } else {
-        setUploadingMusic(false);
-      }
-    }
-  };
-
-  return (
-    <div>
-      <h2>📷 Upload Image</h2>
-      <input type="file" accept="image/*" onChange={(e) => handleFileChange(e, "image")} />
-      <button onClick={() => handleUpload(imageFile, "image")} disabled={uploadingImage}>
-        {uploadingImage ? "Uploading..." : "Upload Image"}
-      </button>
-      {imageUrl && (
-        <div>
-          <p>✅ Uploaded Image:</p>
-          <a href={imageUrl} target="_blank" rel="noopener noreferrer">
-            {imageUrl}
-          </a>
-        </div>
-      )}
-
-      <h2>🎵 Upload Music</h2>
-      <input type="file" accept="audio/*" onChange={(e) => handleFileChange(e, "music")} />
-      <button onClick={() => handleUpload(musicFile, "music")} disabled={uploadingMusic}>
-        {uploadingMusic ? "Uploading..." : "Upload Music"}
-      </button>
-      {musicUrl && (
-        <div>
-          <p>✅ Uploaded Music:</p>
-          <a href={musicUrl} target="_blank" rel="noopener noreferrer">
-            {musicUrl}
-          </a>
-        </div>
-      )}
-    </div>
-  );
+    return <button onClick={handlePayment}>Pay Now</button>;
 };
 
-export default FileUploader;
+export default Checkout;
