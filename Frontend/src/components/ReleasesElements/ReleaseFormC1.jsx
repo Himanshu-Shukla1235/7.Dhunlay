@@ -26,9 +26,50 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import CustomDatePicker from "../Datepicker/datePickerC1";
 import Selector from "../selectors/selectC1";
+import { image } from "@cloudinary/url-gen/qualifiers/source";
 const ReleaseUserForm = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [uploadUrl, setUploadedUrl] = useState(null);
+  // file upload to cloudnary
+  const handleFileChange = (event, type) => {
+    if (type === "image") {
+      setImageFile(event.target.files[0]);
+    } else if (type === "music") {
+      setMusicFile(event.target.files[0]);
+    }
+  };
 
+  // Upload function
+  const handleUploadCloud = async (file, type) => {
+    if (!file) {
+      alert(`Please select a ${type} file first!`);
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append(
+      "upload_preset",
+      type === "image" ? "Himanshu" : "Himanshu"
+    ); // ✅ Use separate presets
+    formData.append("chunk_size", 6000000); // ✅ Set chunk size (6MB for large files)
+
+    try {
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/dysuiz4wn/upload", // ✅ Correct endpoint for both image & music
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+
+      return data.secure_url;
+    } catch (error) {
+      console.error(`❌ Upload failed for ${type}:`, error);
+    }
+  };
   //Data to be posted to the server
 
   var [formDataPost, setFormDataPost] = useState({
@@ -62,6 +103,15 @@ const ReleaseUserForm = () => {
   });
 
   const handleSubmit = async () => {
+    formDataPost.songFile = await handleUploadCloud(
+      formDataPost.songFile,
+      "wav"
+    );
+
+    formDataPost.coverArt = await handleUploadCloud(
+      formDataPost.coverArt,
+      "image"
+    );
     try {
       // Ensure formDataPost is not empty and contains meaningful data
       if (
@@ -110,7 +160,7 @@ const ReleaseUserForm = () => {
           lyrics: "",
           lyricsFile: "",
           language: "",
-          genere: "",
+          genere: [],
           songFile: "",
           coverArt: "",
           releaseDate: "",
@@ -142,6 +192,9 @@ const ReleaseUserForm = () => {
       musicDirectors: [""],
       lyrics: "",
       lyricsFile: null,
+      labelName: "",
+      C_line: "",
+      P_line: "",
     });
 
     // Function to handle text input changes locally
@@ -299,6 +352,35 @@ const ReleaseUserForm = () => {
         {/* {localData.lyricsFile && <p>Uploaded: {localData.lyricsFile.name}</p>} */}
         <br />
 
+        {/* lablename */}
+        <p style={{ fontFamily: "sans-serif" }}>labelName</p>
+
+        <InputC1
+          placeholder="Enter the label name"
+          value={localData.labelName || formDataPost.labelName}
+          onChange={(e) => handleChange("labelName", e.target.value)}
+        />
+        <br />
+
+        {/* C_line */}
+        <p style={{ fontFamily: "sans-serif" }}>C_line</p>
+
+        <InputC1
+          placeholder="Enter the C_line"
+          value={localData.C_line || formDataPost.C_line}
+          onChange={(e) => handleChange("C_line", e.target.value)}
+        />
+        <br />
+        {/* P_line */}
+        <p style={{ fontFamily: "sans-serif" }}>P_line</p>
+
+        <InputC1
+          placeholder="Enter the P_line"
+          value={localData.P_line || formDataPost.P_line}
+          onChange={(e) => handleChange("P_line", e.target.value)}
+        />
+        <br />
+
         {activeStep < stepContent.length - 1 ? (
           <ButtonC1
             content={"Next"}
@@ -319,7 +401,36 @@ const ReleaseUserForm = () => {
   const Step2 = ({ stepContent }) => {
     const [songFile, setSongFile] = useState(null);
     const [coverFile, setCoverFile] = useState(null);
+    const [uploadUrl, setUploadedUrl] = useState(null);
+    // file upload to cloudnary
+    const handleUploadCloud = async (file) => {
+      if (!file) {
+        alert("Please select a file first!");
+        return;
+      }
 
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "Himanshu"); // Replace with your actual upload preset
+      formData.append("cloud_name", "Himanshu"); // Replace with your Cloudinary cloud name
+
+      try {
+        const response = await fetch(
+          "https://api.cloudinary.com/v1_1/dysuiz4wn/image/upload", // ✅ Correct Cloudinary endpoint
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        const data = await response.json();
+        setUploadedUrl(data.secure_url); // Store the uploaded URL
+        console.log("✅ Uploaded File URL:", data.secure_url);
+      } catch (error) {
+        console.error("❌ Upload failed:", error);
+      } finally {
+      }
+    };
     // 🎵 Function to handle song file upload
     const MAX_SONG_SIZE_MB = 1000; // Max 5MB for song
     const MAX_COVER_SIZE_MB = 2; // Max 2MB for cover image
@@ -653,6 +764,9 @@ const ReleaseUserForm = () => {
         <p>
           <strong>Lyrics File:</strong>{" "}
           {formDataPost.lyricsFile ? formDataPost.lyricsFile.name : "NA"}
+        </p>
+        <p>
+          <strong>labelname</strong> {formDataPost.labelName || "NA"}
         </p>
         <p>
           <strong>Song File:</strong>{" "}
