@@ -130,6 +130,9 @@ const test = () => {
         </div>
 
         <div className="section-1">
+          <video autoPlay muted loop>
+            <source src="/videos/video1.mp4" type="video/mp4"/>
+          </video>
           <div className="section-11">
             <h1>
               <svg

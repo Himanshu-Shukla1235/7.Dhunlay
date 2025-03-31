@@ -1,4 +1,4 @@
-import  { Suspense, lazy, useState, useEffect } from "react";
+import { Suspense, lazy, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import ProtectedRoute from "./components/AuthenticateUser/authUser"; // Import the ProtectedRoute component
 import Loader from "./components/Loding/loadingC1";
@@ -23,7 +23,7 @@ const FeaturesArtist = lazy(() =>
 const FeaturesLabel = lazy(() => import("./pages/FeaturesLabel/featuresLabel"));
 import GetSpotifyArtists from "./pages/Analytics/All datas/spotify/getUser";
 
-import Card from "./components/Cards/cardsC1";
+// import Card from "./components/Cards/cardsC1";
 
 import Palette from "./components/colorPalette/colPalette";
 import TestPage from "./components/test";
@@ -110,7 +110,7 @@ function MainApp() {
     };
 
     fetchUserData();
-  }, []);
+  }, [navigate]);
   if (loading) {
     return (
       <div className="Loading">
