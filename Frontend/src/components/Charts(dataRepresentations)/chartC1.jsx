@@ -1,6 +1,7 @@
+// bar and the line chart 
 import { useEffect } from "react";
 import Chart from "chart.js/auto";
-import "./ChartStyles.css";
+import "./chartC1.css";
 
 const ChartComponent = () => {
   useEffect(() => {

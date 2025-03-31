@@ -15,17 +15,16 @@ const songSchema = new mongoose.Schema(
     P_line: { type: String, trim: true },
     labelName: { type: String, trim: true },
 
-  
     genres: {
       type: [String],
       required: true,
       validate: (arr) => arr.length > 0,
     }, // At least one genre
 
-    language: { type: String, required: true, trim: true },
+    language: { type: String, required: false, trim: true },
 
     //------------------------------------------------------step-2
-    coverArt: { type: String, required: true, trim: true }, // URL or file path
+    coverArt: { type: String, required: false, trim: true }, // URL or file path
     songFile: {
       format: {
         type: String,
@@ -46,10 +45,10 @@ const songSchema = new mongoose.Schema(
     },
     metadata: {
       isrc: { type: String, required: true, unique: true, trim: true },
-      upc: { type: String,  unique: true, trim: true },
+      upc: { type: String, unique: true, trim: true },
       bpm: { type: Number, min: 30, max: 300 }, // BPM range check
-      key: { type: String,   trim: true },
-      mood: { type: String,  trim: true },
+      key: { type: String, trim: true },
+      mood: { type: String, trim: true },
     },
     releaseDate: { type: Date, required: true },
     submittedBy: {

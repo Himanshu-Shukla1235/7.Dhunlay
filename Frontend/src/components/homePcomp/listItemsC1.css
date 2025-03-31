@@ -1,72 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap");
 
 .listItems-sec-1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 60vh;
-    padding: 2vw;
-    gap: 2vw;
-    padding-top: 3vh;
-    padding-bottom: 1vh;
-    overflow-y: auto; /* Keeps scrolling enabled */
-    -ms-overflow-style: none; /* Hide scrollbar for Edge */
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-    /* border: red solid 2px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 60vh;
+  padding: 2vw;
+  gap: 2vw;
+  padding-top: 3vh;
+  padding-bottom: 1vh;
+  overflow-y: auto; /* Keeps scrolling enabled */
+  -ms-overflow-style: none; /* Hide scrollbar for Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  /* border: red solid 2px; */
 }
 
 /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
 .listItems-sec-1::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Centering the Links */
 .listItems-sec-1 a {
-    all: unset; /* Removes all inherited/default styles */
-    display: flex;
-    justify-content: flex-start; /* Aligns text inside */
-    align-items: center; /* Centers text inside */
-    font-family: "Inconsolata", serif;
-    width: 8vw; /* Adjusted width */
-    height: 4vh; /* Set a height for alignment */
-    text-align: center;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    border-radius: 0.5vw;
-    font-weight: 600;
-    padding: 1vw;
-    cursor: pointer;
-    font-size: 1vw;
-    color: white; /* Ensure consistent text color */
+  all: unset; /* Removes all inherited/default styles */
+  display: flex;
+  justify-content: flex-start; /* Aligns text inside */
+  align-items: center; /* Centers text inside */
+  font-family: "Inconsolata", serif;
+  width: 8vw; /* Adjusted width */
+  height: 4vh; /* Set a height for alignment */
+  text-align: center;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  border-radius: 0.5vw;
+  font-weight: 600;
+  padding: 1vw;
+  cursor: pointer;
+  font-size: 1vw;
+  color: white; /* Ensure consistent text color */
 }
 
 /* Hover Effect */
 .listItems-sec-1 a:hover {
-    background-color: #00eeff16;
-    color: white;
-    transform: scale(1.05);
+  background-color: #00eeff16;
+  color: white;
+  transform: scale(1.05);
 }
 
 /* Icon styling */
 .menu-icon {
-    font-size: 1vw; /* Increased for better visibility */
-    color: white;
-    margin-right: 1vw;
+  font-size: 1vw; /* Increased for better visibility */
+  color: white;
+  margin-right: 1vw;
 }
 
 /* Active State */
 .listItems-sec-1-items.active {
-    background-color: #e9ebec10;
-    border-left: 0.01vw solid #00EEFF;
-    color: #fff;
+  background-color: #e9ebec10;
+  border-left: 0.01vw solid #00eeff;
+  color: #fff;
 }
 
 /* Hover effect for items */
 .listItems-sec-1-items:hover {
-    background: white;
-    color: black;
+  background: white;
+  color: black;
 }
 
 .listItems-sec-1-items:hover .menu-icon {
-    color: #00EEFF;
+  color: #00eeff;
+}
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+    .listItems-sec-1{
+        /* border: solid red 3px; */
+        width:100%;
+        background-color: black;
+        height: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: rgba(25, 25, 25, 0.228);
+        backdrop-filter: blur(5px); 
+        
+    }
+    .listItems-sec-1 a{
+        width:65%;
+        font-size: 5vw;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 5vw;
+        font-weight: 300;
+    }
+
 }

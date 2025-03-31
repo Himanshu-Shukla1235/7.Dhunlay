@@ -1,0 +1,9 @@
+.drawerleftC1-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(25, 25, 25, 0.228);
+    backdrop-filter: blur(5px); 
+    width: 100%;
+}

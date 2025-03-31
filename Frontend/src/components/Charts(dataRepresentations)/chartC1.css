@@ -1,0 +1,39 @@
+/* General Chart Container Styling */
+.charts-container {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 20px;
+  }
+  
+  /* Individual Chart Card */
+  .chart-card {
+	background: #2b2b2b;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	width: 400px;
+  }
+  
+  /* Chart Titles */
+  .chart-title {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #ffffff;
+	margin-bottom: 5px;
+  }
+  
+  .chart-subtitle {
+	font-size: 0.9rem;
+	color: #cccccc;
+	margin-bottom: 15px;
+  }
+  
+  /* Chart Styling */
+  canvas {
+	width: 100% !important;
+	height: 300px !important;
+  }
+  
