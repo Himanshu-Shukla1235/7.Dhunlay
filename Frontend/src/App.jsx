@@ -12,7 +12,7 @@ const Register = lazy(() => import("./pages/LoginInPage/regesterP"));
 const Meta = lazy(() => import("./components/MetaDataForm/MusicUploadForm"));
 const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
 
-const Features = lazy(() => import("./pages/Features/features"));
+
 // import Card from "./components/Cards/cardsC1";
 
 
