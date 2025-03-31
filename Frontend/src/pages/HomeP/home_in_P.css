@@ -82,7 +82,6 @@
   gap: 2vw;
   width: 40vw;
   background-color: rgba(107, 106, 106, 0);
-  
 }
 .centerEl {
   display: flex;
@@ -94,14 +93,14 @@
   transition: color 0.3s ease-in-out;
   cursor: pointer;
 }
-.icon2:hover{
+.icon2:hover {
   color: #00eeff; /* Light blue color on hover */
   transition: color 0.3s ease-in-out;
   cursor: pointer;
 }
 
-
 /**.......................................................................Signin*/
+
 .signIn {
   display: flex;
   flex-direction: row-reverse;
@@ -323,9 +322,29 @@
     width: 100%;
     /* border: red solid 3px; */
   }
-  .Home-p-section-21{
+  .Home-p-section-21 {
     /* border: red solid 3px; */
     width: 100%;
+  }
+  .Home-p-main-DrawerIcon {
+    width: 5vw;
+  }
+  .Home-p-section-112 {
+    width: 75vw;
+  }
+  .left-drawer-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+  }
+  .left-drawer-close-button:hover {
+    color: #00eeff; /* Change color on hover */
+    transform: scale(1.2); /* Slightly enlarge */
   }
 }
 
@@ -334,6 +353,16 @@
   .navbar {
     border-bottom: solid rgb(255, 145, 0) 0.2vw;
   }
+  .Home-p-main-DrawerIcon {
+    display: none;
+  }
+  .drawerbutton {
+    display: none;
+  }
+
+  .drawerleft {
+    display: none;
+  }
 }
 
 /*?------------------------ | SMALL LAPTOPS |------------------------- */
@@ -341,12 +370,27 @@
   .navbar {
     border-bottom: solid rgb(4, 255, 0) 0.2vw;
   }
+  .Home-p-main-DrawerIcon {
+    display: none;
+  }
+  .drawerbutton {
+    display: none;
+  }
+  .drawerleft {
+    display: none;
+  }
 }
 
 /*?------------------------ | LAPTOPS AND DESKTOPS |------------------------- */
 @media (min-width: 1025px) {
   .navbar {
     border-bottom: solid rgba(0, 238, 255, 0) min(0.05vw, 0.3px);
+  }
+  .drawerbutton {
+    display: none;
+  }
+  .drawerleft {
+    display: none;
   }
 }
 

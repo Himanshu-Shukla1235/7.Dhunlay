@@ -1,0 +1,64 @@
+/*! ________________________________________| MAIN |___________________________________________________ */
+.ReleasesP-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 500%;
+  padding: 0.45vw;
+  text-align: center;
+  color: white;
+  background-color: #1e1e1e; /* Dark background */
+  border-radius: 1vw;
+  gap: 0.7vw;
+}
+/* ?____________________________________ \ SECTION 1 \_______________________________ */
+.ReleasesP-main-sec-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 6vh;
+  width: 30vw;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 0.5vw;
+  font-family: "Inconsolata", serif;
+}
+
+.ReleasesP-main-sec-11 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  height: 5vh;
+  /* border: red 3px solid; */
+}
+.ReleasesP-main-sec-11-steping {
+  margin-bottom: 1.2vh;
+}
+.ReleasesP-main-sec-1 h2 {
+  /* Adjust word spacing based on viewport width */
+  color: rgb(0, 238, 255);
+  font-size: 1.5vw;
+}
+
+/* ?____________________________________ \ SECTION 2 \_______________________________ */
+.ReleasesP-main-sec-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 77vw;
+  background-color: rgba(0, 0, 0, 0.185);
+  border-radius: 0.5vw;
+  font-family: "Inconsolata", serif;
+  gap: 1vw;
+}
+.ReleasesP-main-sec-21{
+       
+ 
+  
+}
