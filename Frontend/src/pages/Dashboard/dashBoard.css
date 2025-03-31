@@ -51,12 +51,13 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  /* height: 50vh; */
   width: 77vw;
   background-color: rgba(0, 0, 0, 0.185);
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
   gap: 1vw;
+  padding: 2vw 0 2vw 0;
 }
 .dashBoard-main-sec-21 {
   display: flex;
@@ -68,6 +69,8 @@
   background-color: rgba(0, 0, 0, 0.185);
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
+  /* border: 1px solid yellow; */
+  /* position: relative; */
 }
 .dashBoard-main-sec-211 {
   display: flex;
@@ -81,6 +84,7 @@
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
   margin-top: 0.5vw;
+  /* border: 1px solid red; */
 }
 .dashBoard-main-sec-211-dot {
   width: 1vw;
@@ -93,8 +97,31 @@
 }
 
 .dashBoard-main-sec-211-earning{
-    margin-left: 15vw;
+  margin-left: 15vw;
 }
+.dashboard-main-sec-212{
+  position: relative;
+  overflow: hidden;
+  /* border: 1px solid white; */
+}
+.dashboard-main-sec-212 h2{
+  color: #00EEFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  font-size: 8vw;
+  z-index: 9;
+}
+.dashboard-main-sec-212 svg{
+  filter: blur(1.3px);
+  opacity: 0.2;
+  height: 15vw;
+  margin: 4vw 0vw 0vw 28vw;
+  /* position: absolute; */
+  /* border: 1px solid green; */
+}
+
 .dashBoard-main-sec-22 {
     display: flex;
     flex-direction: column;
@@ -105,6 +132,8 @@
     background-color: rgba(0, 0, 0, 0.185);
     border-radius: 0.5vw;
     font-family: "Inconsolata", serif;
+    /* border: 1px solid yellow; */
+    position: relative;
   }
 .dashBoard-main-sec-221 {
   display: flex;
@@ -117,6 +146,7 @@
   background-color: rgba(0, 0, 0, 0);
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
+  margin-top: 0.5vw;
 }
 .dashBoard-main-sec-221-dot {
   width: 1vw;
@@ -130,7 +160,28 @@
 .dashBoard-main-sec-221-ToUploads{
     margin-left: 15vw;
 }
-
+.dashboard-main-sec-222{
+  /* position: relative; */
+  overflow: hidden;
+  /* border: 1px solid white; */
+}
+.dashboard-main-sec-222 h2{
+  color: #00EEFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8vw;
+  z-index: 9;
+}
+.dashboard-main-sec-222 svg{
+  filter: blur(1.3px);
+  opacity: 0.1;
+  height: 15vw;
+  margin: 2vw 0vw 0vw 6vw;
+  /* position: absolute; */
+  /* border: 1px solid green; */
+}
 
 /* ?____________________________________ \ SECTION 3 \_______________________________ */
 .dashBoard-main-sec-3 {
