@@ -17,11 +17,14 @@ const FeaturesArtist = lazy(() =>
   import("./pages/FeaturesArtist/featuresArtist")
 );
 const FeaturesLabel = lazy(() => import("./pages/FeaturesLabel/featuresLabel"));
+import GetSpotifyArtists from "./pages/Analytics/All datas/spotify/getUser";
 
 import Card from "./components/Cards/cardsC1";
 import Palette from "./components/colorPalette/colPalette";
 import TestPage from "./components/test";
 import ReleaseUserForm from "./components/ReleasesElements/ReleaseFormC1";
+import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
+import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
   return (
     <BrowserRouter>
@@ -132,21 +135,24 @@ function MainApp() {
             <Route path="features_artist/:id" element={<FeaturesArtist />} />
             <Route path="features_label/:id" element={<FeaturesLabel />} />{" "}
             <Route
-              path="/release/:id"
-              element={<ReleaseUserForm></ReleaseUserForm>}
-            ></Route>
-            <Route
               path="/releases/:id"
               element={<ReleasesP></ReleasesP>}
             ></Route>
             {/* <Route path="analytics" element={<Analytics />} /> */}
           </Route>
+          <Route
+              path="/release/:id"
+              element={<ReleaseUserForm></ReleaseUserForm>}
+            ></Route>
         </Route>
 
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register" element={<TestPage />} />
+        <Route path="/spotify/artist" element={<GetSpotifyArtists />} />
+        <Route path="/spotify/profile" element={<GetSpotifyProfile />} />
+        <Route path="/spotify/search" element={<SpotifySearch />} />
 
         {/* this is testing  */}
         <Route path="/test" element={<TestPage />} />

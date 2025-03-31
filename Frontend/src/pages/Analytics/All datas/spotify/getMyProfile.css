@@ -1,0 +1,66 @@
+.artist-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #121212;
+    color: white;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: #222;
+    color: white;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #1db954;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #17a74b;
+}
+
+.artist-card {
+    background: #181818;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.artist-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.json-container {
+    background: #222;
+    color: #ddd;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: left;
+    overflow-x: auto;
+    max-width: 90%;
+    margin: auto;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 14px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.error {
+    color: red;
+}
