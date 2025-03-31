@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-// import React, { useState } from "react";
-// import Selector from "./selectors/selectC1";
-// import { Typography, Container, Box } from "@mui/material";
-// import FileUploaderC1 from "./fileUploaded/fileUploaderC1";
-// const SelectorTestPage = () => {
-
-//   return (
-//     <><FileUploaderC1></FileUploaderC1></>
-//   );
-// };
-
-// export default SelectorTestPage;
-
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import "./styles.css";
-import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
-// import Navbar from "./Navbar/navbarC2";
-=======
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
@@ -109,9 +89,7 @@ const test = () => {
   const { ref: whyRef, inView: whyInView } = useAnimateOnScroll();
   const { ref: faqRef, inView: faqInView } = useAnimateOnScroll();
   const { ref: featRef, inView: featInView } = useAnimateOnScroll();
->>>>>>> 3456470e383ac0cbfa5d21c365f2fd696a383fcc
 
-const test = () => {
   return (
     <>
       <div className="test-main">
@@ -122,23 +100,10 @@ const test = () => {
           </h4>
           <main className="navbar-elems">
             <ul className="all-elems">
-<<<<<<< HEAD
-              {/* <li className="dropdown">
-                <a className="dropbtn">Features</a>
-                <div className="dropdown-content">
-                  <a href="./features_artist">Features for artists</a>
-                  <a href="./features_label">Features for labels</a>
-                  <a href="#">Feature 3</a>
-                </div>
-              </li> */}
-              <li className="paste-button">
-                <a className="button">Features <ArrowDropDownOutlinedIcon className="downicon"/></a>
-=======
               <li className="feature-button">
                 <a className="button">
                   Features <ArrowDropDownOutlinedIcon className="downicon" />
                 </a>
->>>>>>> 3456470e383ac0cbfa5d21c365f2fd696a383fcc
                 <div className="dropdown-content">
                   <a href="./features_artist">Features for artists</a>
                   <a href="./features_label">Features for labels</a>
@@ -163,10 +128,11 @@ const test = () => {
             </ul>
           </main>
         </div>
-<<<<<<< HEAD
-=======
 
         <div className="section-1">
+          <video autoPlay muted loop>
+            <source src="/videos/video1.mp4" type="video/mp4"/>
+          </video>
           <div className="section-11">
             <h1>
               <svg
@@ -1077,7 +1043,6 @@ const test = () => {
             <h1>Footer</h1>
           </div>
         </div>
->>>>>>> 3456470e383ac0cbfa5d21c365f2fd696a383fcc
       </div>
     </>
   );

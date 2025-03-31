@@ -23,7 +23,7 @@ const FeaturesArtist = lazy(() =>
 const FeaturesLabel = lazy(() => import("./pages/FeaturesLabel/featuresLabel"));
 import GetSpotifyArtists from "./pages/Analytics/All datas/spotify/getUser";
 
-import Card from "./components/Cards/cardsC1";
+// import Card from "./components/Cards/cardsC1";
 
 import Palette from "./components/colorPalette/colPalette";
 import TestPage from "./components/test";
@@ -155,16 +155,9 @@ function MainApp() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register" element={<TestPage />} />
-<<<<<<< HEAD
-        <Route
-          path="/release"
-          element={<ReleaseUserForm></ReleaseUserForm>}
-        ></Route>
-=======
         <Route path="/spotify/artist" element={<GetSpotifyArtists />} />
         <Route path="/spotify/profile" element={<GetSpotifyProfile />} />
         <Route path="/spotify/search" element={<SpotifySearch />} />
->>>>>>> 3456470e383ac0cbfa5d21c365f2fd696a383fcc
 
         {/* this is testing  */}
         <Route path="/test" element={<TestPage />} />
