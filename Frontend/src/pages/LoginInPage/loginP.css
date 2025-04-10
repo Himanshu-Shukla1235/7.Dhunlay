@@ -75,11 +75,11 @@
   width: 64vw;
   height: 90vh;
   background-color: rgba(0, 0, 0, 0.114);
-  border-bottom: solid 0.1vw white;
+  border-bottom: solid 0.1vw rgba(255, 255, 255, 0.34);
   border-top: solid 1vw #00eeffad;
   backdrop-filter: blur(4px);
-  border-right: solid 0.1vw white;
-  border-left: solid 0.1vw white;
+  border-right: solid 0.1vw rgba(255, 255, 255, 0.34);
+  border-left: solid 0.1vw rgba(255, 255, 255, 0.34);
   background-color: rgba(0, 0, 0, 0.114);
 }
 .loginP-container-sec-1 p {
@@ -97,34 +97,28 @@
   color: transparent;
 }
 
-.loginP-container-sec-1 h7{
+.loginP-container-sec-1 h7 {
   background-color: transparent;
   color: #a8a6a6;
   font-family: sans-serif;
   font-family: "Inconsolata", serif;
   font-size: 2vw;
   padding: 1vw;
-
-
 }
-.loginP-container-sec-1-svg{
-  
-  
+.loginP-container-sec-1-svg {
   width: 20vw;
   height: 20vw;
-  
-
 }
 .loginP-container-sec-1-video {
   width: 30vw;
   height: 15vw;
   overflow: hidden;
-  
+
   background-color: transparent;
   opacity: 0.7;
 
   transition: transform 0.3s ease, opacity 0.3s ease;
-  border: solid black 3px;
+  border: solid rgb(102, 101, 101) 3px;
   margin-top: 2vw;
   margin-left: 5vw;
 }
@@ -135,36 +129,11 @@
   border: solid rgb(248, 248, 248) 3px;
 }
 /* ImageMarquee.css */
+.loginP-container-sec-1-morquee {
+  opacity: 0.5;
 
-.marquee-container {
-  width: 100%;
-  overflow: hidden;
-  background-color: #000; /* or transparent */
-  padding: 1rem 0;
-}
-
-.marquee-track {
-  display: flex;
-  gap: 2rem;
-  animation: scroll-left 20s linear infinite;
-  width: fit-content;
-}
-
-.marquee-track img {
-  width: 100px; /* adjust size */
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* Animation keyframes */
-@keyframes scroll-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  width: 65vw;
+  margin-top: 3vw;
 }
 
 .loginP-form {
@@ -190,9 +159,9 @@
     margin-bottom: 5em; */
   background-color: rgba(0, 0, 0, 0.114);
 }
-.loginP-form-head1{
+.loginP-form-head1 {
   background-color: transparent;
-  color: #00EEFF;
+  color: #00eeff;
   font-family: sans-serif;
 
   font-size: 1.8vw;
@@ -299,4 +268,110 @@
   background-color: transparent;
   font-family: "Inconsolata", serif;
   color: red;
+}
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .loginP-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    padding-top: 2vw;
+    gap: 5vw;
+    padding-bottom: 7vw;
+  }
+  .loginP-container-sec-1 {
+    width: 85%;
+    gap: 5vw;
+    height: auto;
+    align-items: center;
+  }
+  .loginP-container-sec-1 h7 {
+    width: 80%;
+    font-size: 3vw;
+  }
+  .loginP-container-sec-1 p {
+    width: 80%;
+    font-size: 7vw;
+  }
+
+  .loginP-container-sec-1-video {
+    width: 85%;
+    height: auto;
+  }
+  .loginP-form {
+    width: 80%;
+    margin: 1vw;
+    justify-content: flex-start;
+  }
+  .loginP-form-head1 {
+    font-size: 5vw;
+  }
+  .input-group input{
+    width: 50vw;
+    font-size: 3vw;
+  }
+  .input-group label {
+    font-size: 4vw;
+  }
+  .loginP-button{
+    font-size: 4vw;
+  }
+}
+
+/*?------------------------ | TABLETS |------------------------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .loginP-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    padding-top: 2vw;
+    gap: 5vw;
+    padding-bottom: 7vw;
+  }
+  .loginP-container-sec-1 {
+    width: 85%;
+    gap: 5vw;
+    height: auto;
+    align-items: center;
+  }
+  .loginP-container-sec-1 h7 {
+    width: 80%;
+    font-size: 3vw;
+  }
+  .loginP-container-sec-1 p {
+    width: 80%;
+    font-size: 7vw;
+  }
+
+  .loginP-container-sec-1-video {
+    width: 85%;
+    height: auto;
+  }
+  .loginP-form {
+    width: 80%;
+    margin: 1vw;
+    justify-content: flex-start;
+  }
+  .loginP-form-head1 {
+    font-size: 5vw;
+  }
+  .input-group input{
+    width: 50vw;
+    font-size: 3vw;
+  }
+  .input-group label {
+    font-size: 4vw;
+  }
+  .loginP-button{
+    font-size: 4vw;
+  }
+}
+
+/*?------------------------ | SMALL LAPTOPS |------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+}
+
+/*?------------------------ | LAPTOPS AND DESKTOPS |------------------------- */
+@media (min-width: 1025px) {
 }

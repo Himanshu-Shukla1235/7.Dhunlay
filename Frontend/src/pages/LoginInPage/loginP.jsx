@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/navbarC2";
 
 import Loading from "../../components/Loding/loadingC1";
 import VideoPage from "../../components/show video/videoC1";
-
+import MusicPlatformMarquee from "../../components/morque/morque";
 const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,7 +47,25 @@ const SignInPage = () => {
       setError(err.message || "Something went wrong");
     }
   };
-
+  const logos = [
+    {
+      src: "https://music-row-website-assets.s3.amazonaws.com/wp-content/uploads/2018/11/10155527/Apple-Music-Logo-FB.png",
+      alt: "Spotify",
+    },
+    {
+      src: "https://newsroom.spotify.com/wp-content/themes/ftr/assets/images/Spotify_Logo_RGB_Green.png",
+      alt: "Apple Music",
+    },
+    {
+      src: "https://w7.pngwing.com/pngs/535/720/png-transparent-amazon-music-full-logo-tech-companies.png",
+      alt: "SoundCloud",
+    },
+    {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/YT_Music.svg/1024px-YT_Music.svg.png",
+      alt: "SoundCloud",
+    },
+    // Add more logos as needed
+  ];
   return (
     <>
       <div className="loginP-container">
@@ -60,27 +78,12 @@ const SignInPage = () => {
             digital tools.”
           </h7>
           <div className="loginP-container-sec-1-video">
-            <VideoPage className="videoP"></VideoPage>
+            <VideoPage></VideoPage>
           </div>
-          <div className="marquee-container">
-      <div className="marquee-track">
-        {/* Repeat your images to make seamless scroll */}
-        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" alt="img1" />
-        <img src="" alt="img2" />
-        <img src="/images/img3.png" alt="img3" />
-        <img src="/images/img4.png" alt="img4" />
-        <img src="/images/img5.png" alt="img5" />
-        <img src="/images/img6.png" alt="img6" />
-
-        {/* Repeating again for smooth loop */}
-        <img src="/images/img1.png" alt="img1" />
-        <img src="/images/img2.png" alt="img2" />
-        <img src="/images/img3.png" alt="img3" />
-        <img src="/images/img4.png" alt="img4" />
-        <img src="/images/img5.png" alt="img5" />
-        <img src="/images/img6.png" alt="img6" />
-      </div>
-    </div>
+          <div className="loginP-container-sec-1-morquee">
+            {" "}
+            <MusicPlatformMarquee logos={logos}></MusicPlatformMarquee>
+          </div>
         </div>
         <form className="loginP-form" onSubmit={handleSignIn}>
           <h6 className="loginP-form-head1">
