@@ -103,40 +103,27 @@
   position: relative;
   overflow: hidden;
   /* border: 1px solid white; */
-<<<<<<< HEAD
-}
-.dashboard-main-sec-212 h2{
-  color: #00EEFF;
-=======
   cursor: pointer;
 }
 .dashboard-main-sec-212 h2{
   color: rgb(153, 165, 166);
->>>>>>> 3456470e383ac0cbfa5d21c365f2fd696a383fcc
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -60%);
   font-size: 8vw;
   z-index: 9;
-<<<<<<< HEAD
-=======
   transition: all 0.2s ease-in-out;
 }
 .dashboard-main-sec-212:hover h2{
   color:#00EEFF;
->>>>>>> 3456470e383ac0cbfa5d21c365f2fd696a383fcc
 }
 .dashboard-main-sec-212 svg{
   filter: blur(1.3px);
   opacity: 0.2;
   height: 15vw;
-<<<<<<< HEAD
-  margin: 4vw 0vw 0vw 28vw;
-=======
   margin: 4vw 26vw 0vw 0vw;
   transform: rotate(20deg);
->>>>>>> 3456470e383ac0cbfa5d21c365f2fd696a383fcc
   /* position: absolute; */
   /* border: 1px solid green; */
 }
@@ -183,17 +170,6 @@
   /* position: relative; */
   overflow: hidden;
   /* border: 1px solid white; */
-<<<<<<< HEAD
-}
-.dashboard-main-sec-222 h2{
-  color: #00EEFF;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 8vw;
-  z-index: 9;
-=======
   cursor: pointer;
 }
 .dashboard-main-sec-222 h2{
@@ -208,17 +184,12 @@
 }
 .dashboard-main-sec-222:hover h2{
   color:#00EEFF;
->>>>>>> 3456470e383ac0cbfa5d21c365f2fd696a383fcc
 }
 .dashboard-main-sec-222 svg{
   filter: blur(1.3px);
   opacity: 0.1;
   height: 15vw;
-<<<<<<< HEAD
-  margin: 2vw 0vw 0vw 6vw;
-=======
   margin: 2vw 0vw 0vw -25vw;
->>>>>>> 3456470e383ac0cbfa5d21c365f2fd696a383fcc
   /* position: absolute; */
   /* border: 1px solid green; */
 }

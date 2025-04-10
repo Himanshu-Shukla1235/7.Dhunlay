@@ -4,6 +4,7 @@ import "./loginP.css";
 import Navbar from "../../components/Navbar/navbarC2";
 
 import Loading from "../../components/Loding/loadingC1";
+import VideoPage from "../../components/show video/videoC1";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
@@ -49,21 +50,50 @@ const SignInPage = () => {
 
   return (
     <>
-      <div className="loginP-nav">
-        <div className="logoD">
-          {/* <div className="logo"></div> */}
-          <h5>
-            <span>Dhun</span>
-            <span style={{ color: "white" }}>lay</span>
-          </h5>
-        </div>
-        <Navbar></Navbar>
-        <div style={{ marginRight: "70px" }}></div>
-      </div>
-
       <div className="loginP-container">
+        <div className="loginP-container-sec-1">
+          <p style={{ color: "white", backgroundColor: "transparent" }}>
+            Fueling Independent Sound, One Beat at a Time
+          </p>
+          <h7>
+            “Empowering independent artists with seamless music distribution &
+            digital tools.”
+          </h7>
+          <div className="loginP-container-sec-1-video">
+            <VideoPage className="videoP"></VideoPage>
+          </div>
+          <div className="marquee-container">
+      <div className="marquee-track">
+        {/* Repeat your images to make seamless scroll */}
+        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" alt="img1" />
+        <img src="" alt="img2" />
+        <img src="/images/img3.png" alt="img3" />
+        <img src="/images/img4.png" alt="img4" />
+        <img src="/images/img5.png" alt="img5" />
+        <img src="/images/img6.png" alt="img6" />
+
+        {/* Repeating again for smooth loop */}
+        <img src="/images/img1.png" alt="img1" />
+        <img src="/images/img2.png" alt="img2" />
+        <img src="/images/img3.png" alt="img3" />
+        <img src="/images/img4.png" alt="img4" />
+        <img src="/images/img5.png" alt="img5" />
+        <img src="/images/img6.png" alt="img6" />
+      </div>
+    </div>
+        </div>
         <form className="loginP-form" onSubmit={handleSignIn}>
-          <h2>Sign In</h2>
+          <h6 className="loginP-form-head1">
+            {" "}
+            Log in to Amplify <span style={{ color: "white" }}>
+              Your Sound
+            </span>{" "}
+          </h6>
+          <h2>
+            <span
+              style={{ backgroundColor: "transparent", color: "#00EEFF" }}
+            ></span>{" "}
+          </h2>
 
           <div className="input-group">
             <label htmlFor="loginP-email">Email</label>
@@ -86,7 +116,7 @@ const SignInPage = () => {
             />
           </div>
           <button type="submit" className="loginP-button" disabled={loading}>
-            {loading ? <Loading></Loading> : "Sign In"}
+            {loading ? <Loading></Loading> : "Log In"}
           </button>
           {error && <p className="loginP-error">{error}</p>}
         </form>
