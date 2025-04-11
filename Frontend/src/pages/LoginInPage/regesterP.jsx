@@ -22,9 +22,8 @@ const RegisterPage = () => {
     UK: ["England", "Scotland", "Wales"],
     Australia: ["New South Wales", "Queensland", "Victoria"],
   };
-    const backendAppUrl = import.meta.env.VITE_API_URL;
+  const backendAppUrl = import.meta.env.VITE_API_URL;
   const handleRegister = async (e) => {
-
     e.preventDefault();
     setError("");
     setLoading(true);
