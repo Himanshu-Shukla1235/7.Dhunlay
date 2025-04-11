@@ -42,11 +42,11 @@ function MainApp() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  const backendAppUrl = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/userData/me", {
+        const response = await fetch(`${backendAppUrl}/api/userData/me`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -113,7 +113,7 @@ function MainApp() {
   }, [navigate]);
   if (loading) {
     return (
-      <div >
+      <div>
         {" "}
         <LoadingP></LoadingP>
       </div>
@@ -129,7 +129,7 @@ function MainApp() {
       }
     >
       <Routes>
-      <Route path="/" element={<LandinP></LandinP>}></Route>
+        <Route path="/" element={<LandinP></LandinP>}></Route>
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />
