@@ -73,7 +73,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   width: 64vw;
-  height: 90vh;
+  height: 92vh;
   background-color: rgba(0, 0, 0, 0.114);
   border-bottom: solid 0.1vw rgba(255, 255, 255, 0.34);
   border-top: solid 1vw #00eeffad;
@@ -84,7 +84,7 @@
 }
 .loginP-container-sec-1 p {
   width: 30vw;
-
+overflow: hidden;
   font-family: sans-serif;
   font-size: 3vw;
   padding: 1vw;
@@ -104,6 +104,7 @@
   font-family: "Inconsolata", serif;
   font-size: 2vw;
   padding: 1vw;
+  overflow: hidden;
 }
 .loginP-container-sec-1-svg {
   width: 20vw;
@@ -137,8 +138,8 @@
 }
 
 .loginP-form {
-  width: 30vw;
-  height: 70vh;
+  width:auto;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -231,13 +232,18 @@
   background-color: transparent; /* Transparent background */
   color: whitesmoke; /* Text color */
   font-family: sans-serif; /* Font style */
-  font-size: 1.6vw; /* Text size */
+  font-size: 1.4vw; /* Text size */
   padding: 12px 20px; /* Inner spacing */
   border: none; /* No default border */
   cursor: pointer; /* Pointer cursor on hover */
   overflow: hidden; /* Hides pseudo-element overflow */
   transition: color 0.3s ease; /* Smooth text color transition */
   font-weight: 600;
+  background-color: #827f7f18;
+  border-radius: 0.5vw;
+  min-width:  13vw;
+  margin-bottom: 1vw;
+ 
 }
 
 .loginP-button::before {
@@ -269,6 +275,25 @@
   font-family: "Inconsolata", serif;
   color: red;
 }
+.loginP-From-sec-4{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-family: "Inconsolata", serif;
+background-color: transparent;
+}
+.loginP-From-sec-4 a {
+  color: white;
+  text-decoration: none;
+  margin: 1vw;
+  opacity: 0.7;
+  background-color: transparent;
+}.loginP-From-sec-4 a :hover{
+  color: white;
+}
+
+
 /*! ________________________________________| Responsive Designs |___________________________________________________ */
 /*?------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
@@ -285,7 +310,9 @@
     gap: 5vw;
     height: auto;
     align-items: center;
+    position: relative;
   }
+
   .loginP-container-sec-1 h7 {
     width: 80%;
     font-size: 3vw;
@@ -303,6 +330,7 @@
     width: 80%;
     margin: 1vw;
     justify-content: flex-start;
+    height: auto;
   }
   .loginP-form-head1 {
     font-size: 5vw;
@@ -370,6 +398,51 @@
 
 /*?------------------------ | SMALL LAPTOPS |------------------------- */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .loginP-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    padding-top: 2vw;
+    gap: 5vw;
+    padding-bottom: 7vw;
+  }
+  .loginP-container-sec-1 {
+    width: 85%;
+    gap: 5vw;
+    height: auto;
+    align-items: center;
+  }
+  .loginP-container-sec-1 h7 {
+    width: 80%;
+    font-size: 3vw;
+  }
+  .loginP-container-sec-1 p {
+    width: 80%;
+    font-size: 7vw;
+  }
+
+  .loginP-container-sec-1-video {
+    width: 85%;
+    height: auto;
+  }
+  .loginP-form {
+    width: 80%;
+    margin: 1vw;
+    justify-content: flex-start;
+  }
+  .loginP-form-head1 {
+    font-size: 5vw;
+  }
+  .input-group input{
+    width: 50vw;
+    font-size: 3vw;
+  }
+  .input-group label {
+    font-size: 4vw;
+  }
+  .loginP-button{
+    font-size: 4vw;
+  }
 }
 
 /*?------------------------ | LAPTOPS AND DESKTOPS |------------------------- */

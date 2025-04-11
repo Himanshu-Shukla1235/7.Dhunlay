@@ -11,13 +11,14 @@ const SignInPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const backendAppUrl = import.meta.env.VITE_API_URL;
   const handleSignIn = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
+      const response = await fetch(`${backendAppUrl}/api/auth/login`, {
         method: "POST",
         credentials: "include", // ✅ Allows cookies
         headers: { "Content-Type": "application/json" },
@@ -121,6 +122,18 @@ const SignInPage = () => {
           <button type="submit" className="loginP-button" disabled={loading}>
             {loading ? <Loading></Loading> : "Log In"}
           </button>
+          <div className="loginP-From-sec-4">
+            <p
+              style={{
+                color: "white",
+                opacity: "1",
+                backgroundColor: "transparent",
+              }}
+            >
+              or
+            </p>
+            <a href="/register">Register</a>
+          </div>
           {error && <p className="loginP-error">{error}</p>}
         </form>
       </div>

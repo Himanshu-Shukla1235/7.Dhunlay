@@ -22,8 +22,9 @@ const RegisterPage = () => {
     UK: ["England", "Scotland", "Wales"],
     Australia: ["New South Wales", "Queensland", "Victoria"],
   };
-
+    const backendAppUrl = import.meta.env.VITE_API_URL;
   const handleRegister = async (e) => {
+
     e.preventDefault();
     setError("");
     setLoading(true);
@@ -48,7 +49,7 @@ const RegisterPage = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/register", {
+      const response = await fetch(`${backendAppUrl}/api/auth/register`, {
         method: "POST",
         credentials: "include", // ✅ Allows cookies
         headers: { "Content-Type": "application/json" },

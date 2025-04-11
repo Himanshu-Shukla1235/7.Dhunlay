@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./ReleaseFormC1.css"
+import "./ReleaseFormC1.css";
 // Material UI & Icons
 import {
   IconButton,
@@ -68,7 +68,8 @@ const ReleaseUserForm = () => {
     formData.append("file", file);
     formData.append(
       "upload_preset",
-      process.env.CLOUDINARY_UPLOAD_PRESET || process.env.CLOUDINARY_UPLOAD_PRESET
+      process.env.CLOUDINARY_UPLOAD_PRESET ||
+        process.env.CLOUDINARY_UPLOAD_PRESET
     );
     formData.append("chunk_size", 6000000); // 6MB chunk size for large files
 
@@ -86,20 +87,27 @@ const ReleaseUserForm = () => {
       console.error(`❌ Upload failed for ${type}:`, error);
     }
   };
-
+  const backendAppUrl = import.meta.env.VITE_API_URL;
   // Submit data to the server
   const handleSubmit = async () => {
     // Upload files before submission
-    formDataPost.songFile = await handleUploadCloud(formDataPost.songFile, "wav");
-    formDataPost.coverArt = await handleUploadCloud(formDataPost.coverArt, "image");
-    console.log("cloudinary upload completed ........")
+    formDataPost.songFile = await handleUploadCloud(
+      formDataPost.songFile,
+      "wav"
+    );
+    formDataPost.coverArt = await handleUploadCloud(
+      formDataPost.coverArt,
+      "image"
+    );
+    console.log("cloudinary upload completed ........");
 
     try {
       // Validate that formDataPost contains meaningful data
       if (
         !formDataPost ||
         Object.values(formDataPost).every(
-          (value) => value === "" || (Array.isArray(value) && value.length === 0)
+          (value) =>
+            value === "" || (Array.isArray(value) && value.length === 0)
         )
       ) {
         console.error("❌ No valid data to submit");
@@ -108,7 +116,7 @@ const ReleaseUserForm = () => {
 
       console.log("📤 Submitting Data:", formDataPost);
 
-      const response = await fetch("http://localhost:3000/api/metadata/meta", {
+      const response = await fetch(`${backendAppUrl}/api/metadata/meta`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -205,7 +213,13 @@ const ReleaseUserForm = () => {
 
     return (
       <div className="step1-main">
-        <h2 style={{ color: "#00eeffc3", fontFamily: "sans-serif", fontWeight: "lighter" }}>
+        <h2
+          style={{
+            color: "#00eeffc3",
+            fontFamily: "sans-serif",
+            fontWeight: "lighter",
+          }}
+        >
           Step 1: Enter Song Details
         </h2>
         {/* Song Title */}
@@ -229,7 +243,15 @@ const ReleaseUserForm = () => {
           <div key={field}>
             <label className="step1-label-2">{label}(s):</label>
             {localData[field]?.map((value, index) => (
-              <div key={index} style={{ display: "flex", alignItems: "center", gap: "0.5vw", marginBottom: "1vw" }}>
+              <div
+                key={index}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5vw",
+                  marginBottom: "1vw",
+                }}
+              >
                 <InputC1
                   placeholder={`Enter ${label} Name`}
                   value={value}
@@ -240,7 +262,10 @@ const ReleaseUserForm = () => {
                   }}
                 />
                 {localData[field].length > 1 && (
-                  <IconButton color="error" onClick={() => handleRemoveField(field, index)}>
+                  <IconButton
+                    color="error"
+                    onClick={() => handleRemoveField(field, index)}
+                  >
                     <RemoveCircleIcon />
                   </IconButton>
                 )}
@@ -266,10 +291,18 @@ const ReleaseUserForm = () => {
           value={localData.lyrics || formDataPost.lyrics}
           onChange={(e) => handleChange("lyrics", e.target.value)}
           sx={{
-            "& .MuiInputBase-input::placeholder": { color: "white", opacity: 1 },
-            "& .MuiOutlinedInput-root": { color: "white", borderColor: "rgba(255, 255, 255, 0.5)" },
+            "& .MuiInputBase-input::placeholder": {
+              color: "white",
+              opacity: 1,
+            },
+            "& .MuiOutlinedInput-root": {
+              color: "white",
+              borderColor: "rgba(255, 255, 255, 0.5)",
+            },
             "& .MuiInputLabel-root": { color: "rgba(255, 255, 255, 0.7)" },
-            "& .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(255, 255, 255, 0.5)" },
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "rgba(255, 255, 255, 0.5)",
+            },
           }}
           style={{ marginBottom: "1vw" }}
         />
@@ -283,7 +316,12 @@ const ReleaseUserForm = () => {
           onChange={handleLyricsUpload}
         />
         <label htmlFor="upload-lyrics">
-          <Button variant="contained" component="span" startIcon={<CloudUploadIcon />} color="primary">
+          <Button
+            variant="contained"
+            component="span"
+            startIcon={<CloudUploadIcon />}
+            color="primary"
+          >
             Upload Lyrics File
           </Button>
         </label>
@@ -351,7 +389,9 @@ const ReleaseUserForm = () => {
         return;
       }
       if (fileSizeMB > MAX_SONG_SIZE_MB) {
-        alert(`Song file is too large! Max allowed size is ${MAX_SONG_SIZE_MB}MB.`);
+        alert(
+          `Song file is too large! Max allowed size is ${MAX_SONG_SIZE_MB}MB.`
+        );
         return;
       }
       setSongFile(file);
@@ -360,12 +400,17 @@ const ReleaseUserForm = () => {
     const handleCoverUpload = (file) => {
       if (!file) return;
       const fileSizeMB = file.size / (1024 * 1024);
-      if (!file.name.toLowerCase().endsWith(".jpeg") && !file.name.toLowerCase().endsWith(".jpg")) {
+      if (
+        !file.name.toLowerCase().endsWith(".jpeg") &&
+        !file.name.toLowerCase().endsWith(".jpg")
+      ) {
         alert("Invalid format! Please upload a .jpeg file.");
         return;
       }
       if (fileSizeMB > MAX_COVER_SIZE_MB) {
-        alert(`Cover image is too large! Max allowed size is ${MAX_COVER_SIZE_MB}MB.`);
+        alert(
+          `Cover image is too large! Max allowed size is ${MAX_COVER_SIZE_MB}MB.`
+        );
         return;
       }
 
@@ -400,7 +445,13 @@ const ReleaseUserForm = () => {
 
     return (
       <div className="step2-main">
-        <h2 style={{ color: "#00eeffc3", fontFamily: "sans-serif", fontWeight: "lighter" }}>
+        <h2
+          style={{
+            color: "#00eeffc3",
+            fontFamily: "sans-serif",
+            fontWeight: "lighter",
+          }}
+        >
           Step 2: Upload Song File
         </h2>
         <div className="step2-main1">
@@ -409,7 +460,11 @@ const ReleaseUserForm = () => {
           </div>
           <div className="step-2-main1-right">
             <label className="file-upload">
-              <input type="file" accept="audio/*" onChange={(e) => handleSongUpload(e.target.files[0])} />
+              <input
+                type="file"
+                accept="audio/*"
+                onChange={(e) => handleSongUpload(e.target.files[0])}
+              />
               <span className="file-text">Upload Song</span>
             </label>
           </div>
@@ -420,14 +475,21 @@ const ReleaseUserForm = () => {
           </div>
           <div className="step2-main2-right">
             <label className="file-upload">
-              <input type="file" accept="image/*" onChange={(e) => handleCoverUpload(e.target.files[0])} />
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleCoverUpload(e.target.files[0])}
+              />
               <span className="file-text">Upload Cover</span>
             </label>
           </div>
         </div>
         <div>
           {activeStep > 0 && (
-            <ButtonC1 content={"Back"} onClick={() => setActiveStep(activeStep - 1)} />
+            <ButtonC1
+              content={"Back"}
+              onClick={() => setActiveStep(activeStep - 1)}
+            />
           )}
           <ButtonC1
             content={"Next"}
@@ -487,7 +549,8 @@ const ReleaseUserForm = () => {
           value={localData.upc}
           onChange={(e) => handleChange("upc", e.target.value)}
         />
-        <br /><br />
+        <br />
+        <br />
         <div className="step3-main-datepicker">
           <Typography variant="body1" color="#bbb">
             Enter Release Date
@@ -497,7 +560,8 @@ const ReleaseUserForm = () => {
             onChange={(date) => handleChange("releaseDate", date)}
           />
         </div>
-        <br /><br />
+        <br />
+        <br />
         <Typography variant="body1" color="#bbb">
           Explicit Content
         </Typography>
@@ -519,7 +583,8 @@ const ReleaseUserForm = () => {
             />
           </RadioGroup>
         </FormControl>
-        <br /><br />
+        <br />
+        <br />
         <Typography variant="body1" color="#bbb">
           Select Distribution Platforms
         </Typography>
@@ -532,7 +597,10 @@ const ReleaseUserForm = () => {
         <br />
         <div>
           {activeStep > 0 && (
-            <ButtonC1 content={"Back"} onClick={() => setActiveStep(activeStep - 1)} />
+            <ButtonC1
+              content={"Back"}
+              onClick={() => setActiveStep(activeStep - 1)}
+            />
           )}
           {activeStep < stepContent.length - 1 ? (
             <ButtonC1
@@ -560,27 +628,39 @@ const ReleaseUserForm = () => {
         </p>
         <p>
           <strong>Primary Artists:</strong>{" "}
-          {formDataPost.primaryArtists?.length ? formDataPost.primaryArtists.join(", ") : "NA"}
+          {formDataPost.primaryArtists?.length
+            ? formDataPost.primaryArtists.join(", ")
+            : "NA"}
         </p>
         <p>
           <strong>Featuring Artists:</strong>{" "}
-          {formDataPost.featuringArtists?.length ? formDataPost.featuringArtists.join(", ") : "NA"}
+          {formDataPost.featuringArtists?.length
+            ? formDataPost.featuringArtists.join(", ")
+            : "NA"}
         </p>
         <p>
           <strong>Authors:</strong>{" "}
-          {formDataPost.authors?.length ? formDataPost.authors.join(", ") : "NA"}
+          {formDataPost.authors?.length
+            ? formDataPost.authors.join(", ")
+            : "NA"}
         </p>
         <p>
           <strong>Composers:</strong>{" "}
-          {formDataPost.composers?.length ? formDataPost.composers.join(", ") : "NA"}
+          {formDataPost.composers?.length
+            ? formDataPost.composers.join(", ")
+            : "NA"}
         </p>
         <p>
           <strong>Music Producers:</strong>{" "}
-          {formDataPost.musicProducers?.length ? formDataPost.musicProducers.join(", ") : "NA"}
+          {formDataPost.musicProducers?.length
+            ? formDataPost.musicProducers.join(", ")
+            : "NA"}
         </p>
         <p>
           <strong>Music Directors:</strong>{" "}
-          {formDataPost.musicDirectors?.length ? formDataPost.musicDirectors.join(", ") : "NA"}
+          {formDataPost.musicDirectors?.length
+            ? formDataPost.musicDirectors.join(", ")
+            : "NA"}
         </p>
         <p>
           <strong>Lyrics:</strong> {formDataPost.lyrics || "NA"}
@@ -594,15 +674,21 @@ const ReleaseUserForm = () => {
         </p>
         <p>
           <strong>Song File:</strong>{" "}
-          {formDataPost.songFile ? formDataPost.songFile.name || formDataPost.songFile : "NA"}
+          {formDataPost.songFile
+            ? formDataPost.songFile.name || formDataPost.songFile
+            : "NA"}
         </p>
         <p>
           <strong>Cover Art:</strong>{" "}
-          {formDataPost.coverArt ? formDataPost.coverArt.name || formDataPost.coverArt : "NA"}
+          {formDataPost.coverArt
+            ? formDataPost.coverArt.name || formDataPost.coverArt
+            : "NA"}
         </p>
         <p>
           <strong>Release Date:</strong>{" "}
-          {formDataPost.releaseDate ? formDataPost.releaseDate.toString() : "NA"}
+          {formDataPost.releaseDate
+            ? formDataPost.releaseDate.toString()
+            : "NA"}
         </p>
         <p>
           <strong>ISRC:</strong> {formDataPost.isrc || "NA"}
@@ -611,7 +697,8 @@ const ReleaseUserForm = () => {
           <strong>UPC:</strong> {formDataPost.upc || "NA"}
         </p>
         <p>
-          <strong>Explicit Content:</strong> {formDataPost.explicitContent || "NA"}
+          <strong>Explicit Content:</strong>{" "}
+          {formDataPost.explicitContent || "NA"}
         </p>
         <p>
           <strong>Distribution Platforms:</strong>{" "}
@@ -621,7 +708,10 @@ const ReleaseUserForm = () => {
         </p>
         <div>
           {activeStep > 0 && (
-            <ButtonC1 content={"Back"} onClick={() => setActiveStep(activeStep - 1)} />
+            <ButtonC1
+              content={"Back"}
+              onClick={() => setActiveStep(activeStep - 1)}
+            />
           )}
           <button
             onClick={() => {
