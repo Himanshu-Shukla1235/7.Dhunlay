@@ -55,7 +55,7 @@
   justify-content: flex-start;
   align-items: center;
   /* border: solid red 3px; */
-  background-image: url("/Frontend/public/img6.jpg"); /* Use forward slashes */
+  background-image: url("/img6.jpg"); /* Use forward slashes */
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
