@@ -42,7 +42,7 @@
 .logo {
   width: 2vw; /* Responsive width */
   height: 2vw; /* Responsive height */
-  background-image: url("E:\11.My web Projects\7.Dhunlay\Frontend\public\Dhun_logo.jpg");
+  /* background-image: url("\Dhun_logo.jpg"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

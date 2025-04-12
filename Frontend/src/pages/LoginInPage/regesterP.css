@@ -27,7 +27,7 @@
 .logo {
   width: 115px; /* Set a very small width for the logo */
   height: 115px; /* Set a very small height for the logo */
-  background-image: url("E:\11.My web Projects\7.Dhunlay\Frontend\public\Screenshot 2025-01-17 115659.png"); /* Background image */
+  background-image: url(""); /* Background image */
   background-size: cover; /* Ensure the image covers the entire circle */
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Prevent image from repeating */
@@ -68,7 +68,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-image: url("E:\11.My web Projects\7.Dhunlay\Frontend\public\img2.jpg");
+  background-image: url("/img6.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

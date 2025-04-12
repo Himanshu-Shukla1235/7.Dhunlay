@@ -9,9 +9,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  
+
   align-items: center;
-  height: 40px;
+  height: 7vh;
   /* border: solid red 3px; */
   width: 100%; /* Ensure it spans the full width */
   position: fixed; /* Fix it to the top */
@@ -25,14 +25,13 @@
 
 /*................................................................................... Logo  */
 
-
 .logoD {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: -5px;
-  font-family: sans-serif;
+  gap: -1vw;
+  font-family: "Inconsolata", serif;
   margin-left: 30px;
   font-weight: 5px;
   font-size: 1.5em;
@@ -53,44 +52,133 @@
 .loginP-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   /* border: solid red 3px; */
-  background-image: url("E:\11.My web Projects\7.Dhunlay\Frontend\public\img2.jpg"); /* Use forward slashes */
+  background-image: url("/img6.jpg"); /* Use forward slashes */
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
-  height: 100vh; /* Matches the viewport height */
+  height: 95vh; /* Matches the viewport height */
   width: 100%; /* Matches the full width of the viewport */
   margin: 0; /* Removes default margins */
   padding: 0; /* Removes default padding */
   overflow: hidden; /* Ensures no scrollbars appear */
-  
+  padding: 1vw;
+  gap: 1vw;
+}
+.loginP-container-sec-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 64vw;
+  height: 92vh;
+  background-color: rgba(0, 0, 0, 0.114);
+  border-bottom: solid 0.1vw rgba(255, 255, 255, 0.34);
+  border-top: solid 1vw #00eeffad;
+  backdrop-filter: blur(4px);
+  border-right: solid 0.1vw rgba(255, 255, 255, 0.34);
+  border-left: solid 0.1vw rgba(255, 255, 255, 0.34);
+  background-color: rgba(0, 0, 0, 0.114);
+}
+.loginP-container-sec-1 p {
+  width: 30vw;
+overflow: hidden;
+  font-family: sans-serif;
+  font-size: 3vw;
+  padding: 1vw;
+  font-weight: 600;
+
+  background: linear-gradient(90deg, #ffffff, #4b4a4a); /* Blue to white */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.loginP-container-sec-1 h7 {
+  background-color: transparent;
+  color: #a8a6a6;
+  font-family: sans-serif;
+  font-family: "Inconsolata", serif;
+  font-size: 2vw;
+  padding: 1vw;
+  overflow: hidden;
+}
+.loginP-container-sec-1-svg {
+  width: 20vw;
+  height: 20vw;
+}
+.loginP-container-sec-1-video {
+  width: 30vw;
+  height: 15vw;
+  overflow: hidden;
+
+  background-color: transparent;
+  opacity: 0.7;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border: solid rgb(102, 101, 101) 3px;
+  margin-top: 2vw;
+  margin-left: 5vw;
+}
+
+.loginP-container-sec-1-video:hover {
+  transform: scale(1.03); /* Slight zoom */
+  opacity: 1;
+  border: solid rgb(248, 248, 248) 3px;
+}
+/* ImageMarquee.css */
+.loginP-container-sec-1-morquee {
+  opacity: 0.5;
+
+  width: 65vw;
+  margin-top: 3vw;
 }
 
 .loginP-form {
-    width: 30em;
-    height: 20em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: solid rgb(0, 238, 255) 1px;
-    background-color: rgba(255, 255, 255, 0.2); /* Transparent background with some opacity */
-    backdrop-filter: blur(10px); /* Applies the blur effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    gap: 10px;
-    padding: 20px; /* Optional: Adds padding for inner spacing */
-    border-radius: 10px; /* Optional: Smoothens the edges */
-    /* margin-left: 45em;
+  width:auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid rgb(0, 238, 255) 1px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Transparent background with some opacity */
+  backdrop-filter: blur(4px); /* Applies the blur effect */
+  /* For Safari support */
+  gap: 10px;
+  padding: 20px; /* Optional: Adds padding for inner spacing */
+  border-radius: 10px; /* Optional: Smoothens the edges */
+  /* margin-left: 45em;
     margin-bottom: 5em; */
-  }
-  .loginP-form h2{
-    font-family: sans-serif;
-    color:rgb(0, 0, 0) ;
-    background-color: transparent;
-    margin-bottom: 1em;
-  }
+  background-color: rgba(0, 0, 0, 0.114);
+}
+.loginP-form-head1 {
+  background-color: transparent;
+  color: #00eeff;
+  font-family: sans-serif;
+
+  font-size: 1.8vw;
+  padding: 1vw;
+  margin-bottom: 1.5vw;
+}
+.loginP-form h2 {
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  margin-bottom: 1em;
+  overflow: hidden;
+  font-size: 2vw;
+  height: auto;
+  font-weight: 600;
+}
 .input-group {
   display: flex;
   flex-direction: column;
@@ -100,82 +188,263 @@
   background-color: transparent;
   gap: 10px;
 }
-.input-group label{
-    font-family: sans-serif;
-    color: rgb(3, 3, 3);
-    background-color: transparent;
+.input-group label {
+  font-family: "Inconsolata", serif;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  font-size: 1.5vw;
 }
 .input-group input {
-    font-family: sans-serif;
-    color: whitesmoke;
-    background-color: rgba(196, 193, 193, 0.288); /* Subtle background */
-    border: 1px solid transparent; /* Border set to transparent by default */
-    border-radius: 8px; /* Rounded corners */
-    padding: 12px 15px; /* Ensures sufficient inner spacing */
-    font-size: 16px; /* Readable font size */
-    outline: none; /* Removes default browser outline */
-    transition: all 0.3s ease; /* Smooth hover and focus transitions */
-    width: 100%; /* Full width of parent container */
-    box-sizing: border-box; /* Includes padding in the element's width/height */
+  font-family: "Inconsolata", serif;
+  color: whitesmoke;
+  background-color: rgba(196, 193, 193, 0.288); /* Subtle background */
+  border: 1px solid transparent; /* Border set to transparent by default */
+  border-radius: 8px; /* Rounded corners */
+  padding: 12px 15px; /* Ensures sufficient inner spacing */
+  font-size: 1.3vw; /* Readable font size */
+  outline: none; /* Removes default browser outline */
+  transition: all 0.3s ease; /* Smooth hover and focus transitions */
+  width: 100%; /* Full width of parent container */
+  box-sizing: border-box; /* Includes padding in the element's width/height */
+  margin-bottom: 1.5vw;
+}
+
+/* Placeholder styling */
+.input-group input::placeholder {
+  color: #cfcfcf; /* Placeholder text color */
+  opacity: 0.8; /* Slightly transparent */
+}
+
+/* Hover effect */
+.input-group input:hover {
+  border-color: #4dd0e1; /* Highlight border on hover */
+}
+
+/* Focus effect */
+.input-group input:focus {
+  border-color: #ffffff; /* Bright border on focus */
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background change */
+  color: #ffffff; /* Text remains visible */
+}
+
+.loginP-button {
+  position: relative; /* Required for pseudo-elements */
+  background-color: transparent; /* Transparent background */
+  color: whitesmoke; /* Text color */
+  font-family: sans-serif; /* Font style */
+  font-size: 1.4vw; /* Text size */
+  padding: 12px 20px; /* Inner spacing */
+  border: none; /* No default border */
+  cursor: pointer; /* Pointer cursor on hover */
+  overflow: hidden; /* Hides pseudo-element overflow */
+  transition: color 0.3s ease; /* Smooth text color transition */
+  font-weight: 600;
+  background-color: #827f7f18;
+  border-radius: 0.5vw;
+  min-width:  13vw;
+  margin-bottom: 1vw;
+ 
+}
+
+.loginP-button::before {
+  content: ""; /* Adds an empty pseudo-element */
+  position: absolute; /* Position relative to the button */
+  bottom: 0; /* Aligns to the bottom */
+  left: 0; /* Starts from the left */
+  width: 0%; /* Initial width of the border effect */
+  height: 2px; /* Height of the border */
+  background-color: #4dd0e1; /* Light blue border color */
+  transition: width 0.3s ease; /* Smooth width transition */
+}
+
+.loginP-button:hover {
+  color: #4dd0e1; /* Changes text color on hover */
+}
+
+.loginP-button:hover::before {
+  width: 100%; /* Expands the border to full width */
+}
+
+/* Active/Pressed effect */
+.loginP-button:active {
+  transform: scale(0.98); /* Slight shrinking effect */
+}
+
+.loginP-error {
+  background-color: transparent;
+  font-family: "Inconsolata", serif;
+  color: red;
+}
+.loginP-From-sec-4{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-family: "Inconsolata", serif;
+background-color: transparent;
+}
+.loginP-From-sec-4 a {
+  color: white;
+  text-decoration: none;
+  margin: 1vw;
+  opacity: 0.7;
+  background-color: transparent;
+}.loginP-From-sec-4 a :hover{
+  color: white;
+}
+
+
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .loginP-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    padding-top: 2vw;
+    gap: 5vw;
+    padding-bottom: 7vw;
   }
-  
-  /* Placeholder styling */
-  .input-group input::placeholder {
-    color: #cfcfcf; /* Placeholder text color */
-    opacity: 0.8; /* Slightly transparent */
-  }
-  
-  /* Hover effect */
-  .input-group input:hover {
-    border-color: #4dd0e1; /* Highlight border on hover */
-  }
-  
-  /* Focus effect */
-  .input-group input:focus {
-    border-color: #ffffff; /* Bright border on focus */
-    background-color: rgba(255, 255, 255, 0.1); /* Slight background change */
-    color: #ffffff; /* Text remains visible */
+  .loginP-container-sec-1 {
+    width: 85%;
+    gap: 5vw;
+    height: auto;
+    align-items: center;
+    position: relative;
   }
 
-  .loginP-button {
-    position: relative; /* Required for pseudo-elements */
-    background-color: transparent; /* Transparent background */
-    color: whitesmoke; /* Text color */
-    font-family: sans-serif; /* Font style */
-    font-size: 16px; /* Text size */
-    padding: 12px 20px; /* Inner spacing */
-    border: none; /* No default border */
-    cursor: pointer; /* Pointer cursor on hover */
-    overflow: hidden; /* Hides pseudo-element overflow */
-    transition: color 0.3s ease; /* Smooth text color transition */
+  .loginP-container-sec-1 h7 {
+    width: 80%;
+    font-size: 3vw;
   }
-  
-  .loginP-button::before {
-    content: ''; /* Adds an empty pseudo-element */
-    position: absolute; /* Position relative to the button */
-    bottom: 0; /* Aligns to the bottom */
-    left: 0; /* Starts from the left */
-    width: 0%; /* Initial width of the border effect */
-    height: 2px; /* Height of the border */
-    background-color: #4dd0e1; /* Light blue border color */
-    transition: width 0.3s ease; /* Smooth width transition */
+  .loginP-container-sec-1 p {
+    width: 80%;
+    font-size: 7vw;
   }
-  
-  .loginP-button:hover {
-    color: #4dd0e1; /* Changes text color on hover */
+
+  .loginP-container-sec-1-video {
+    width: 85%;
+    height: auto;
   }
-  
-  .loginP-button:hover::before {
-    width: 100%; /* Expands the border to full width */
+  .loginP-form {
+    width: 80%;
+    margin: 1vw;
+    justify-content: flex-start;
+    height: auto;
   }
-  
-  /* Active/Pressed effect */
-  .loginP-button:active {
-    transform: scale(0.98); /* Slight shrinking effect */
+  .loginP-form-head1 {
+    font-size: 5vw;
   }
-  
-  .loginP-error{
-    background-color: transparent;
-    font-family: sans-serif;
-    color: red;
+  .input-group input{
+    width: 50vw;
+    font-size: 3vw;
   }
+  .input-group label {
+    font-size: 4vw;
+  }
+  .loginP-button{
+    font-size: 4vw;
+  }
+}
+
+/*?------------------------ | TABLETS |------------------------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .loginP-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    padding-top: 2vw;
+    gap: 5vw;
+    padding-bottom: 7vw;
+  }
+  .loginP-container-sec-1 {
+    width: 85%;
+    gap: 5vw;
+    height: auto;
+    align-items: center;
+  }
+  .loginP-container-sec-1 h7 {
+    width: 80%;
+    font-size: 3vw;
+  }
+  .loginP-container-sec-1 p {
+    width: 80%;
+    font-size: 7vw;
+  }
+
+  .loginP-container-sec-1-video {
+    width: 85%;
+    height: auto;
+  }
+  .loginP-form {
+    width: 80%;
+    margin: 1vw;
+    justify-content: flex-start;
+  }
+  .loginP-form-head1 {
+    font-size: 5vw;
+  }
+  .input-group input{
+    width: 50vw;
+    font-size: 3vw;
+  }
+  .input-group label {
+    font-size: 4vw;
+  }
+  .loginP-button{
+    font-size: 4vw;
+  }
+}
+
+/*?------------------------ | SMALL LAPTOPS |------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .loginP-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    padding-top: 2vw;
+    gap: 5vw;
+    padding-bottom: 7vw;
+  }
+  .loginP-container-sec-1 {
+    width: 85%;
+    gap: 5vw;
+    height: auto;
+    align-items: center;
+  }
+  .loginP-container-sec-1 h7 {
+    width: 80%;
+    font-size: 3vw;
+  }
+  .loginP-container-sec-1 p {
+    width: 80%;
+    font-size: 7vw;
+  }
+
+  .loginP-container-sec-1-video {
+    width: 85%;
+    height: auto;
+  }
+  .loginP-form {
+    width: 80%;
+    margin: 1vw;
+    justify-content: flex-start;
+  }
+  .loginP-form-head1 {
+    font-size: 5vw;
+  }
+  .input-group input{
+    width: 50vw;
+    font-size: 3vw;
+  }
+  .input-group label {
+    font-size: 4vw;
+  }
+  .loginP-button{
+    font-size: 4vw;
+  }
+}
+
+/*?------------------------ | LAPTOPS AND DESKTOPS |------------------------- */
+@media (min-width: 1025px) {
+}

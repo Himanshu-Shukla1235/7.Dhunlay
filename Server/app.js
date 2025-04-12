@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 3000;
 // cors allowence
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"], // ✅ Allow multiple origins
+    origin: ["http://localhost:5173", "http://localhost:3000","http://dhunlay.com","http://localhost:5000"], // ✅ Allow multiple origins
     credentials: true, // ✅ Allow cookies/tokens
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],

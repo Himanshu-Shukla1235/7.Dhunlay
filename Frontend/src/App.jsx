@@ -1,4 +1,4 @@
-import  { Suspense, lazy, useState, useEffect } from "react";
+import { Suspense, lazy, useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import ProtectedRoute from "./components/AuthenticateUser/authUser"; // Import the ProtectedRoute component
 import Loader from "./components/Loding/loadingC1";
@@ -11,10 +11,10 @@ const Login = lazy(() => import("./pages/LoginInPage/loginP"));
 const Register = lazy(() => import("./pages/LoginInPage/regesterP"));
 const Meta = lazy(() => import("./components/MetaDataForm/MusicUploadForm"));
 const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
+const LandinP = lazy(() => import("./pages/Landing_page/landing_page"));
+import LoadingC2 from "./components/Loding/loadingC2";
 
-// const Features = lazy(() => import("./pages/Features/features"));
 // import Card from "./components/Cards/cardsC1";
-
 
 const ReleasesP = lazy(() => import("./pages/Releases/releasesP"));
 const FeaturesArtist = lazy(() =>
@@ -23,13 +23,13 @@ const FeaturesArtist = lazy(() =>
 const FeaturesLabel = lazy(() => import("./pages/FeaturesLabel/featuresLabel"));
 import GetSpotifyArtists from "./pages/Analytics/All datas/spotify/getUser";
 
-import Card from "./components/Cards/cardsC1";
+// import Card from "./components/Cards/cardsC1";
 
 import Palette from "./components/colorPalette/colPalette";
 import TestPage from "./components/test";
 import ReleaseUserForm from "./components/ReleasesElements/ReleaseFormC1";
-import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
-import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
+// import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
+// import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
   return (
     <BrowserRouter>
@@ -42,11 +42,11 @@ function MainApp() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  const backendAppUrl = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/userData/me", {
+        const response = await fetch(`${backendAppUrl}/api/userData/me`, {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -110,10 +110,10 @@ function MainApp() {
     };
 
     fetchUserData();
-  }, []);
+  }, [navigate]);
   if (loading) {
     return (
-      <div className="Loading">
+      <div>
         {" "}
         <LoadingP></LoadingP>
       </div>
@@ -129,6 +129,7 @@ function MainApp() {
       }
     >
       <Routes>
+        <Route path="/" element={<LandinP></LandinP>}></Route>
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />
@@ -146,18 +147,19 @@ function MainApp() {
             {/* <Route path="analytics" element={<Analytics />} /> */}
           </Route>
           <Route
-              path="/release/:id"
-              element={<ReleaseUserForm></ReleaseUserForm>}
-            ></Route>
+            path="/release/:id"
+            element={<ReleaseUserForm></ReleaseUserForm>}
+          ></Route>
         </Route>
 
         {/* Public Routes */}
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/register" element={<TestPage />} />
-        <Route path="/spotify/artist" element={<GetSpotifyArtists />} />
+
+        {/* <Route path="/spotify/artist" element={<GetSpotifyArtists />} />
         <Route path="/spotify/profile" element={<GetSpotifyProfile />} />
-        <Route path="/spotify/search" element={<SpotifySearch />} />
+        <Route path="/spotify/search" element={<SpotifySearch />} /> */}
 
         {/* this is testing  */}
         <Route path="/test" element={<TestPage />} />
@@ -166,7 +168,7 @@ function MainApp() {
         <Route path="/palette" element={<Palette />} />
 
         {/* Catch-all 404 Page */}
-        <Route path="*" element={<div>404 - Page Not Found</div>} />
+        <Route path="*" element={<div></div>} />
       </Routes>
     </Suspense>
   );

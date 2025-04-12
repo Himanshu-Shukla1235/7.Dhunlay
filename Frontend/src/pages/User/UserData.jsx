@@ -4,22 +4,28 @@ const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
-
+ const backendAppUrl =import.meta.env.VITE_API_URL; 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/userData/me", {
-          method: "GET",
-          credentials: "include",
-          headers: { "Content-Type": "application/json" },
-        });
+        const response = await fetch(
+          `${backendAppUrl}/api/userData/me`,
+          {
+            method: "GET",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
 
         const data = await response.json();
 
         if (response.ok) {
           setUserData(data);
         } else {
-          console.error("📺 Error fetching user:", data.message || "Unknown error");
+          console.error(
+            "📺 Error fetching user:",
+            data.message || "Unknown error"
+          );
           setUserData(null);
         }
       } catch (error) {
