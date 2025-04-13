@@ -33,13 +33,7 @@ app.use(
   })
 );
 
-//-------------------------
-// At bottom of your server file
-const path = require('path');
-app.use(express.static(path.join(__dirname, '../Frontend/dist')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../Frontend/dist', 'index.html'));
-});
+
 
 //-------------------------
 app.use(helmet());
@@ -58,6 +52,13 @@ app.use(authMiddleware);
 app.use("/api/metadata", testmeta);
 app.use("/api/userData", userData);
 
+//-------------------------
+// At bottom of your server file
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../Frontend/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../Frontend/dist', 'index.html'));
+});
 //..... Error Middleware (moved after routes)
 // app.use(errorHandlerMiddleware);
 
