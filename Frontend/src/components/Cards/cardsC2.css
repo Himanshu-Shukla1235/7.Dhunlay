@@ -1,0 +1,192 @@
+.cardC2-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0);
+
+  border-radius: 15px;
+
+  width: auto;
+  /* border: solid red 3px; */
+  gap: 1vw;
+  padding: 1vw;
+}
+
+.cardC2-loader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 7vh;
+  height: auto;
+
+  transform: rotate(180deg);
+  gap: 1.5vw;
+
+  border-radius: 1vw;
+  transition: 0.4s ease-in-out;
+  border: solid rgb(0, 0, 0) 3px;
+  background-color: black;
+  width: auto;
+  padding: 1vw;
+}
+
+.cardC2-currentplaying {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0.5vw;
+  /* border: solid red 3px; */
+}
+
+/* .cardC2-soundcloud {
+    width: 50px;
+    height: 50px;
+    margin-right: 0.6em;
+    border: solid red 3px;
+    
+  } */
+
+.cardC2-heading {
+  color: rgb(181, 181, 181);
+  font-size: 1.7em;
+  font-weight: bold;
+  align-self: center;
+  /* border: solid red 3px; */
+}
+
+.cardC2-loading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+  /* border: solid red 3px; */
+}
+
+.cardC2-load {
+  width: 2px;
+  height: 33px;
+  background-color: #ff8800;
+  animation: 1s cardC2-move6 infinite;
+  border-radius: 5px;
+  margin: 0.1em;
+}
+
+.cardC2-load:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.cardC2-load:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.cardC2-load:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.cardC2-albumcover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 3vw;
+  width: 4vw;
+  background-color: rgb(233, 232, 232);
+
+  border-radius: 5px;
+  overflow: hidden; /* ensures the image doesn't spill outside */
+}
+
+.cardC2-albumcover img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* maintains aspect ratio and covers the box */
+  border-radius: 5px; /* optional: keeps image corners rounded like the container */
+  display: block;
+  transform: rotate(180deg);
+}
+
+.cardC2-song {
+  transform: rotate(180deg);
+}
+.cardC2-name {
+  font-family: sans-serif;
+  color: #00eeff;
+  width: 10vw;
+  font-size: 1.1vw;
+}
+.cardC2-artist {
+  color: rgb(255, 255, 255);
+  font-size: 1vw;
+}
+.cardC2-progress-wrapper {
+  position: fixed;
+  bottom: 3%;
+  left: 30%;
+  transform: translateX(20%); /* positive = shift right, negative = shift left */
+  width: 40%;
+  background-color: rgba(0, 0, 0, 0.461); /* semi-transparent for blur visibility */
+  backdrop-filter: blur(7px); /* background blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  z-index: 1000;
+  padding: 0.75em 1em;
+
+  border-radius: 1vw;
+  border: solid 1px rgba(160, 159, 159, 0.304);
+}
+
+
+.cardC2-timestamp {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85em;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.cardC2-progress-container {
+  width: 100%;
+  height: 6px;
+  background-color: #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cardC2-progress-bar {
+  height: 100%;
+  background-color: #00eeff;
+  width: 0%;
+  transition: width 0.2s ease-in-out;
+}
+.cardC2-boxes1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-width: 5vw;
+  background-color: rgba(0, 0, 0, 0.386);
+  transform: rotate(180deg);
+}
+@keyframes cardC2-move6 {
+  0% {
+    height: 0.2em;
+  }
+
+  25% {
+    height: 0.7em;
+  }
+
+  50% {
+    height: 1.5em;
+  }
+
+  100% {
+    height: 0.2em;
+  }
+}

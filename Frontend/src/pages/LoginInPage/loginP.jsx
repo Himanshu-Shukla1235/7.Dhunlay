@@ -36,7 +36,7 @@ const SignInPage = () => {
       // ✅ Ensure user data exists and contains an ID
       if (data.user && data.user.id) {
         setTimeout(() => {
-          window.location.href = `/home/${data.user.id}`; // ✅ Dynamic redirect
+          window.location.href = `/dashboard/${data.user.id}`; // ✅ Dynamic redirect
         }, 1500);
       } else {
         throw new Error("User ID not found in response");

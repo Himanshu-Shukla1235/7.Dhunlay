@@ -3,7 +3,7 @@ import "./colPalette.css";
 
 const colors = [
   "#264653", 
-   "#00EEFF","#0000002F","#FFD700"
+   "#00EEFF","#0000002F","#FFD700","#00eeff"
 ];
 
 const Palette = () => {

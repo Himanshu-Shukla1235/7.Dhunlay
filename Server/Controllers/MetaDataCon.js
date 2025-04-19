@@ -137,16 +137,47 @@ const saveSong = async (req, res) => {
   }
 };
 
-module.exports = { saveSong };
+// -----------------------------Get total number of released songs---------------
+const getReleasedSongsByArtist = async (req, res) => {
+  console.log("✅ Backend hit: getReleasedSongsByArtist");
 
-// Simple Test Function
-const test = async (req, res) => {
   try {
-    console.log("✅ Metadata test passed");
-    res.status(200).json({ message: "Metadata test passed" });
-  } catch (err) {
-    res.status(500).json({ error: "❌ Metadata test error" });
+    let { artistNames } = req.query;
+
+    // If not present
+    if (!artistNames) {
+      return res.status(400).json({
+        success: false,
+        message: "Query param `artistNames` is required",
+      });
+    }
+
+    // If it's a single artist (not array), convert to array
+    if (typeof artistNames === "string") {
+      artistNames = [artistNames];
+    }
+
+    // Find songs with releaseDate set and where ANY of the artistNames exist in the primaryArtist array
+    const releasedSongs = await Song.find({
+      releaseDate: { $ne: null },
+      primaryArtist: { $in: artistNames },
+    });
+
+    res.status(200).json({
+      success: true,
+      message: `Fetched released songs for: ${artistNames.join(", ")}`,
+      total: releasedSongs.length,
+      data: releasedSongs,
+    });
+  } catch (error) {
+    console.error("❌ Error fetching released songs:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch released songs",
+    });
   }
 };
 
-module.exports = { saveSong, test };
+
+
+module.exports = { saveSong, getReleasedSongsByArtist };

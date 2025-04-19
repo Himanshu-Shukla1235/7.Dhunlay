@@ -15,7 +15,7 @@ const analytics = () => {
           </h2>
         </div>
       </div>
-      <div className="analytics-main-sec-2"></div>
+      <div className="analytics-main-sec-2"><p>this service is not available for now </p></div>
     </div>
   );
 };

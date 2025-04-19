@@ -14,21 +14,52 @@ const ListComponent = () => {
   const [activeName, setActiveName] = useState("");
 
   const menuItems = [
-    { name: "Dashboard", href: "/dashboard", icon: <SpaceDashboardIcon className="menu-icon" /> },
-    { name: "Analytics", href: "/analytics", icon: <AnalyticsIcon className="menu-icon" /> },
-    { name: "Releases", href: "/releases", icon: <LibraryMusicIcon className="menu-icon" /> },
-    { name: "Call-Support", href: "/call-support", icon: <CallIcon className="menu-icon" /> },
-    { name: "Finance", href: "/finance", icon: <MonetizationOnIcon className="menu-icon" /> },
-    { name: "Features", href: "/features", icon: <StarIcon className="menu-icon" /> },
-    { name: "Blog", href: "/blog", icon: <ArticleIcon className="menu-icon" /> },
-    { name: "Careers", href: "/careers", icon: <WorkIcon className="menu-icon" /> },
-    { name: "Support", href: "/support", icon: <SupportAgentIcon className="menu-icon" /> },
+    {
+      name: "Dashboard",
+      href: "/dashboard",
+      icon: <SpaceDashboardIcon className="menu-icon" />,
+    },
+    {
+      name: "Analytics",
+      href: "/analytics",
+      icon: <AnalyticsIcon className="menu-icon" />,
+    },
+    {
+      name: "Releases",
+      href: "/releases",
+      icon: <LibraryMusicIcon className="menu-icon" />,
+    },
+    // { name: "Call-Support", href: "/call-support", icon: <CallIcon className="menu-icon" /> },
+     { name: "Features", href: "/features", icon: <StarIcon className="menu-icon" /> },
+    {
+      name: "Finance",
+      href: "/finance",
+      icon: <MonetizationOnIcon className="menu-icon" />,
+    },
+
+    {
+      name: "Blog",
+      href: "/blog",
+      icon: <ArticleIcon className="menu-icon" />,
+    },
+    {
+      name: "Careers",
+      href: "/careers",
+      icon: <WorkIcon className="menu-icon" />,
+    },
+    // {
+    //   name: "Support",
+    //   href: "/support",
+    //   icon: <SupportAgentIcon className="menu-icon" />,
+    // },
   ];
 
   // Set active item based on the current URL
   useEffect(() => {
     const currentPath = window.location.pathname;
-    const activeItem = menuItems.find(item => currentPath.startsWith(item.href));
+    const activeItem = menuItems.find((item) =>
+      currentPath.startsWith(item.href)
+    );
     if (activeItem) {
       setActiveName(activeItem.name);
     }
@@ -40,7 +71,9 @@ const ListComponent = () => {
         <a
           key={item.name}
           href={item.href}
-          className={`listItems-sec-1-items ${activeName === item.name ? "active" : ""}`}
+          className={`listItems-sec-1-items ${
+            activeName === item.name ? "active" : ""
+          }`}
           onClick={() => setActiveName(item.name)}
         >
           {item.icon} {item.name}
