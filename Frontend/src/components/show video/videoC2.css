@@ -1,0 +1,37 @@
+/* videoC2.css */
+
+  
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+  }
+  
+  .videoC2-page {
+    width: auto;
+    height: auto;
+    background-color: #cec8c8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  /* Maintain 16:9 aspect ratio, responsive */
+  .videoC2-wrapper {
+    position: relative;
+    width: 30vw;
+    max-width: 1200px;
+    padding-bottom: 50.625%; /* 16:9 aspect ratio => 9/16 * 100 */
+    height: 0;
+  }
+  
+  .videoC2-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  

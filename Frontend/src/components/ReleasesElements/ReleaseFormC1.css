@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap");
 .ReleaseForm-main {
   /* display: flex;
     flex-direction: column;
@@ -6,6 +7,113 @@
   background-color: black;
   /* border: solid 3px red; */
   width: 100vw;
+  margin-right: 3vw;
+}
+.step-1-prev-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* border: solid green 3px; */
+  gap: 4vw;
+  padding: 5vw;
+  width: auto;
+  width: 90vw;
+}
+.step-1-prev-main-sec1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45vw;
+  height: auto;
+
+  border: solid rgb(0, 0, 0) 3px;
+  /* height: 100vh; */
+  background-color: rgba(65, 64, 64, 0.29);
+  border-radius: 1vw;
+  padding: 2vw;
+  gap: 2vw;
+}
+.step-1-prev-main-sec11 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+  width: 30vw;
+  border: solid rgba(255, 255, 255, 0.443) 1px;
+ 
+  border-radius: 1vw;
+  background-color: rgba(0, 0, 0, 0.692);
+  padding: 1vw;
+  height: auto;
+  opacity: 1;
+  
+}
+/* .step-1-prev-main-sec11:hover{
+opacity: 1;
+} */
+.step-1-prev-main-sec11 h4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.1vw;
+  justify-content: center;
+  font-family: "Inconsolata", serif;
+  /* font-family: sans-serif; */
+  color: rgba(255, 255, 255, 0.511);
+  gap: 0.5vw;
+  font-weight: 100;
+}
+.step-1-prev-main-sec12 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: flex-start;
+  width: 42vw;
+
+  height: auto;
+  border: solid black 3px;
+  border-top: solid #00eeffd4 1.5px;
+  
+  padding: 1vw;
+  background-color: black;
+  gap: 1vw;
+}
+.step-1-prev-main-sec12 h4{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  justify-content: flex-start;
+  color: rgba(255, 255, 255, 0.842);
+  font-family: sans-serif;
+  font-size: 1.3vw;
+  gap: 0.5vw;
+  margin: 0px;
+  font-weight: 400;
+}
+.step-1-prev-main-sec12-refrences{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  justify-content: flex-start;
+  width: 42vw;
+border-top: solid 3px rgba(48, 47, 47, 0.404) ;
+  height: auto;
+}
+.step-1-prev-main-sec12-refrences p{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inconsolata", serif;
+  font-weight: 200;
+  color: rgb(193, 193, 193);
+  gap: 1vw;
 }
 .step1-main {
   font-family: sans-serif;
@@ -19,13 +127,14 @@
 .step2-main {
   font-family: sans-serif;
   /* border: 1px #00eeff solid; */
-  
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 5vw;
   width: 90vw;
+  height: auto;
   /* background-color: rgb(67, 67, 67); */
 }
 
@@ -44,9 +153,8 @@
   padding: 2vw 2vw;
   width: 50vw;
   gap: 3vw;
-  
 
-  height: 35vh;
+  height: 50vh;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
 }
 .step2-main1 h3 {
@@ -72,35 +180,65 @@
   align-items: center;
   justify-content: center;
   border-right: 1px #00eeff solid;
-  height: 100%;
+  height: auto;
   width: 25vw;
+  padding: 2vw;
 }
 .step-2-main1-right {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px #00eeff solid;
-  height: 100%;
+  /* border: 1px #00eeff solid; */
+  height: auto;
   width: 25vw;
+  gap: 1vw;
+  padding: 2vw;
 }
+
+.step-2-main1-right-button1 {
+  background-color: #ffffff; /* Blue-600 */
+  color: #ffffff;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.75rem; /* rounded-xl */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  color: black;
+}
+
+.step-2-main1-right-button1:hover {
+  background-color: #00EEFF; /* Blue-700 */
+  
+}
+
+
+
 .step2-main2-left {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   border-right: 1px #00eeff solid;
-  height: 100%;
+  height: auto;
   width: 25vw;
+  padding: 2vw;
 }
 .step2-main2-right {
+  padding: 1vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px #00eeff solid;
-  height: 100%;
+  /* border: 1px #00eeff solid; */
+  height: auto;
   width: 25vw;
+  gap: 1vw;
+  padding: 2vw;
+  
 }
 .file-upload {
   width: 120px;

@@ -1,0 +1,43 @@
+.btn {
+    position: relative;
+    font-size: 0.3vw;              /* Smaller font size using vw */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.8vw 2vw;            /* Smaller padding using vw */
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3vw;            /* Circular feel, scaled with vw */
+    transition: all 0.2s;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+    color: black;
+    background-color: white;
+  }
+  
+  .btn:hover {
+    transform: translateY(-0.3vw);
+    box-shadow: 0 1vw 2vw rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn:active {
+    transform: translateY(-0.1vw);
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #fff;
+    transition: all 0.4s;
+  }
+  
+ 
+  

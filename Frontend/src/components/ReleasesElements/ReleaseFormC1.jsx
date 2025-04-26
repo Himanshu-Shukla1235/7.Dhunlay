@@ -24,12 +24,18 @@ import ButtonC1 from "../Buttons/buttonC1";
 import FileUploaderC1 from "../fileUploaded/fileUploaderC1";
 import CustomDatePicker from "../Datepicker/datePickerC1";
 import Selector from "../selectors/selectC1";
+import VideoPageC2 from "../show video/videoC2";
+import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
+import ArticleIcon from "@mui/icons-material/Article";
+import FileOpenIcon from "@mui/icons-material/FileOpen";
+//!_________________________________________________ FUNCITON : ReleaseUserForm __________________________________
 
 const ReleaseUserForm = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [uploadUrl, setUploadedUrl] = useState(null);
+  const backendAppUrl = import.meta.env.VITE_API_URL;
 
-  // Global form data state (data to be posted to the server)
+  //*--------------- GLOBAL FORM DATA STATE (data to be posted to the server)--------------------
   const [formDataPost, setFormDataPost] = useState({
     // Step 1
     songName: "",
@@ -47,8 +53,8 @@ const ReleaseUserForm = () => {
     language: "",
     genere: "",
     // Step 2
-    songFile: null,
-    coverArt: null,
+    songFile: "",
+    coverArt: "",
     // Step 3
     releaseDate: null,
     isrc: "",
@@ -57,7 +63,7 @@ const ReleaseUserForm = () => {
     distributionPlatform: [],
   });
 
-  // File upload handler to Cloudinary
+  //*--------------- FILE UPLOAD TO CLOUDINARRY -------------------------------
   const handleUploadCloud = async (file, type) => {
     if (!file) {
       alert(`Please select a ${type} file first!`);
@@ -66,31 +72,36 @@ const ReleaseUserForm = () => {
 
     const formData = new FormData();
     formData.append("file", file);
-    formData.append(
-      "upload_preset",
-      process.env.CLOUDINARY_UPLOAD_PRESET ||
-        process.env.CLOUDINARY_UPLOAD_PRESET
-    );
+    formData.append("upload_preset", "Himanshu" || "Himanshu");
     formData.append("chunk_size", 6000000); // 6MB chunk size for large files
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/upload`,
+        `https://api.cloudinary.com/v1_1/dysuiz4wn/upload`,
         {
           method: "POST",
           body: formData,
         }
       );
       const data = await response.json();
+
+      if (type === "image") {
+        formDataPost.coverArt = String(data.secure_url);
+        ;
+        console.log("this is image url :", formDataPost.coverArt);
+      } else {
+        formDataPost.songFile = `${data.secure_url}`;
+        console.log("this is song url :", formDataPost.songFile);
+      }
+
       return data.secure_url;
     } catch (error) {
       console.error(`❌ Upload failed for ${type}:`, error);
     }
   };
-  const backendAppUrl = import.meta.env.VITE_API_URL;
-  // Submit data to the server
+
+  //*--------------------------SUBMIT DATA TO SERVER -----------------------
   const handleSubmit = async () => {
-    // Upload files before submission
     formDataPost.songFile = await handleUploadCloud(
       formDataPost.songFile,
       "wav"
@@ -164,7 +175,7 @@ const ReleaseUserForm = () => {
     }
   };
 
-  // Step 1 Component: Song Details
+  //*------------------------ Step 1 Component: Song Details-----------------------
   const Step1 = ({ setFormDataPost, onNext }) => {
     const [localData, setLocalData] = useState({
       songName: "",
@@ -210,162 +221,207 @@ const ReleaseUserForm = () => {
       setFormDataPost((prev) => ({ ...prev, ...localData }));
       if (onNext) onNext();
     };
+    const references = [
+      { que: "What is the name of the song?" },
+      { que: "Who is the main artist or band?" },
+      { que: "List any featured artists (if any)." },
+      { que: "What genre does this song belong to?" },
+      {
+        que: "Do you own the rights to this song and have permission to distribute it?",
+      },
+      { que: "Would you like to set a release date or publish immediately?" },
+    ];
 
     return (
-      <div className="step1-main">
-        <h2
-          style={{
-            color: "#00eeffc3",
-            fontFamily: "sans-serif",
-            fontWeight: "lighter",
-          }}
-        >
-          Step 1: Enter Song Details
-        </h2>
-        {/* Song Title */}
-        <label className="step1-label-1">Song Name:</label>
-        <InputC1
-          placeholder="Enter the Title"
-          value={localData.songName || formDataPost.songName}
-          onChange={(e) => handleChange("songName", e.target.value)}
-        />
-        <br />
-
-        {/* Dynamic Fields */}
-        {[
-          { label: "Primary Artist", field: "primaryArtists" },
-          { label: "Featuring Artist", field: "featuringArtists" },
-          { label: "Author", field: "authors" },
-          { label: "Composer", field: "composers" },
-          { label: "Music Producer", field: "musicProducers" },
-          { label: "Music Director", field: "musicDirectors" },
-        ].map(({ label, field }) => (
-          <div key={field}>
-            <label className="step1-label-2">{label}(s):</label>
-            {localData[field]?.map((value, index) => (
-              <div
-                key={index}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5vw",
-                  marginBottom: "1vw",
-                }}
-              >
-                <InputC1
-                  placeholder={`Enter ${label} Name`}
-                  value={value}
-                  onChange={(e) => {
-                    const newValues = [...localData[field]];
-                    newValues[index] = e.target.value;
-                    handleChange(field, newValues);
-                  }}
-                />
-                {localData[field].length > 1 && (
-                  <IconButton
-                    color="error"
-                    onClick={() => handleRemoveField(field, index)}
-                  >
-                    <RemoveCircleIcon />
-                  </IconButton>
-                )}
-              </div>
-            ))}
-            <IconButton color="primary" onClick={() => handleAddField(field)}>
-              <AddCircleIcon sx={{ color: "grey" }} />
-            </IconButton>
+      <div className="step-1-prev-main">
+        <div className="step-1-prev-main-sec1">
+          <div className="step-1-prev-main-sec11">
+            <VideoPageC2 vid_src="https://www.youtube.com/embed/u5CVsCnxyXg?si=sAxP6ViM-gq6yoWl"></VideoPageC2>
+            <h4 style={{ opacity: "1" }}>
+              <SlowMotionVideoIcon
+                sx={{ color: "whitesmoke", fontSize: "1.3vw" }}
+              ></SlowMotionVideoIcon>
+              <span style={{ color: "#00EEFF" }}>DEMO VIDEO :</span> How to fill
+              the release form {" >>>"}
+            </h4>
           </div>
-        ))}
-
-        {/* Lyrics Section */}
-        <label className="step1-label" style={{ color: "white" }}>
-          <p style={{ fontFamily: "sans-serif" }}>Lyrics (if any):</p>
-        </label>
-        <TextField
-          label="Write Lyrics"
-          placeholder="Type your lyrics here..."
-          multiline
-          rows={4}
-          variant="outlined"
-          fullWidth
-          value={localData.lyrics || formDataPost.lyrics}
-          onChange={(e) => handleChange("lyrics", e.target.value)}
-          sx={{
-            "& .MuiInputBase-input::placeholder": {
-              color: "white",
-              opacity: 1,
-            },
-            "& .MuiOutlinedInput-root": {
-              color: "white",
-              borderColor: "rgba(255, 255, 255, 0.5)",
-            },
-            "& .MuiInputLabel-root": { color: "rgba(255, 255, 255, 0.7)" },
-            "& .MuiOutlinedInput-notchedOutline": {
-              borderColor: "rgba(255, 255, 255, 0.5)",
-            },
-          }}
-          style={{ marginBottom: "1vw" }}
-        />
-
-        {/* Lyrics File Upload */}
-        <input
-          type="file"
-          accept=".txt,.doc,.pdf"
-          id="upload-lyrics"
-          style={{ display: "none" }}
-          onChange={handleLyricsUpload}
-        />
-        <label htmlFor="upload-lyrics">
-          <Button
-            variant="contained"
-            component="span"
-            startIcon={<CloudUploadIcon />}
-            color="primary"
-          >
-            Upload Lyrics File
-          </Button>
-        </label>
-        <br />
-
-        {/* Label Name */}
-        <p style={{ fontFamily: "sans-serif" }}>Label Name</p>
-        <InputC1
-          placeholder="Enter the label name"
-          value={localData.labelName || formDataPost.labelName}
-          onChange={(e) => handleChange("labelName", e.target.value)}
-        />
-        <br />
-
-        {/* C_line */}
-        <p style={{ fontFamily: "sans-serif" }}>C_line</p>
-        <InputC1
-          placeholder="Enter the C_line"
-          value={localData.C_line || formDataPost.C_line}
-          onChange={(e) => handleChange("C_line", e.target.value)}
-        />
-        <br />
-
-        {/* p_line */}
-        <p style={{ fontFamily: "sans-serif" }}>P_line</p>
-        <InputC1
-          placeholder="Enter the P_line"
-          value={localData.p_line || formDataPost.p_line}
-          onChange={(e) => handleChange("p_line", e.target.value)}
-        />
-        <br />
-
-        {/* Navigation */}
-        {activeStep < stepContent.length - 1 ? (
-          <ButtonC1
-            content={"Next"}
-            onClick={() => {
-              handleNextClick();
-              setActiveStep(activeStep + 1);
+          <div className="step-1-prev-main-sec12">
+            <h4>
+              <ArticleIcon
+                sx={{ fontSize: "1.3vw", color: "#00eeff" }}
+              ></ArticleIcon>
+              References
+            </h4>
+            <div className="step-1-prev-main-sec12-refrences">
+              {references.map((item, index) => (
+                <p key={index} style={{}}>
+                  {index + 1}. {item.que}
+                  <FileOpenIcon
+                    sx={{ fontSize: "1.3vw", cursor: "pointer" }}
+                    onClick={() =>
+                      (window.location.href = "https://example.com")
+                    }
+                  ></FileOpenIcon>
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>{" "}
+        <div className="step1-main">
+          <h2
+            style={{
+              color: "#00eeff",
+              fontFamily: "sans-serif",
+              fontWeight: "lighter",
             }}
+          >
+            Enter Song Details
+          </h2>
+          {/* Song Title */}
+          <label className="step1-label-1">Song Name:</label>
+          <InputC1
+            placeholder="Enter the Title"
+            value={localData.songName || formDataPost.songName}
+            onChange={(e) => handleChange("songName", e.target.value)}
           />
-        ) : (
-          <button onClick={() => alert("Process Completed!")}>Finish</button>
-        )}
+          <br />
+
+          {/* Dynamic Fields */}
+          {[
+            { label: "Primary Artist", field: "primaryArtists" },
+            { label: "Featuring Artist", field: "featuringArtists" },
+            { label: "Author", field: "authors" },
+            { label: "Composer", field: "composers" },
+            { label: "Music Producer", field: "musicProducers" },
+            { label: "Music Director", field: "musicDirectors" },
+          ].map(({ label, field }) => (
+            <div key={field}>
+              <label className="step1-label-2">{label}(s):</label>
+              {localData[field]?.map((value, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5vw",
+                    marginBottom: "1vw",
+                  }}
+                >
+                  <InputC1
+                    placeholder={`Enter ${label} Name`}
+                    value={value}
+                    onChange={(e) => {
+                      const newValues = [...localData[field]];
+                      newValues[index] = e.target.value;
+                      handleChange(field, newValues);
+                    }}
+                  />
+                  {localData[field].length > 1 && (
+                    <IconButton
+                      color="error"
+                      onClick={() => handleRemoveField(field, index)}
+                    >
+                      <RemoveCircleIcon />
+                    </IconButton>
+                  )}
+                </div>
+              ))}
+              <IconButton color="primary" onClick={() => handleAddField(field)}>
+                <AddCircleIcon sx={{ color: "grey" }} />
+              </IconButton>
+            </div>
+          ))}
+
+          {/* Lyrics Section */}
+          <label className="step1-label" style={{ color: "white" }}>
+            <p style={{ fontFamily: "sans-serif" }}>Lyrics (if any):</p>
+          </label>
+          <TextField
+            label="Write Lyrics"
+            placeholder="Type your lyrics here..."
+            multiline
+            rows={4}
+            variant="outlined"
+            fullWidth
+            value={localData.lyrics || formDataPost.lyrics}
+            onChange={(e) => handleChange("lyrics", e.target.value)}
+            sx={{
+              "& .MuiInputBase-input::placeholder": {
+                color: "white",
+                opacity: 1,
+              },
+              "& .MuiOutlinedInput-root": {
+                color: "white",
+                borderColor: "rgba(255, 255, 255, 0.5)",
+              },
+              "& .MuiInputLabel-root": { color: "rgba(255, 255, 255, 0.7)" },
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "rgba(255, 255, 255, 0.5)",
+              },
+            }}
+            style={{ marginBottom: "1vw" }}
+          />
+
+          {/* Lyrics File Upload */}
+          <input
+            type="file"
+            accept=".txt,.doc,.pdf"
+            id="upload-lyrics"
+            style={{ display: "none" }}
+            onChange={handleLyricsUpload}
+          />
+          <label htmlFor="upload-lyrics">
+            <Button
+              variant="contained"
+              component="span"
+              startIcon={<CloudUploadIcon />}
+              color="primary"
+            >
+              Upload Lyrics File
+            </Button>
+          </label>
+          <br />
+
+          {/* Label Name */}
+          <p style={{ fontFamily: "sans-serif" }}>Label Name</p>
+          <InputC1
+            placeholder="Enter the label name"
+            value={localData.labelName || formDataPost.labelName}
+            onChange={(e) => handleChange("labelName", e.target.value)}
+          />
+          <br />
+
+          {/* C_line */}
+          <p style={{ fontFamily: "sans-serif" }}>C_line</p>
+          <InputC1
+            placeholder="Enter the C_line"
+            value={localData.C_line || formDataPost.C_line}
+            onChange={(e) => handleChange("C_line", e.target.value)}
+          />
+          <br />
+
+          {/* p_line */}
+          <p style={{ fontFamily: "sans-serif" }}>P_line</p>
+          <InputC1
+            placeholder="Enter the P_line"
+            value={localData.p_line || formDataPost.p_line}
+            onChange={(e) => handleChange("p_line", e.target.value)}
+          />
+          <br />
+
+          {/* Navigation */}
+          {activeStep < stepContent.length - 1 ? (
+            <ButtonC1
+              content={"Next"}
+              onClick={() => {
+                handleNextClick();
+                setActiveStep(activeStep + 1);
+              }}
+            />
+          ) : (
+            <button onClick={() => alert("Process Completed!")}>Finish</button>
+          )}
+        </div>
       </div>
     );
   };
@@ -376,7 +432,7 @@ const ReleaseUserForm = () => {
     const [coverFile, setCoverFile] = useState(null);
 
     // File size & resolution constraints
-    const MAX_SONG_SIZE_MB = 1000;
+    const MAX_SONG_SIZE_MB = 100;
     const MAX_COVER_SIZE_MB = 2;
     const MIN_COVER_RESOLUTION = { width: 1440, height: 1440 };
     const MAX_COVER_RESOLUTION = { width: 3000, height: 3000 };
@@ -447,12 +503,12 @@ const ReleaseUserForm = () => {
       <div className="step2-main">
         <h2
           style={{
-            color: "#00eeffc3",
+            color: "#00eeff",
             fontFamily: "sans-serif",
             fontWeight: "lighter",
           }}
         >
-          Step 2: Upload Song File
+          Upload Song File
         </h2>
         <div className="step2-main1">
           <div className="step-2-main1-left">
@@ -465,23 +521,83 @@ const ReleaseUserForm = () => {
                 accept="audio/*"
                 onChange={(e) => handleSongUpload(e.target.files[0])}
               />
-              <span className="file-text">Upload Song</span>
             </label>
+            {/* Display the uploaded song file name */}
+            {songFile && (
+              <div
+                className="uploaded-file-name"
+                style={{ marginTop: "0.5rem", color: "white" }}
+              >
+                {songFile.name}
+              </div>
+            )}
+            <button
+              className="step-2-main1-right-button1"
+              onClick={async () => {
+                try {
+                  const result = await handleUploadCloud(songFile, "wav");
+                  console.log("song-Upload success:", result);
+                } catch (error) {
+                  console.error("song-Upload failed:", error);
+                }
+              }}
+            >
+              submit
+            </button>
           </div>
+
+          {/* //----------------------------- */}
         </div>
         <div className="step2-main2" style={{ marginTop: "1rem" }}>
           <div className="step2-main2-left">
             <h3>Cover Art Upload</h3>
           </div>
           <div className="step2-main2-right">
-            <label className="file-upload">
+            <label
+              className="file-upload"
+              style={{
+                display: "block",
+                width: "100%",
+                height: "100%",
+                backgroundImage: 'url("https://t4.ftcdn.net/jpg/12/56/40/47/360_F_1256404749_KGkPHa743eTwopHELCubfquWO9DU8BHH.jpg")', // ✅ fixed here
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                cursor: "pointer",
+                borderRadius: "12px",
+                opacity:"0.5",
+                border:'none'
+                ,height:"30vh"
+              }}
+            >
               <input
                 type="file"
                 accept="image/*"
                 onChange={(e) => handleCoverUpload(e.target.files[0])}
               />
-              <span className="file-text">Upload Cover</span>
             </label>
+            {/* Display the uploaded cover file name */}
+            {coverFile && (
+              <div
+                className="uploaded-file-name"
+                style={{ marginTop: "0.5rem", color: "white" ,height:"5vh", fontFamily:"sans-serif"}}
+              >
+                {coverFile.name}
+              </div>
+            )}
+            <button
+              className="step-2-main1-right-button1"
+              onClick={async () => {
+                try {
+                  const result = await handleUploadCloud(coverFile, "image");
+                  console.log("Cover-Upload success:", result);
+                } catch (error) {
+                  console.error("cover-Upload failed:", error);
+                }
+              }}
+            >
+              submit
+            </button>
           </div>
         </div>
         <div>

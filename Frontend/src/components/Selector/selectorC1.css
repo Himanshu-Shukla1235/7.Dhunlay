@@ -1,0 +1,185 @@
+/* Basic styling for the selector container */
+.selector-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #0f0f0f00;
+  border-radius: 1vw;
+  height: 45vh;
+  padding: 1vw;
+  width: 20vw;
+  overflow: hidden;
+  z-index: 0.5;
+  position: relative;
+}
+
+/* Styling the label */
+.selector-container label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2vw;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ecf0f1;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  padding: 2vw;
+  gap: 1vw;
+  z-index: 1;
+  height: auto;
+}
+
+/* Dropdown button */
+.dropdown-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  color: #00eeff;
+  padding: 0.5vw;
+  font-size: 1vw;
+  width: 100%;
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  height: auto;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-button:hover {
+  background-color: #ffffff1d;
+}
+
+/* Dropdown content area */
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background-color: #2e2e2e;
+  width: 100%;
+  max-height: 30vh;
+  overflow-y: auto;
+  padding: 1.5vw;
+  gap: 0.5vw;
+  border-radius: 0.8vw;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #999 #2e2e2e; /* Firefox */
+}
+
+/* Chrome, Edge, and Safari scrollbars */
+.dropdown-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background-color: #2e2e2e;
+}
+
+/* Individual dropdown item */
+.dropdown-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 5vh;
+  background-color: transparent;
+  color: #e2e2e2;
+  cursor: pointer;
+  border-radius: 0.5vw;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 1vw;
+  flex-shrink: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.dropdown-item:hover {
+  background-color: #ffffff1f;
+  color: #ffffff;
+}
+
+.dropdown-item.selected {
+  background-color: #00eeffdd;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Selected items label */
+.selector-container .selected-artists {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ecf0f1;
+  font-weight: bold;
+}
+
+/* Submit Button styling */
+.submit-button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #00eeffdd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #16a085;
+}
+
+/* Search bar wrapper */
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Search input styling */
+.dropdown-search {
+  width: 100%;
+  padding: 0.5vw 2.5vw 0.5vw 0.5vw;
+  font-size: 1vw;
+  margin-bottom: 1vw;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  background-color: #fffbfb;
+  color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+/* ✅ Fixed hover effect for search */
+.dropdown-search:hover {
+  background-color: white;
+}
+
+/* Search icon styling */
+.search-icon {
+  position: absolute;
+  right: 0.8vw;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 1.2vw;
+  color: white;
+}
