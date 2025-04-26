@@ -2,12 +2,11 @@
 .dashBoard-main {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   align-items: center;
-  width: 100%;
-  height: 500%;
+  /* width: 100%; */
   padding: 0.45vw;
-  text-align: center;
+  /* text-align: center; */
   color: white;
   background-color: #1e1e1e; /* Dark background */
   border-radius: 1vw;
@@ -70,16 +69,14 @@
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
   /* border: 1px solid yellow; */
-  /* position: relative; */
 }
 .dashBoard-main-sec-211 {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-left: 0.5vw;
-  height: 5vh;
-  width: 36.5vw;
+  height: 4vh;
+  width: 95%;
   background-color: rgba(0, 0, 0, 0);
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
@@ -97,20 +94,23 @@
 }
 
 .dashBoard-main-sec-211-earning{
-  margin-left: 15vw;
+  margin-left: 13vw;
 }
 .dashboard-main-sec-212{
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   /* border: 1px solid white; */
   cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 .dashboard-main-sec-212 h2{
-  color: rgb(153, 165, 166);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%);
+  color: rgb(153, 165, 166);
   font-size: 8vw;
   z-index: 9;
   transition: all 0.2s ease-in-out;
@@ -122,10 +122,9 @@
   filter: blur(1.3px);
   opacity: 0.2;
   height: 15vw;
-  margin: 4vw 26vw 0vw 0vw;
-  transform: rotate(20deg);
-  /* position: absolute; */
-  /* border: 1px solid green; */
+  transform: rotate(10deg);
+  margin: 50px 0px 0px -25vw;
+  /* margin: 3vw 0 0 -6vw; */
 }
 
 .dashBoard-main-sec-22 {
@@ -146,13 +145,16 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-left: 0.5vw;
-  height: 5vh;
-  width: 36.5vw;
+  /* margin-left: 0.5vw; */
+  height: 4vh;
+  /* width: 36.5vw; */
+  width: 95%;
   background-color: rgba(0, 0, 0, 0);
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
   margin-top: 0.5vw;
+  margin-left: 10px;
+  /* border: 1px solid red; */
 }
 .dashBoard-main-sec-221-dot {
   width: 1vw;
@@ -164,22 +166,25 @@
   background-color: rgb(0, 238, 255);
 }
 .dashBoard-main-sec-221-ToUploads{
-    margin-left: 15vw;
+  margin-left: 13vw;
 }
 .dashboard-main-sec-222{
-  /* position: relative; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   /* border: 1px solid white; */
   cursor: pointer;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 .dashboard-main-sec-222 h2{
-  color: rgb(153, 165, 166);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-30%, -50%);
+  color: rgb(153, 165, 166);
   font-size: 8vw;
-  z-index: 2;
+  z-index: 9;
   transition: all 0.2s ease-in-out;
 }
 .dashboard-main-sec-222:hover h2{
@@ -187,11 +192,11 @@
 }
 .dashboard-main-sec-222 svg{
   filter: blur(1.3px);
-  opacity: 0.1;
+  opacity: 0.2;
   height: 15vw;
-  margin: 2vw 0vw 0vw -25vw;
-  /* position: absolute; */
-  /* border: 1px solid green; */
+  /* transform: rotate(10deg); */
+  margin: 50px 0px 0px -25vw;
+  /* margin: 3vw 0 0 -6vw; */
 }
 
 /* ?____________________________________ \ SECTION 3 \_______________________________ */
@@ -209,7 +214,7 @@
   font-family: "Inconsolata", serif;
   gap: 1vw;
   /* border: 1px solid red; */
-  margin-top: 5vw;
+  margin: 5vw 0;
 }
 .dashBoard-main-sec-31 {
   display: flex;
@@ -225,19 +230,32 @@
   font-family: "Inconsolata", serif;
   gap: 4vw;
   transition: box-shadow 0.3s ease-in-out; 
+  position: relative;
 }
 .dashBoard-main-sec-31:hover {
   box-shadow: 0 0 5px rgba(0, 229, 255, 0.185), 0 0 5px rgba(0, 229, 255, 0.363), 0 0 10px rgba(0, 229, 255, 0.205);
 }
+.dashBoard-main-sec-31 img{
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  filter: brightness(0.8) blur(1px) grayscale(100%) opacity(0.2);
+}
 
 .dashBoard-main-sec-31 h2{
   width: 70%;
-  color:#989898;
+  color:#ffffff;
   margin-bottom: -0.5vw;
   font-size: 1.5vw;
+  z-index: 1;
 }
 .dashBoard-main-sec-31 p{
   margin-top: -1vw;
+  z-index: 1;
 }
 .btns{
   width: 70%;
@@ -247,6 +265,7 @@
   justify-content: space-between;
   /* margin-bottom: 1vw; */
   /* border: 1px solid chartreuse; */
+  z-index: 1;
 }
 .relbtn{
   padding: 0.5vw 0.8vw;
@@ -281,8 +300,137 @@
   cursor: pointer;
   background-color: #00EEFF;
   color: black;
+  z-index: 1;
 }
 .featurebtn:hover{
   background-color: #1ecad7;
 }
 
+/* ?____________________________________ \ SECTION 4 \_______________________________ */
+
+.dashboard-main-sec-4{
+  height: 80vh;
+  width: 88vw;
+  background-color: rgba(87, 87, 87, 0.201);
+  /* background-color: transparent; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------ Responsive Design ----------------------------------------------------------- */
+
+@media (min-width:350px) and (max-width: 600px){
+
+  .dashBoard-main-sec-1{
+    width: 100%;
+  }
+  .dashBoard-main-sec-11 h2{
+    margin-left: 2vw;
+    font-size: 4.5vw;
+    width: 100%;
+  }
+
+  .dashBoard-main-sec-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7vw;
+    margin-top: 10vw;
+  }
+  .dashBoard-main-sec-31{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    height: 75vw;
+  }
+  .dashBoard-main-sec-31 p{
+    font-size: 5vw;
+    /* border: 1px solid brown; */
+  }
+  .dashBoard-main-sec-31 h2{
+    font-size: 5vw;
+    width: 90%;
+    /* border: 1px solid brown; */
+    text-align: center;
+  }
+  .relbtn{
+    font-size: 3vw;
+    padding: 1vw 2vw;
+  }
+  .demobtn{
+    font-size: 3vw;
+    padding: 1vw 2vw;
+  }
+  .featurebtn{
+    font-size: 3vw;
+    padding: 1vw 2vw;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1050px) {
+  .dashBoard-main-sec-1 h2{
+    font-size: 2vw;
+  }
+  .dashBoard-main-sec-3{
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+  }
+  .dashBoard-main-sec-31{
+    width: 80%;
+    height: 30vw;
+  }
+  .dashBoard-main-sec-3 h2{
+    font-size: 3vw;
+    text-align: center;
+  }
+  .dashBoard-main-sec-3 p{
+    font-size: 2.2vw;
+  }
+  .btns button{
+    font-size: 1.7vw;
+  }
+  .featurebtn{
+    font-size: 1.7vw;
+  }
+}
+
+@media (max-width: 800px){
+  .dashBoard-main-sec-2{
+    display: flex;
+    flex-direction: column;
+    gap: 8vw;
+  }
+  .dashBoard-main-sec-21{
+    width: 80%;
+  }
+  .dashBoard-main-sec-211-earning p{
+    margin-left: 12vw;
+  }
+  .dashBoard-main-sec-22{
+    width: 80%;
+  }
+  .dashBoard-main-sec-221-ToUploads p{
+    margin-left: 12vw;
+  }
+  .dashboard-main-sec-212 svg{
+    height: 25vw;
+    margin: 40px 0px 0px -40vw;
+  }
+  .dashboard-main-sec-212 h2{
+    margin-left: 5vw;
+    font-size: 10vw;
+  }
+  .dashboard-main-sec-222 svg{
+    height: 25vw;
+    margin: 40px 0px 0px -40vw;
+  }
+  .dashboard-main-sec-222 h2{
+    margin-left: 5vw;
+    font-size: 10vw;
+  }
+}

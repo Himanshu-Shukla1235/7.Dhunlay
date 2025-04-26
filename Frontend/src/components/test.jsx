@@ -2,12 +2,7 @@ import React from "react";
 import LoadingC2 from "./Loding/loadingC2";
 import VideoPage from "./show video/videoC1";
 import MusicPlatformMarquee from "./morque/morque";
-import ReferencePageC1 from "./Reference page/ReferencePageC1";
-import "./styles.css";
-import ButtonC2 from "./Buttons/buttonC2";
-import CardC2 from "./Cards/cardsC2";
-import UpsertPrimaryArtistForm from "./primaryatistActions/addPrimaryArtist";
-import AllPrimaryArtists from "./primaryatistActions/getTotalPrimaryArtist";
+
 const Test = () => {
   const logos = [
     {

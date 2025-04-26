@@ -2,19 +2,23 @@
   "features": [
     {
       "title": "Global Distribution",
-      "content": "Distribute your music globally across top platforms like Spotify, Apple Music, and more. Reach a worldwide audience with ease."
+      "content": "Distribute your music globally across top platforms like Spotify, Apple Music, and more. Reach a worldwide audience with ease.",
+      "imageUrl": "https://example.com/images/distribution.png"
     },
     {
       "title": "Artist Management",
-      "content": "Efficiently manage your roster of artists, track their progress, and provide them with personalized resources to help them grow."
+      "content": "Efficiently manage your roster of artists, track their progress, and provide them with personalized resources to help them grow.",
+      "imageUrl": "https://example.com/images/artist_management.png"
     },
     {
       "title": "Royalty Tracking",
-      "content": "Track and manage royalties accurately, ensuring timely payments and transparency for your artists and stakeholders."
+      "content": "Track and manage royalties accurately, ensuring timely payments and transparency for your artists and stakeholders.",
+      "imageUrl": "https://example.com/images/royalty_tracking.png"
     },
     {
       "title": "Marketing & Promotion",
-      "content": "Promote your label’s releases with built-in marketing tools. Run ad campaigns, track their success, and maximize visibility."
+      "content": "Promote your label’s releases with built-in marketing tools. Run ad campaigns, track their success, and maximize visibility.",
+      "imageUrl": "https://example.com/images/marketing_promotion.png"
     }
   ]
 }

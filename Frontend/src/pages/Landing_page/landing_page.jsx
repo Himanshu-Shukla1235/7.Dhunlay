@@ -12,9 +12,12 @@ import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 import { gsap } from "gsap";
 import { ScrollTrigger as GSAPScrollTrigger } from "gsap/ScrollTrigger";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import faqData from "../../data/faq.json";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
+import Footer from "../../components/Footer/footer"
 
 // Custom hook to handle the animation logic
 const useAnimateOnScroll = () => {
@@ -27,7 +30,9 @@ const useAnimateOnScroll = () => {
 };
 
 const test = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const [navOpen, setNavOpen] = useState(false);
 
   const [counterOn, setCounterOn] = useState(false);
 
@@ -36,6 +41,8 @@ const test = () => {
   const [tilts, setTilts] = useState({});
 
   const answerRefs = useRef([]);
+
+  const handleLinkClick = () => setNavOpen(false);
 
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index); // Toggle logic for answers
@@ -101,33 +108,70 @@ const test = () => {
             <span>Dhun</span>
             <span style={{ color: "white" }}>lay</span>
           </h4>
-          <main className="navbar-elems">
+
+          {/* Hamburger / Close icon */}
+          <div className="hamburger-icon" onClick={() => setNavOpen(!navOpen)}>
+            {navOpen ? (
+              <CloseOutlinedIcon style={{ color: "white", fontSize: "28px" }} />
+            ) : (
+              <MenuOutlinedIcon style={{ color: "white", fontSize: "28px" }} />
+            )}
+          </div>
+
+          <main className={`navbar-elems ${navOpen ? "show" : ""}`}>
             <ul className="all-elems">
               <li className="feature-button">
-                <a className="button">
+                <a className="button" onClick={handleLinkClick}>
                   Features <ArrowDropDownOutlinedIcon className="downicon" />
                 </a>
                 <div className="dropdown-content">
-                  <a href="./features_artist">Features for artists</a>
-                  <a href="./features_label">Features for labels</a>
-                  <a href="#">Feature 3</a>
+                  <a href="./features_artist" onClick={handleLinkClick}>
+                    Features for artists
+                  </a>
+                  <a href="./features_label" onClick={handleLinkClick}>
+                    Features for labels
+                  </a>
+                  <a href="#" onClick={handleLinkClick}>
+                    Feature 3
+                  </a>
                 </div>
               </li>
               <li>
-                <a href="#">Subscriptoin</a>
+                <a href="#" onClick={handleLinkClick}>
+                  Subscription
+                </a>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <a href="#" onClick={handleLinkClick}>
+                  Contact
+                </a>
               </li>
               <li>
-                <a href="/contact">FAQ{"'"}s</a>
+                <a href="/contact" onClick={handleLinkClick}>
+                  FAQs
+                </a>
               </li>
               <li>
-              <button className="loginbtnn" onClick={() => navigate("/login")}>Login</button>
-
+                <button
+                  className="loginbtnn"
+                  onClick={() => {
+                    navigate("/login");
+                    handleLinkClick();
+                  }}
+                >
+                  Login
+                </button>
               </li>
               <li>
-                <button className="regbtn" onClick={() => navigate("/login") }>Register</button>
+                <button
+                  className="regbtn"
+                  onClick={() => {
+                    navigate("/login");
+                    handleLinkClick();
+                  }}
+                >
+                  Register
+                </button>
               </li>
             </ul>
           </main>
@@ -135,7 +179,7 @@ const test = () => {
 
         <div className="section-1">
           <video autoPlay muted loop>
-            <source src="/videos/video1.mp4" type="video/mp4"/>
+            <source src="/videos/video1.mp4" type="video/mp4" />
           </video>
           <div className="section-11">
             <h1>
@@ -158,7 +202,10 @@ const test = () => {
               available on every major streaming service, empowering you to
               focus on creating while we handle the distribution.
             </p>
-           
+
+            <button>
+              Let's create <KeyboardDoubleArrowRightIcon className="darrow"/>
+            </button>
           </div>
           <ExpandMoreOutlinedIcon className="scroll-down" />
         </div>
@@ -166,6 +213,10 @@ const test = () => {
         <div className="section-2">
           <div className="section-21">
             <div className="section-211">
+              <img
+                src="https://t4.ftcdn.net/jpg/02/42/11/11/360_F_242111146_bIk4vYtvTo7n4T9EhOk37sLwVQjF6wVX.jpg"
+                alt=""
+              />
               <p>Number of trusted artists joined us</p>
               <h2>
                 <ScrollTrigger
@@ -177,6 +228,10 @@ const test = () => {
               </h2>
             </div>
             <div className="section-211">
+              <img
+                src="https://5.imimg.com/data5/SELLER/Default/2025/2/487209659/FO/HV/CK/15237173/professional-high-quality-sound-7-main-string-black-acoustic-sitar-musical-instrument.jpg"
+                alt=""
+              />
               <p>Number of songs we have uploaded</p>
               <h2>
                 <ScrollTrigger
@@ -750,13 +805,11 @@ const test = () => {
             </div>
             <div className="section-411-2">
               <h2>Track your work and earnings in our interactive dashboard</h2>
-              <p>
                 <p>
                   Monitor your music's performance, track earnings, and get
                   real-time insights with our interactive and user-friendly
                   dashboard.
                 </p>
-              </p>
             </div>
           </div>
 
@@ -1041,9 +1094,7 @@ const test = () => {
         </div>
 
         <div className="section-6">
-          <div className="section-61">
-            <h1>Footer</h1>
-          </div>
+          <Footer/>
         </div>
       </div>
     </>

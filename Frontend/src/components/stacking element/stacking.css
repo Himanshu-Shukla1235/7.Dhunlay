@@ -89,3 +89,14 @@
   right: 15%;
   animation-delay: 0.3s;
 }
+
+@media (max-width:600px){
+  .typing-indicator{
+    height: 4vw;
+    width: 5vw;
+  }
+  .typing-circle{
+    height: .8vw;
+    width: .8vw;
+  }
+}
