@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.foot {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 10vw;
+  /* border: 1px solid orange; */
+  flex-wrap: wrap;
+}
+.foot-1 {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: flex-start;
+}
+.foot-1 p {
+  color: white;
+  margin: -0px 0px 0px 2.5vw;
+  font-size: 1vw;
+  position: relative;
+}
+.foot-1 p span {
+  position: absolute;
+  top: 40%;
+  left: -3%;
+  transform: translate(-50%, -50%);
+  font-size: 2vw;
+  letter-spacing: 5px;
+}
+.foot-1-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: -1vw;
+}
+.foot-1-1 img {
+  height: 5vw;
+}
+.foot-1-1 h2 {
+  color: rgb(0, 191, 255);
+  font-family: sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 2.5vw;
+}
+.outer{
+  display: flex;
+  flex-direction: row;
+  gap: 8vw;
+}
+.foot-2 {
+  /* border: 1px solid greenyellow; */
+}
+.foot-2 h3 {
+  color: white;
+  text-transform: capitalize;
+  font-family: sans-serif;
+  font-size: 1.5vw;
+}
+.foot-2-1 {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.services {
+  margin-right: -5vw;
+}
+.foot-2-1 a {
+  text-decoration: none;
+  color: rgb(185, 183, 183);
+}
+.foot-2-1 a:hover {
+  text-decoration: underline;
+  color: white;
+}
+.foot-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.foot-3-1 h3 {
+  color: white;
+  margin-bottom: 10px;
+  font-family: sans-serif;
+}
+.socials {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  gap: 25px;
+}
+.socials a {
+  color: rgb(140, 139, 139);
+  font-size: 25px;
+}
+.icon-github:hover {
+  color: white;
+}
+.icon-linkedin:hover {
+  color: rgb(28, 131, 228);
+}
+.icon-youtube:hover {
+  color: rgb(223, 36, 36);
+}
+.icon-twitter:hover {
+  color: white;
+}
+.icon-instagram:hover {
+  color: rgb(225, 10, 122);
+}
+
+.foot-3-2 {
+  margin-top: 4vw;
+  display: flex;
+  flex-direction: column;
+}
+.foot-3-2 h3 {
+  color: white;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+}
+.subscribe-form {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+
+.subscribe-form input {
+  padding: 0.7vw;
+  font-size: 1vw;
+  width: 18vw;
+  border-radius: 50px;
+  border: 1px solid white;
+  background-color: white;
+}
+
+.foot-3-2 button {
+  padding: 0.8vw 2vw;
+  font-size: 1vw;
+  background-color: #1d92d1d0; /* You can change the color */
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.foot-3-2 button:hover {
+  background-color: #1396dc;
+}
+
+/* ------------------------------------------------------ Responsive Design ----------------------------------------------------------- */
+
+@media (min-width:350px) and (max-width:490px){
+  .foot {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15vw;
+    /* border: 1px solid orange; */
+    flex-wrap: wrap;
+    padding-bottom: 5vw;
+  }
+  .foot-1{
+    /* border: 1px solid green; */
+    overflow: hidden;
+    align-items: center;
+    width: 100%;
+    gap: 1vw;
+  }
+  .foot-1 p{
+    margin-left: 15px;
+    font-size: 3vw;
+  }
+  .foot-1 p span{
+    font-size: 5vw;
+  }
+  .foot-1-1 h2{
+    font-size: 4.5vw;
+  }
+  .foot-1-1 img{
+    height: 8vw;
+  }
+  .outer{
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 10vw;
+  }
+  .foot-2 h3{
+    font-size: 4vw;
+  }
+  .foot-2-1 a{
+    font-size: 3vw;
+  }
+  .foot-3{
+    gap: 5vw;
+  }
+  .foot-3-1 h3{
+    font-size: 4vw;
+  }
+  .foot-3-2 h3{
+    font-size: 4vw;
+  }
+  .subscribe-form input{
+    padding: 2vw 1.5vw;
+    font-size: 3vw;
+    width: 75%;
+  }
+  .subscribe-form button{
+    padding: 1vw 2.5vw;
+    font-size: 3vw;
+  }
+}
+
+/* @media (min-width:451px) and (max-width:900px){
+
+} */

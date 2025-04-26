@@ -2,19 +2,23 @@
   "features": [
     {
       "title": "Global Distribution",
-      "content": "Distribute your music to over 100+ streaming platforms worldwide, including Spotify, Apple Music, and more. Reach millions of listeners and grow your fanbase globally."
+      "content": "Distribute your music to over 100+ streaming platforms worldwide, including Spotify, Apple Music, and more. Reach millions of listeners and grow your fanbase globally.",
+      "imageUrl": "https://d3lc2v4pocabbd.cloudfront.net/wp-content/uploads/2024/03/world_map_technology_network-min.jpg"
     },
     {
       "title": "Real-Time Analytics",
-      "content": "Access real-time statistics on how your music is performing. Track plays, downloads, and revenue across all platforms with detailed insights."
+      "content": "Access real-time statistics on how your music is performing. Track plays, downloads, and revenue across all platforms with detailed insights.",
+      "imageUrl": "https://example.com/images/analytics.png"
     },
     {
       "title": "High-Quality Audio Uploads",
-      "content": "Upload your music in the highest quality formats, ensuring that your sound is preserved as intended when it reaches your audience."
+      "content": "Upload your music in the highest quality formats, ensuring that your sound is preserved as intended when it reaches your audience.",
+      "imageUrl": "https://example.com/images/audio_quality.png"
     },
     {
       "title": "Automatic Royalty Collection",
-      "content": "Automatically collect royalties from streaming platforms and digital stores. We'll ensure you get paid for every play, download, or purchase."
+      "content": "Automatically collect royalties from streaming platforms and digital stores. We'll ensure you get paid for every play, download, or purchase.",
+      "imageUrl": "https://example.com/images/royalties.png"
     }
   ]
 }

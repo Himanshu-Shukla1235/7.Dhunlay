@@ -12,6 +12,9 @@ const Register = lazy(() => import("./pages/LoginInPage/regesterP"));
 const Meta = lazy(() => import("./components/MetaDataForm/MusicUploadForm"));
 const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
 const LandinP = lazy(() => import("./pages/Landing_page/landing_page"));
+
+const About = lazy(() => import("./pages/About/about"));
+
 import LoadingC2 from "./components/Loding/loadingC2";
 
 // import Card from "./components/Cards/cardsC1";
@@ -130,6 +133,9 @@ function MainApp() {
     >
       <Routes>
         <Route path="/" element={<LandinP></LandinP>}></Route>
+        {/* This is about page */}
+        <Route path="/about/:id" element={<About />} />
+
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />
@@ -169,6 +175,7 @@ function MainApp() {
 
         {/* Catch-all 404 Page */}
         <Route path="*" element={<div></div>} />
+
       </Routes>
     </Suspense>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import LoadingC2 from "./Loding/loadingC2";
 import VideoPage from "./show video/videoC1";
 import MusicPlatformMarquee from "./morque/morque";
+
 const Test = () => {
     const logos = [
         { src: "https://music-row-website-assets.s3.amazonaws.com/wp-content/uploads/2018/11/10155527/Apple-Music-Logo-FB.png", alt: "Spotify" },

@@ -12,8 +12,7 @@ const featuresLabel = () => {
       <div className="features-main">
         <div className="features-main-sec-1">
           <div className="features-main-sec-11">
-
-          <div className="heading">
+            <div className="heading">
               <div className="heading-stacking">
                 <Stacking />
               </div>
@@ -35,16 +34,15 @@ const featuresLabel = () => {
           </div>
         </div>
 
-        <div className="division"></div>  
-      {/* using to divide the two sections */}
+        <div className="division"></div>
+        {/* using to divide the two sections */}
 
-      <div className="features-main-sec-2">
-        <h2>The upcoming features.</h2>
-        <div className="features-main-sec-21">
-        <UpcomingFeatureCard data={upcomingLabelFeaturesData} />
+        <div className="features-main-sec-2">
+          <h2>The upcoming features.</h2>
+          <div className="features-main-sec-21">
+            <UpcomingFeatureCard data={upcomingLabelFeaturesData} />
+          </div>
         </div>
-      </div>
-
       </div>
     </>
   );
