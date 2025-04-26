@@ -24,10 +24,11 @@
   box-shadow: 0 0.5vh 0.8vh rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
-  border-bottom: solid rgb(58, 58, 58) min(0.05vw, 0.3px);
+
 
   /* Responsive border thickness */
   border-radius: 0.5vw;
+  border-bottom: solid rgb(4, 255, 0) 0.2vw;
 }
 
 .navbar-show {
@@ -345,6 +346,19 @@
   .left-drawer-close-button:hover {
     color: #00eeff; /* Change color on hover */
     transform: scale(1.2); /* Slightly enlarge */
+  }
+    .Home-nav-signout{
+      display: none;
+    }
+  .Home-nav-signout h4{
+    display: none;
+  }
+  .logoD h5{
+ font-size: 4.2vw;
+ 
+  }
+  .centerEl{
+    font: 4vw;
   }
 }
 

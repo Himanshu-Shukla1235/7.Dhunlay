@@ -70,7 +70,7 @@
   background-color: black;
   overflow: hidden;
   z-index: 1;
-  border: black solid 2.5px;
+  border: black solid 0.2vw;
   border-radius: 0.5vw;
   padding: 1vw;
   gap: 1.5vw;
@@ -130,7 +130,7 @@
   background-color: black;
   position: relative; /* Needed to position the pseudo-element */
   overflow: hidden;   /* Optional: prevents ::before from spilling outside */
-  border: black solid 2.5px;
+  border: black solid 0.2vw;
   gap: 1vw;
   padding: 2vw;
 }
@@ -172,7 +172,7 @@
 .ReleasesP-main-sec-3 {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   height: auto;
   width: 73vw;
@@ -190,9 +190,11 @@ padding: 2vw;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 3px solid rgb(71, 70, 70);
+  border: solid rgba(139, 139, 139, 0.046) 3px;
   border-radius: 1vw;
   overflow: hidden; /* Ensures ::before background doesn't spill outside border radius */
+  width: 40vw;
+  padding-top: 2vw;
 }
 
 .ReleasesP-main-sec-31::before {
@@ -221,22 +223,48 @@ padding: 2vw;
   position: relative; /* Added for correct positioning */
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  border: solid rgb(0, 0, 0) 3px;
+  justify-content: center;
+  align-items: flex-start;
+  border: solid rgba(139, 139, 139, 0.046) 3px;
   width: 50vw;
-  height: 45vh;
+  height: 46vh;
   overflow: hidden; /* Optional: hides overflow of ::before */
   padding: 0.5vw;
+  border-radius: 1vw;
+  gap: 0.5vw;
+padding-top: 2vw;
 }
 .ReleasesP-main-sec-321{
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  width:25vw ;
+  width:15vw;
+  height: 30vh;
+  /* border-right: grey 3px solid; */
+  padding: 1vw;
+
+  
+}
+.ReleasesP-main-sec-3211{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  width:100%;
   height: 100%;
-  border-right: grey 3px solid;
+  background-color: #ffffff04;
+  border-radius: 0.3vw;
+  padding: 0.5vw;
+  gap: 2vw;
+
+}
+.ReleasesP-main-sec-3211 p{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
 }
 
 .ReleasesP-main-sec-32::before {
@@ -312,4 +340,67 @@ padding: 2vw;
   height: 5vw;
   width:15vw;
   background-color: rgba(0, 0, 0, 0.386);
+}
+
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .ReleasesP-main-sec-1 h2{
+    font-size: 4.8vw;
+
+  }
+  .ReleasesP-main-sec-2{
+    flex-direction: column;
+  }
+  .ReleasesP-main-sec-21{
+    width: 70vw;
+    height: 10vh;
+    
+  }
+  .ReleasesP-main-sec-21 h4{
+    font-size: 4vw;
+  }
+  .ReleasesP-main-sec-21 p{
+    font-size: 2vw;
+  }
+  .ReleasesP-main-sec-21-button-1{
+    font-size: 2.2vw;
+  }
+  .ReleasesP-main-sec-22{
+    align-items: center;
+    justify-content: flex-start;
+    width: 50vw;
+    height: 12vh;
+    gap: 5vw;
+  }
+  .ReleasesP-main-sec-22 p{
+    font-size: 4vw;
+  }
+  .ReleasesP-main-sec-3{
+    flex-direction: column;
+    height: auto;
+  }
+  .ReleasesP-main-sec-31{
+    justify-content: center;
+    align-items: center;
+    
+   
+    
+    height: auto;
+  }
+}
+
+/*?------------------------ | TABLETS |------------------------- */
+@media (min-width: 481px) and (max-width: 768px) {
+ 
+}
+
+/*?------------------------ | SMALL LAPTOPS |------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+}
+
+/*?------------------------ | LAPTOPS AND DESKTOPS |------------------------- */
+@media (min-width: 1025px) {
+  
 }

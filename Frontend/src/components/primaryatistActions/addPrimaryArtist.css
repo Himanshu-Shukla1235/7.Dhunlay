@@ -8,58 +8,63 @@
   padding: 1vw;
   background: #33333369;
   border-radius: 1vw;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.1);
   gap: 1vw;
-  background-blend-mode:difference;
+  background-blend-mode: difference;
 }
 
 .artist-form-title {
-  font-size: 1.25rem;
+  font-size: 1.25vw;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1vh;
   text-align: center;
 }
 
 .artist-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1vw;
 }
 
 .artist-input {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  padding: 0.5vh 0.75vw;
+  border: 0.1vw solid #ccc;
+  border-radius: 0.5vw;
+  font-size: 1vw;
   transition: border-color 0.3s, background-color 0.3s;
 }
 
-/* 👆 Hover effect */
+/* Hover effect */
 .artist-input:hover {
   border-color: #00eeff;
   background-color: #f9f9f9;
 }
 
-/* 👆 Focus effect (when typing) */
+/* Focus effect */
 .artist-input:focus {
   border-color: #00eeff;
   outline: none;
   background-color: white;
 }
 
+.artist-input::placeholder {
+  color: black;
+  opacity: 1;
+}
+
 .artist-button {
   background-color: #00eeffc3;
   color: rgb(0, 0, 0);
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 0.5vh 1vw;
+  font-size: 1vw;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.5vw;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .artist-button:hover {
-  background-color: #00EEFF;
+  background-color: #00eeff;
 }
 
 .artist-button:disabled {
@@ -72,27 +77,23 @@
   flex-direction: column;
   justify-self: flex-start;
   align-items: flex-start;
-  margin-top: 1rem;
-  padding: 0.75rem;
+  margin-top: 1vh;
+  padding: 0.75vh 1vw;
   background-color: #fffffff9;
   color: #065f46;
-  border-radius: 0.5rem;
+  border-radius: 0.5vw;
 }
-.artist-input::placeholder {
-  color: black;
-  opacity: 1; /* Ensure full opacity in all browsers */
-}
-.artist-created{
+
+.artist-created {
   color: black;
   font-size: 1.3vw;
   font-weight: 600;
-  margin: 1vw;
+  margin: 1vh 1vw;
 }
-.artist-exists{
-  
-  margin-bottom: 1vw;
+
+.artist-exists {
+  margin: 1vh 1vw;
   color: black;
   font-size: 1.1vw;
   font-weight: 600;
-  margin: 1vw;
 }

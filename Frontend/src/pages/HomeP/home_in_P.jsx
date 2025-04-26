@@ -13,7 +13,7 @@ import TocIcon from "@mui/icons-material/Toc";
 import { Toc } from "@mui/icons-material";
 
 import LeftDrawer from "../../components/drawer/drawerleftC1";
-import CancelIcon from '@mui/icons-material/Cancel';
+import CancelIcon from "@mui/icons-material/Cancel";
 
 const HomeP = () => {
   const navigate = useNavigate();
@@ -48,12 +48,27 @@ const HomeP = () => {
         <div className="centerEl">
           <Tooltip title="Support">
             <span>
-              <SupportAgentIcon className="icon1" />
+              <SupportAgentIcon
+                className="icon1"
+                sx={{
+                  fontSize: {
+                    xs: "1.5rem", // phones
+                    sm: "1.2rem", // small tablets
+                    md: "1.7vw", // desktops and up
+                  },
+                }}
+              />
             </span>
           </Tooltip>
           <Tooltip title="About Us">
             <span>
-              <InfoIcon className="icon2" />
+              <InfoIcon className="icon2" sx={{
+                  fontSize: {
+                    xs: "1.5rem", // phones
+                    sm: "1.2rem", // small tablets
+                    md: "1.7vw", // desktops and up
+                  },
+                }} />
             </span>
           </Tooltip>
         </div>
@@ -64,17 +79,22 @@ const HomeP = () => {
               <Toc></Toc>
             </button>
           </div>
-         <div className="drawerleft"><LeftDrawer open={open}>
-            <button class="left-drawer-close-button" onclick={toggleDrawer}>
-            <CancelIcon className="close-button" onClick={() => setOpen(false)} />
-            </button>{" "}
-            <ListComponent />
-          </LeftDrawer></div>
-          
-
-          <button onClick={() => navigate("/Login")}>
-            <h4>SignOut</h4>
-          </button>
+          <div className="drawerleft">
+            <LeftDrawer open={open}>
+              <button class="left-drawer-close-button" onclick={toggleDrawer}>
+                <CancelIcon
+                  className="close-button"
+                  onClick={() => setOpen(false)}
+                />
+              </button>{" "}
+              <ListComponent />
+            </LeftDrawer>
+          </div>
+          <div className="Home-nav-signout">
+            <button onClick={() => navigate("/Login")}>
+              <h4>SignOut</h4>
+            </button>
+          </div>
         </div>
       </header>
 

@@ -14,6 +14,8 @@ import {
 import CardC2 from "../../components/Cards/cardsC2";
 import PrimaryArtistSelector from "../../components/Selector/selectorC1";
 import UpsertPrimaryArtistForm from "../../components/primaryatistActions/addPrimaryArtist";
+import InfoIcon from "@mui/icons-material/Info";
+import SearchIcon from "@mui/icons-material/Search";
 // Total Releases Component
 const TotalReleases = () => {
   const { songs } = useReleasedSongs();
@@ -105,23 +107,25 @@ const ReleasesPContent = () => {
               selectedArtists={selectedArtists}
               onChange={setSelectedArtists}
             />
-
-            
           </div>
         </div>
-        <div className="ReleasesP-main-sec-32"><div className="ReleasesP-main-sec-321"></div><UpsertPrimaryArtistForm></UpsertPrimaryArtistForm></div>
+        <div className="ReleasesP-main-sec-32">
+          <UpsertPrimaryArtistForm></UpsertPrimaryArtistForm>
+        </div>
       </div>
 
       {/* Section 4 */}
       <div className="ReleasesP-main-sec-4">
         <h4>Released Songs</h4>
-        <ReleasedSongsProvider artistNames={selectedArtists}>
-          <SongsList />
-        </ReleasedSongsProvider>
+  
+          {" "}
+          <ReleasedSongsProvider artistNames={selectedArtists}>
+            <SongsList />
+          </ReleasedSongsProvider>
+      
       </div>
     </div>
   );
 };
-
 
 export default ReleasesP;
