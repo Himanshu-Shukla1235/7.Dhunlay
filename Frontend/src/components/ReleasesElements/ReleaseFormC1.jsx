@@ -28,13 +28,17 @@ import VideoPageC2 from "../show video/videoC2";
 import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
 import ArticleIcon from "@mui/icons-material/Article";
 import FileOpenIcon from "@mui/icons-material/FileOpen";
+import { useUser } from "../../pages/User/UserData";
 //!_________________________________________________ FUNCITON : ReleaseUserForm __________________________________
 
 const ReleaseUserForm = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [uploadUrl, setUploadedUrl] = useState(null);
   const backendAppUrl = import.meta.env.VITE_API_URL;
-
+  
+  const { userData } = useUser();
+  const userId=userData._id;
+  console.log("frontend--",userData);
   //*--------------- GLOBAL FORM DATA STATE (data to be posted to the server)--------------------
   const [formDataPost, setFormDataPost] = useState({
     // Step 1
@@ -61,6 +65,8 @@ const ReleaseUserForm = () => {
     upc: "",
     explicitContent: "no",
     distributionPlatform: [],
+    //
+    userId:"",
   });
 
   //*--------------- FILE UPLOAD TO CLOUDINARRY -------------------------------
@@ -558,7 +564,7 @@ const ReleaseUserForm = () => {
               style={{
                 display: "block",
                 width: "100%",
-                height: "100%",
+              
                 backgroundImage: 'url("https://t4.ftcdn.net/jpg/12/56/40/47/360_F_1256404749_KGkPHa743eTwopHELCubfquWO9DU8BHH.jpg")', // ✅ fixed here
                 backgroundSize: "cover",
                 backgroundPosition: "center",

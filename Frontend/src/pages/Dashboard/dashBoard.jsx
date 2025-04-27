@@ -5,11 +5,32 @@ import Balancing from "../../components/Elements/balancing element/balancing";
 import Steping from "../../components/steping element/steping";
 import HoverCircle from "../../components/Elements/balancing element/animatedCircle";
 import Tooltip from "@mui/material/Tooltip";
-import Footer_2 from "../../components/Footer/footerC2"
+import Footer_2 from "../../components/Footer/footerC2";
+import {
+  UserSongsProvider,
+  useUserSongs,
+} from "../../data/All released songs/getAllReleasedSongsByUser";
+
+// const YourComponent = () => {
+//   const { userSongs } = useUserSongs();
+
+//   return (
+//     <div>
+//       {userSongs.length}
+//     </div>
+//   );
+// };
+
+// // Then wrap it like:
+// <UserSongsProvider >
+//   <YourComponent />
+// </UserSongsProvider>
 
 const Dashboard = () => {
   const [hovered, setHovered] = useState(false);
   const [hovered2, setHovered2] = useState(false);
+
+  const backendAppUrl = import.meta.env.VITE_API_URL;
 
   return (
     <div className="dashBoard-main">
@@ -216,7 +237,7 @@ const Dashboard = () => {
           </div>
           <Tooltip title="Click to see more.">
             <div className="dashboard-main-sec-222">
-              <h2>27</h2>
+              <h2>0</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -681,7 +702,10 @@ const Dashboard = () => {
       {/* Section 3 */}
       <div className="dashBoard-main-sec-3">
         <div className="dashBoard-main-sec-31">
-          <img src="https://diymusician.cdbaby.com/wp-content/uploads/2017/05/Screen-Shot-2016-01-28-at-11.05.10-AM.png" alt="" />
+          <img
+            src="https://diymusician.cdbaby.com/wp-content/uploads/2017/05/Screen-Shot-2016-01-28-at-11.05.10-AM.png"
+            alt=""
+          />
           <p>Realease your song</p>
           <h2>Unleash your creativity and share your music with the world.</h2>
           <div className="btns">
@@ -690,7 +714,10 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="dashBoard-main-sec-31">
-          <img src="https://cdn.emag.com/fileadmin/_processed_/5/4/csm_Service-Header_37451245c5.jpg" alt="" />
+          <img
+            src="https://cdn.emag.com/fileadmin/_processed_/5/4/csm_Service-Header_37451245c5.jpg"
+            alt=""
+          />
           <p>Features</p>
           <h2>Enhance your work and money with our exclusive services.</h2>
           <button className="featurebtn">See All</button>
@@ -699,7 +726,7 @@ const Dashboard = () => {
 
       {/* Section 4 (Footer) */}
       <div className="dashboard-main-sec-4">
-        <Footer_2/>
+        <Footer_2 />
       </div>
     </div>
   );

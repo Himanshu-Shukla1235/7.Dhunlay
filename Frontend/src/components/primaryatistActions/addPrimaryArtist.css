@@ -97,3 +97,16 @@
   font-size: 1.1vw;
   font-weight: 600;
 }
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .artist-form-container{
+    width: 70vw;
+    height: 20vh;
+    padding: 4vw;
+    justify-content: flex-start;
+  }
+  .artist-form-title{
+    font-size: 5vw;
+  }
+}

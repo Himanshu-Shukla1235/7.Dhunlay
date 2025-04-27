@@ -21,6 +21,7 @@ const upsertPrimaryArtist = require("./Routes/PrimaryAtistR");
 const getAllPrimaryArtists = require("./Routes/PrimaryAtistR");
 const userData = require("./Routes/UserDataR");
 const getReleaseData = require("./Routes/MetaDataR");
+
 const authenticateUser = require("./Middlewares/authenticationM");
 
 const PORT = process.env.PORT || 3000;
@@ -53,11 +54,13 @@ app.use(cookieParser()); // Ensure cookies can be parsed
 // app.use(authenticateUser)
 //..... Routes
 app.use("/api/auth", authRouter);
+
+// app.use(authMiddleware);
 app.use("/api/metadata", MetaData);
 app.use("/api", getReleaseData);
 app.use("/api", upsertPrimaryArtist);
-app.use("/api",getAllPrimaryArtists);
-app.use(authMiddleware);
+app.use("/api", getAllPrimaryArtists);
+
 
 app.use("/api/userData", userData);
 
