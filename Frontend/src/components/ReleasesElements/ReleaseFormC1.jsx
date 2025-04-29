@@ -35,10 +35,10 @@ const ReleaseUserForm = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [uploadUrl, setUploadedUrl] = useState(null);
   const backendAppUrl = import.meta.env.VITE_API_URL;
-  
+
   const { userData } = useUser();
-  const userId=userData._id;
-  console.log("frontend--",userData);
+  const userId = userData;
+  console.log("frontend--", userData);
   //*--------------- GLOBAL FORM DATA STATE (data to be posted to the server)--------------------
   const [formDataPost, setFormDataPost] = useState({
     // Step 1
@@ -66,7 +66,7 @@ const ReleaseUserForm = () => {
     explicitContent: "no",
     distributionPlatform: [],
     //
-    userId:"",
+    userId: "",
   });
 
   //*--------------- FILE UPLOAD TO CLOUDINARRY -------------------------------
@@ -93,7 +93,6 @@ const ReleaseUserForm = () => {
 
       if (type === "image") {
         formDataPost.coverArt = String(data.secure_url);
-        ;
         console.log("this is image url :", formDataPost.coverArt);
       } else {
         formDataPost.songFile = `${data.secure_url}`;
@@ -519,6 +518,10 @@ const ReleaseUserForm = () => {
         <div className="step2-main1">
           <div className="step-2-main1-left">
             <h3>Song Upload</h3>
+            <p>
+              Upload your song in .wav format only. Maximum file size allowed:
+              50MB (or whatever your MAX_SONG_SIZE_MB is).
+            </p>
           </div>
           <div className="step-2-main1-right">
             <label className="file-upload">
@@ -557,6 +560,8 @@ const ReleaseUserForm = () => {
         <div className="step2-main2" style={{ marginTop: "1rem" }}>
           <div className="step2-main2-left">
             <h3>Cover Art Upload</h3>
+            <p>Upload your cover art in .jpg or .jpeg format.
+            Resolution must be between 1400×1400px and 3000×3000px, and file size should not exceed 10MB (or whatever your MAX_COVER_SIZE_MB is).</p>
           </div>
           <div className="step2-main2-right">
             <label
@@ -564,16 +569,17 @@ const ReleaseUserForm = () => {
               style={{
                 display: "block",
                 width: "100%",
-              
-                backgroundImage: 'url("https://t4.ftcdn.net/jpg/12/56/40/47/360_F_1256404749_KGkPHa743eTwopHELCubfquWO9DU8BHH.jpg")', // ✅ fixed here
+
+                backgroundImage:
+                  'url("https://t4.ftcdn.net/jpg/12/56/40/47/360_F_1256404749_KGkPHa743eTwopHELCubfquWO9DU8BHH.jpg")', // ✅ fixed here
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 cursor: "pointer",
                 borderRadius: "12px",
-                opacity:"0.5",
-                border:'none'
-                ,height:"30vh"
+                opacity: "0.5",
+                border: "none",
+                height: "30vh",
               }}
             >
               <input
@@ -586,7 +592,12 @@ const ReleaseUserForm = () => {
             {coverFile && (
               <div
                 className="uploaded-file-name"
-                style={{ marginTop: "0.5rem", color: "white" ,height:"5vh", fontFamily:"sans-serif"}}
+                style={{
+                  marginTop: "0.5rem",
+                  color: "white",
+                  height: "5vh",
+                  fontFamily: "sans-serif",
+                }}
               >
                 {coverFile.name}
               </div>
@@ -607,12 +618,12 @@ const ReleaseUserForm = () => {
           </div>
         </div>
         <div>
-          {activeStep > 0 && (
+          {/* {activeStep > 0 && (
             <ButtonC1
               content={"Back"}
               onClick={() => setActiveStep(activeStep - 1)}
             />
-          )}
+          )} */}
           <ButtonC1
             content={"Next"}
             onClick={() => {

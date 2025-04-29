@@ -80,7 +80,7 @@ const RegisterPage = () => {
             <span style={{ color: "white" }}>lay</span>
           </h5>
         </div>
-        <Navbar></Navbar>
+        {/* <Navbar></Navbar> */}
         <div style={{ marginRight: "70px" }}></div>
       </div>
 

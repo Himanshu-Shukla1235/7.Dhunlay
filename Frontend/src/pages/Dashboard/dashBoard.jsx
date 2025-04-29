@@ -31,7 +31,14 @@ const Dashboard = () => {
   const [hovered2, setHovered2] = useState(false);
 
   const backendAppUrl = import.meta.env.VITE_API_URL;
-
+  const handleClick = () => {
+    // Navigate to the desired URL when the button is clicked
+    window.location.href = '/releases';  // Use the path where you want to navigate
+  };
+  const handleClick2 = () => {
+    // Navigate to the desired URL when the button is clicked
+    window.location.href = '/features';  // Use the path where you want to navigate
+  };
   return (
     <div className="dashBoard-main">
       {/* Section 1 */}
@@ -709,7 +716,7 @@ const Dashboard = () => {
           <p>Realease your song</p>
           <h2>Unleash your creativity and share your music with the world.</h2>
           <div className="btns">
-            <button className="relbtn">Release Now</button>
+            <button className="relbtn" onClick={handleClick} >Release Now</button>
             <button className="demobtn">Demo</button>
           </div>
         </div>
@@ -720,7 +727,7 @@ const Dashboard = () => {
           />
           <p>Features</p>
           <h2>Enhance your work and money with our exclusive services.</h2>
-          <button className="featurebtn">See All</button>
+          <button className="featurebtn" onClick={handleClick2}>See All</button>
         </div>
       </div>
 

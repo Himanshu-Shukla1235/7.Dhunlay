@@ -18,7 +18,8 @@ import faqData from "../../data/faq.json";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import Footer from "../../components/Footer/footer"
-
+import BetaBanner from "../../components/Messages/messageC2";
+import EarlyAccess from "../../components/Messages/messageC3";
 // Custom hook to handle the animation logic
 const useAnimateOnScroll = () => {
   const { ref, inView } = useInView({
@@ -30,6 +31,7 @@ const useAnimateOnScroll = () => {
 };
 
 const test = () => {
+
   const navigate = useNavigate();
 
   const [navOpen, setNavOpen] = useState(false);
@@ -43,11 +45,16 @@ const test = () => {
   const answerRefs = useRef([]);
 
   const handleLinkClick = () => setNavOpen(false);
+  
 
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index); // Toggle logic for answers
   };
+ 
 
+  const handleClickLogin = () => {
+    navigate('/login'); // path to your login page
+  };
   // Handle mouse movement
   const handleMouseMove = (index, e) => {
     const { left, top, width, height } = e.target.getBoundingClientRect();
@@ -203,11 +210,14 @@ const test = () => {
               focus on creating while we handle the distribution.
             </p>
 
-            <button>
+            <button onClick={handleClickLogin}>
               Let's create <KeyboardDoubleArrowRightIcon className="darrow"/>
             </button>
+            <div className="landing_page-message"> <BetaBanner></BetaBanner><EarlyAccess></EarlyAccess></div>
+                    
           </div>
-          <ExpandMoreOutlinedIcon className="scroll-down" />
+          
+          {/* <ExpandMoreOutlinedIcon className="scroll-down" /> */}
         </div>
 
         <div className="section-2">

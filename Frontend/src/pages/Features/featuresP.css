@@ -1,0 +1,217 @@
+/*! ________________________________________| MAIN |___________________________________________________ */
+.featuresP-main {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    align-items: center;
+    /* width: 100%; */
+    padding: 0.45vw;
+    /* text-align: center; */
+    color: white;
+    background-color: #1e1e1e; /* Dark background */
+    border-radius: 1vw;
+    gap: 0.7vw;
+    height: auto;
+  }
+  /* ?____________________________________ \ SECTION 1 \_______________________________ */
+.dashBoard-main-sec-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 6vh;
+    width: 30vw;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0.5vw;
+    font-family: "Inconsolata", serif;
+  }
+  
+  .dashBoard-main-sec-11 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    height: 5vh;
+    /* border: red 3px solid; */
+  }
+  .dashBoard-main-sec-11-steping {
+    margin-bottom: 1.2vh;
+  }
+  .dashBoard-main-sec-1 h2 {
+    /* Adjust word spacing based on viewport width */
+    color: rgb(0, 238, 255);
+    font-size: 1.5vw;
+  }
+
+  /* ?____________________________________ \ SECTION 2 \_______________________________ */
+
+  .featuresP-sec-2 {
+    display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  width: 68.5vw;
+  
+  background-color: rgb(0, 0, 0);
+  overflow: hidden;
+  z-index: 1;
+
+  border-radius: 0.5vw;
+  padding: 5vw;
+  gap: 1.5vw;
+  height: 55vh;
+  }
+  .featuresP-sec-2 header {
+    font-size: 8vw;
+    font-family: sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid orange; /* Fake blinking cursor */
+    width: 0;
+    animation: smoothTyping 3s ease forwards, blink-caret 0.75s step-end infinite;
+  }
+  
+  /* Smooth Typing Animation */
+  @keyframes smoothTyping {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  /* Blinking Cursor Animation */
+  @keyframes blink-caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: orange; }
+  }
+  .featuresP-sec-2 p{
+    font-family: sans-serif;
+    font-size: 01vw;
+  }
+  .featuresP-sec-2 a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+    background-color: white;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    width: 7vw;
+  }
+  .featuresP-sec-2 a:hover{
+    color:#000000 ;
+    background-color: #00EEFF;
+  }
+  .featuresP-sec-2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://c1.wallpaperflare.com/preview/657/512/854/59687807b0dcb.jpg') center center / cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(1) blur(1.5px);
+  
+    opacity: 0.3;
+  
+    z-index: -1;
+  }
+  .featuresP-sec-3 {
+    display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  width: 68.5vw;
+  height: 20vh;
+  background-color: black;
+  overflow: hidden;
+  z-index: 1;
+  border: black solid 0.2vw;
+  border-radius: 0.5vw;
+  padding: 1vw;
+  gap: 1.5vw;
+  padding: 5vw;
+  height: 60vh;
+  }
+  .featuresP-sec-3 header {
+    font-size: 8vw;
+    font-family: sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.15em solid rgba(255, 166, 0, 0); /* Fake blinking cursor */
+    width: 0;
+    animation: smoothTyping 3s ease forwards, blink-caret 0.75s step-end infinite;
+  }
+  
+  /* Smooth Typing Animation */
+  @keyframes smoothTyping {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  /* Blinking Cursor Animation */
+  @keyframes blink-caret {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: rgba(255, 166, 0, 0); }
+  }
+  .featuresP-sec-3 p{
+    font-family: "Inconsolata", serif;
+    font-size: 1vw;
+  }
+  .featuresP-sec-3 a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 1.5vw;
+    background-color: white;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    width: 7vw;
+  }
+  .featuresP-sec-3 a:hover{
+    color:#000000 ;
+    background-color: #00EEFF;
+  }
+  
+  .featuresP-sec-3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://c4.wallpaperflare.com/wallpaper/257/116/964/light-strings-music-sound-wallpaper-preview.jpg') center center / cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(1) blur(2px);
+  
+    opacity: 0.5;
+  
+    z-index: -1;
+  }
+  
+
+ /*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .featuresP-main{
+    height: 100%;
+  }
+  .featuresP-sec-2{
+    height: 15vh;
+  }
+  .featuresP-sec-3{
+    height: 15vh;
+  }
+}

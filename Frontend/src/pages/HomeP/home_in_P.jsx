@@ -14,11 +14,17 @@ import { Toc } from "@mui/icons-material";
 
 import LeftDrawer from "../../components/drawer/drawerleftC1";
 import CancelIcon from "@mui/icons-material/Cancel";
+import FeaturesP from "../Features/featuresP";
 
 const HomeP = () => {
   const navigate = useNavigate();
   const { userData } = useUser();
   const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    // Navigate to the desired URL when the icon is clicked
+    window.location.href = '/about';  // Replace '/info' with your desired path
+  };
   // Redirect to /dashboard if at root "/"
   useEffect(() => {
     if (window.location.pathname === "/") {
@@ -61,14 +67,15 @@ const HomeP = () => {
             </span>
           </Tooltip>
           <Tooltip title="About Us">
-            <span>
+          
+            <span onClick={handleClick} >
               <InfoIcon className="icon2" sx={{
                   fontSize: {
                     xs: "1.5rem", // phones
                     sm: "1.2rem", // small tablets
                     md: "1.7vw", // desktops and up
                   },
-                }} />
+                }}   />
             </span>
           </Tooltip>
         </div>
@@ -91,7 +98,7 @@ const HomeP = () => {
             </LeftDrawer>
           </div>
           <div className="Home-nav-signout">
-            <button onClick={() => navigate("/Login")}>
+            <button onClick={() => navigate("/")}>
               <h4>SignOut</h4>
             </button>
           </div>
