@@ -17,7 +17,7 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import faqData from "../../data/faq.json";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
-import Footer from "../../components/Footer/footer"
+import Footer from "../../components/Footer/footer";
 import BetaBanner from "../../components/Messages/messageC2";
 import EarlyAccess from "../../components/Messages/messageC3";
 // Custom hook to handle the animation logic
@@ -31,7 +31,6 @@ const useAnimateOnScroll = () => {
 };
 
 const test = () => {
-
   const navigate = useNavigate();
 
   const [navOpen, setNavOpen] = useState(false);
@@ -45,15 +44,13 @@ const test = () => {
   const answerRefs = useRef([]);
 
   const handleLinkClick = () => setNavOpen(false);
-  
 
   const handleToggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index); // Toggle logic for answers
   };
- 
 
   const handleClickLogin = () => {
-    navigate('/login'); // path to your login page
+    navigate("/login"); // path to your login page
   };
   // Handle mouse movement
   const handleMouseMove = (index, e) => {
@@ -112,6 +109,12 @@ const test = () => {
       <div className="test-main">
         <div className="navibar">
           <h4>
+            {" "}
+            <img
+              src="/logo/logo1.png"
+              alt="Logo"
+              class="landing_page_logo"
+            ></img>
             <span>Dhun</span>
             <span style={{ color: "white" }}>lay</span>
           </h4>
@@ -211,12 +214,15 @@ const test = () => {
             </p>
 
             <button onClick={handleClickLogin}>
-              Let's create <KeyboardDoubleArrowRightIcon className="darrow"/>
+              Let's create <KeyboardDoubleArrowRightIcon className="darrow" />
             </button>
-            <div className="landing_page-message"> <BetaBanner></BetaBanner><EarlyAccess></EarlyAccess></div>
-                    
+            <div className="landing_page-message">
+              {" "}
+              <BetaBanner></BetaBanner>
+              <EarlyAccess></EarlyAccess>
+            </div>
           </div>
-          
+
           {/* <ExpandMoreOutlinedIcon className="scroll-down" /> */}
         </div>
 
@@ -227,13 +233,21 @@ const test = () => {
                 src="https://t4.ftcdn.net/jpg/02/42/11/11/360_F_242111146_bIk4vYtvTo7n4T9EhOk37sLwVQjF6wVX.jpg"
                 alt=""
               />
-              <p>Number of trusted artists joined us</p>
+              <h1>Number of trusted artists joined us</h1>
+              <p>
+                <p>
+                  Join a growing community of creative minds —{" "}
+                  <strong>over 500+ talented artists</strong> have already
+                  become a part of our platform, sharing their passion and art
+                  with the world. Be the next to showcase your creativity!
+                </p>
+              </p>
               <h2>
                 <ScrollTrigger
                   onEnter={() => setCounterOn(true)}
                   onExit={() => setCounterOn(false)}
                 >
-                  {counterOn && <CountUp start={0} end={100} duration={1} />}+
+                  {counterOn && <CountUp start={0} end={500} duration={1} />}+
                 </ScrollTrigger>
               </h2>
             </div>
@@ -242,13 +256,21 @@ const test = () => {
                 src="https://5.imimg.com/data5/SELLER/Default/2025/2/487209659/FO/HV/CK/15237173/professional-high-quality-sound-7-main-string-black-acoustic-sitar-musical-instrument.jpg"
                 alt=""
               />
-              <p>Number of songs we have uploaded</p>
+              <h1>Number of songs we have uploaded</h1>
+              <p>
+                <p>
+                  Our platform is buzzing with music —{" "}
+                  <strong>more than 2,000 songs</strong> have already been
+                  uploaded by our amazing artists. Dive in and discover the
+                  sound of a new generation!
+                </p>
+              </p>
               <h2>
                 <ScrollTrigger
                   onEnter={() => setCounterOn(true)}
                   onExit={() => setCounterOn(false)}
                 >
-                  {counterOn && <CountUp start={0} end={100} duration={1} />}+
+                  {counterOn && <CountUp start={0} end={2000} duration={1} />}+
                 </ScrollTrigger>
               </h2>
             </div>
@@ -273,8 +295,12 @@ const test = () => {
             }}
           >
             {/* <h2>Why Dhunlay ?</h2> */}
-            <h2>Why</h2>
-            <img src="/Dhun_logo.png" alt="Logo" />
+            <h2>Why </h2>
+            <img
+              src="/logo/logo2.png"
+              alt="logo1"
+              style={{ width: "9vw", height: "9vw" }}
+            />
             <h2>?</h2>
           </motion.div>
 
@@ -815,11 +841,11 @@ const test = () => {
             </div>
             <div className="section-411-2">
               <h2>Track your work and earnings in our interactive dashboard</h2>
-                <p>
-                  Monitor your music's performance, track earnings, and get
-                  real-time insights with our interactive and user-friendly
-                  dashboard.
-                </p>
+              <p>
+                Monitor your music's performance, track earnings, and get
+                real-time insights with our interactive and user-friendly
+                dashboard.
+              </p>
             </div>
           </div>
 
@@ -1104,7 +1130,7 @@ const test = () => {
         </div>
 
         <div className="section-6">
-          <Footer/>
+          <Footer />
         </div>
       </div>
     </>

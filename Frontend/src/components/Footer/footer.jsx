@@ -15,7 +15,7 @@ const footer = () => {
       <div className="foot">
         <div className="foot-1">
           <div className="foot-1-1">
-            <img src="/Dhun_logo.png" alt="Logo" />
+            <img src="/logo/logo2.png" alt="Logo" />
             <h2>
               Dhun<span style={{ color: "white" }}>lay</span>
             </h2>

@@ -1,7 +1,7 @@
 /* BetaBanner.css */
 .beta-banner {
     background-color: #00000066;
-    border: 1px solid gold;
+    border: 1px solid rgb(1, 255, 234);
     padding: 1.5rem;
     margin: 1rem auto;
     border-radius: 12px;
@@ -13,6 +13,7 @@
   }
   
   .beta-banner h2 {
+    font-family: sans-serif;
     margin-bottom: 0.5rem;
     color: #00EEFF;
   }

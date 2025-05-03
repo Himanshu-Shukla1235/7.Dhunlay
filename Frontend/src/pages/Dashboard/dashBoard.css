@@ -369,6 +369,13 @@
     font-size: 3vw;
     padding: 1vw 2vw;
   }
+  
+  .dashBoard-main-sec-221-dot{
+    display: none;
+  }
+  .dashBoard-main-sec-211-dot{
+    display: none;
+  }
 }
 
 @media (min-width: 601px) and (max-width: 1050px) {
