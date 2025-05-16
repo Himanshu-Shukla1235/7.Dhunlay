@@ -34,6 +34,8 @@ const test = () => {
 
   const [navOpen, setNavOpen] = useState(false);
 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const [counterOn, setCounterOn] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState(null);
@@ -121,33 +123,33 @@ const test = () => {
           <main className={`navbar-elems ${navOpen ? "show" : ""}`}>
             <ul className="all-elems">
               <li className="feature-button">
-                <a className="button" onClick={handleLinkClick}>
+                <a className="button"onClick={()=>setDropdownOpen(!dropdownOpen)}>
                   Features <ArrowDropDownOutlinedIcon className="downicon" />
                 </a>
-                <div className="dropdown-content">
-                  <a href="./features_artist" onClick={handleLinkClick}>
+                <div className={`dropdown-content ${dropdownOpen ? "yes" : ""}`} >
+                  <a href="./features_artist" >
                     Features for artists
                   </a>
-                  <a href="./features_label" onClick={handleLinkClick}>
+                  <a href="./features_label" >
                     Features for labels
                   </a>
-                  <a href="#" onClick={handleLinkClick}>
+                  <a href="#" >
                     Feature 3
                   </a>
                 </div>
               </li>
               <li>
-                <a href="#" onClick={handleLinkClick}>
+                <a href="#" >
                   Subscription
                 </a>
               </li>
               <li>
-                <a href="#" onClick={handleLinkClick}>
+                <a href="#" >
                   Contact
                 </a>
               </li>
               <li>
-                <a href="/contact" onClick={handleLinkClick}>
+                <a href="/contact" >
                   FAQs
                 </a>
               </li>
@@ -299,7 +301,7 @@ const test = () => {
         <div className="section-4">
           <motion.h1
             ref={featRef}
-            className="section-31"
+            // className="section-41"
             initial={{
               y: 50,
               opacity: 0,
@@ -1047,7 +1049,7 @@ const test = () => {
         <div className="section-5">
           <motion.h1
             ref={faqRef}
-            className="section-31"
+            // className="section-51"
             initial={{
               y: 50,
               opacity: 0,
