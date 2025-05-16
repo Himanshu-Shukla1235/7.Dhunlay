@@ -21,4 +21,11 @@
     color: #666;
     box-shadow: inset 0.4vw 0.4vw 1.2vw #c5c5c5, inset -0.4vw -0.4vw 1.2vw #ffffff;
   }
-  
+  /*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .buttonC1{
+    font-size: 3.5vw;
+    width: 20vw;
+  }
+}

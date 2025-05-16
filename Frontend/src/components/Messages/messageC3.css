@@ -1,0 +1,137 @@
+/* EarlyAccess.css */
+/* SHOW and STYLE SCROLLBAR */
+.early-access-page {
+    /* Keep existing styles */
+    overflow-y: scroll;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: gold transparent; /* Firefox */
+    height: 37vh;
+    border: white solid 1px;
+    border-radius: 0.5vw;
+    padding: 1vw;
+    width: auto;
+    background-color: #00000066;
+  }
+  
+  /* For WebKit-based browsers (Chrome, Safari, Edge) */
+  .early-access-page::-webkit-scrollbar {
+    width: 0.5vw;
+  }
+  
+  .early-access-page::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .early-access-page::-webkit-scrollbar-thumb {
+    background: linear-gradient(gold, orange);
+    border-radius: 1vw;
+    box-shadow: inset 0 0 0.3vw rgba(0, 0, 0, 0.2);
+  }
+  
+  .early-access-page::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(orange, gold);
+  }
+  
+  
+  .early-access-hero {
+    text-align: center;
+    max-width: 60vw; /* Use vw for max width */
+    margin-bottom: 4vh;
+  }
+  
+  .early-access-hero h1 {
+    font-size: 3vw;
+    color: #d18f00;
+    margin-bottom: 2vh;
+  }
+  
+  .early-access-hero p {
+    font-size: 1.5vw;
+    color: #ffffff;
+    margin-bottom: 3vh;
+  }
+  
+  .early-access-button {
+    background: linear-gradient(90deg, gold, orange);
+    color: rgb(0, 0, 0);
+    padding: 1vw 3vw;
+    border-radius: 0.8vw;
+    font-size: 1.5vw;
+    text-decoration: none;
+    transition: background 0.3s ease;
+
+  }
+  
+  .early-access-button:hover {
+    background: linear-gradient(90deg, orange, gold);
+  }
+  
+  .early-access-info {
+    max-width: 60vw;
+  }
+  
+  .early-access-info h2 {
+    color: #d18f00;
+    margin-top: 4vh;
+    font-size: 2.2vw;
+  }
+  
+  .early-access-info p, 
+  .early-access-info ul {
+    color: #ffffff;
+    font-size: 1.4vw;
+    margin-top: 2vh;
+  }
+  
+  .early-access-info ul {
+    list-style-type: disc;
+    padding-left: 2vw;
+  }
+  
+  .cta-bottom {
+    margin-top: 5vh;
+    text-align: center;
+  }
+  
+    /*! __________________________________________________________| Responsive Designs |_____________________________________________________________________ */
+
+
+
+/* ------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+    .early-access-page {
+      width: auto;
+      height: 90vh;
+      padding: 4vw;
+      border-radius: 2vw;
+      overflow-y: scroll;
+    }
+  
+    .early-access-hero h1 {
+      font-size: 6vw;
+    }
+  
+    .early-access-hero p {
+      font-size: 4vw;
+    }
+  
+    .early-access-button {
+      padding: 3vw 5vw;
+      font-size: 4vw;
+      border-radius: 2vw;
+    }
+  
+    .early-access-info h2 {
+      font-size: 5vw;
+    }
+  
+    .early-access-info p,
+    .early-access-info ul {
+      font-size: 4vw;
+    }
+  
+    .early-access-info ul {
+      padding-left: 4vw;
+    }
+  }
+  

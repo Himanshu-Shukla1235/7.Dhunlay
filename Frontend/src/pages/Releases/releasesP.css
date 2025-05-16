@@ -99,7 +99,7 @@
   font-size: 2vw;
   font-weight: 600;
   color: #00EEFF;
-  opacity: 0.7;
+  
 }
 .ReleasesP-main-sec-21 p{
   font-size: 1vw;
@@ -163,7 +163,7 @@
   font-size: 2vw;
   font-weight: 600;
   color: #00EEFF;
-  opacity: 0.7;
+ 
 
 }
 
@@ -195,6 +195,8 @@ padding: 2vw;
   overflow: hidden; /* Ensures ::before background doesn't spill outside border radius */
   width: 40vw;
   padding-top: 2vw;
+  /* border: solid red 3px; */
+  height: 46vh;
 }
 
 .ReleasesP-main-sec-31::before {
@@ -345,16 +347,23 @@ padding-top: 2vw;
 /*! ________________________________________| Responsive Designs |___________________________________________________ */
 /*?------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
+  .ReleasesP-main {
+    gap: 5vw;
+  }
   .ReleasesP-main-sec-1 h2{
     font-size: 4.8vw;
 
   }
   .ReleasesP-main-sec-2{
     flex-direction: column;
+    width: 95%;
+ 
   }
   .ReleasesP-main-sec-21{
-    width: 70vw;
-    height: 10vh;
+    width:80vw;
+    height: 25vh;
+    gap: 5vw;
+    padding: 4vw;
     
   }
   .ReleasesP-main-sec-21 h4{
@@ -368,25 +377,37 @@ padding-top: 2vw;
   }
   .ReleasesP-main-sec-22{
     align-items: center;
-    justify-content: flex-start;
-    width: 50vw;
-    height: 12vh;
+    justify-content: center;
+    flex-direction: row;
+    width: 83.5vw;
+    height: 4vh;
     gap: 5vw;
   }
   .ReleasesP-main-sec-22 p{
-    font-size: 4vw;
+    font-size: 5vw;
+    
   }
   .ReleasesP-main-sec-3{
     flex-direction: column;
     height: auto;
+    width: 91%;
+
   }
   .ReleasesP-main-sec-31{
     justify-content: center;
     align-items: center;
+    width: 94%;
+    height: 50vh;
     
    
     
+
+  }
+  .ReleasesP-main-sec-32{
+    width: 94%;
     height: auto;
+    padding: 2vw;
+
   }
 }
 

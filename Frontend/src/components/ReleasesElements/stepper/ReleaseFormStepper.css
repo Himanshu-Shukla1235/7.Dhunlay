@@ -9,6 +9,7 @@
   width: 100vw;
   min-height: 170vh;
   height: auto;
+  overflow: hidden;
 }
 
 /* Stepper Connector Lines */
@@ -67,4 +68,12 @@
 .step-content-heading{
   color: #00EEFF;
 
+}
+
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .custom-stepper{
+    width: 85vw;
+  }
 }

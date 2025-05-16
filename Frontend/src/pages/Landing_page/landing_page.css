@@ -28,16 +28,30 @@ html,body{
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 20vw;
+  gap: 15vw;
   /* border: 1px solid red; */
   width: 100vw;
 }
+.landing_page_logo {
+  width: 35px;           /* Set the width of the logo */
+  height: auto;           /* Maintain aspect ratio */
+  display: block;         /* Make it a block element */
+  margin: 20px auto;      /* Center horizontally with some margin */
+  object-fit: contain;  
+  margin-right: 0.1vw;  /* Ensure the image fits without distortion */
+}
+
 .navibar h4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   font-family: sans-serif;
   color: rgb(0, 191, 255);
   font-size: 1.5vw;
   margin-left: 2vw;
   /* border: 1px solid red; */
+  margin-right: 8vw;
 }
 /* .navbar-elems {
   border: 1px solid red;
@@ -153,6 +167,7 @@ html,body{
   font-weight: 600;
   transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
+  margin-right: 3vw;
 }
 .regbtn::before {
   content: "";
@@ -294,7 +309,7 @@ html,body{
 
 .section-1 {
   position: relative;
-  height: 90vh;
+  height: 95vh;
   /* border: 1px solid blue; */
   display: flex;
   justify-content: center;
@@ -304,7 +319,7 @@ html,body{
 .section-1 {
   position: relative;
   width: 100%;
-  height: 100vh; /* Adjust this to your preferred height */
+  height: 105vh; /* Adjust this to your preferred height */
   overflow: hidden;
 }
 
@@ -313,11 +328,11 @@ html,body{
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover; /* Ensures the video covers the entire div */
   z-index: 0;
-  opacity: 0.2;
-  filter: blur(3px);
+  opacity: 0.7;
+  filter: blur(2px);
 }
 .section-11 {
   padding: 0px;
@@ -388,7 +403,17 @@ html,body{
 .section-11 button:hover {
   background-color: #00eeff;
 }
-
+.landing_page-message{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 95vw;
+  gap: 2vw;
+  /* border: solid red 3px; */
+  height: 37vh;
+ 
+}
 .scroll-down {
   color: white;
   position: absolute;
@@ -420,15 +445,16 @@ html,body{
 }
 .section-21 {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5vw;
+  gap: 2vw;
+  margin: 2vw;
 }
 .section-211 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: rgba(96, 96, 96, 0.259);
   background-color: transparent;
@@ -436,11 +462,14 @@ html,body{
   /* box-shadow: 0vw 0vw 1.8vw rgba(2, 185, 194, 0.633); */
   /* background: linear-gradient(135deg, #667eea8d, #f8f8f861); */
   gap: 3vw;
-  padding: 5vw 3vw;
-  margin: 5vw 0vw;
-  border-radius: 2vw;
+  padding: 2vw;
+ 
+  border-radius: 1vw;
   position: relative;
   overflow: hidden;
+   border: rgba(246, 246, 246, 0.948) 1px solid;
+   height: 60vh;
+  width: 70vw;
 }
 .section-211 img{
   z-index: 0;
@@ -450,12 +479,21 @@ html,body{
   width: 100%;
   height: 100%;
   object-fit:cover;
-  filter: brightness(0.7) blur(2px) grayscale(100%) opacity(0.2);
+ 
+  filter: brightness(0.6) blur(2px) grayscale(100%) opacity(0.7);
+}
+.section-211 h1 {
+ font-family: sans-serif;
+  color: white;
+  font-size: 4vw;
+  z-index: 1;
+  font-weight: 600;
 }
 .section-211 p {
   color: white;
-  font-size: 2vw;
+  font-size: 1.3vw;
   z-index: 1;
+ 
 }
 .section-211 h2 {
   color: #00EEFF;
@@ -793,11 +831,8 @@ html,body{
     justify-content: center;
     /* border: 1px solid yellow; */
     margin: 10vw 0vw 0vw 0vw;
-    width: 100%;
-    gap: 5vw;
-  }
-  .section-11 h1{
-    text-align: center;
+    width: 80%;
+   
   }
   .section-11 h1 svg {
     /* border: 1px solid red; */
@@ -826,7 +861,15 @@ html,body{
   .scroll-down{
     top: 85%;
   }
-
+.landing_page-message{
+  height: 60vh;
+}
+.section-1 video {
+  height: 100%;
+}
+.navibar h4{
+ font-size: 6vw;
+}
   /*?------------------------ Section - 2 ------------------------- */
   .section-21{
     display: flex;
@@ -834,7 +877,8 @@ html,body{
     /* border: 1px solid red; */
     height: 80vh;
     width: 100%;
-    margin-bottom: 12vw;
+    margin-bottom: 80px;
+    
   }
   .section-211{
     display: flex;
@@ -842,7 +886,13 @@ html,body{
     align-items: center;
     gap: 8vw;
     /* border: 1px solid lightgreen; */
-    width: 85%;
+    width: 80%;
+    height: auto;
+    padding: 5vw;
+    gap: 3vw;
+  }
+  .section-211 h1{
+    font-size: 9vw;
   }
   .section-211 h2{
     font-size: 12vw;
@@ -852,7 +902,10 @@ html,body{
     line-height: 7vw;
     text-align: center;
   }
+.landing_page-message{
+  flex-direction: column;
 
+}
   /*?------------------------ Section - 3 ------------------------- */
   .section-3{
     padding-bottom: 20vw;

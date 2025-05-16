@@ -1,6 +1,6 @@
 import React from "react";
 import "./analytics.css"; // Import the CSS file
-
+import FeatureUnavailable from "../../components/Messages/messageC1";
 const analytics = () => {
   return (
     <div className="analytics-main">
@@ -15,7 +15,7 @@ const analytics = () => {
           </h2>
         </div>
       </div>
-      <div className="analytics-main-sec-2"><p>this service is not available for now </p></div>
+      <div className="analytics-main-sec-2"><p><FeatureUnavailable></FeatureUnavailable></p></div>
     </div>
   );
 };

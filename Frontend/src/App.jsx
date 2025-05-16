@@ -14,6 +14,7 @@ const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
 const LandinP = lazy(() => import("./pages/Landing_page/landing_page"));
 
 const About = lazy(() => import("./pages/About/about"));
+const Features = lazy(() => import("./pages/Features/featuresP"));
 
 import LoadingC2 from "./components/Loding/loadingC2";
 
@@ -84,20 +85,25 @@ function MainApp() {
             if (window.location.pathname === "/ourPlans") {
               navigate(`/ourPlans/${data._id}`);
             }
-            if (window.location.pathname === "/features_artist") {
+            if (window.location.pathname === "/features/features_artist") {
               navigate(`/features_artist/${data._id}`);
             }
-            if (window.location.pathname === "/features_label") {
+
+            if (window.location.pathname === "/features/features_label") {
               navigate(`/features_label/${data._id}`);
             }
-            if (window.location.pathname === "/features_label") {
-              navigate(`/features_label/${data._id}`);
+            if (window.location.pathname === "/features") {
+              navigate(`/features/${data._id}`);
             }
             if (window.location.pathname === "/release") {
               navigate(`/release/${data._id}`);
             }
             if (window.location.pathname === "/releases") {
               navigate(`/releases/${data._id}`);
+            }
+            //for public routes
+            if (window.location.pathname === "/login" && data._id != null) {
+              navigate(`/dashboard/${data._id}`);
             }
           }, 100);
         }
@@ -131,11 +137,10 @@ function MainApp() {
         </div>
       }
     >
-    
       <Routes>
         <Route path="/" element={<LandinP></LandinP>}></Route>
         {/* This is about page */}
-        <Route path="/about/:id" element={<About />} />
+        <Route path="/about" element={<About />} />
 
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
@@ -147,6 +152,7 @@ function MainApp() {
             <Route path="ourPlans/:id" element={<OurPlans />} />
             <Route path="features_artist/:id" element={<FeaturesArtist />} />
             <Route path="features_label/:id" element={<FeaturesLabel />} />{" "}
+            <Route path="features/:id" element={<Features />} />{" "}
             <Route
               path="/releases/:id"
               element={<ReleasesP></ReleasesP>}
@@ -176,7 +182,6 @@ function MainApp() {
 
         {/* Catch-all 404 Page */}
         <Route path="*" element={<div></div>} />
-
       </Routes>
     </Suspense>
   );

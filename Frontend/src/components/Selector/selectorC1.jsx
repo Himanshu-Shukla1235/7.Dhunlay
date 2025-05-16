@@ -35,7 +35,7 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
       const allSelected = selectedCount === artistNames.length;
       onChange(allSelected ? [] : artistNames);
     } else if (artist === "None") {
-      onChange([]);
+      onChange([""]);
     } else {
       const newSelected = selectedArtists.includes(artist)
         ? selectedArtists.filter((a) => a !== artist)
@@ -51,35 +51,38 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
   const displayLabel = () => {
     if (selectedCount === 0) return "None";
     if (selectedCount === artistNames.length) return "All";
-    return `${selectedCount} selected`;
+    return `${selectedCount - 1} selected`;
   };
 
   return (
     <div className="selector-container">
       <label htmlFor="artist-select">Select Artists:</label>
       <div className="dropdown">
-        <button
+        <h4
           id="artist-select"
           type="button"
           className="dropdown-button"
           onClick={toggleOpen}
         >
           {displayLabel()}
-        </button>
+        </h4>
 
         <div className="selector-search" onClick={openDropdown}>
           <input
             type="text"
             placeholder="Search artists..."
-            className="dropdown-search"
+            className="selector-search-input"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
           <SearchIcon
             sx={{
-              fontSize: "2vw",
+              fontSize: {
+                xs: "6vw", // ✅ Phones (extra small)
+                sm: "4vw", // ✅ Tablets (small)
+                md: "2vw", // ✅ Desktops (medium and up)
+              },
               cursor: "pointer",
-              marginBottom: "0.7vw",
               transition: "color 0.2s ease",
               "&:hover": {
                 color: "#00EEFF",

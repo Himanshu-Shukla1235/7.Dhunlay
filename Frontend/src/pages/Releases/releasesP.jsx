@@ -16,9 +16,11 @@ import PrimaryArtistSelector from "../../components/Selector/selectorC1";
 import UpsertPrimaryArtistForm from "../../components/primaryatistActions/addPrimaryArtist";
 import InfoIcon from "@mui/icons-material/Info";
 import SearchIcon from "@mui/icons-material/Search";
+import { useUser } from "../../pages/User/UserData";
 // Total Releases Component
 const TotalReleases = () => {
   const { songs } = useReleasedSongs();
+  
   return (
     <div className="ReleasesP-main-sec-22">
       <p>Total Releases</p>

@@ -1,0 +1,40 @@
+/* BetaBanner.css */
+.beta-banner {
+    background-color: #00000066;
+    border: 1px solid rgb(1, 255, 234);
+    padding: 1.5rem;
+    margin: 1rem auto;
+    border-radius: 12px;
+    max-width: auto;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: 37.5vh;
+    
+  }
+  
+  .beta-banner h2 {
+    font-family: sans-serif;
+    margin-bottom: 0.5rem;
+    color: #00EEFF;
+  }
+  
+  .beta-banner a {
+    color: #00EEFF;
+    text-decoration: underline;
+  }
+  .beta-banner p{
+    color: white;
+  }
+
+  /*! __________________________________________________________| Responsive Designs |_____________________________________________________________________ */
+
+
+
+/*?------------------------ | MOBILE |------------------------- */
+
+@media (max-width: 480px) {
+    .beta-banner{
+        height: auto;
+        width: 70vw;
+    }
+}

@@ -82,6 +82,7 @@ const saveSong = async (req, res) => {
       coverArt,
       //----------------------------step3
       releaseDate,
+      userId,
       isrc,
       upc,
       explicitContent,
@@ -98,6 +99,9 @@ const saveSong = async (req, res) => {
     };
     const Songfile = {
       fileUrl: songFile,
+    };
+    const submittedBy = {
+     userId:userId,
     };
 
     // Create a new song instance
@@ -120,8 +124,9 @@ const saveSong = async (req, res) => {
       songFile: Songfile,
       explicitContent: explicitContentBool, // Convert properly
       distributionPlatforms: distributionPlatform, // Mapping correctly
-      metadata, // Assigning the metadata object
+      metadata:metadata, // Assigning the metadata object
       releaseDate,
+      submittedBy:submittedBy,
     });
 
     res.status(201).json({
@@ -178,6 +183,56 @@ const getReleasedSongsByArtist = async (req, res) => {
   }
 };
 
+const getAllSongs = async (req, res) => {
+  console.log("✅ Backend hit: getAllSongs");
+
+  try {
+    const songs = await Song.find(); // Fetch everything
+
+    res.status(200).json({
+      success: true,
+      message: `Fetched all songs`,
+      total: songs.length,
+      data: songs,
+    });
+  } catch (error) {
+    console.error("❌ Error fetching all songs:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch all songs",
+    });
+  }
+};
+
+const getAllSongsByUser = async (req, res) => {
+  console.log("✅ Backend hit: getAllSongsByUser");
+
+  try {
+    const { userId } = req.query;
+
+    if (!userId) {
+      return res.status(400).json({
+        success: false,
+        message: "`userId` query parameter is required",
+      });
+    }
+
+    const songs = await Song.find({ createdBy: userId }); // Assuming "createdBy" stores userId
+
+    res.status(200).json({
+      success: true,
+      message: `Fetched all songs for user: ${userId}`,
+      total: songs.length,
+      data: songs,
+    });
+  } catch (error) {
+    console.error("❌ Error fetching songs by user:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to fetch songs by user",
+    });
+  }
+};
 
 
-module.exports = { saveSong, getReleasedSongsByArtist };
+module.exports = { saveSong, getReleasedSongsByArtist ,getAllSongs,getAllSongsByUser};

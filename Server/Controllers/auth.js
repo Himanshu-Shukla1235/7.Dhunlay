@@ -31,29 +31,34 @@ const nodemailer = require("nodemailer");
 //=================================================================================
 
 // ============================================================================================Function to send an email
+
+
 const sendEmail = async (to, subject, message) => {
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail", // Or use an SMTP provider like SendGrid, Mailgun
+      host: "smtp.hostinger.com",
+      port: 465,
+      secure: true, // use SSL
       auth: {
-        user: process.env.EMAIL_USER, // Your email
-        pass: process.env.EMAIL_PASS, // App password (not your email password)
+        user: process.env.BUSINESS_EMAIL,      // full email address, e.g. contact@yourdomain.com
+        pass: process.env.BUSINESS_EMAIL_PASS, // the password you set in Hostinger
       },
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.BUSINESS_EMAIL,
       to,
       subject,
       html: `<p>${message}</p>`,
     };
 
     await transporter.sendMail(mailOptions);
-    console.log("📧 Registration email sent successfully!");
+    console.log("📧 Email sent successfully!");
   } catch (error) {
     console.error("❌ Error sending email:", error);
   }
 };
+
 // Register User
 //=================================================================================
 /**
