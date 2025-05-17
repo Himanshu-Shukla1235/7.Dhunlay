@@ -6,7 +6,7 @@
   box-sizing: border-box;
   /* color: white; */
 }
-body{
+html,body{
   overflow-x: hidden;
 }
 
@@ -137,14 +137,10 @@ body{
   border-radius: 15px 15px 0px 0px;
 }
 
-.feature-button:hover .dropdown-content {
+.dropdown-content.yes{
   display: block;
 }
 
-/* .all-elems button{
-	padding: 0.8vw 1.3vw;
-	border-radius: 15px ;
-} */
 .loginbtnn {
   color: white;
   /* border: 0.13vw solid rgb(255, 255, 255); */
@@ -224,8 +220,9 @@ body{
   }
 
   .navibar h4 {
-    font-size: 4vw;
+    /* font-size: 3vw; */
     margin-left: 0;
+    /* border: 1px solid red; */
   }
 
   .hamburger-icon {
@@ -233,27 +230,35 @@ body{
   }
 
   .navbar-elems {
-    width: 30vw; 
+    width: 80%; 
     height: 100vh;
     background-color: #000000;
     position: absolute;
     top: 60px;
-    right: -100vw; /* Start off-screen */
+    right: 0vw;
     transition: right 0.4s ease-in-out;
     z-index: 9;
     opacity: 1;
     padding: 2rem 1.5rem;
     overflow-y: auto;
+    overflow-x: hidden;
     /* border: 1px solid blue; */
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+
+    /* //////////////////////////// */
+    display:  none;
+  }
+
+  .all-elems li a{
+    font-size: 5vw;
   }
   
   /* When nav is open */
   .navbar-elems.show {
-    right: 0;
+    right: 0vw;
     /* border: 1px solid red; */
     display: flex;
   }
@@ -265,13 +270,19 @@ body{
     padding: 1rem;
     gap: 1rem;
     /* border: 1px solid red; */
+    width: 100%;
   }
 
   .dropdown-content {
     position: relative;
-    top: 0;
+    top: 5%;
     left: 0;
     width: 100%;
+    padding: 5px;
+    font-size: 4vw;
+    display: none;
+    z-index: 9;
+    /* border: 1px solid lawngreen; */
   }
 
   .button {
@@ -279,13 +290,15 @@ body{
   }
 
   .loginbtnn{
-    margin: 30px 0px 0px 0px;
-    padding: 7px 2.2vw;
+    font-size: 4vw;
+    margin: 10vw 0px 0px 0px;
+    padding: 2.5vw 6vw;
   }
 
   .regbtn{
-    margin: 0px 0px 0px 0px;
-    padding: 7px 2.2vw;
+    font-size: 4vw;
+    margin: .5vw 0px 0px 0px;
+    padding: 2.5vw 7vw;
   }
 }
 
@@ -552,6 +565,7 @@ body{
   /* border: 1px solid white; */
 }
 .section-321 h3{
+  font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   text-align: center;
   color: rgb(0, 238, 255);
   font-size: 1.6vw;
@@ -663,7 +677,6 @@ body{
   gap: 4vw;
   width: 100vw;
   padding: 40px 20px;
-  background-color: #000; 
   /* border-bottom: 1px solid rgba(160, 160, 160, 0.287); */
 }
 
@@ -674,6 +687,7 @@ body{
   font-size: 3.5vw; 
   font-weight: bold;
   color: #ffffff;
+  background-color: transparent;
   /* margin-bottom: 40px; */
   /* overflow: hidden; */
 }
@@ -711,7 +725,7 @@ body{
   align-items: center;
   font-size: 1.3vw;
   font-weight: 500;
-  color: #ffffff86;
+  color: #ffffffa5;
   transition: color 0.3s ease;
   overflow: hidden;
 }
@@ -800,36 +814,52 @@ body{
 /*?------------------------ | MOBILE |------------------------- */
 
 @media (max-width: 480px) {
+  .navibar h4{
+    font-size: 4.5vw;
+  }
+
   /*?------------------------ Section - 1 ------------------------- */
   .section-1{
-    /* vw main karo sab */
+    height: 88vh;
     display: flex;
     align-items:flex-start;
     /* border: 1px solid blue; */
   }
   .section-11 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid yellow; */
     margin: 10vw 0vw 0vw 0vw;
     width: 80%;
    
   }
   .section-11 h1 svg {
+    /* border: 1px solid red; */
     height: 20vw;
-    width: 100%;
+    width: 90%;
+    margin-top: 20vw;
   }
   .section-11 p{
-    font-size: 2.5vw;
-    line-height: 4vw;
+    font-size: 4vw;
+    width: 90%;
+    line-height: 5.5vw;
+    color: rgba(255, 255, 255, 0.783);
+    /* border: 1px solid yellow; */
   }
   .section-11 button{
-    font-size: 2.5vw;
-    padding: 7px 0;
+    width: 82%;
+    border-radius: 6px;
+    font-size: 4vw;
+    padding: 3vw 0;
+    margin-top: 10vw;
   }
   .section-11 .darrow{
-    font-size: 3.5vw;
-    vertical-align: middle;
+    font-size: 6vw;
+    vertical-align:middle;
   }
   .scroll-down{
-    top: 75%;
+    top: 85%;
   }
 .landing_page-message{
   height: 60vh;
@@ -845,11 +875,16 @@ body{
     display: flex;
     flex-direction: column;
     /* border: 1px solid red; */
+    height: 80vh;
     width: 100%;
     margin-bottom: 80px;
     
   }
   .section-211{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8vw;
     /* border: 1px solid lightgreen; */
     width: 80%;
     height: auto;
@@ -860,106 +895,139 @@ body{
     font-size: 9vw;
   }
   .section-211 h2{
-    font-size: 9vw;
+    font-size: 12vw;
   }
   .section-211 p{
-    font-size: 3.5vw;
+    font-size: 5.5vw;
+    line-height: 7vw;
+    text-align: center;
   }
 .landing_page-message{
   flex-direction: column;
 
 }
   /*?------------------------ Section - 3 ------------------------- */
+  .section-3{
+    padding-bottom: 20vw;
+    margin-bottom: 15vw;
+  }
+  .section-31{
+    display: flex;
+    gap: 14vw;
+    margin-bottom: 15vw;
+  }
   .section-31 h2{
-    font-size: 8vw;
+    font-size: 10vw;
+    /* border: 1px solid red; */
   }
   .section-31 img{
-    height: 11vw;
+    height: 17vw;
     position: absolute;
     /* border: 1px solid red; */
-    top:  20%;
-    right: 24%;
+    top:  5%;
+    right: 14%;
   }
   .section-32{
     display: flex;
     flex-direction: column;
+    gap: 20vw;
+    /* border: 1px solid orange; */
   }
   .section-321{
-    width: 40%;
+    display: flex;
+    gap: 4vw;
+    /* border: 1px solid orange; */
+    width: 70%;
     margin-top: 5vw;
   }
   .section-32 .imgs{
-    font-size: 5vw;
+    font-size: 10vw;
   }
   .section-321 h3{
-    font-size: 5vw;
+    font-size: 7vw;
   }
   .section-321 p{
-    font-size: 3vw;
-    line-height: 4vw;
+    font-size: 4vw;
+    line-height: 6vw;
   }
 
   /*?------------------------ Section - 4 ------------------------- */
   .section-4 h1{
     width: 90%;
-    font-size: 8vw;
-    margin-bottom: 20vw;
+    font-size: 10vw;
+    margin: 5vw 0 20vw 0;
   }
   .section-41{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* border: 1px solid red; */
+    gap: 10vw;
+    margin-bottom: 20vw;
   }
   .section-411{
-    width: 80%;
+    /* border: 1px solid green; */
+    width: 85%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10vw;
+    margin: 0 0 10vw 0;
   }
   .section-411 h2{
     /* border: 1px solid red; */
-    font-size: 6vw;
+    font-size: 7vw;
     text-align: center;
     margin-bottom: 2vw;
   }
   .section-411 p{
-    width: 70%;
+    margin-top: 3vw;
+    width: 85%;
     text-align: center;
-    font-size: 3vw;
-    line-height: 3.3vw;
+    font-size: 4vw;
+    line-height: 6vw;
   }
   .canvas{
     display: none;
   }
   .section-411-2{
-    width: 80%;
+    width: 85%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 15vw;
-    margin-bottom: 10vw;
+    margin: 0 0 10vw 0;
   }
   .section-411-2 h2{
-    /* border: 1px solid red; */
-    font-size: 6vw;
+    font-size: 7vw;
     text-align: center;
     margin-bottom: 2vw;
   }
   .section-411-2 p{
-    width: 70%;
+    margin-top: 3vw;
+    width: 85%;
     text-align: center;
-    font-size: 3vw;
-    line-height: 3.3vw;
+    font-size: 4vw;
+    line-height: 6vw;
   }
 
   /*?------------------------ Section - 5 ------------------------- */
+  .section-5{
+    margin-top: 8vw;
+    margin-bottom: 10vw;
+  }
   .section-5 h1{
-    margin-top: 6vw;
+    margin-bottom: 10vw;
+    width: 95%;
+    font-size: 9vw;
+  }
+  .section-51{
     width: 90%;
-    font-size: 7vw;
-    /* border: 1px solid yellow; */
+  }
+  .faq-question{
+    font-size: 4vw;
+  }
+  .icon{
+    font-size: 4.2vw;
   }
 
   /*?------------------------ Section - 6 ------------------------- */

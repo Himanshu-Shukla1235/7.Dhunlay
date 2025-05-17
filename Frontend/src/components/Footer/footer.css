@@ -59,9 +59,9 @@
   flex-direction: row;
   gap: 8vw;
 }
-.foot-2 {
-  /* border: 1px solid greenyellow; */
-}
+/* .foot-2 {
+  border: 1px solid greenyellow;
+} */
 .foot-2 h3 {
   color: white;
   text-transform: capitalize;
@@ -169,61 +169,77 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
-    gap: 15vw;
+    gap: 18vw;
     /* border: 1px solid orange; */
     flex-wrap: wrap;
     padding-bottom: 5vw;
+    padding-left: 10vw;
   }
   .foot-1{
     /* border: 1px solid green; */
     overflow: hidden;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
     gap: 1vw;
+    padding-left: 5vw;
   }
   .foot-1 p{
-    margin-left: 15px;
-    font-size: 3vw;
+    /* margin-left: 15px; */
+    font-size: 4vw;
   }
   .foot-1 p span{
-    font-size: 5vw;
+    /* margin-top: -.5vw; */
+    font-size: 7vw;
+  }
+  .foot-1-1{
+    margin-left: -37vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0vw;
   }
   .foot-1-1 h2{
-    font-size: 4.5vw;
+    font-size: 7vw;
   }
   .foot-1-1 img{
-    height: 8vw;
+    height: 15vw;
   }
   .outer{
     /* border: 1px solid red; */
     display: flex;
-    gap: 10vw;
+    gap: 12vw;
   }
   .foot-2 h3{
-    font-size: 4vw;
+    font-size: 5vw;
   }
   .foot-2-1 a{
-    font-size: 3vw;
+    font-size: 4vw;
   }
   .foot-3{
-    gap: 5vw;
+    gap: 7vw;
   }
   .foot-3-1 h3{
-    font-size: 4vw;
+    font-size: 5vw;
   }
   .foot-3-2 h3{
-    font-size: 4vw;
+    font-size: 5vw;
+  }
+  .subscribe-form{
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
   }
   .subscribe-form input{
-    padding: 2vw 1.5vw;
-    font-size: 3vw;
+    padding: 2.5vw 3vw;
+    font-size: 3.5vw;
     width: 75%;
   }
   .subscribe-form button{
-    padding: 1vw 2.5vw;
-    font-size: 3vw;
+    padding: 3vw 4vw;
+    font-size: 3.5vw;
+    /* border: 1px solid brown; */
   }
 }
 

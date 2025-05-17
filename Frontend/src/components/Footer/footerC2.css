@@ -64,9 +64,9 @@
   /* align-items: center; */
   gap: 2.5vw;
 }
-.foot-2C2 {
-  /* border: 1px solid greenyellow; */
-}
+/* .foot-2C2 {
+  border: 1px solid greenyellow;
+} */
 .foot-2C2 h3 {
   color: white;
   text-transform: capitalize;
@@ -85,7 +85,7 @@
 } */
 .foot-2-1C2 a {
   text-decoration: none;
-  color: rgb(185, 183, 183);
+  color: rgb(207, 207, 207);
 }
 .foot-2-1C2 a:hover {
   text-decoration: underline;
@@ -176,61 +176,78 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
-    gap: 15vw;
+    gap: 17vw;
     /* border: 1px solid orange; */
     flex-wrap: wrap;
-    padding-bottom: 5vw;
+    padding-bottom: 2vw;
+    padding-left: 8vw;
   }
   .foot-1C2{
     /* border: 1px solid green; */
     overflow: hidden;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
     gap: 1vw;
+    padding-left: 5vw;
   }
   .foot-1C2 p{
-    margin-left: 15px;
-    font-size: 3vw;
+    /* margin-left: 15px; */
+    font-size: 4vw;
   }
   .foot-1C2 p span{
-    font-size: 5vw;
+    /* margin-top: -.5vw; */
+    font-size: 7vw;
+  }
+  .foot-1-1C2{
+    margin-left: -45vw;
+    /* border: 1px solid rgb(38, 108, 229); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0vw;
   }
   .foot-1-1C2 h2{
-    font-size: 4.5vw;
+    font-size: 7vw;
   }
   .foot-1-1C2 img{
-    height: 8vw;
+    height: 15vw;
   }
   .outer{
     /* border: 1px solid red; */
     display: flex;
-    gap: 10vw;
+    gap: 12vw;
   }
   .foot-2C2 h3{
-    font-size: 4vw;
+    font-size: 5vw;
   }
   .foot-2-1C2 a{
-    font-size: 3vw;
+    font-size: 4vw;
   }
   .foot-3C2{
-    gap: 5vw;
+    gap: 7vw;
   }
   .foot-3-1C2 h3{
-    font-size: 4vw;
+    font-size: 5vw;
   }
   .foot-3-2C2 h3{
-    font-size: 4vw;
+    font-size: 5vw;
+  }
+  .subscribe-formC2{
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
   }
   .subscribe-formC2 input{
-    padding: 2vw 1.5vw;
-    font-size: 3vw;
+    padding: 2.5vw 3vw;
+    font-size: 3.5vw;
     width: 75%;
   }
   .subscribe-formC2 button{
-    padding: 1vw 2.5vw;
-    font-size: 3vw;
+    padding: 3vw 4vw;
+    font-size: 3.5vw;
+    /* border: 1px solid brown; */
   }
 }
 

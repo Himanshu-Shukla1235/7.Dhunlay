@@ -1,12 +1,12 @@
-.feature-cards-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    /* gap: 4vw; */
-    flex-wrap: wrap;
-    overflow: hidden;
-    /* margin-top: 10px; */
+.feature-cards-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* gap: 4vw; */
+  flex-wrap: wrap;
+  overflow: hidden;
+  /* margin-top: 10px; */
 }
 
 .card2 {
@@ -21,7 +21,11 @@
   gap: 4vw;
   padding: 20px;
   /* background-color: rgb(20, 20, 20); */
-  background: linear-gradient(45deg, rgb(20, 20, 20) 60%, rgba(0, 238, 255, 0.37));
+  background: linear-gradient(
+    45deg,
+    rgb(20, 20, 20) 60%,
+    rgba(0, 238, 255, 0.37)
+  );
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   border: 1px solid rgba(39, 168, 224, 0.933);
@@ -29,14 +33,14 @@
   position: relative;
 }
 
-.card-image2{
+.card-image2 {
   z-index: 0;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit:cover;
+  object-fit: cover;
   filter: brightness(0.8) blur(1px) grayscale(100%) opacity(0.2);
 }
 
@@ -46,7 +50,8 @@
 }
 
 .content2 h2 {
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: rgb(252, 251, 251);
   font-size: 25px;
   font-weight: bold;
@@ -102,31 +107,35 @@
 
 /* <------------------------------------------------------- Resposive Design ---------------------------------------------------------> */
 
-@media (min-width:350px) and (max-width:500px){
-  .card2{
-    width: 80%;
-    height: 25vh;
-    margin-bottom: 5vw;
+@media (min-width: 350px) and (max-width: 500px) {
+  .card2 {
+    width: 100%;
+    height: 40vh;
+    margin-bottom: 10vw;
   }
-  .content2 p{
-    margin-top: 7vw;
-    font-size: 3vw;
+  .content2 h2 {
+    font-size: 6.5vw;
+  }
+  .content2 p {
+    margin-top: 12vw;
+    font-size: 4.5vw;
+    /* border: 1px solid yellow; */
   }
 }
 
-@media (min-width:501px) and (max-width:800px){
-  .card2{
+@media (min-width: 501px) and (max-width: 800px) {
+  .card2 {
     width: 80%;
     height: 25vh;
     margin-bottom: 5vw;
   }
-  .content2 p{
+  .content2 p {
     font-size: 1px;
   }
 }
 
-@media (min-width:801px) and (max-width:950px){
-  .content2 p{
+@media (min-width: 801px) and (max-width: 950px) {
+  .content2 p {
     font-size: 1.5vw;
   }
 }

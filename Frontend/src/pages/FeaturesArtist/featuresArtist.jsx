@@ -5,6 +5,7 @@ import artistFeaturesData from "../../data/artistFeatures.json"; // Import the a
 import UpcomingFeatureCard from "../../components/UpcomingFeatureCard/upcomingFeatureCard";
 import upcomingArtistFeaturesData from "../../data/upcomingArtistFeatures.json"; // Import the artist features data
 import Stacking from "../../components/stacking element/stacking";
+import Footer_2 from "../../components/Footer/footerC2"
 
 const FeaturesArtist = () => {
   return (
@@ -43,6 +44,10 @@ const FeaturesArtist = () => {
           <div className="features-main-sec-21">
             <UpcomingFeatureCard data={upcomingArtistFeaturesData} />
           </div>
+        </div>
+
+        <div className="features-main-sec-3">
+          <Footer_2/>
         </div>
       </div>
     </>
