@@ -15,7 +15,7 @@ const footerC2 = () => {
       <div className="footC2">
         <div className="foot-1C2">
           <div className="foot-1-1C2">
-            <img src="/Dhun_logo.png" alt="Logo" />
+            <img src="/logo/logo2.png" alt="Logo" />
             <h2>
               Dhun<sapn style={{ color: "white" }}>lay</sapn>
             </h2>

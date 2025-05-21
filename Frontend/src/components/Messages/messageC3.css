@@ -40,15 +40,15 @@
   }
   
   .early-access-hero h1 {
-    font-size: 3vw;
+    font-size: 2.5vw;
     color: #d18f00;
-    margin-bottom: 2vh;
+    margin-bottom: 1vw;
   }
   
   .early-access-hero p {
     font-size: 1.5vw;
     color: #ffffff;
-    margin-bottom: 3vh;
+    margin-bottom: 5vh;
   }
   
   .early-access-button {
@@ -100,11 +100,15 @@
 /* ------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
     .early-access-page {
-      width: auto;
-      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 85%;
+      height: 80%;
       padding: 4vw;
       border-radius: 2vw;
       overflow-y: scroll;
+      /* border: 1px solid red; */
     }
   
     .early-access-hero h1 {

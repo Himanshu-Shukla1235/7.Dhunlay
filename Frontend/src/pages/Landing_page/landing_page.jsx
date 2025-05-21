@@ -218,14 +218,23 @@ const test = () => {
             <button onClick={handleClickLogin}>
               Let's create <KeyboardDoubleArrowRightIcon className="darrow" />
             </button>
-            <div className="landing_page-message">
+            {/* <div className="landing_page-message">
               {" "}
               <BetaBanner></BetaBanner>
               <EarlyAccess></EarlyAccess>
-            </div>
+            </div> */}
           </div>
 
-          {/* <ExpandMoreOutlinedIcon className="scroll-down" /> */}
+          <ExpandMoreOutlinedIcon className="scroll-down" />
+        </div>
+
+        <div className="section-beta">
+          <h2 className="title">Updates.</h2>
+        <div className="landing_page-message">
+              {" "}
+              <BetaBanner></BetaBanner>
+              <EarlyAccess></EarlyAccess>
+        </div>
         </div>
 
         <div className="section-2">
@@ -238,10 +247,7 @@ const test = () => {
               <h1>Number of trusted artists joined us</h1>
               <p>
                 <p>
-                  Join a growing community of creative minds —{" "}
-                  <strong>over 500+ talented artists</strong> have already
-                  become a part of our platform, sharing their passion and art
-                  with the world. Be the next to showcase your creativity!
+                  Join a growing community of <strong>500+</strong> talented artists sharing their passion with the world. Showcase your creativity today!
                 </p>
               </p>
               <h2>
@@ -261,10 +267,7 @@ const test = () => {
               <h1>Number of songs we have uploaded</h1>
               <p>
                 <p>
-                  Our platform is buzzing with music —{" "}
-                  <strong>more than 2,000 songs</strong> have already been
-                  uploaded by our amazing artists. Dive in and discover the
-                  sound of a new generation!
+                  Our platform is alive with music — <strong>2,000+</strong> songs uploaded by amazing artists. Dive in and hear the sound of a new generation!
                 </p>
               </p>
               <h2>
@@ -301,7 +304,7 @@ const test = () => {
             <img
               src="/logo/logo2.png"
               alt="logo1"
-              style={{ width: "9vw", height: "9vw" }}
+              // style={{ width: "9vw", height: "9vw" }}
             />
             <h2>?</h2>
           </motion.div>

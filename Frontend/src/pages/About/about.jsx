@@ -93,7 +93,7 @@ const About = () => {
         <div className="about-section-1">
           <div className="about-section-1-1">
             <h2>What is</h2>
-            <img src="/Dhun_logo.png" alt="Logo" />
+            <img src="/logo/logo2.png" alt="Logo" />
             <h2>?</h2>
           </div>
           <div className="about-section-1-2">

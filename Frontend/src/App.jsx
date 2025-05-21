@@ -140,7 +140,7 @@ function MainApp() {
       <Routes>
         <Route path="/" element={<LandinP></LandinP>}></Route>
         {/* This is about page */}
-        <Route path="/about" element={<About />} />
+        <Route path="/about/:id" element={<About />} />
 
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
