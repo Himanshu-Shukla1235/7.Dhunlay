@@ -34,9 +34,9 @@ html,body{
 }
 .landing_page_logo {
   width: 35px;           /* Set the width of the logo */
-  height: auto;           /* Maintain aspect ratio */
+  height: auto;      
   display: block;         /* Make it a block element */
-  margin: 20px auto;      /* Center horizontally with some margin */
+  margin: 10px auto;
   object-fit: contain;  
   margin-right: 0.1vw;  /* Ensure the image fits without distortion */
 }
@@ -332,7 +332,7 @@ html,body{
   object-fit: cover; /* Ensures the video covers the entire div */
   z-index: 0;
   opacity: 0.7;
-  filter: blur(2px);
+  filter: blur(2px) brightness(.9);
 }
 .section-11 {
   padding: 0px;
@@ -380,6 +380,7 @@ html,body{
   /* width: 95%; */
   line-height: 2vw;
   font-size: 1.2vw ;
+  font-weight: 600;
   /* border: 1px solid red; */
 }
 .section-11 button {
@@ -411,13 +412,11 @@ html,body{
   width: 95vw;
   gap: 2vw;
   /* border: solid red 3px; */
-  height: 37vh;
- 
 }
 .scroll-down {
   color: white;
   position: absolute;
-  top: 85%;
+  top: 80%;
   /* font-size: 10px; */
   animation: bounce 1.5s infinite;
 }
@@ -433,10 +432,35 @@ html,body{
 
 /* <------------------------------------------------ Section-1 Complete -------------------------------------------------> */
 
+/* <------------------------------------------------ Section-beta starts -------------------------------------------------> */
+
+.section-beta{
+  margin-top: 2vw;
+  margin-bottom: 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border-top: 1px solid rgba(177, 177, 177, 0.497); */
+  border-bottom: 1px solid rgba(177, 177, 177, 0.497);
+  width: 99%;
+  padding: 3vw 0;
+}
+.section-beta .title{
+  text-transform: uppercase;
+  color: white;
+  font-size: 3vw;
+  margin-bottom: 3vw;
+  font-family: sans-serif;
+}
+
+/* <------------------------------------------------ Section-beta Complete -------------------------------------------------> */
+
 /* <------------------------------------------------ Section-2 starts -------------------------------------------------> */
 
 .section-2 {
   margin-top: 5vw;
+  padding-bottom: 5vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -445,10 +469,10 @@ html,body{
 }
 .section-21 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 2vw;
+  gap: 5vw;
   margin: 2vw;
 }
 .section-211 {
@@ -461,15 +485,14 @@ html,body{
   /* background-color: transparent; */
   /* box-shadow: 0vw 0vw 1.8vw rgba(2, 185, 194, 0.633); */
   /* background: linear-gradient(135deg, #667eea8d, #f8f8f861); */
-  gap: 3vw;
+  /* gap: 3vw; */
   padding: 2vw;
- 
   border-radius: 1vw;
   position: relative;
   overflow: hidden;
    border: rgba(246, 246, 246, 0.948) 1px solid;
-   height: 60vh;
-  width: 70vw;
+   height: 50vh;
+  width: 40vw;
 }
 .section-211 img{
   z-index: 0;
@@ -485,15 +508,16 @@ html,body{
 .section-211 h1 {
  font-family: sans-serif;
   color: white;
-  font-size: 4vw;
+  font-size: 2.5vw;
   z-index: 1;
   font-weight: 600;
 }
 .section-211 p {
+  margin-top: 1vw;
   color: white;
-  font-size: 1.3vw;
+  font-size: 1.2vw;
   z-index: 1;
- 
+ line-height: 1.6vw;
 }
 .section-211 h2 {
   color: #00EEFF;
@@ -837,18 +861,20 @@ html,body{
   .section-11 h1 svg {
     /* border: 1px solid red; */
     height: 20vw;
-    width: 90%;
+    width: 110%;
     margin-top: 20vw;
+    margin-left: -4vw;
   }
   .section-11 p{
-    font-size: 4vw;
-    width: 90%;
+    font-size: 4.5vw;
+    font-weight: 100;
+    width: 95%;
     line-height: 5.5vw;
     color: rgba(255, 255, 255, 0.783);
     /* border: 1px solid yellow; */
   }
   .section-11 button{
-    width: 82%;
+    width: 90%;
     border-radius: 6px;
     font-size: 4vw;
     padding: 3vw 0;
@@ -870,50 +896,71 @@ html,body{
 .navibar h4{
  font-size: 6vw;
 }
+  /*?------------------------ Section - beta ------------------------- */
+
+  .section-beta{
+    margin: 15vw 0;
+    padding-bottom: 20vw;
+    /* height: 100vh; */
+    /* border: 1px solid blueviolet; */
+  }
+  .section-beta .title{
+    font-size: 8vw;
+  }
+  .landing_page-message{
+    display: flex;
+    gap: 5vw;
+    height: 90vh;
+    /* border: 1px solid rgb(49, 220, 55); */
+  }
+
   /*?------------------------ Section - 2 ------------------------- */
   .section-21{
     display: flex;
     flex-direction: column;
     /* border: 1px solid red; */
-    height: 80vh;
+    /* height: 80vh; */
     width: 100%;
-    margin-bottom: 80px;
-    
+    margin-bottom: 10vw;
+    gap: 15vw;
   }
   .section-211{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8vw;
+    gap: 10vw;
     /* border: 1px solid lightgreen; */
-    width: 80%;
+    width: 85%;
     height: auto;
     padding: 5vw;
     gap: 3vw;
   }
   .section-211 h1{
-    font-size: 9vw;
+    font-size: 8vw;
+    text-align: center;
   }
   .section-211 h2{
+    margin-top: 7vw;
     font-size: 12vw;
   }
   .section-211 p{
-    font-size: 5.5vw;
+    margin-top: 5vw;
+    font-size: 5vw;
     line-height: 7vw;
     text-align: center;
   }
 .landing_page-message{
   flex-direction: column;
-
 }
   /*?------------------------ Section - 3 ------------------------- */
   .section-3{
+    margin-top: 15vw;
     padding-bottom: 20vw;
     margin-bottom: 15vw;
   }
   .section-31{
     display: flex;
-    gap: 14vw;
+    gap: 16vw;
     margin-bottom: 15vw;
   }
   .section-31 h2{
@@ -924,7 +971,7 @@ html,body{
     height: 17vw;
     position: absolute;
     /* border: 1px solid red; */
-    top:  5%;
+    top: 5%;
     right: 14%;
   }
   .section-32{
