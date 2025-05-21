@@ -37,8 +37,9 @@ const ReleaseUserForm = () => {
   const backendAppUrl = import.meta.env.VITE_API_URL;
 
   const { userData } = useUser();
-  const userId = userData;
-  console.log("frontend--", userData);
+  const userId = String(userData?._id || "");
+
+  console.log("frontend--", userId);
   //*--------------- GLOBAL FORM DATA STATE (data to be posted to the server)--------------------
   const [formDataPost, setFormDataPost] = useState({
     // Step 1
@@ -66,7 +67,7 @@ const ReleaseUserForm = () => {
     explicitContent: "no",
     distributionPlatform: [],
     //
-    userId: "",
+    userId: userId,
   });
 
   //*--------------- FILE UPLOAD TO CLOUDINARRY -------------------------------
@@ -221,9 +222,13 @@ const ReleaseUserForm = () => {
         setLocalData((prev) => ({ ...prev, lyricsFile: file }));
       }
     };
-
+const     checkField=()=>{
+  
+}
     const handleNextClick = () => {
       setFormDataPost((prev) => ({ ...prev, ...localData }));
+      
+
       if (onNext) onNext();
     };
     const references = [
@@ -273,7 +278,7 @@ const ReleaseUserForm = () => {
           </div>
         </div>{" "}
         <div className="step1-main">
-          <h2
+          {/* <h2
             style={{
               color: "#00eeff",
               fontFamily: "sans-serif",
@@ -281,7 +286,7 @@ const ReleaseUserForm = () => {
             }}
           >
             Enter Song Details
-          </h2>
+          </h2> */}
           {/* Song Title */}
           <label className="step1-label-1">Song Name:</label>
           <InputC1
@@ -315,6 +320,7 @@ const ReleaseUserForm = () => {
                   <InputC1
                     placeholder={`Enter ${label} Name`}
                     value={value}
+                    required={true}
                     onChange={(e) => {
                       const newValues = [...localData[field]];
                       newValues[index] = e.target.value;
@@ -419,6 +425,7 @@ const ReleaseUserForm = () => {
             <ButtonC1
               content={"Next"}
               onClick={() => {
+                checkField();
                 handleNextClick();
                 setActiveStep(activeStep + 1);
               }}
@@ -506,7 +513,7 @@ const ReleaseUserForm = () => {
 
     return (
       <div className="step2-main">
-        <h2
+        {/* <h2
           style={{
             color: "#00eeff",
             fontFamily: "sans-serif",
@@ -514,7 +521,7 @@ const ReleaseUserForm = () => {
           }}
         >
           Upload Song File
-        </h2>
+        </h2> */}
         <div className="step2-main1">
           <div className="step-2-main1-left">
             <h3>Song Upload</h3>
@@ -560,26 +567,25 @@ const ReleaseUserForm = () => {
         <div className="step2-main2" style={{ marginTop: "1rem" }}>
           <div className="step2-main2-left">
             <h3>Cover Art Upload</h3>
-            <p>Upload your cover art in .jpg or .jpeg format.
-            Resolution must be between 1400×1400px and 3000×3000px, and file size should not exceed 10MB (or whatever your MAX_COVER_SIZE_MB is).</p>
+            <p>
+              Upload your cover art in .jpg or .jpeg format. Resolution must be
+              between 1400×1400px and 3000×3000px, and file size should not
+              exceed 10MB (or whatever your MAX_COVER_SIZE_MB is).
+            </p>
           </div>
           <div className="step2-main2-right">
             <label
               className="file-upload"
               style={{
                 display: "block",
-                width: "100%",
 
-                backgroundImage:
-                  'url("https://t4.ftcdn.net/jpg/12/56/40/47/360_F_1256404749_KGkPHa743eTwopHELCubfquWO9DU8BHH.jpg")', // ✅ fixed here
+                border: "4px dotted white",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 cursor: "pointer",
                 borderRadius: "12px",
                 opacity: "0.5",
-                border: "none",
-                height: "30vh",
               }}
             >
               <input
@@ -728,13 +734,13 @@ const ReleaseUserForm = () => {
           onChange={(value) => handleChange("distributionPlatform", value)}
         />
         <br />
-        <div>
-          {activeStep > 0 && (
+        <div className="step-3-next-button">
+          {/* {activeStep > 0 && (
             <ButtonC1
               content={"Back"}
               onClick={() => setActiveStep(activeStep - 1)}
             />
-          )}
+          )} */}
           {activeStep < stepContent.length - 1 ? (
             <ButtonC1
               content={"Next"}
@@ -754,99 +760,146 @@ const ReleaseUserForm = () => {
   // Step 4 Component: Review Submission
   const Step4 = () => {
     return (
-      <div className="step4-main" style={{ color: "white", padding: "1rem" }}>
-        <h2>Review Your Submission</h2>
-        <p>
-          <strong>Song Name:</strong> {formDataPost.songName || "NA"}
-        </p>
-        <p>
-          <strong>Primary Artists:</strong>{" "}
-          {formDataPost.primaryArtists?.length
-            ? formDataPost.primaryArtists.join(", ")
-            : "NA"}
-        </p>
-        <p>
-          <strong>Featuring Artists:</strong>{" "}
-          {formDataPost.featuringArtists?.length
-            ? formDataPost.featuringArtists.join(", ")
-            : "NA"}
-        </p>
-        <p>
-          <strong>Authors:</strong>{" "}
-          {formDataPost.authors?.length
-            ? formDataPost.authors.join(", ")
-            : "NA"}
-        </p>
-        <p>
-          <strong>Composers:</strong>{" "}
-          {formDataPost.composers?.length
-            ? formDataPost.composers.join(", ")
-            : "NA"}
-        </p>
-        <p>
-          <strong>Music Producers:</strong>{" "}
-          {formDataPost.musicProducers?.length
-            ? formDataPost.musicProducers.join(", ")
-            : "NA"}
-        </p>
-        <p>
-          <strong>Music Directors:</strong>{" "}
-          {formDataPost.musicDirectors?.length
-            ? formDataPost.musicDirectors.join(", ")
-            : "NA"}
-        </p>
-        <p>
-          <strong>Lyrics:</strong> {formDataPost.lyrics || "NA"}
-        </p>
-        <p>
-          <strong>Lyrics File:</strong>{" "}
-          {formDataPost.lyricsFile ? formDataPost.lyricsFile.name : "NA"}
-        </p>
-        <p>
-          <strong>Label Name:</strong> {formDataPost.labelName || "NA"}
-        </p>
-        <p>
-          <strong>Song File:</strong>{" "}
-          {formDataPost.songFile
-            ? formDataPost.songFile.name || formDataPost.songFile
-            : "NA"}
-        </p>
-        <p>
-          <strong>Cover Art:</strong>{" "}
-          {formDataPost.coverArt
-            ? formDataPost.coverArt.name || formDataPost.coverArt
-            : "NA"}
-        </p>
-        <p>
-          <strong>Release Date:</strong>{" "}
-          {formDataPost.releaseDate
-            ? formDataPost.releaseDate.toString()
-            : "NA"}
-        </p>
-        <p>
-          <strong>ISRC:</strong> {formDataPost.isrc || "NA"}
-        </p>
-        <p>
-          <strong>UPC:</strong> {formDataPost.upc || "NA"}
-        </p>
-        <p>
-          <strong>Explicit Content:</strong>{" "}
-          {formDataPost.explicitContent || "NA"}
-        </p>
-        <p>
-          <strong>Distribution Platforms:</strong>{" "}
-          {formDataPost.distributionPlatform?.length
-            ? formDataPost.distributionPlatform.join(", ")
-            : "NA"}
-        </p>
-        <div>
-          {activeStep > 0 && (
-            <ButtonC1
-              content={"Back"}
-              onClick={() => setActiveStep(activeStep - 1)}
-            />
-          )}
+      <div className="step-4-main" style={{ color: "white", padding: "1rem" }}>
+        <h2>
+          Review Your <span style={{ color: "white" }}>Submission</span>{" "}
+        </h2>
+
+        <div className="step-4-main-label">
+          <h4>Song Name:</h4> <span>{formDataPost.songName || "NA"}</span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Primary Artists:</h4>
+          <span>
+            {formDataPost.primaryArtists?.length
+              ? formDataPost.primaryArtists.join(", ")
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Featuring Artists:</h4>
+          <span>
+            {formDataPost.featuringArtists?.length
+              ? formDataPost.featuringArtists.join(", ")
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Authors:</h4>
+          <span>
+            {formDataPost.authors?.length
+              ? formDataPost.authors.join(", ")
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Composers:</h4>
+          <span>
+            {formDataPost.composers?.length
+              ? formDataPost.composers.join(", ")
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Music Producers:</h4>
+          <span>
+            {formDataPost.musicProducers?.length
+              ? formDataPost.musicProducers.join(", ")
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Music Directors:</h4>
+          <span>
+            {formDataPost.musicDirectors?.length
+              ? formDataPost.musicDirectors.join(", ")
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Lyrics:</h4>
+          <span>{formDataPost.lyrics || "NA"}</span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Lyrics File:</h4>
+          <span>
+            {formDataPost.lyricsFile ? formDataPost.lyricsFile.name : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Label Name:</h4>
+          <span>{formDataPost.labelName || "NA"}</span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Song File:</h4>
+          <span>
+            {formDataPost.songFile
+              ? formDataPost.songFile.name || formDataPost.songFile
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Cover Art:</h4>
+          <span>
+            {formDataPost.coverArt
+              ? formDataPost.coverArt.name || formDataPost.coverArt
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Release Date:</h4>
+          <span>
+            {formDataPost.releaseDate
+              ? formDataPost.releaseDate.toString()
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>ISRC:</h4>
+          <span>{formDataPost.isrc || "NA"}</span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>UPC:</h4>
+          <span>{formDataPost.upc || "NA"}</span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Explicit Content:</h4>
+          <span>{formDataPost.explicitContent || "NA"}</span>
+        </div>
+
+        <div className="step-4-main-label">
+          <h4>Distribution Platforms:</h4>
+          <span>
+            {formDataPost.distributionPlatform?.length
+              ? formDataPost.distributionPlatform.join(", ")
+              : "NA"}
+          </span>
+        </div>
+
+        <div className="step-4-main-button-finish">
+          {/* {activeStep > 0 && (
+        <ButtonC1
+          content={"Back"}
+          onClick={() => setActiveStep(activeStep - 1)}
+        />
+      )} */}
           <button
+            className="finish-button"
             onClick={() => {
               alert("Process Completed!");
               handleSubmit();

@@ -349,15 +349,73 @@ border-top: solid 3px rgba(48, 47, 47, 0.404) ;
   gap: 0.5vw;
 }
 
-/* ------------------------------------------------------ */
-.step4-container {
+/* ------------------------------------------------------step-4 */
+.step-4-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   max-width: 600px;
   margin: auto;
-  padding: 20px;
-  background-color: #1e1e1e;
+  padding: 30vh;
+  background-color: #d0171700;
   color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+  border: dotted grey 3px;
+  font-family: "Inconsolata", serif;
+  width: 100%;
+  gap: 3vw;
+  font-size: 1.5vw;
+
+
+}
+.step-4-main h2{
+  
+  color: #00EEFF;
+  padding: 3vw;
+
+}
+.step-4-main-label{
+  display:  flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 85%;
+  /* border: solid red 3px; */
+  gap: 1.5vw;
+  padding-left: 5vw;
+}
+.step-4-main-label h4{
+  color: #00EEFF;
+}
+.step-4-main-button-finish{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.finish-button {
+  background-color: #ffffff; /* Green */
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.finish-button:hover {
+  background-color:#00EEFF;
+  transform: scale(1.05);
+}
+
+.finish-button:active {
+  transform: scale(0.98);
+  background-color: #3e8e41;
 }
 
 .step4-title {
@@ -405,10 +463,10 @@ border-top: solid 3px rgba(48, 47, 47, 0.404) ;
   }
 .step1-main{
   width: 100%;
-  border: solid red 1px;
+  /* border: solid red 1px; */
 }
 .step-1-prev-main{
-  border: solid red 1px;
+  /* border: solid red 1px; */
   width: 100%;
 }
 .step2-main1,.step2-main2{
@@ -446,6 +504,23 @@ border-top: solid 3px rgba(48, 47, 47, 0.404) ;
   color: white;
   font-family: "Inconsolata", serif;
   line-height: 1.8;
+}
+.step-2-main2-right{
+
+}
+.step-3-main{
+  /* border: solid red 2px; */
+  width: 100%;
+}
+.step3-main-datepicker{
+  width: 100%;
+}
+.step-3-next-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vw;
 }
 }
 
