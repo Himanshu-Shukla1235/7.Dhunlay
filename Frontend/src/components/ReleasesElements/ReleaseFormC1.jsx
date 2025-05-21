@@ -70,6 +70,10 @@ const ReleaseUserForm = () => {
     userId: userId,
   });
 
+  
+
+
+
   //*--------------- FILE UPLOAD TO CLOUDINARRY -------------------------------
   const handleUploadCloud = async (file, type) => {
     if (!file) {
@@ -108,6 +112,7 @@ const ReleaseUserForm = () => {
 
   //*--------------------------SUBMIT DATA TO SERVER -----------------------
   const handleSubmit = async () => {
+    validateFormDataPost();
     formDataPost.songFile = await handleUploadCloud(
       formDataPost.songFile,
       "wav"
@@ -197,6 +202,8 @@ const ReleaseUserForm = () => {
       C_line: "",
       p_line: "", // changed to lowercase for consistency
     });
+    
+
 
     const handleChange = (field, value) => {
       setLocalData((prev) => ({ ...prev, [field]: value }));
@@ -222,12 +229,9 @@ const ReleaseUserForm = () => {
         setLocalData((prev) => ({ ...prev, lyricsFile: file }));
       }
     };
-const     checkField=()=>{
-  
-}
+
     const handleNextClick = () => {
       setFormDataPost((prev) => ({ ...prev, ...localData }));
-      
 
       if (onNext) onNext();
     };
@@ -425,9 +429,10 @@ const     checkField=()=>{
             <ButtonC1
               content={"Next"}
               onClick={() => {
-                checkField();
-                handleNextClick();
-                setActiveStep(activeStep + 1);
+              
+                  handleNextClick();
+                  setActiveStep(activeStep + 1);
+                
               }}
             />
           ) : (

@@ -161,28 +161,38 @@ border-top: solid 3px rgba(48, 47, 47, 0.404) ;
   font-family: monospace;
   font-weight: 100;
   line-height: 3vh;
-  color: rgb(181, 181, 181);
-  font-size: 1vw;
-  width: 40%;
+  color: #00eeffd4;
+  font-size: 1.5vw;
+  width: 100%;
+}
+.step2-main1 p{
+  color: white;
+    font-family: "Inconsolata", serif;
 }
 .step2-main2 h3 {
   font-family: monospace;
   font-weight: 100;
   line-height: 3vh;
-  color: rgb(181, 181, 181);
-  font-size: 1vw;
+  color: #00eeffd4;
+  font-size: 1.5vw;
   width: 60%;
+  width: 100%;
+}
+.step2-main2 p{
+    color: white;
+    font-family: "Inconsolata", serif;
 }
 
 .step-2-main1-left {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-right: 1px #00eeff solid;
-  height: auto;
+  height: 30vh;
   width: 25vw;
   padding: 2vw;
+  background-color: #000000;
 }
 .step-2-main1-right {
   display: flex;
@@ -219,13 +229,15 @@ border-top: solid 3px rgba(48, 47, 47, 0.404) ;
 
 .step2-main2-left {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-right: 1px #00eeff solid;
   height: auto;
   width: 25vw;
   padding: 2vw;
+   height: 30vh;
+   background-color: #000000;
 }
 .step2-main2-right {
   padding: 1vw;
@@ -521,6 +533,20 @@ border-top: solid 3px rgba(48, 47, 47, 0.404) ;
   justify-content: center;
   align-items: center;
   margin-top: 5vw;
+}
+
+/* -----------------step-4 --------------------*/
+.step-4-main{
+  width:75vw;
+ 
+}
+.step-4-main h2{
+font-size: 5vw;
+font-family: sans-serif;
+}
+.step-4-main-label {
+  font-size: 5vw;
+
 }
 }
 
