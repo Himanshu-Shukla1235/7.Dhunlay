@@ -90,9 +90,9 @@ function MainApp() {
               navigate(`/features_artist/${data._id}`);
             }
 
-            if (window.location.pathname === "/features/features_label") {
-              navigate(`/features_label/${data._id}`);
-            }
+            // if (window.location.pathname === "/features/features_label") {
+            //   navigate(`/features_label/${data._id}`);
+            // }
             if (window.location.pathname === "/features") {
               navigate(`/features/${data._id}`);
             }
@@ -102,6 +102,9 @@ function MainApp() {
             if (window.location.pathname === "/releases") {
               navigate(`/releases/${data._id}`);
             }
+            //   if (window.location.pathname === "/about") {
+            //   navigate(`/about/${data._id}`);
+            // }
             //for public routes
             if (window.location.pathname === "/login" && data._id != null) {
               navigate(`/dashboard/${data._id}`);
@@ -141,7 +144,9 @@ function MainApp() {
       <Routes>
         <Route path="/" element={<LandinP></LandinP>}></Route>
         {/* This is about page */}
-        <Route path="/about/:id" element={<About />} />
+        <Route path="/about" element={<About />} />
+         <Route path="features_Artist" element={<FeaturesArtist />} />
+        <Route path="features_label" element={<FeaturesLabel />} />{" "}
 
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>

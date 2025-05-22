@@ -20,17 +20,22 @@ const ListComponent = () => {
       icon: <SpaceDashboardIcon className="menu-icon" />,
     },
     {
-      name: "Analytics",
-      href: "/analytics",
-      icon: <AnalyticsIcon className="menu-icon" />,
-    },
-    {
       name: "Releases",
       href: "/releases",
       icon: <LibraryMusicIcon className="menu-icon" />,
     },
+    {
+      name: "Analytics",
+      href: "/analytics",
+      icon: <AnalyticsIcon className="menu-icon" />,
+    },
+
     // { name: "Call-Support", href: "/call-support", icon: <CallIcon className="menu-icon" /> },
-     { name: "Features", href: "/features", icon: <StarIcon className="menu-icon" /> },
+    {
+      name: "Features",
+      href: "/features",
+      icon: <StarIcon className="menu-icon" />,
+    },
     {
       name: "Finance",
       href: "/finance",
