@@ -112,7 +112,7 @@ const ReleaseUserForm = () => {
 
   //*--------------------------SUBMIT DATA TO SERVER -----------------------
   const handleSubmit = async () => {
-    validateFormDataPost();
+    // validateFormDataPost();
     formDataPost.songFile = await handleUploadCloud(
       formDataPost.songFile,
       "wav"
