@@ -1,7 +1,7 @@
 import React from "react";
-import "./cardsC1.css"; // Import the CSS file
+import "./cardsC3.css"; // Import the CSS file
 
-const Card = ({
+const CardC3 = ({
   title = "Premium",
   price = "$9.99/month",
   description = "Get access to exclusive features.",
@@ -30,12 +30,10 @@ const Card = ({
           ))}
         </ul>
 
-        <button className="cardsC1-subscribe_btn">
-          <h4>{buttonText}</h4>
-        </button>
+        
       </div>
     </div>
   );
 };
 
-export default Card;
+export default CardC3;

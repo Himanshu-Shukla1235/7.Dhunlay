@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./ourPlans.css"; // Import the CSS file
+import "./ourPlansPublic.css"; // Import the CSS file
 
-import Card from "../../components/Cards/cardsC1";
+import CardC3 from "../../components/Cards/cardsC3";
 
 const ourPlans = () => {
   return (
@@ -13,21 +13,21 @@ const ourPlans = () => {
             <span style={{ color: "white" }}>Plans</span>
           </h2>
         </div>
-        <div className="ourPlans-main-sec-2">
+        {/* <div className="ourPlans-main-sec-2">
           <div className="ourPlans-main-sec-21">
             <p>Your Current Plan</p>
           </div>
           <div className="ourPlans-main-sec-22">
             <p> Running Offers</p>
           </div>
-        </div>
+        </div> */}
         <div className="ourPlans-main-sec-3">
           <div className="ourPlans-main-sec-31">
             <h2>Pricing For Artists</h2>
           </div>
           <div className="ourPlans-main-sec-32">
             {" "}
-            <Card
+            <CardC3
               card_dot_bg="#FFFFFF"
               labelTC="#FFFFFF"
               title="Freemium"
@@ -44,7 +44,7 @@ const ourPlans = () => {
                 "* Free ISRC & UPC codes",
               ]}
             />
-            <Card
+            <CardC3
               card_dot_bg="#00EEFF"
               labelTC="#00EEFF"
               title="Per Release"
@@ -61,8 +61,8 @@ const ourPlans = () => {
 
                 "* Free ISRC & UPC codes",
               ]}
-            ></Card>
-            <Card
+            ></CardC3>
+            <CardC3
               card_dot_bg="#FFD700"
               labelTC="#FFD700"
               title="EP / Album"
@@ -79,7 +79,7 @@ const ourPlans = () => {
 
                 "* Free ISRC & UPC codes",
               ]}
-            ></Card>
+            ></CardC3>
           </div>
         </div>
         {/* --------------------------------------------------- */}

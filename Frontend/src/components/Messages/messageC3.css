@@ -5,10 +5,11 @@
     overflow-y: scroll;
     scrollbar-width: thin; /* For Firefox */
     scrollbar-color: gold transparent; /* Firefox */
-    height: 37vh;
+    height: auto;
     border: white solid 1px;
     border-radius: 0.5vw;
-    padding: 1vw;
+    padding: 0.5vw;
+    padding-bottom: 2vw;
     width: auto;
     background-color: #00000066;
   }
@@ -104,7 +105,7 @@
       flex-direction: column;
       align-items: center;
       width: 85%;
-      height: 80%;
+      height: auto;
       padding: 4vw;
       border-radius: 2vw;
       overflow-y: scroll;

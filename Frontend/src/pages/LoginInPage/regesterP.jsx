@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+
 import "./regesterP.css";
 import Navbar from "../../components/Navbar/navbarC2";
 import Loading from "../../components/Loding/loadingC1";
-
+import MusicPlatformMarquee from "../../components/morque/morque";
 const RegisterPage = () => {
   const [username, setUsername] = useState(""); // Changed to 'setUsername'
   const [email, setEmail] = useState("");
@@ -69,112 +70,141 @@ const RegisterPage = () => {
       setError(err.message || "Something went wrong(Frontend)");
     }
   };
+  const logos = [
+    {
+      src: "https://music-row-website-assets.s3.amazonaws.com/wp-content/uploads/2018/11/10155527/Apple-Music-Logo-FB.png",
+      alt: "Spotify",
+    },
+    {
+      src: "https://newsroom.spotify.com/wp-content/themes/ftr/assets/images/Spotify_Logo_RGB_Green.png",
+      alt: "Apple Music",
+    },
+    {
+      src: "https://w7.pngwing.com/pngs/535/720/png-transparent-amazon-music-full-logo-tech-companies.png",
+      alt: "SoundCloud",
+    },
+    {
+      src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/YT_Music.svg/1024px-YT_Music.svg.png",
+      alt: "SoundCloud",
+    },
+    // Add more logos as needed
+  ];
 
   return (
     <>
-      <div className="registerP-nav">
-        <div className="logoD">
-          {/* <div className="logo"></div> */}
-          <h5>
-            <span>Dhun</span>
-            <span style={{ color: "white" }}>lay</span>
-          </h5>
+      <div className="registerP-main">
+        <div className="registerP-main-sec1"></div>
+        <div className="registerP-container">
+        {/* <div className="regesterP-container-logo"></div> */}
+          <div className="registerP-container-title"> 
+          <h2>You Bring the Passion. We Bring the Platform.</h2><p >
+
+            
+          </p></div>
+          <form className="registerP-form" onSubmit={handleRegister}>
+            <div className="registerP-form-sec1">
+              {" "}
+              <div className="registerP-form-sec11">
+                {" "}
+                <div className="registerP-input-group">
+                  <label htmlFor="username">Username</label>
+                  <input
+                    type="text"
+                    id="username" // Changed 'id' to 'username'
+                    value={username} // Using 'username' state
+                    onChange={(e) => setUsername(e.target.value)} // Changed to 'setUsername'
+                    required
+                  />
+                </div>
+                <div className="registerP-input-group">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="registerP-input-group">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="registerP-input-group">
+                  <label htmlFor="confirmPassword">Confirm Password</label>
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="registerP-form-sec12">
+                <div className="registerP-input-group">
+                  <label htmlFor="country">Country</label>
+                  <select
+                    id="country"
+                    value={country}
+                    onChange={(e) => {
+                      setCountry(e.target.value);
+                      setState(""); // Reset state when country changes
+                    }}
+                    required
+                  >
+                    <option value="">Select Country</option>
+                    {countries.map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="registerP-input-group">
+                  <label htmlFor="state">State</label>
+                  <select
+                    id="state"
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
+                    required
+                    disabled={!country} // Disable state if no country is selected
+                  >
+                    <option value="">Select State</option>
+                    {statesByCountry[country]?.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="registerP-button"
+              disabled={loading}
+            >
+              {loading ? "Registering..." : "Register"}
+            </button>
+
+            {error && <p className="registerP-error">{error}</p>}
+          </form>
+           <div className="registerP-policy"> <p >
+            By logging in, you agree to our <a href="/policy">Terms</a> and{" "}
+            <a href="/policy">Privacy Policy</a>
+          </p>
+          </div>
+          <div className="registerP-morque"><MusicPlatformMarquee logos={logos} ></MusicPlatformMarquee></div>
         </div>
-        {/* <Navbar></Navbar> */}
-        <div style={{ marginRight: "70px" }}></div>
-      </div>
-
-      <div className="registerP-container">
-        <form className="registerP-form" onSubmit={handleRegister}>
-          <h2>Register</h2>
-
-          <div className="input-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username" // Changed 'id' to 'username'
-              value={username} // Using 'username' state
-              onChange={(e) => setUsername(e.target.value)} // Changed to 'setUsername'
-              required
-            />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="country">Country</label>
-            <select
-              id="country"
-              value={country}
-              onChange={(e) => {
-                setCountry(e.target.value);
-                setState(""); // Reset state when country changes
-              }}
-              required
-            >
-              <option value="">Select Country</option>
-              {countries.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="state">State</label>
-            <select
-              id="state"
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-              required
-              disabled={!country} // Disable state if no country is selected
-            >
-              <option value="">Select State</option>
-              {statesByCountry[country]?.map((s) => (
-                <option key={s} value={s}>
-                  {s}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <button type="submit" className="registerP-button" disabled={loading}>
-            {loading ? "Registering..." : "Register"}
-          </button>
-          {error && <p className="registerP-error">{error}</p>}
-        </form>
+      
       </div>
     </>
   );

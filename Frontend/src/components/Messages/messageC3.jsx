@@ -17,7 +17,7 @@ const EarlyAccess = () => {
         </Link>
       </div>
 
-      <div className="early-access-info">
+      {/* <div className="early-access-info">
         <h2>Why Early Access?</h2>
         <p>
           Dhunlay is currently in beta. We're giving our earliest supporters
@@ -50,7 +50,7 @@ const EarlyAccess = () => {
             Claim Your Free Year
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 79vw;
+    width: 100%;
     height: 500%;
     padding: 0.45vw;
     text-align: center;
@@ -11,7 +11,7 @@
     background-color: #1e1e1e; /* Dark background */
     border-radius: 1vw;
     gap: 0.7vw;
-    border: gold 0.12vw solid;
+    /* border: gold 0.12vw solid; */
     /* border-top: none; */
 }
 /* ?____________________________________ \ SECTION 2 \_______________________________ */

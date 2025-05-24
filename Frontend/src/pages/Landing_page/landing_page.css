@@ -899,8 +899,8 @@ html,body{
   /*?------------------------ Section - beta ------------------------- */
 
   .section-beta{
-    margin: 15vw 0;
-    padding-bottom: 20vw;
+   
+    
     /* height: 100vh; */
     /* border: 1px solid blueviolet; */
   }
@@ -910,8 +910,9 @@ html,body{
   .landing_page-message{
     display: flex;
     gap: 5vw;
-    height: 90vh;
+    height: auto;
     /* border: 1px solid rgb(49, 220, 55); */
+    margin-top: 1vw;
   }
 
   /*?------------------------ Section - 2 ------------------------- */
