@@ -38,7 +38,7 @@ const footer = () => {
         <div className="foot-2">
           <h3>Company</h3>
           <div className="foot-2-1">
-            <a href="/policy">policy / Terms and Conditions</a>
+            <a href="https://drive.google.com/file/d/1LJg7kHadniMfJbWHITtv_EBVoN-n_mvS/view?usp=sharing">policy / Terms and Conditions</a>
             
           </div>
         </div>

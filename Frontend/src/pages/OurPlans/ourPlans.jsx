@@ -30,8 +30,8 @@ const ourPlans = () => {
             <Card
               card_dot_bg="#FFFFFF"
               labelTC="#FFFFFF"
-              title="Freemium"
-              price="$0.00"
+              title="Freemium"  
+              price="₹ 0"
               features={[
                 "* Keep 70% of your earnings",
                 "* One primary artist per release",
@@ -48,7 +48,7 @@ const ourPlans = () => {
               card_dot_bg="#00EEFF"
               labelTC="#00EEFF"
               title="Per Release"
-              price="$4.68 / Per Release"
+              price="₹399 / Per Release"
               features={[
                 "* Keep 90% of your earnings",
                 "* One fixed primary artist, with option to add more",
@@ -66,7 +66,7 @@ const ourPlans = () => {
               card_dot_bg="#FFD700"
               labelTC="#FFD700"
               title="EP / Album"
-              price="$11.72 / Per Release"
+              price="₹999 / Per Release"
               features={[
                 "* Keep 90% of your earnings",
                 "* One fixed primary artist, with option to add more",
