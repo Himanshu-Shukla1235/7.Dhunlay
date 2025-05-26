@@ -13,11 +13,57 @@ const About = () => {
   const [navOpen, setNavOpen] = useState(false);
   const handleLinkClick = () => setNavOpen(false);
 
+  const [serviceDropdownOpen, setserviceDropdownOpen] = useState(false);
+  const serviceDropdownRef = useRef(null);
+
+  const [featureDropdownOpen, setfeatureDropdownOpen] = useState(false);
+  const featureDropdownRef = useRef(null);
+
+  // useEffect to close searvices-dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        serviceDropdownRef.current &&
+        !serviceDropdownRef.current.contains(event.target)
+      ) {
+        setserviceDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // useEffect to close features-dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        featureDropdownRef.current &&
+        !featureDropdownRef.current.contains(event.target)
+      ) {
+        setfeatureDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <>
       <div className="hero">
         <div className="navibar">
           <h4>
+            {" "}
+            <img
+              src="/logo/logo1.png"
+              alt="Logo"
+              className="landing_page_logo"
+            ></img>
             <span>Dhun</span>
             <span style={{ color: "white" }}>lay</span>
           </h4>
@@ -33,36 +79,49 @@ const About = () => {
 
           <main className={`navbar-elems ${navOpen ? "show" : ""}`}>
             <ul className="all-elems">
-              <li className="feature-button">
-                <a className="button" onClick={handleLinkClick}>
+              <li className="service-button" ref={serviceDropdownRef}>
+                <a
+                  className="button"
+                  onClick={() => setserviceDropdownOpen(!serviceDropdownOpen)}
+                >
+                  Services <ArrowDropDownOutlinedIcon className="downicon" />
+                </a>
+                <div
+                  className={`dropdown-content ${
+                    serviceDropdownOpen ? "yes" : ""
+                  }`}
+                >
+                  <a href="#">Music Production</a>
+                  <a href="#">Mixing and Mastering</a>
+                  <a href="#">Promotion</a>
+                  <a href="#">Cover Art</a>
+                </div>
+              </li>
+              <li className="feature-button" ref={featureDropdownRef}>
+                <a
+                  className="button"
+                  onClick={() => setfeatureDropdownOpen(!featureDropdownOpen)}
+                >
                   Features <ArrowDropDownOutlinedIcon className="downicon" />
                 </a>
-                <div className="dropdown-content">
-                  <a href="./features_artist" onClick={handleLinkClick}>
-                    Features for artists
-                  </a>
-                  <a href="./features_label" onClick={handleLinkClick}>
-                    Features for labels
-                  </a>
-                  <a href="#" onClick={handleLinkClick}>
-                    Feature 3
-                  </a>
+                <div
+                  className={`dropdown-content ${
+                    featureDropdownOpen ? "yes" : ""
+                  }`}
+                >
+                  <a href="./features_artist">Features for artists</a>
+                  <a href="./features_label">Features for labels</a>
+                  <a href="#">Feature 3</a>
                 </div>
               </li>
               <li>
-                <a href="#" onClick={handleLinkClick}>
-                  Subscription
-                </a>
+                <a href="#">Subscription</a>
               </li>
               <li>
-                <a href="#" onClick={handleLinkClick}>
-                  Contact
-                </a>
+                <a href="#">Contact</a>
               </li>
               <li>
-                <a href="/contact" onClick={handleLinkClick}>
-                  FAQs
-                </a>
+                <a href="/contact">FAQs</a>
               </li>
               <li>
                 <button
@@ -367,9 +426,9 @@ const About = () => {
               When talented artists speak highly of our filament, it fuels our
               passion and drives us to do even better. Hearing that our product
               plays a role in bringing their visions to life is the greatest
-              reward. <br /> Their creativity, feedback, and trust motivate us
-              every day to innovate, improve, and make 3D printing more
-              accessible. It's not just about selling filament — it's about
+              reward. <br /> <br /> Their creativity, feedback, and trust
+              motivate us every day to innovate, improve, and make 3D printing
+              more accessible. It's not just about selling filament — it's about
               being part of a creative journey that inspires us all.
             </p>
             <Swiper
@@ -388,8 +447,8 @@ const About = () => {
                     />
                   </div>
                   <p>
-                    "Using DhunLay filament has completely changed the way
-                    I work — the consistency and colors are unmatched!"
+                    "Using DhunLay filament has completely changed the way I
+                    work — the consistency and colors are unmatched!"
                   </p>
                   <h4>- Kishore Kumar, Singer</h4>
                 </div>
@@ -397,22 +456,28 @@ const About = () => {
 
               <SwiperSlide className="card2">
                 <div className="feedback-card">
-                <div className="artist-photo">
-                  <img src="https://static01.nyt.com/images/2016/01/23/arts/19ICE-CUBE/19ICE-CUBE-articleLarge.jpg?quality=75&auto=webp&disable=upscale" alt="Artist 2" />
-                </div>
+                  <div className="artist-photo">
+                    <img
+                      src="https://static01.nyt.com/images/2016/01/23/arts/19ICE-CUBE/19ICE-CUBE-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+                      alt="Artist 2"
+                    />
+                  </div>
                   <p>
                     "I’ve tried many brands, but this filament gives me the
                     cleanest prints with no fuss. Love it!"
                   </p>
-                  <h4>- Liam Torres, Industrial Designer</h4>
+                  <h4>- Ice Cube, Rapper</h4>
                 </div>
               </SwiperSlide>
 
               <SwiperSlide className="card3">
                 <div className="feedback-card">
-                <div className="artist-photo">
-                  <img src="https://cdn.realworldrecords.com/wp-content/uploads/2018/04/04120340/Artist19-1200x675.jpg" alt="Artist 3" />
-                </div>
+                  <div className="artist-photo">
+                    <img
+                      src="https://cdn.realworldrecords.com/wp-content/uploads/2018/04/04120340/Artist19-1200x675.jpg"
+                      alt="Artist 3"
+                    />
+                  </div>
                   <p>
                     "It’s not just about quality — it’s about the community and
                     support behind the filament. These folks get it!"
@@ -423,9 +488,12 @@ const About = () => {
 
               <SwiperSlide className="card4">
                 <div className="feedback-card">
-                <div className="artist-photo">
-                  <img src="https://in.bmscdn.com/artist/1085655.jpg" alt="Artist 4" />
-                </div>
+                  <div className="artist-photo">
+                    <img
+                      src="https://in.bmscdn.com/artist/1085655.jpg"
+                      alt="Artist 4"
+                    />
+                  </div>
                   <p>
                     "This filament performs like a dream. From prototypes to
                     final models, it’s my go-to."
@@ -436,9 +504,12 @@ const About = () => {
 
               <SwiperSlide className="card5">
                 <div className="feedback-card">
-                <div className="artist-photo">
-                  <img src="https://i.pinimg.com/originals/2a/01/3f/2a013f275245f76f093916dfebbcee6e.jpg" alt="Artist 5" />
-                </div>
+                  <div className="artist-photo">
+                    <img
+                      src="https://i.pinimg.com/originals/2a/01/3f/2a013f275245f76f093916dfebbcee6e.jpg"
+                      alt="Artist 5"
+                    />
+                  </div>
                   <p>
                     "Smooth prints, vibrant colors, reliable results — what more
                     could a creator ask for?"
@@ -446,6 +517,10 @@ const About = () => {
                   <h4>- Emily Chen, Art Toy Designer</h4>
                 </div>
               </SwiperSlide>
+              <div className="instruction">
+                <h3>Drag to see more cards</h3>
+                <img src="/public/gesture.png" alt="drag-icon" />
+              </div>
             </Swiper>
           </div>
         </div>

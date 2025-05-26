@@ -25,23 +25,23 @@ const footer = () => {
           </p>
         </div>
         <div className="outer">
-        <div className="foot-2 services">
-          <h3>Services</h3>
-          <div className="foot-2-1">
-            <a href="#">Music Production</a>
-            <a href="#">Mixing and Mastering</a>
-            <a href="#">Promotion</a>
-            <a href="#">Cover Art</a>
+          <div className="foot-2 services">
+            <h3>Services</h3>
+            <div className="foot-2-1">
+              <a href="#">Music Production</a>
+              <a href="#">Mixing and Mastering</a>
+              <a href="#">Promotion</a>
+              <a href="#">Cover Art</a>
+            </div>
           </div>
-        </div>
-        <div className="foot-2">
-          <h3>Company</h3>
-          <div className="foot-2-1">
-            <a href="#">policy-1</a>
-            <a href="#">policy-1</a>
-            <a href="#">terms & conditions-1</a>
+          <div className="foot-2">
+            <h3>Company</h3>
+            <div className="foot-2-1">
+              <a href="#">policy-1</a>
+              <a href="#">policy-1</a>
+              <a href="#">terms & conditions-1</a>
+            </div>
           </div>
-        </div>
         </div>
         <div className="foot-3">
           <div className="foot-3-1">
@@ -92,11 +92,7 @@ const footer = () => {
           <div className="foot-3-2">
             <h3>For Latest Information.</h3>
             <form className="subscribe-form">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-              />
+              <input type="email" placeholder="Enter your email" required />
               <button type="submit">Subscribe</button>
             </form>
             {/* <button type="submit">Subscribe</button> */}

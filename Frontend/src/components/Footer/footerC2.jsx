@@ -28,9 +28,10 @@ const footerC2 = () => {
           <div className="foot-2C2 servicesC2">
             <h3>Services</h3>
             <div className="foot-2-1C2">
-              <a href="#">Service-1</a>
-              <a href="#">Service-2</a>
-              <a href="#">Service-3</a>
+              <a href="#">Music Production</a>
+              <a href="#">Mixing and Mastering</a>
+              <a href="#">Promotion</a>
+              <a href="#">Cover Art</a>
             </div>
           </div>
           <div className="foot-2C2">

@@ -6,9 +6,10 @@
   box-sizing: border-box;
   /* color: white; */
 }
-html,body{
-  overflow-x: hidden;
-}
+
+/* html,body{
+  max-width: 100%;
+} */
 
 .test-main {
   display: flex;
@@ -18,7 +19,7 @@ html,body{
   align-items: flex-start;
   background-color: rgb(0, 0, 0);
   /* height: 70px; */
-  width: 100vw;
+  width: 98.9vw;
   font-family: "Inconsolata", serif;
 }
 
@@ -28,17 +29,16 @@ html,body{
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 15vw;
+  gap: 13.8vw;
   /* border: 1px solid red; */
-  width: 100vw;
+  width: 100%;
 }
 .landing_page_logo {
-  width: 35px;           /* Set the width of the logo */
-  height: auto;      
-  display: block;         /* Make it a block element */
+  width: 35px; /* Set the width of the logo */
+  height: auto;
+  display: block; /* Make it a block element */
   margin: 10px auto;
-  object-fit: contain;  
-  margin-right: 0.1vw;  /* Ensure the image fits without distortion */
+  object-fit: contain;
 }
 
 .navibar h4 {
@@ -51,7 +51,7 @@ html,body{
   font-size: 1.5vw;
   margin-left: 2vw;
   /* border: 1px solid red; */
-  margin-right: 8vw;
+  /* margin-right: 8vw; */
 }
 /* .navbar-elems {
   border: 1px solid red;
@@ -63,37 +63,40 @@ html,body{
   justify-content: center;
   align-items: center;
   gap: 2.5vw;
+  margin-left: 5vw;
 }
 .all-elems li {
   list-style-type: none;
+  /* border: 1px solid greenyellow; */
 }
 .all-elems li a {
   color: rgb(206, 206, 206);
   text-decoration: none;
 }
-.all-elems li a:hover{
+.all-elems li a:hover {
   color: white;
 }
 .feature-button {
   position: relative;
-  display: block;
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  /* background-color: rgb(148, 18, 18); */
+  /* margin: 0; */
+}
+.service-button {
+  position: relative;
+  /* background-color: rgb(148, 18, 18); */
+  /* margin: 0; */
 }
 
 .button {
   /* background-color: #4CAF50; */
   color: #212121;
-  padding: 10px 15px;
-  /* font-size: 1.4vw; */
-  /* font-weight: bold; */
+  padding: 10px 0px;
   border: 1px solid transparent;
   border-radius: 15px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 2vw;
-  padding-right: 0vw;
   text-decoration: none;
 }
 /* .downicon{
@@ -103,7 +106,7 @@ html,body{
 .dropdown-content {
   display: none;
   font-size: 13px;
-  position: fixed;
+  position: absolute;
   z-index: 9;
   min-width: 200px;
   background-color: #212121;
@@ -136,8 +139,11 @@ html,body{
 .feature-button:hover button {
   border-radius: 15px 15px 0px 0px;
 }
+.service-button:hover button {
+  border-radius: 15px 15px 0px 0px;
+}
 
-.dropdown-content.yes{
+.dropdown-content.yes {
   display: block;
 }
 
@@ -146,7 +152,7 @@ html,body{
   /* border: 0.13vw solid rgb(255, 255, 255); */
   border: 2px solid rgba(255, 255, 255, 0.437);
   background-color: transparent;
-  margin-left: 18vw;
+  margin-left: 13vw;
   padding: 0.6vw 1.3vw;
   border-radius: 15px;
   cursor: pointer;
@@ -230,7 +236,7 @@ html,body{
   }
 
   .navbar-elems {
-    width: 80%; 
+    width: 80%;
     height: 100vh;
     background-color: #000000;
     position: absolute;
@@ -249,20 +255,20 @@ html,body{
     align-items: center;
 
     /* //////////////////////////// */
-    display:  none;
+    display: none;
   }
 
-  .all-elems li a{
+  .all-elems li a {
     font-size: 5vw;
   }
-  
+
   /* When nav is open */
   .navbar-elems.show {
     right: 0vw;
     /* border: 1px solid red; */
     display: flex;
   }
-  
+
   .all-elems {
     flex-direction: column;
     align-items: center;
@@ -285,23 +291,36 @@ html,body{
     /* border: 1px solid lawngreen; */
   }
 
-  .button {
-    margin: 0 0 -10px 0;
+  .dropdown-content.yes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2vw;
+    /* border: 1px solid brown; */
   }
 
-  .loginbtnn{
+  .feature-button{
+    margin-bottom: 4vw;
+    /* border: 1px solid yellow; */
+  }
+
+  .button {
+    margin: 0 0 -10px 0;
+    /* border: 1px solid red; */
+  }
+
+  .loginbtnn {
     font-size: 4vw;
     margin: 10vw 0px 0px 0px;
     padding: 2.5vw 6vw;
   }
 
-  .regbtn{
+  .regbtn {
     font-size: 4vw;
-    margin: .5vw 0px 0px 0px;
+    margin: 0.5vw 0px 0px 0px;
     padding: 2.5vw 7vw;
   }
 }
-
 
 /* <------------------------------------------------ NAVBAR Complete -------------------------------------------------> */
 
@@ -309,18 +328,12 @@ html,body{
 
 .section-1 {
   position: relative;
-  height: 95vh;
+  height: 100vh;
   /* border: 1px solid blue; */
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-}
-.section-1 {
-  position: relative;
   width: 100%;
-  height: 105vh; /* Adjust this to your preferred height */
-  overflow: hidden;
 }
 
 .section-1 video {
@@ -332,7 +345,7 @@ html,body{
   object-fit: cover; /* Ensures the video covers the entire div */
   z-index: 0;
   opacity: 0.7;
-  filter: blur(2px) brightness(.9);
+  filter: blur(2px) brightness(0.9);
 }
 .section-11 {
   padding: 0px;
@@ -379,7 +392,7 @@ html,body{
   color: rgba(255, 255, 255, 0.739);
   /* width: 95%; */
   line-height: 2vw;
-  font-size: 1.2vw ;
+  font-size: 1.2vw;
   font-weight: 600;
   /* border: 1px solid red; */
 }
@@ -404,7 +417,7 @@ html,body{
 .section-11 button:hover {
   background-color: #00eeff;
 }
-.landing_page-message{
+.landing_page-message {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -434,7 +447,7 @@ html,body{
 
 /* <------------------------------------------------ Section-beta starts -------------------------------------------------> */
 
-.section-beta{
+.section-beta {
   margin-top: 2vw;
   margin-bottom: 3vw;
   display: flex;
@@ -446,7 +459,7 @@ html,body{
   width: 99%;
   padding: 3vw 0;
 }
-.section-beta .title{
+.section-beta .title {
   text-transform: uppercase;
   color: white;
   font-size: 3vw;
@@ -464,7 +477,7 @@ html,body{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   border-bottom: 1px solid rgba(160, 160, 160, 0.287);
 }
 .section-21 {
@@ -472,7 +485,7 @@ html,body{
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 5vw;
+  gap: 7vw;
   margin: 2vw;
 }
 .section-211 {
@@ -489,24 +502,23 @@ html,body{
   padding: 2vw;
   border-radius: 1vw;
   position: relative;
-  overflow: hidden;
-   border: rgba(246, 246, 246, 0.948) 1px solid;
-   height: 50vh;
+  border: rgba(246, 246, 246, 0.948) 1px solid;
+  height: 50vh;
   width: 40vw;
 }
-.section-211 img{
+.section-211 img {
   z-index: 0;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit:cover;
- 
+  object-fit: cover;
+
   filter: brightness(0.6) blur(2px) grayscale(100%) opacity(0.7);
 }
 .section-211 h1 {
- font-family: sans-serif;
+  font-family: sans-serif;
   color: white;
   font-size: 2.5vw;
   z-index: 1;
@@ -517,10 +529,11 @@ html,body{
   color: white;
   font-size: 1.2vw;
   z-index: 1;
- line-height: 1.6vw;
+  line-height: 1.6vw;
 }
 .section-211 h2 {
-  color: #00EEFF;
+  margin-top: 1.5vw;
+  color: #00eeff;
   font-size: 4vw;
   z-index: 1;
 }
@@ -529,9 +542,9 @@ html,body{
 
 /* <------------------------------------------------ Section-3 starts -------------------------------------------------> */
 
-.section-3{
+.section-3 {
   margin: 7vw 0vw 6vw 0vw;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -539,7 +552,7 @@ html,body{
   border-bottom: 1px solid rgba(160, 160, 160, 0.287);
   padding-bottom: 6vw;
 }
-.section-31{
+.section-31 {
   /* border: 1px solid lightgreen; */
   display: flex;
   flex-direction: row;
@@ -551,22 +564,22 @@ html,body{
   height: 9.2vw;
   margin-bottom: 3vw;
 }
-.section-31 h2{
+.section-31 h2 {
   color: white;
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   text-transform: uppercase;
-  font-size: 4vw ;
+  font-size: 4vw;
   margin-top: 2vw;
 }
-.section-31 img{
+.section-31 img {
   height: 9.2vw;
   position: absolute;
   /* border: 1px solid red; */
-  top:  0%;
+  top: 0%;
   right: 33%;
 }
 
-.section-32{
+.section-32 {
   margin: 4vw 0vw 0vw 0vw;
   display: flex;
   flex-direction: row;
@@ -575,11 +588,11 @@ html,body{
   gap: 10vw;
   /* border: 1px solid rgb(231, 225, 53); */
 }
-.section-32 .imgs{
+.section-32 .imgs {
   color: white;
   font-size: 3vw;
 }
-.section-321{
+.section-321 {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -588,13 +601,13 @@ html,body{
   gap: 2vw;
   /* border: 1px solid white; */
 }
-.section-321 h3{
+.section-321 h3 {
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   text-align: center;
   color: rgb(0, 238, 255);
   font-size: 1.6vw;
 }
-.section-321 p{
+.section-321 p {
   text-align: center;
   color: white;
   font-size: 1.2vw;
@@ -606,15 +619,15 @@ html,body{
 
 /* <------------------------------------------------ Section-4 starts -------------------------------------------------> */
 
-.section-4{
-  width: 100vw;
+.section-4 {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid rgba(160, 160, 160, 0.287);
 }
-.section-4 h1{
+.section-4 h1 {
   color: white;
   font-size: 4vw;
   text-align: center;
@@ -622,7 +635,7 @@ html,body{
   text-transform: uppercase;
   margin: 0vw 0vw 8vw 0vw;
 }
-.section-41{
+.section-41 {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -633,7 +646,7 @@ html,body{
   overflow: hidden;
   /* border: 1px solid red; */
 }
-.section-411{
+.section-411 {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -643,7 +656,7 @@ html,body{
   gap: 2vw;
   /* border: 1px solid; */
 }
-.section-411-2{
+.section-411-2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -652,25 +665,25 @@ html,body{
   gap: 2vw;
   /* border: 1px solid; */
 }
-.section-411 h2{
+.section-411 h2 {
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
-  color: #00EEFF;
+  color: #00eeff;
   font-size: 3vw;
 }
-.section-411-2 h2{
+.section-411-2 h2 {
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
-  color: #00EEFF;
+  color: #00eeff;
   font-size: 3vw;
 }
-.section-411 p{
+.section-411 p {
   font-size: 1.2vw;
   line-height: 1.7vw;
 }
-.section-411-2 p{
+.section-411-2 p {
   font-size: 1.2vw;
   line-height: 1.7vw;
 }
-.canvas{
+.canvas {
   margin-left: 5vw;
   width: 50%;
   height: 30vw;
@@ -679,13 +692,42 @@ html,body{
   transition: transform 0.05s ease-in-out;
   /* background-color: red; */
 }
-.canvas svg{
+.canvas svg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: auto;
   height: 25vw;
+}
+
+.section-4 .explore {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5vw;
+  /* border: 1px solid pink; */
+}
+.section-4 .explore button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: white;
+  font-size: 1.1vw;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 0.8vw 1.8vw;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.section-4 .explore button:hover {
+  background-color: #00eeff;
+  color: black;
+  border: 1px solid #00eeff;
+}
+.section-4 .explore button .double-arrow {
+  font-size: 1.8vw;
 }
 
 /* <------------------------------------------------ Section-4 Complete -------------------------------------------------> */
@@ -699,7 +741,7 @@ html,body{
   align-items: center;
   justify-content: center;
   gap: 4vw;
-  width: 100vw;
+  width: 100%;
   padding: 40px 20px;
   /* border-bottom: 1px solid rgba(160, 160, 160, 0.287); */
 }
@@ -708,7 +750,7 @@ html,body{
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   text-transform: uppercase;
   text-align: center;
-  font-size: 3.5vw; 
+  font-size: 3.5vw;
   font-weight: bold;
   color: #ffffff;
   background-color: transparent;
@@ -722,7 +764,7 @@ html,body{
   max-width: 1000px;
   font-family: "Inconsolata", serif;
   border-radius: 8px;
-  background-color: #0e0d0d; 
+  background-color: #0e0d0d;
 }
 
 .faq-item {
@@ -737,10 +779,10 @@ html,body{
 }
 
 .faq-item:hover {
-  background-color: #323232; 
+  background-color: #323232;
 }
-.faq-item:hover .faq-question{
-  color: #00EEFF;
+.faq-item:hover .faq-question {
+  color: #00eeff;
 }
 
 .faq-question {
@@ -756,28 +798,28 @@ html,body{
 
 .faq-answer {
   max-height: 0;
-  height: 0; 
-  overflow: hidden; 
+  height: 0;
+  overflow: hidden;
   margin-top: 2vw;
   font-size: 16px;
   color: #ffffff;
   padding-left: 20px;
   line-height: 1.6;
-  transition: max-height 0.5s ease, height 0.5s ease, padding 0.3s ease; 
+  transition: max-height 0.5s ease, height 0.5s ease, padding 0.3s ease;
   visibility: hidden;
 }
 
 .faq-item.open .faq-answer {
-  max-height: 1000px; 
-  height: auto; 
+  max-height: 1000px;
+  height: auto;
   padding-left: 20px;
-  visibility: visible; 
+  visibility: visible;
 }
 
 .icon {
   margin-left: 10px;
   font-size: 2vw;
-  color: #00EEFF; 
+  color: #00eeff;
   margin-right: 2vw;
   transition: transform 0.3s ease;
   font-family: sans-serif;
@@ -806,7 +848,7 @@ html,body{
     font-size: 14px;
   }
 
-  .icon{
+  .icon {
     font-size: 4vw;
   }
 }
@@ -815,9 +857,9 @@ html,body{
 
 /* <------------------------------------------------ Section-6 starts -------------------------------------------------> */
 
-.section-6{
+.section-6 {
   height: 70vh;
-  width: 100vw;
+  width: 100%;
   background-color: rgba(87, 87, 87, 0.201);
   display: flex;
   align-items: center;
@@ -830,23 +872,20 @@ html,body{
 
 /* <------------------------------------------------ Section-6 Complete -------------------------------------------------> */
 
-
 /*! __________________________________________________________| Responsive Designs |_____________________________________________________________________ */
-
-
 
 /*?------------------------ | MOBILE |------------------------- */
 
 @media (max-width: 480px) {
-  .navibar h4{
+  .navibar h4 {
     font-size: 4.5vw;
   }
 
   /*?------------------------ Section - 1 ------------------------- */
-  .section-1{
+  .section-1 {
     height: 88vh;
     display: flex;
-    align-items:flex-start;
+    align-items: flex-start;
     /* border: 1px solid blue; */
   }
   .section-11 {
@@ -856,7 +895,6 @@ html,body{
     /* border: 1px solid yellow; */
     margin: 10vw 0vw 0vw 0vw;
     width: 80%;
-   
   }
   .section-11 h1 svg {
     /* border: 1px solid red; */
@@ -865,7 +903,7 @@ html,body{
     margin-top: 20vw;
     margin-left: -4vw;
   }
-  .section-11 p{
+  .section-11 p {
     font-size: 4.5vw;
     font-weight: 100;
     width: 95%;
@@ -873,41 +911,41 @@ html,body{
     color: rgba(255, 255, 255, 0.783);
     /* border: 1px solid yellow; */
   }
-  .section-11 button{
+  .section-11 button {
     width: 90%;
     border-radius: 6px;
     font-size: 4vw;
     padding: 3vw 0;
     margin-top: 10vw;
   }
-  .section-11 .darrow{
+  .section-11 .darrow {
     font-size: 6vw;
-    vertical-align:middle;
+    vertical-align: middle;
   }
-  .scroll-down{
+  .scroll-down {
     top: 85%;
   }
-.landing_page-message{
-  height: 60vh;
-}
-.section-1 video {
-  height: 100%;
-}
-.navibar h4{
- font-size: 6vw;
-}
+  .landing_page-message {
+    height: 60vh;
+  }
+  .section-1 video {
+    height: 100%;
+  }
+  .navibar h4 {
+    font-size: 6vw;
+  }
   /*?------------------------ Section - beta ------------------------- */
 
-  .section-beta{
+  .section-beta {
     margin: 15vw 0;
     padding-bottom: 20vw;
     /* height: 100vh; */
     /* border: 1px solid blueviolet; */
   }
-  .section-beta .title{
+  .section-beta .title {
     font-size: 8vw;
   }
-  .landing_page-message{
+  .landing_page-message {
     display: flex;
     gap: 5vw;
     height: 90vh;
@@ -915,7 +953,7 @@ html,body{
   }
 
   /*?------------------------ Section - 2 ------------------------- */
-  .section-21{
+  .section-21 {
     display: flex;
     flex-direction: column;
     /* border: 1px solid red; */
@@ -924,7 +962,7 @@ html,body{
     margin-bottom: 10vw;
     gap: 15vw;
   }
-  .section-211{
+  .section-211 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -935,76 +973,76 @@ html,body{
     padding: 5vw;
     gap: 3vw;
   }
-  .section-211 h1{
+  .section-211 h1 {
     font-size: 8vw;
     text-align: center;
   }
-  .section-211 h2{
+  .section-211 h2 {
     margin-top: 7vw;
     font-size: 12vw;
   }
-  .section-211 p{
+  .section-211 p {
     margin-top: 5vw;
     font-size: 5vw;
     line-height: 7vw;
     text-align: center;
   }
-.landing_page-message{
-  flex-direction: column;
-}
+  .landing_page-message {
+    flex-direction: column;
+  }
   /*?------------------------ Section - 3 ------------------------- */
-  .section-3{
+  .section-3 {
     margin-top: 15vw;
     padding-bottom: 20vw;
     margin-bottom: 15vw;
   }
-  .section-31{
+  .section-31 {
     display: flex;
     gap: 16vw;
     margin-bottom: 15vw;
   }
-  .section-31 h2{
+  .section-31 h2 {
     font-size: 10vw;
     /* border: 1px solid red; */
   }
-  .section-31 img{
+  .section-31 img {
     height: 17vw;
     position: absolute;
     /* border: 1px solid red; */
     top: 5%;
     right: 14%;
   }
-  .section-32{
+  .section-32 {
     display: flex;
     flex-direction: column;
     gap: 20vw;
     /* border: 1px solid orange; */
   }
-  .section-321{
+  .section-321 {
     display: flex;
     gap: 4vw;
     /* border: 1px solid orange; */
     width: 70%;
     margin-top: 5vw;
   }
-  .section-32 .imgs{
+  .section-32 .imgs {
     font-size: 10vw;
   }
-  .section-321 h3{
+  .section-321 h3 {
     font-size: 7vw;
   }
-  .section-321 p{
+  .section-321 p {
     font-size: 4vw;
     line-height: 6vw;
   }
 
   /*?------------------------ Section - 4 ------------------------- */
-  .section-4 h1{
+  .section-4 h1 {
     width: 90%;
     font-size: 10vw;
     margin: 5vw 0 20vw 0;
   }
-  .section-41{
+  .section-41 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1013,7 +1051,7 @@ html,body{
     gap: 10vw;
     margin-bottom: 20vw;
   }
-  .section-411{
+  .section-411 {
     /* border: 1px solid green; */
     width: 85%;
     display: flex;
@@ -1021,35 +1059,35 @@ html,body{
     align-items: center;
     margin: 0 0 10vw 0;
   }
-  .section-411 h2{
+  .section-411 h2 {
     /* border: 1px solid red; */
     font-size: 7vw;
     text-align: center;
     margin-bottom: 2vw;
   }
-  .section-411 p{
+  .section-411 p {
     margin-top: 3vw;
     width: 85%;
     text-align: center;
     font-size: 4vw;
     line-height: 6vw;
   }
-  .canvas{
+  .canvas {
     display: none;
   }
-  .section-411-2{
+  .section-411-2 {
     width: 85%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 0 10vw 0;
   }
-  .section-411-2 h2{
+  .section-411-2 h2 {
     font-size: 7vw;
     text-align: center;
     margin-bottom: 2vw;
   }
-  .section-411-2 p{
+  .section-411-2 p {
     margin-top: 3vw;
     width: 85%;
     text-align: center;
@@ -1057,43 +1095,51 @@ html,body{
     line-height: 6vw;
   }
 
+  .section-4 .explore button {
+    display: flex;
+    gap: 0.5vw;
+    margin: -5vw 0 6vw 0;
+    font-size: 4vw;
+    padding: 2vw 3vw;
+  }
+  .section-4 .explore button .double-arrow {
+    font-size: 6vw;
+  }
+
   /*?------------------------ Section - 5 ------------------------- */
-  .section-5{
+  .section-5 {
     margin-top: 8vw;
     margin-bottom: 10vw;
   }
-  .section-5 h1{
+  .section-5 h1 {
     margin-bottom: 10vw;
     width: 95%;
     font-size: 9vw;
   }
-  .section-51{
+  .section-51 {
     width: 90%;
   }
-  .faq-question{
+  .faq-question {
     font-size: 4vw;
   }
-  .icon{
+  .icon {
     font-size: 4.2vw;
   }
 
   /*?------------------------ Section - 6 ------------------------- */
-  .section-6{
+  .section-6 {
     height: 100vh;
   }
 }
 
 /*?------------------------ | TABLETS |------------------------- */
 @media (min-width: 481px) and (max-width: 768px) {
- 
 }
 
 /*?------------------------ | SMALL LAPTOPS |------------------------- */
 @media (min-width: 769px) and (max-width: 1024px) {
- 
 }
 
 /*?------------------------ | LAPTOPS AND DESKTOPS |------------------------- */
 @media (min-width: 1025px) {
-  
 }

@@ -35,13 +35,51 @@ const test = () => {
 
   const [navOpen, setNavOpen] = useState(false);
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [serviceDropdownOpen, setserviceDropdownOpen] = useState(false);
+  const serviceDropdownRef = useRef(null);
+
+  const [featureDropdownOpen, setfeatureDropdownOpen] = useState(false);
+  const featureDropdownRef = useRef(null);
+
+  // useEffect to close searvices-dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        serviceDropdownRef.current &&
+        !serviceDropdownRef.current.contains(event.target)
+      ) {
+        setserviceDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // useEffect to close features-dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        featureDropdownRef.current &&
+        !featureDropdownRef.current.contains(event.target)
+      ) {
+        setfeatureDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const [counterOn, setCounterOn] = useState(false);
 
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const [tilts, setTilts] = useState({});
+  // const [tilts, setTilts] = useState({});
 
   const answerRefs = useRef([]);
 
@@ -54,44 +92,9 @@ const test = () => {
   const handleClickLogin = () => {
     navigate("/login"); // path to your login page
   };
-  // Handle mouse movement
-  const handleMouseMove = (index, e) => {
-    const { left, top, width, height } = e.target.getBoundingClientRect();
-    const mouseX = e.clientX - left;
-    const mouseY = e.clientY - top;
 
-    const tiltX = (mouseY / height - 0.5) * 30; // Tilt around X-axis
-    const tiltY = (mouseX / width - 0.5) * -30; // Tilt around Y-axis
-
-    setTilts((prevTilts) => ({
-      ...prevTilts,
-      [index]: { x: tiltX, y: tiltY }, // Update tilt for the specific image
-    }));
-  };
-  // Reset tilt when mouse leaves
-  const resetTilt = (index) => {
-    setTilts((prevTilts) => ({
-      ...prevTilts,
-      [index]: { x: 0, y: 0 }, // Reset tilt for the specific image
-    }));
-  };
-
-  // Reusable TiltImage component inside the main Test function
-  const TiltImage = ({ index }) => {
-    return (
-      <div
-        className="image-container"
-        onMouseMove={(e) => handleMouseMove(index, e)} // Pass index to handleTilt
-        onMouseLeave={() => resetTilt(index)} // Reset tilt when mouse leaves
-        style={{
-          transform: `perspective(1000px) rotateX(${
-            tilts[index]?.x || 0
-          }deg) rotateY(${tilts[index]?.y || 0}deg)`,
-        }}
-      >
-        {/* <img src={src} alt={alt} /> */}
-      </div>
-    );
+  const handleClickfeature = () => {
+    navigate("/login"); // path to your features page
   };
 
   const getAnswerHeight = (index) => {
@@ -99,8 +102,6 @@ const test = () => {
       ? answerRefs.current[index].scrollHeight
       : 0; // Get scrollHeight of each answer
   };
-
-  // gsap.registerPlugin(GSAPScrollTrigger);
 
   const { ref: whyRef, inView: whyInView } = useAnimateOnScroll();
   const { ref: faqRef, inView: faqInView } = useAnimateOnScroll();
@@ -115,7 +116,7 @@ const test = () => {
             <img
               src="/logo/logo1.png"
               alt="Logo"
-              class="landing_page_logo"
+              className="landing_page_logo"
             ></img>
             <span>Dhun</span>
             <span style={{ color: "white" }}>lay</span>
@@ -132,15 +133,35 @@ const test = () => {
 
           <main className={`navbar-elems ${navOpen ? "show" : ""}`}>
             <ul className="all-elems">
-              <li className="feature-button">
+              <li className="service-button" ref={serviceDropdownRef}>
                 <a
                   className="button"
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  onClick={() => setserviceDropdownOpen(!serviceDropdownOpen)}
+                >
+                  Services <ArrowDropDownOutlinedIcon className="downicon" />
+                </a>
+                <div
+                  className={`dropdown-content ${
+                    serviceDropdownOpen ? "yes" : ""
+                  }`}
+                >
+                  <a href="#">Music Production</a>
+                  <a href="#">Mixing and Mastering</a>
+                  <a href="#">Promotion</a>
+                  <a href="#">Cover Art</a>
+                </div>
+              </li>
+              <li className="feature-button" ref={featureDropdownRef}>
+                <a
+                  className="button"
+                  onClick={() => setfeatureDropdownOpen(!featureDropdownOpen)}
                 >
                   Features <ArrowDropDownOutlinedIcon className="downicon" />
                 </a>
                 <div
-                  className={`dropdown-content ${dropdownOpen ? "yes" : ""}`}
+                  className={`dropdown-content ${
+                    featureDropdownOpen ? "yes" : ""
+                  }`}
                 >
                   <a href="./features_artist">Features for artists</a>
                   <a href="./features_label">Features for labels</a>
@@ -251,7 +272,7 @@ const test = () => {
                   onEnter={() => setCounterOn(true)}
                   onExit={() => setCounterOn(false)}
                 >
-                  {counterOn && <CountUp start={0} end={500} duration={1} />}+
+                  {counterOn && <CountUp start={0} end={800} duration={1} />}+
                 </ScrollTrigger>
               </h2>
             </div>
@@ -273,7 +294,7 @@ const test = () => {
                   onEnter={() => setCounterOn(true)}
                   onExit={() => setCounterOn(false)}
                 >
-                  {counterOn && <CountUp start={0} end={2000} duration={1} />}+
+                  {counterOn && <CountUp start={0} end={4500} duration={1} />}+
                 </ScrollTrigger>
               </h2>
             </div>
@@ -1096,6 +1117,12 @@ const test = () => {
                 </g>
               </svg>
             </div>
+          </div>
+          <div className="explore">
+            <button onClick={handleClickfeature}>
+              Click To See More
+               <KeyboardDoubleArrowRightIcon className="double-arrow" />
+            </button>
           </div>
         </div>
 
