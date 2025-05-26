@@ -32,6 +32,9 @@ import GetSpotifyArtists from "./pages/Analytics/All datas/spotify/getUser";
 import Palette from "./components/colorPalette/colPalette";
 import TestPage from "./components/test";
 import ReleaseUserForm from "./components/ReleasesElements/ReleaseFormC1";
+import PolicyPage from "./pages/Policies/policyP";
+import ContactUs from "./pages/contactUsP";
+import OurPlansGeneral from "./pages/OurPlans/ourPlansPublic";
 
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
@@ -145,9 +148,11 @@ function MainApp() {
         <Route path="/" element={<LandinP></LandinP>}></Route>
         {/* This is about page */}
         <Route path="/about" element={<About />} />
-         <Route path="features_Artist" element={<FeaturesArtist />} />
+        <Route path="features_Artist" element={<FeaturesArtist />} />
         <Route path="features_label" element={<FeaturesLabel />} />{" "}
-
+        <Route path="policy" element={<PolicyPage />} />{" "}
+        <Route path="contact" element={<ContactUs />} />{" "}
+        <Route path="plans" element={<OurPlansGeneral />} />{" "}
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />
@@ -170,22 +175,16 @@ function MainApp() {
             element={<ReleaseUserForm></ReleaseUserForm>}
           ></Route>
         </Route>
-
         {/* Public Routes */}
-
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
         {/* <Route path="/spotify/artist" element={<GetSpotifyArtists />} />
         <Route path="/spotify/profile" element={<GetSpotifyProfile />} />
         <Route path="/spotify/search" element={<SpotifySearch />} /> */}
-
         {/* this is testing  */}
         <Route path="/test" element={<TestPage />} />
-
         {/* Color palette */}
         <Route path="/palette" element={<Palette />} />
-
         {/* Catch-all 404 Page */}
         <Route path="*" element={<div></div>} />
       </Routes>

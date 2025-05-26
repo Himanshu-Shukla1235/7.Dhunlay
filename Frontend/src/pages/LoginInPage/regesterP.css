@@ -61,50 +61,120 @@
     width: 20px; /* Adjust the logo size for smaller screens */
     height: 20px; /* Adjust the height for smaller screens */
   }
+} /* ?____________________________________ \ .registerP-main \_______________________________ */
+.registerP-main {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  /* border: solid red 3px; */
+  height: auto;
+  gap: 0%;
 }
+/*_______________________________________________________________________________registerP-main-sec1  */
+.registerP-main-sec1 {
+  /* border: solid rgb(0, 238, 255) 1px; */
+  width: 55%;
+  height: 87vh;
+  background-image: url("/img13.png"); /* change the path */
+  background-size: cover; /* makes the image cover the entire container */
+  background-position: center; /* centers the image */
+  background-repeat: no-repeat; /* prevents tiling */
+  padding: 20px; /* optional, for spacing inside */
+  color: white; /* optional, to make text visible on image */
+}
+
 /*_______________________________________________________________________________registerP-container  */
 .registerP-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/img6.jpg");
+  background-image: url("");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 110vh;
-  width: 100%;
+  height: auto;
+  width: auto;
   margin: 0;
-  padding: 0;
+  padding: 1%;
   overflow: hidden;
+  /* border: solid red 3px; */
 }
+.regesterP-container-logo {
+  width: 2vw; /* Responsive width */
+  height: 2vw; /* Responsive height */
+  background-image: url("/logo/logo1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  margin: 0.5vw;
+}
+.registerP-container-title {
+  color: rgb(170, 168, 168);
 
+  font-family: "Inconsolata", serif;
+  font-size: 1.6vw;
+  font-family: sans-serif;
+  margin-top: 1vw;
+}
 .registerP-form {
-  width: 30em;
+  width: 37em;
   height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid rgb(0, 238, 255) 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  gap: 10px;
+  border: solid rgba(0, 238, 255, 0) 1px;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(5px);
+
   padding: 20px;
   border-radius: 10px;
   overflow: hidden;
   margin-top: 1vh;
+  border: solid 1.5px rgb(0, 0, 0);
+  border-radius: 0.5vw;
 }
 
 .registerP-form h2 {
   font-family: sans-serif;
-  color: rgb(0, 0, 0);
+  color: rgb(0, 224, 249);
   background-color: transparent;
   margin-bottom: 1em;
 }
+.registerP-form-sec1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 
-.input-group {
+  width: 100%;
+  border-bottom: solid 1px grey;
+}
+.registerP-form-sec11 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: solid red 3px ; */
+
+  padding: 5%;
+}
+.registerP-form-sec12 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* border: solid red 3px ; */
+
+  padding: 5%;
+}
+.registerP-input-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -113,13 +183,13 @@
   background-color: transparent;
 }
 
-.input-group label {
+.registerP-input-group label {
   font-family: sans-serif;
-  color: rgb(3, 3, 3);
+  color: rgb(47, 234, 254);
   background-color: transparent;
 }
 
-.input-group input {
+.registerP-input-group input {
   font-family: sans-serif;
   color: whitesmoke;
   background-color: rgba(196, 193, 193, 0.288);
@@ -134,18 +204,18 @@
 }
 
 /* Placeholder styling */
-.input-group input::placeholder {
+.registerP-input-group input::placeholder {
   color: #cfcfcf;
   opacity: 0.8;
 }
 
 /* Hover effect */
-.input-group input:hover {
+.registerP-input-group input:hover {
   border-color: #4dd0e1;
 }
 
 /* Focus effect */
-.input-group input:focus {
+.registerP-input-group input:focus {
   border-color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
@@ -186,15 +256,29 @@
 .registerP-button:active {
   transform: scale(0.98);
 }
+.registerP-policy {
+  font-family: sans-serif;
+  font-size: 0.9vw;
+  color: #cfcfcf;
+  margin-top: 0.5vw;
+}
 
+.registerP-policy a {
+  text-decoration: none;
+  color: #4dd0e1;
+}
+.registerP-morque {
+  width: 90%;
+  margin-top: 10vh;
+}
 .registerP-error {
   background-color: transparent;
   font-family: sans-serif;
   color: red;
 }
 
-.input-group input,
-.input-group select {
+.registerP-input-group input,
+.registerP-input-group select {
   font-family: sans-serif;
   color: whitesmoke;
   background-color: rgba(196, 193, 193, 0.288);
@@ -210,22 +294,103 @@
 }
 
 /* Placeholder styling */
-.input-group input::placeholder,
-.input-group select::placeholder {
+.registerP-input-group input::placeholder,
+.registerP-input-group select::placeholder {
   color: #cfcfcf;
   opacity: 0.8;
 }
 
 /* Hover effect */
-.input-group input:hover,
-.input-group select:hover {
+.registerP-input-group input:hover,
+.registerP-input-group select:hover {
   border-color: #4dd0e1;
 }
 
 /* Focus effect */
-.input-group input:focus,
-.input-group select:focus {
+.registerP-input-group input:focus,
+.registerP-input-group select:focus {
   border-color: #ffffff;
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+ .registerP-main-sec1{
+  display: none;
+ }
+ .registerP-container{
+  width: 100%;
+   
+ }
+ .registerP-container-title{
+  display: flex;
+  font-size: 5vw;
+  padding: 2vw;
+ }
+ .registerP-form{width: 100%;
+}
+ .registerP-policy{
+font-size: 3vw;
+ }
+ .registerP-morque{
+  margin-top: 0.7vw;
+  width: 100%;
+ }
+}
+
+/*?------------------------ | TABLETS |------------------------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .loginP-container {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+    padding-top: 2vw;
+    gap: 5vw;
+    padding-bottom: 7vw;
+  }
+  .loginP-container-sec-1 {
+    width: 85%;
+    gap: 5vw;
+    height: auto;
+    align-items: center;
+  }
+  .loginP-container-sec-1 h7 {
+    width: 80%;
+    font-size: 3vw;
+  }
+  .loginP-container-sec-1 p {
+    width: 80%;
+    font-size: 7vw;
+  }
+
+  .loginP-container-sec-1-video {
+    width: 85%;
+    height: auto;
+  }
+  .loginP-form {
+    width: 80%;
+    margin: 1vw;
+    justify-content: flex-start;
+  }
+  .loginP-form-head1 {
+    font-size: 5vw;
+  }
+  .input-group input{
+    width: 50vw;
+    font-size: 3vw;
+  }
+  .input-group label {
+    font-size: 4vw;
+  }
+  .loginP-button{
+    font-size: 4vw;
+  }
+
+}
+
+/*?------------------------ | SMALL LAPTOPS |------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+}
+

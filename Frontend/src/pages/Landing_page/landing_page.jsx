@@ -165,17 +165,17 @@ const test = () => {
                 >
                   <a href="./features_artist">Features for artists</a>
                   <a href="./features_label">Features for labels</a>
-                  <a href="#">Feature 3</a>
+              
                 </div>
               </li>
               <li>
-                <a href="#">Subscription</a>
+                <a href="/plans">Subscription</a>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <a href="/contact">Contact</a>
               </li>
               <li>
-                <a href="/contact">FAQs</a>
+                {/* <a href="/contact">FAQs</a> */}
               </li>
               <li>
                 <button
@@ -192,7 +192,7 @@ const test = () => {
                 <button
                   className="regbtn"
                   onClick={() => {
-                    navigate("/login");
+                    navigate("/register");
                     handleLinkClick();
                   }}
                 >

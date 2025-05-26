@@ -91,9 +91,15 @@
   text-decoration: none;
   color: rgb(185, 183, 183);
 }
+.foot-2-1C2 a {
+  text-decoration: none;
+  color: rgb(185, 183, 183);
+    font-family: sans-serif;
+}
 .foot-2-1C2 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: white;
+  font-family: sans-serif;
 }
 .foot-3C2 {
   display: flex;

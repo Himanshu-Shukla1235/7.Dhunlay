@@ -5,6 +5,7 @@ const UserContext = createContext(null);
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
  const backendAppUrl =import.meta.env.VITE_API_URL; 
+ 
   useEffect(() => {
     const fetchUserData = async () => {
       try {

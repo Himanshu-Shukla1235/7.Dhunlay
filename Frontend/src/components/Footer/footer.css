@@ -78,6 +78,10 @@
 .services {
   margin-right: -5vw;
 }
+.foot-2-1 p {
+  text-decoration: none;
+  color: rgb(185, 183, 183);
+}
 .foot-2-1 a {
   text-decoration: none;
   color: rgb(185, 183, 183);
