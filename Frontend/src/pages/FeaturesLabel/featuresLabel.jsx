@@ -5,6 +5,7 @@ import labelFeaturesData from "../../data/labelFeatures.json"; // Import the art
 import UpcomingFeatureCard from "../../components/UpcomingFeatureCard/upcomingFeatureCard";
 import upcomingLabelFeaturesData from "../../data/upcomingLabelFeatures.json"; // Import the artist features data
 import Stacking from "../../components/stacking element/stacking";
+import Footer_2 from "../../components/Footer/footerC2";
 
 const featuresLabel = () => {
   return (
@@ -42,6 +43,10 @@ const featuresLabel = () => {
           <div className="features-main-sec-21">
             <UpcomingFeatureCard data={upcomingLabelFeaturesData} />
           </div>
+        </div>
+
+        <div className="features-main-sec-3">
+          <Footer_2 />
         </div>
       </div>
     </>

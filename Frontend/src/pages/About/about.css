@@ -19,21 +19,33 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 20vw;
+  gap: 13.8vw;
   /* border: 1px solid red; */
-  width: 100vw;
-  /* font-family: "Inconsolata", serif; */
+  width: 100%;
 }
+.landing_page_logo {
+  width: 35px; /* Set the width of the logo */
+  height: auto;
+  display: block; /* Make it a block element */
+  margin: 10px auto;
+  object-fit: contain;
+}
+
 .navibar h4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   font-family: sans-serif;
   color: rgb(0, 191, 255);
   font-size: 1.5vw;
   margin-left: 2vw;
   /* border: 1px solid red; */
+  /* margin-right: 8vw; */
 }
 /* .navbar-elems {
-    border: 1px solid red;
-  } */
+  border: 1px solid red;
+} */
 .all-elems {
   /* border: 1px solid yellow; */
   display: flex;
@@ -41,9 +53,11 @@
   justify-content: center;
   align-items: center;
   gap: 2.5vw;
+  margin-left: 5vw;
 }
 .all-elems li {
   list-style-type: none;
+  /* border: 1px solid greenyellow; */
 }
 .all-elems li a {
   color: rgb(206, 206, 206);
@@ -54,34 +68,35 @@
 }
 .feature-button {
   position: relative;
-  display: block;
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  /* background-color: rgb(148, 18, 18); */
+  /* margin: 0; */
+}
+.service-button {
+  position: relative;
+  /* background-color: rgb(148, 18, 18); */
+  /* margin: 0; */
 }
 
 .button {
   /* background-color: #4CAF50; */
   color: #212121;
-  padding: 10px 15px;
-  /* font-size: 1.4vw; */
-  /* font-weight: bold; */
+  padding: 10px 0px;
   border: 1px solid transparent;
   border-radius: 15px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 2vw;
-  padding-right: 0vw;
   text-decoration: none;
 }
 /* .downicon{
-      
-  } */
+	
+} */
 
 .dropdown-content {
   display: none;
   font-size: 13px;
-  position: fixed;
+  position: absolute;
   z-index: 9;
   min-width: 200px;
   background-color: #212121;
@@ -114,21 +129,20 @@
 .feature-button:hover button {
   border-radius: 15px 15px 0px 0px;
 }
+.service-button:hover button {
+  border-radius: 15px 15px 0px 0px;
+}
 
-.feature-button:hover .dropdown-content {
+.dropdown-content.yes {
   display: block;
 }
 
-/* .all-elems button{
-      padding: 0.8vw 1.3vw;
-      border-radius: 15px ;
-  } */
 .loginbtnn {
   color: white;
   /* border: 0.13vw solid rgb(255, 255, 255); */
   border: 2px solid rgba(255, 255, 255, 0.437);
   background-color: transparent;
-  margin-left: 18vw;
+  margin-left: 13vw;
   padding: 0.6vw 1.3vw;
   border-radius: 15px;
   cursor: pointer;
@@ -149,6 +163,7 @@
   font-weight: 600;
   transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
+  margin-right: 3vw;
 }
 .regbtn::before {
   content: "";
@@ -178,7 +193,7 @@
   scale: 1;
 }
 
-/*---------------------------------------- 🔄 Hamburger Icon Styling ---------------------------------------------*/
+/*----------------------------------- 🔄 Hamburger Icon Styling ---------------------------------------*/
 .hamburger-icon {
   display: none;
   cursor: pointer;
@@ -201,8 +216,9 @@
   }
 
   .navibar h4 {
-    font-size: 3vw;
+    /* font-size: 5vw; */
     margin-left: 0;
+    /* border: 1px solid red; */
   }
 
   .hamburger-icon {
@@ -210,27 +226,35 @@
   }
 
   .navbar-elems {
-    width: 30vw;
+    width: 80%;
     height: 100vh;
     background-color: #000000;
     position: absolute;
     top: 60px;
-    right: -100vw; /* Start off-screen */
+    right: 0vw;
     transition: right 0.4s ease-in-out;
     z-index: 9;
     opacity: 1;
     padding: 2rem 1.5rem;
     overflow-y: auto;
+    overflow-x: hidden;
     /* border: 1px solid blue; */
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+
+    /* //////////////////////////// */
+    display: none;
+  }
+
+  .all-elems li a {
+    font-size: 5vw;
   }
 
   /* When nav is open */
   .navbar-elems.show {
-    right: 0;
+    right: 0vw;
     /* border: 1px solid red; */
     display: flex;
   }
@@ -242,27 +266,49 @@
     padding: 1rem;
     gap: 1rem;
     /* border: 1px solid red; */
+    width: 100%;
   }
 
   .dropdown-content {
     position: relative;
-    top: 0;
+    top: 5%;
     left: 0;
     width: 100%;
+    padding: 5px;
+    font-size: 4vw;
+    display: none;
+    z-index: 9;
+    /* border: 1px solid lawngreen; */
+  }
+
+  .dropdown-content.yes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2vw;
+    /* border: 1px solid brown; */
+  }
+
+  .feature-button{
+    margin-bottom: 2.5vw;
+    /* border: 1px solid yellow; */
   }
 
   .button {
     margin: 0 0 -10px 0;
+    /* border: 1px solid red; */
   }
 
   .loginbtnn {
-    margin: 30px 0px 0px 0px;
-    padding: 7px 2.2vw;
+    font-size: 4vw;
+    margin: 10vw 0px 0px 0px;
+    padding: 2.5vw 6vw;
   }
 
   .regbtn {
-    margin: 0px 0px 0px 0px;
-    padding: 7px 2.2vw;
+    font-size: 4vw;
+    margin: 0.5vw 0px 0px 0px;
+    padding: 2.5vw 7vw;
   }
 }
 
@@ -406,13 +452,13 @@
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   text-transform: uppercase;
 }
-.about-section-3-2{
+.about-section-3-2 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-.about-section-3-2 p{
+.about-section-3-2 p {
   display: flex;
   flex-direction: column;
   gap: 1.2vw;
@@ -424,8 +470,8 @@
   /* border: 1px solid gold; */
   width: 50%;
 }
-.about-section-3-2 p span{
-  color: white;
+.about-section-3-2 p span {
+  color: #00eeff;
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.5vw;
   font-weight: 600;
@@ -442,7 +488,7 @@
   color: #000000;
   background-color: white;
 }
-.feedback-card{
+.feedback-card {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -450,16 +496,16 @@
   justify-content: center;
   gap: 2vw;
 }
-.feedback-card h4{
+.feedback-card h4 {
   margin-left: 2vw;
-  font-family: system-ui, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
 }
-.feedback-card p{
+.feedback-card p {
   color: black;
   width: 80%;
   padding: 0;
 }
-.artist-photo{
+.artist-photo {
   border: 1.5px solid rgb(0, 0, 0);
   height: 10vw;
   width: 10vw;
@@ -468,13 +514,11 @@
   object-fit: cover;
   overflow: hidden;
 }
-.artist-photo img{
+.artist-photo img {
   height: 10vw;
   width: 10vw;
   position: absolute;
 }
-
-
 
 .card1 {
   background-color: rgb(218, 92, 39);
@@ -496,15 +540,180 @@
   background-color: rgb(216, 216, 216);
 }
 
+.instruction{
+  margin-top: 3vw;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  /* height: 5vh; */
+  /* border: 1px solid palevioletred; */
+}
+.instruction h3{
+  text-align: center;
+  color:rgba(255, 255, 255, 0.715);
+  font-family: 'Times New Roman', Times, serif;
+}
+.instruction img{
+  height: 2.5vw;
+}
 /* <------------------------------------------------ Section-3 Complete -------------------------------------------------> */
 
 /* <------------------------------------------------ Section-4 starts -------------------------------------------------> */
 
-.about-section-4{
-  height: 70vh;
-  width: 100vw;
+.about-section-4 {
+  height: 100vh;
+  width: 100%;
   background-color: rgba(87, 87, 87, 0.201);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* <------------------------------------------------ Section-4 Complete -------------------------------------------------> */
+
+/*! __________________________________________________________| Responsive Designs |_____________________________________________________________________ */
+
+/*?------------------------ | MOBILE |------------------------- */
+
+@media (max-width: 480px) {
+  .navibar h4 {
+    font-size: 6vw;
+  }
+
+  /* <------------------------------------Section-1------------------------------------> */
+
+  .about-section-1 {
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: start; */
+    align-items: center;
+    gap: 8vw;
+  }
+
+  .about-section-1-1 h2 {
+    font-size: 10vw;
+  }
+  .about-section-1-1 img {
+    height: 15vw;
+  }
+  .about-section-1-2 h1 {
+    font-size: 5.5vw;
+    width: 90%;
+    line-height: 7vw;
+  }
+  .about-section-1-2 p {
+    margin-top: 5vw;
+    font-size: 4.5vw;
+    line-height: 6vw;
+    width: 80%;
+    text-align: justify;
+  }
+
+  /* <------------------------------------Section-2------------------------------------> */
+
+  .about-section-2 {
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 110vh;
+  }
+  .about-section-2-1 {
+    padding: 0;
+    width: 80%;
+    /* border: 1px solid rgb(37, 153, 37); */
+  }
+  .about-section-2-1 h3 {
+    font-size: 8vw;
+    /* width: 90%; */
+  }
+  .about-section-2-1 p {
+    font-size: 4vw;
+    line-height: 5.5vw;
+    text-align: justify;
+    /* width: 90%; */
+  }
+  .canvas {
+    width: 80%;
+    height: 80vw;
+    /* border: 1px solid red; */
+  }
+  .canvas svg {
+    height: 60vw;
+  }
+
+  /* <------------------------------------Section-3------------------------------------> */
+
+  .about-section-3 {
+    /* height: 140vh; */
+    margin: 15vw 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18vw;
+    /* border: 1px solid orange; */
+  }
+  .about-section-3-1 h2 {
+    width: 90%;
+    text-align: center;
+    font-size: 8vw;
+    line-height: 8.5vw;
+  }
+  .about-section-3-2 {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid rgb(187, 0, 255); */
+    gap: 10vw;
+  }
+  .about-section-3-2 p {
+    width: 80%;
+    padding: 0;
+    font-size: 4vw;
+    line-height: 5.5vw;
+    text-align: justify;
+  }
+  .about-section-3-2 p span {
+    font-size: 5vw;
+    margin-bottom: 5vw;
+  }
+
+  .mySwiper {
+    height: 55vh;
+    width: 60vw;
+    /* border: 1px solid blue; */
+  }
+  .feedback-card {
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+    gap: 5vw;
+  }
+  .feedback-card h4{
+    text-align: center;
+  }
+  .artist-photo {
+    height: 25vw;
+    width: 25vw;
+  }
+  .artist-photo img{
+    height: 25vw;
+  width: 25vw;
+  }
+  .instruction{
+    margin-top: 7vw;
+  }
+  .instruction h3{
+    font-weight: 100;
+    /* font-size: 4vw; */
+  }
+  .instruction img{
+    height: 7vw;
+  }
 }

@@ -25,14 +25,14 @@ const footer = () => {
           </p>
         </div>
         <div className="outer">
-        <div className="foot-2 services">
-          <h3>Services</h3>
-          <div className="foot-2-1">
-            <p >Music Production</p>
-            <p >Mixing and Mastering</p>
-            <p >Promotion</p>
-            <p >Cover Art</p>
-             {/* <a href="#">Music Distribution</a> */}
+          <div className="foot-2 services">
+            <h3>Services</h3>
+            <div className="foot-2-1">
+              <a href="#">Music Production</a>
+              <a href="#">Mixing and Mastering</a>
+              <a href="#">Promotion</a>
+              <a href="#">Cover Art</a>
+            </div>
           </div>
         </div>
         <div className="foot-2">
@@ -41,7 +41,6 @@ const footer = () => {
             <a href="https://drive.google.com/file/d/1LJg7kHadniMfJbWHITtv_EBVoN-n_mvS/view?usp=sharing">policy / Terms and Conditions</a>
             
           </div>
-        </div>
         </div>
         <div className="foot-3">
           <div className="foot-3-1">
@@ -92,11 +91,7 @@ const footer = () => {
           <div className="foot-3-2">
             <h3>For Latest Information.</h3>
             <form className="subscribe-form">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-              />
+              <input type="email" placeholder="Enter your email" required />
               <button type="submit">Subscribe</button>
             </form>
             {/* <button type="submit">Subscribe</button> */}

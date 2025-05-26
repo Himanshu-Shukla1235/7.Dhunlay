@@ -113,11 +113,11 @@
   font-weight: 900;
   line-height: 4vw;
   font-size: 3vw;
+  margin-bottom: 4vw;
   overflow: hidden;
   /* opacity: 0; 
   transform: translateY(5vw); 
   animation: fadeUp 0.7s ease-out forwards; */
-  margin-bottom: 5vw;
 }
 .features-main-sec-21{
   /* border: 1px solid green; */
@@ -129,7 +129,7 @@
 /* <--------------------------------------- SECTION-3 ----------------------------------------------> */
 .features-main-sec-3{
   margin-top: 5vw;
-  height: 80vh;
+  height: 100vh;
   width: 88vw;
   background-color: rgba(87, 87, 87, 0.201);
   /* background-color: transparent; */
@@ -222,6 +222,9 @@
    .features-main-sec-21{
     padding-top: 10vw;
     /* margin-top: 20vw; */
+   }
+   .features-main-sec-3{
+    width: 100%;
    }
 }
 

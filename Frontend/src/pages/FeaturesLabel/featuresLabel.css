@@ -15,24 +15,21 @@
   /* border: solid red 3px; */
 }
 
-/* ?____________________________________ \ SECTION \_______________________________ */
+/* ?____________________________________ \ SECTION-1 \_______________________________ */
 .features-main-sec-1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 6vh; */
   width: 95%;
-  /* background-color: rgba(0, 0, 0, 0.596); */
   /* border: yellow 1px solid; */
-  border-radius: 0.5vw;
-  /* font-family: "Inconsolata", serif; */
   gap: 10vw;
 }
 .features-main-sec-11{
   width: 80%;
   /* border: 1px solid orange; */
-  margin: 1vw 0 0 0;
+  margin: 0vw 0 0 0;
+  padding-top: 10px;
   font-size: 3vw;
   display: flex;
   flex-direction: column;
@@ -48,7 +45,6 @@
   justify-content: center;
   /* border:  1px solid blue; */
   gap: 10px;
-  overflow: hidden;
 }
 .heading-stacking{
   position: relative;
@@ -115,19 +111,31 @@
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   text-transform: uppercase;
   font-weight: 900;
-  line-height: 4vw;
+  line-height: 3vw;
   font-size: 3vw;
+  margin-bottom: 4vw;
   overflow: hidden;
   /* opacity: 0; 
   transform: translateY(5vw); 
   animation: fadeUp 0.7s ease-out forwards; */
-  margin-bottom: 5vw;
 }
 .features-main-sec-21{
   /* border: 1px solid green; */
   padding: 2vw 0;
   background-color: rgb(24, 24, 24);
   border-radius: 20px;
+}
+
+/* <--------------------------------------- SECTION-3 ----------------------------------------------> */
+.features-main-sec-3{
+  margin-top: 5vw;
+  height: 100vh;
+  width: 88vw;
+  background-color: rgba(87, 87, 87, 0.201);
+  /* background-color: transparent; */
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 
 /* <------------------------------------------------------- Resposive Design ---------------------------------------------------------> */
@@ -166,33 +174,58 @@
 @media (min-width:350px) and (max-width:500px){
   .heading{
     margin-bottom: 10vw;
+    display: flex;
+    gap: 1vw;
   }
   .heading h4{
-    font-size: 4vw;
+    font-size: 5vw;
+  }
+  /* .features-main-sec-1{
+    border: 1px solid red;
+  } */
+  .features-main-sec-11{
+    width: 100%;
   }
   .features-main-sec-11 h2{
-    font-size: 7vw;
-    width: 100%;
+    font-size: 10vw;
+    width: 95%;
     padding: 3vw 0;
-    line-height: 8vw;
+    line-height: 10vw;
+    /* border: 1px solid blueviolet; */
   }
   .features-main-sec-11 h3{
-    font-size: 2.7vw;
-    width: 100%;
-    line-height: 3.5vw;
+    margin-top: 3vw;
+    font-size: 4vw;
+    width: 80%;
+    line-height: 6vw;
     padding-bottom: 2vw;
     overflow: hidden;
     margin-bottom: 4vw;
     /* border: 1px solid green; */
   }
+  .features-main-sec-12{
+    margin-top: 5vw;
+    padding-top: 10vw;
+  }
   .division{
-    margin: 10vw;
+    /* width: 100%; */
+    margin: 10vw 0;
+  }
+  .features-main-sec-2{
+    margin-top: 10vw;
   }
   .features-main-sec-2 h2{
-    font-size: 5.5vw;
+    font-size: 9vw;
     margin-bottom: 10vw;
-    line-height: 7vw;
+    line-height: 10vw;
   }
+   .features-main-sec-21{
+    padding-top: 10vw;
+    /* margin-top: 20vw; */
+   }
+   .features-main-sec-3{
+    width: 100%;
+   }
 }
 
 @media (min-width:501px) and (max-width:900px){
