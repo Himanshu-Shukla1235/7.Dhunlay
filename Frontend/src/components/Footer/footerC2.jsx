@@ -25,15 +25,15 @@ const footerC2 = () => {
           </p>
         </div>
         <div className="outer">
-          <div className="foot-2C2 servicesC2">
-            <h3>Services</h3>
+          {/* <div className="foot-2C2 servicesC2">
+            <h3>Features</h3>
             <div className="foot-2-1C2">
               <p>Music Production</p>
               <p>Mixing and Mastering</p>
               <p>Promotion</p>
               <p>Cover Art</p>
             </div>
-          </div>
+          </div> */}
           <div className="foot-2C2">
             <h3>Company</h3>
             <div className="foot-2-1C2">

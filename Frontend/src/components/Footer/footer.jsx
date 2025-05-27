@@ -25,7 +25,7 @@ const footer = () => {
           </p>
         </div>
         <div className="outer">
-          <div className="foot-2 services">
+          {/* <div className="foot-2 services">
             <h3>Services</h3>
             <div className="foot-2-1">
               <p>Music Production</p>
@@ -33,7 +33,7 @@ const footer = () => {
               <p>Promotion</p>
               <p>Cover Art</p>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="foot-2">
           <h3>Company</h3>
