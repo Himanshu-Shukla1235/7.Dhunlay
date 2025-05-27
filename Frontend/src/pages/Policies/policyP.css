@@ -1,23 +1,23 @@
-.terms-wrapper {
+.terms-container {
   max-width: 900px;
-  margin: 40px auto;
-  padding: 24px;
-  background-color: #ffffff;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.terms-heading {
+.terms-title {
   text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #222;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-.terms-content p {
-  font-size: 16px;
-  line-height: 1.7;
-  margin-bottom: 16px;
-  color: #333;
+.pdf-wrapper {
+  height: 600px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
 }
