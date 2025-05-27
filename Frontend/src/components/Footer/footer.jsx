@@ -46,24 +46,16 @@ const footer = () => {
             <h3>Get In Touch.</h3>
             <div className="socials">
               <a
-                href="https://github.com"
-                className="icon-github"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faGithub} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                className="icon-linkedin"
+                href="https://www.linkedin.com/company/dhunlay/"
+                className="icon-linkedinC2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
               <a
-                href="https://youtube.com"
-                className="icon-youtube"
+                href="https://youtube.com/@dhunlayofficial?si=mEtFGMK57ZCppRQG"
+                className="icon-youtubeC2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -71,15 +63,15 @@ const footer = () => {
               </a>
               <a
                 href="https://twitter.com"
-                className="icon-twitter"
+                className="icon-twitterC2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faXTwitter} />
               </a>
               <a
-                href="https://instagram.com"
-                className="icon-instagram"
+                href="https://www.instagram.com/dhunlay?igsh=YXNoY2NhYTFneWdj"
+                className="icon-instagramC2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
