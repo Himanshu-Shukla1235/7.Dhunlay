@@ -133,7 +133,7 @@ const test = () => {
 
           <main className={`navbar-elems ${navOpen ? "show" : ""}`}>
             <ul className="all-elems">
-              <li className="service-button" ref={serviceDropdownRef}>
+              {/* <li className="service-button" ref={serviceDropdownRef}>
                 <a
                   className="button"
                   onClick={() => setserviceDropdownOpen(!serviceDropdownOpen)}
@@ -150,7 +150,7 @@ const test = () => {
                   <a href="#">Promotion</a>
                   <a href="#">Cover Art</a>
                 </div>
-              </li>
+              </li> */}
               <li className="feature-button" ref={featureDropdownRef}>
                 <a
                   className="button"
@@ -174,9 +174,9 @@ const test = () => {
               <li>
                 <a href="/contact">Contact</a>
               </li>
-               <li>
+               {/* <li>
                 <a href="/about">About</a>
-              </li>
+              </li> */}
               <li>
                 {/* <a href="/contact">FAQs</a> */}
               </li>

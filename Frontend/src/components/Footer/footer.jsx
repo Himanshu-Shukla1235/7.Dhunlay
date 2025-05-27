@@ -28,18 +28,17 @@ const footer = () => {
           <div className="foot-2 services">
             <h3>Services</h3>
             <div className="foot-2-1">
-              <a href="#">Music Production</a>
-              <a href="#">Mixing and Mastering</a>
-              <a href="#">Promotion</a>
-              <a href="#">Cover Art</a>
+              <p>Music Production</p>
+              <p>Mixing and Mastering</p>
+              <p>Promotion</p>
+              <p>Cover Art</p>
             </div>
           </div>
         </div>
         <div className="foot-2">
           <h3>Company</h3>
           <div className="foot-2-1">
-            <a href="https://drive.google.com/file/d/1LJg7kHadniMfJbWHITtv_EBVoN-n_mvS/view?usp=sharing">policy / Terms and Conditions</a>
-            
+            <a href="/policy">policy / Terms and Conditions</a>
           </div>
         </div>
         <div className="foot-3">

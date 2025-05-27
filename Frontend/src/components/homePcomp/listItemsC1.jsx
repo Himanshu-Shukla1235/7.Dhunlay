@@ -36,22 +36,22 @@ const ListComponent = () => {
       href: "/features",
       icon: <StarIcon className="menu-icon" />,
     },
-    {
-      name: "Finance",
-      href: "/finance",
-      icon: <MonetizationOnIcon className="menu-icon" />,
-    },
+    // {
+    //   name: "Finance",
+    //   href: "/finance",
+    //   icon: <MonetizationOnIcon className="menu-icon" />,
+    // },
 
-    {
-      name: "Blog",
-      href: "/blog",
-      icon: <ArticleIcon className="menu-icon" />,
-    },
-    {
-      name: "Careers",
-      href: "/careers",
-      icon: <WorkIcon className="menu-icon" />,
-    },
+    // {
+    //   name: "Blog",
+    //   href: "/blog",
+    //   icon: <ArticleIcon className="menu-icon" />,
+    // },
+    // {
+    //   name: "Careers",
+    //   href: "/careers",
+    //   icon: <WorkIcon className="menu-icon" />,
+    // },
     // {
     //   name: "Support",
     //   href: "/support",

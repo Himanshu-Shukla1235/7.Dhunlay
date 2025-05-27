@@ -1,51 +1,23 @@
-/* Policy.css */
-
-.policy-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fdfdfd;
-  color: #333;
-  line-height: 1.6;
-}
-
-.policy-container h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: #2c3e50;
-}
-
-.policy-container section {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-left: 4px solid #3498db;
+.terms-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
   background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.terms-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.pdf-wrapper {
+  height: 600px;
+  border: 2px solid #ddd;
   border-radius: 8px;
+  overflow: hidden;
 }
-
-.policy-container h2 {
-  font-size: 1.8rem;
-  color: #2980b9;
-  margin-bottom: 0.8rem;
-}
-
-.policy-container p {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-}
-
-@media (max-width: 600px) {
-  .policy-container {
-    padding: 1rem;
-  }
-
-  .policy-container h1 {
-    font-size: 2rem;
-  }
-
-  .policy-container h2 {
-    font-size: 1.5rem;
-  }
-} 
