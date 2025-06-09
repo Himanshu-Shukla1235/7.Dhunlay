@@ -9,7 +9,7 @@ const PaymentPage = () => {
   // Define amounts per route base path
   const amountMap = {
     "/freemium": 0,
-    "/perRelease": 399,
+    "/perRelease": 1,
     "/ep-album": 999,
     "/labelPlan": 2999,
   };

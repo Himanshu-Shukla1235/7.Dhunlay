@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const songSchema = new mongoose.Schema(
   {
+   
     songTitle: { type: String, required: true, trim: true, index: true },
     primaryArtist: { type: [String], required: true, trim: true }, // Array instead of a single string
     featuringArtists: { type: [String], default: [], trim: true },

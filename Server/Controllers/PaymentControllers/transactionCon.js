@@ -39,6 +39,7 @@ const initiatePayment = async (req, res) => {
       .build();
 
     const response = await client.pay(request);
+    console.log(response);
 
     // In a real application, you would save the order details to your database here
     // await saveOrderToDatabase(merchantOrderId, amount, userId, 'PENDING');
@@ -47,6 +48,7 @@ const initiatePayment = async (req, res) => {
       success: true,
       checkoutUrl: response.redirectUrl,
       orderId: merchantOrderId,
+ 
     });
   } catch (error) {
     console.error("Payment initiation error:", error);

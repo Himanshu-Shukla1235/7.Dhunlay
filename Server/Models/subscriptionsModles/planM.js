@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const PlanSchema = new mongoose.Schema({
   name: {
     type: String,
-    enum: ['Basic', 'Pro', 'Premium'],
+    enum: ['Free', 'A-plan-1', 'A-plan-2','L-plan-1'],
     required: true
   },
   price: {
@@ -12,8 +12,7 @@ const PlanSchema = new mongoose.Schema({
   },
   duration: {
     type: Number, // In months
-    required: true
-  },
+    required: false  },
   features: {
     type: [String], // Array of strings
     required: true
@@ -24,7 +23,7 @@ const PlanSchema = new mongoose.Schema({
   },
   revenueShare: {
     type: Number, // Percentage for artists
-    required: true
+    required: false
   }
 }, { timestamps: true });
 
