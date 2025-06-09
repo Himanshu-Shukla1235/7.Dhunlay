@@ -21,6 +21,7 @@ const upsertPrimaryArtist = require("./Routes/PrimaryAtistR");
 const getAllPrimaryArtists = require("./Routes/PrimaryAtistR");
 const userData = require("./Routes/UserDataR");
 const getReleaseData = require("./Routes/MetaDataR");
+const SubPay=require("./Routes/transactionR")
 
 const authenticateUser = require("./Middlewares/authenticationM");
 
@@ -61,8 +62,9 @@ app.use("/api", getReleaseData);
 app.use("/api", upsertPrimaryArtist);
 app.use("/api", getAllPrimaryArtists);
 
-
 app.use("/api/userData", userData);
+app.use("/api", SubPay);
+
 
 //-------------------------
 // At bottom of your server file

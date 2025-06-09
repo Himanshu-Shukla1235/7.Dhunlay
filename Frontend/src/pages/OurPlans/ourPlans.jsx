@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./ourPlans.css"; // Import the CSS file
 
 import Card from "../../components/Cards/cardsC1";
+import InfoIcon from "@mui/icons-material/Info";
+import Tooltip from "@mui/material/Tooltip";
 
 const ourPlans = () => {
   return (
@@ -23,14 +25,14 @@ const ourPlans = () => {
         </div>
         <div className="ourPlans-main-sec-3">
           <div className="ourPlans-main-sec-31">
-            <h2>Pricing For Artists</h2>
+            <h2>Artists Plan</h2>
           </div>
           <div className="ourPlans-main-sec-32">
             {" "}
             <Card
               card_dot_bg="#FFFFFF"
               labelTC="#FFFFFF"
-              title="Freemium"  
+              title="Freemium"
               price="₹ 0"
               features={[
                 "* Keep 70% of your earnings",
@@ -43,6 +45,18 @@ const ourPlans = () => {
                 "* Create custom fan links",
                 "* Free ISRC & UPC codes",
               ]}
+              tooltipContents={[
+                "You receive 70% of all revenue from your music.",
+                "Only one main artist is allowed per release.",
+                "Your songs stay live on platforms forever.",
+                "Get help or replies within 7 days.",
+                "Release up to 3 songs to Spotify, Apple Music, etc.",
+                "Track streams, revenue, and audience insights in one place.",
+                "Releases go live within 7 days of submission.",
+                "Make smart links to share with fans everywhere.",
+                "We provide ISRC & UPC codes at no cost.",
+              ]}
+              navigation="freemium"
             />
             <Card
               card_dot_bg="#00EEFF"
@@ -61,6 +75,18 @@ const ourPlans = () => {
 
                 "* Free ISRC & UPC codes",
               ]}
+              tooltipContents={[
+                "You keep 90% of all your music revenue.",
+                "Set one main artist, with ability to add collaborators.",
+                "Your songs remain live on all platforms forever.",
+                "We reply to support queries within 3 business days.",
+                "Send your music to Spotify, Apple Music, and more.",
+                "View streaming, revenue, and fan data in one place.",
+                "Pick the exact date and time for your release to go live.",
+                "Generate smart links to promote your release anywhere.",
+                "We provide required music codes (ISRC/UPC) for free.",
+              ]}
+              navigation="perRelease"
             ></Card>
             <Card
               card_dot_bg="#FFD700"
@@ -79,55 +105,57 @@ const ourPlans = () => {
 
                 "* Free ISRC & UPC codes",
               ]}
+              tooltipContents={[
+                "You keep 90% of revenue earned from your music.",
+                "Choose one main artist and add featured artists as needed.",
+                "Your release stays live on platforms permanently.",
+                "Customer support responds within 3 business days.",
+                "Release full albums or EPs to Spotify, Apple Music, and more.",
+                "Track streams, earnings, and listener data in one place.",
+                "Set the exact date and time your music goes live.",
+                "Share your release using smart, trackable links.",
+                "We generate music codes (ISRC/UPC) for you at no cost.",
+              ]}
+              navigation="ep-album"
             ></Card>
           </div>
-        </div>
-        {/* --------------------------------------------------- */}
-
-        {/* <div className="ourPlans-main-sec-3">
           <div className="ourPlans-main-sec-31">
-            <h2>Subscriptions For Labels</h2>
+            <h2> Label Plan</h2>
           </div>
-          <div className="c">
+          <div className="ourPlans-main-sec-32">
             {" "}
             <Card
               card_dot_bg="#FFFFFF"
               labelTC="#FFFFFF"
               title="Label Plan"
-              price="$35.21"
+              price="₹ 2999"
               features={[
-                "* Keep 70% of your earnings",
-                "* One primary artist per release",
+                "* Keep 93% of your earnings",
+                "* Add Artist as many you want",
                 "* Lifetime song availability",
-                "* Support within 7 days",
-                "* Distribute up to 3 tracks to all major DSPs",
-                "* All-in-one analytics dashboard",
-                "* 7-day release processing time",
-                "* Create custom fan links",
-                "* Free ISRC & UPC codes",
-              ]}
-            />
-            <Card
-              card_dot_bg="#00EEFF"
-              labelTC="#00EEFF"
-              title="Per Release"
-              price="$4.68 / Per Release"
-              features={[
-                "* Keep 90% of your earnings",
-                "* One fixed primary artist, with option to add more",
-                "* Lifetime song availability",
-                "* Support within 3 business days",
-                "* Distribute Your track to all major DSPs",
+                "* Support within 2 days",
+                "* Distribute Unlimited tracks to all major DSPs",
                 "* All-in-one analytics dashboard",
                 "* Schedule exact release time",
                 "* Create custom fan links",
 
                 "* Free ISRC & UPC codes",
               ]}
-            ></Card>
-           
+              tooltipContents={[
+                "Keep 93% of all your music revenue.",
+                "Add unlimited artists to your release.",
+                "Your tracks remain live on platforms forever.",
+                "Get a support response within 2 days.",
+                "Release unlimited songs to Spotify, Apple Music, and more.",
+                "Monitor streams, fans, and earnings in one dashboard.",
+                "Choose the exact date and time for your release.",
+                "Promote using customizable, smart fan links.",
+                "We provide ISRC & UPC codes at no extra cost.",
+              ]}
+            />
           </div>
-        </div> */}
+        </div>
+        {/* --------------------------------------------------- */}
       </div>
     </>
   );

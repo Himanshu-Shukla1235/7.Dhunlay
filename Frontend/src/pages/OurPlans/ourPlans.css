@@ -4,7 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 79vw;
-    height: 500%;
+    height: auto;
     padding: 0.45vw;
     text-align: center;
     color: white;
@@ -107,7 +107,10 @@ padding-bottom: 3vw;
 padding-top: 1vw;
 padding-bottom: 3vw;
 
+
 /* border: red solid 3px; */
+border-bottom: #484848 2px solid;
+padding: 3vw;
 
 }
 .ourPlans-main-sec-31 h2 {
