@@ -30,7 +30,7 @@ const initiatePayment = async (req, res) => {
     }
 
     const merchantOrderId = `ORDER_${uuidv4()}`;
-    const redirectUrl = `http://localhost:5000/check-status?orderId=${merchantOrderId}`;
+    const redirectUrl = `https://dhunlay.com/check-status?orderId=${merchantOrderId}`;
 
     const request = StandardCheckoutPayRequest.builder()
       .merchantOrderId(merchantOrderId)
@@ -39,7 +39,7 @@ const initiatePayment = async (req, res) => {
       .build();
 
     const response = await client.pay(request);
-    console.log(response);
+    console.log("response of pay ",response);
 
     // In a real application, you would save the order details to your database here
     // await saveOrderToDatabase(merchantOrderId, amount, userId, 'PENDING');
