@@ -519,7 +519,7 @@ const About = () => {
               </SwiperSlide>
               <div className="instruction">
                 <h3>Drag to see more cards</h3>
-                <img src="/public/gesture.png" alt="drag-icon" />
+                <img src="/gesture.png" alt="drag-icon" />
               </div>
             </Swiper>
           </div>

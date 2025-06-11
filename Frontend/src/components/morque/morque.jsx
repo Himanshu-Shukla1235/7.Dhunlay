@@ -12,7 +12,6 @@ const MusicPlatformMarquee = ({logos}) => {
           key={index}
           src={logo.src}
           alt={logo.alt}
-          style={{ width: "100px", margin: "0 20px" }}
         />
       ))}</div>
       
