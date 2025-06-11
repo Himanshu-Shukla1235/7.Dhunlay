@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap");
 
+@font-face {
+  font-family: "PPMori";
+  src: url("/src/assets/fonts/PPMori-Regular.otf") format("truetype");
+}
+@font-face {
+  font-family: "PPMori-bold";
+  src: url("/src/assets/fonts/PPMori-SemiBold.otf") format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -72,9 +81,12 @@
 .all-elems li a {
   color: rgb(206, 206, 206);
   text-decoration: none;
+  font-size: 1.1vw;
+  font-family: "PPMori", sans-serif;
 }
 .all-elems li a:hover {
   color: white;
+  /* border-bottom: 1px solid red; */
 }
 .feature-button {
   position: relative;
@@ -90,9 +102,9 @@
 .button {
   /* background-color: #4CAF50; */
   color: #212121;
-  padding: 10px 0px;
+  /* padding: 10px 0px; */
   border: 1px solid transparent;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -150,30 +162,31 @@
 .loginbtnn {
   color: white;
   /* border: 0.13vw solid rgb(255, 255, 255); */
-  border: 2px solid rgba(255, 255, 255, 0.437);
+  border: 2px solid rgb(39, 89, 225);
   background-color: transparent;
   margin-left: 13vw;
   padding: 0.6vw 1.3vw;
-  border-radius: 15px;
+  border-radius: 20px;
   cursor: pointer;
+  font-size: 1.1vw;
 }
-.loginbtnn:hover {
-  border: 2px solid rgb(48, 196, 245);
-}
+/* .loginbtnn:hover {
+  border: 2px solid rgb(48, 51, 245);
+} */
 
 .regbtn {
   cursor: pointer;
   position: relative;
-  padding: 0.7vw 1.2vw;
+  padding: 0.7vw 1.5vw;
   color: #00eeff;
-  border: 2px solid rgba(255, 255, 255, 0.437);
+  border: 2px solid rgba(128, 128, 128, 0.705);
   /* border: none; */
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: transparent;
-  font-weight: 600;
   transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
   margin-right: 3vw;
+  font-size: 1.1vw;
 }
 .regbtn::before {
   content: "";
@@ -185,14 +198,15 @@
   border-radius: inherit;
   scale: 0;
   z-index: -1;
-  background-color: rgb(0, 238, 255);
+  /* background-color: rgb(0, 238, 255); */
+  background: linear-gradient(to right, rgb(0, 238, 255), white);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .regbtn:hover::before {
   scale: 3;
 }
 .regbtn:hover {
-  border-radius: 30px;
+  /* border-radius: 30px; */
   border: 2px solid rgb(28, 159, 168);
   /* border: none; */
   color: #212121;
@@ -291,7 +305,7 @@
     /* border: 1px solid lawngreen; */
   }
 
-  .dropdown-content.yes{
+  .dropdown-content.yes {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -299,7 +313,7 @@
     /* border: 1px solid brown; */
   }
 
-  .feature-button{
+  .feature-button {
     margin-bottom: 4vw;
     /* border: 1px solid yellow; */
   }
@@ -334,6 +348,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  background-color: rgb(0, 0, 0);
 }
 
 .section-1 video {
@@ -345,11 +360,12 @@
   object-fit: cover; /* Ensures the video covers the entire div */
   z-index: 0;
   opacity: 0.7;
-  filter: blur(2px) brightness(0.9);
+  filter: blur(1px) brightness(0.5) grayscale(0%);
+  /* display: none; */
 }
 .section-11 {
   padding: 0px;
-  margin: -7vw 0vw 0vw 0vw;
+  margin: -10vw 0vw 0vw 0vw;
   /* border: 1px solid yellow; */
   display: flex;
   flex-direction: column;
@@ -359,77 +375,161 @@
   gap: 3vw;
   z-index: 1;
 }
+.section-11 h3 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 1.2vw;
+  font-weight: 100;
+  margin-top: 1vw;
+  /* border: 1px solid red; */
+}
+.section-11 h3 span {
+  color: rgb(255, 214, 8);
+  font-weight: 900;
+}
 .section-11 h1 svg {
-  margin-top: 3vw;
-  height: 9vw;
+  margin: 1vw 0;
+  height: 11vw;
   width: 100%;
 }
 
 /* It is a svg so the properties will be different */
 .section-11 h1 svg path {
-  fill: transparent;
+  fill: url(#gradientFill);
+  fill-opacity: 0;
   stroke: white;
-  stroke-width: 0.1;
-  stroke-dasharray: 95;
-  stroke-dashoffset: 95;
+  stroke-width: 0.7;
+  stroke-dasharray: 290;
+  stroke-dashoffset: 290;
   animation: textAni 2s ease-in-out 1 forwards;
 }
 @keyframes textAni {
   0% {
-    stroke-dashoffset: 95;
+    stroke-dashoffset: 290;
   }
   70% {
-    fill: transparent;
+    stroke-dashoffset: 87; /* Adjusted to match 70% progress */
+    fill-opacity: 0;
   }
   100% {
-    fill: white;
+    stroke-width: 0.1;
+    fill-opacity: 1;
     stroke-dashoffset: 0;
   }
 }
 
 .section-11 p {
   text-align: center;
-  color: rgba(255, 255, 255, 0.739);
+  color: rgba(255, 255, 255, 0.998);
   /* width: 95%; */
   line-height: 2vw;
   font-size: 1.2vw;
-  font-weight: 600;
+  /* font-weight: 600; */
   /* border: 1px solid red; */
 }
-.section-11 button {
+
+.button-sec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* gap: 2vw; */
+  /* border: 1px solid red; */
+  width: 80%;
+}
+
+.button-sec .journey-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  cursor: pointer;
+  position: relative;
+  padding: 0.7vw 1.2vw;
+  color: #ffffff;
+  /* border: 2px solid rgba(255, 255, 255, 0.437); */
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(67, 67, 67);
+  /* transition: all 10s cubic-bezier(0.23, 1, 0.32, 1); */
+  /* overflow: hidden; */
+  margin-right: 3vw;
+  font-size: 1.1vw;
+}
+
+.button-sec .journey-button::after {
+  content: "";
+  position: absolute;
+  height: 105%;
+  width: 101%;
+  border-radius: 20px;
+  background: linear-gradient(to right, rgb(0, 238, 255), white);
+  z-index: -2;
+}
+
+.button-sec .journey-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  padding: 2px;
+  width: 19%;
+  height: 12%;
+  border-radius: inherit;
+  transform: scale(0);
+  z-index: -1;
+  background: linear-gradient(to right, rgb(0, 238, 255), white);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.button-sec .journey-button:hover::before {
+  transform: scale(5);
+}
+.button-sec .journey-button:hover::after {
+  opacity: 0;
+}
+.button-sec .journey-button:hover {
+  border-radius: 30px;
+  /* border: 2px solid rgb(28, 159, 168); */
+  color: #000000;
+  scale: 1;
+  box-shadow: 0px 0px 1.2vw rgb(5, 197, 211);
+}
+.button-sec .journey-button:active {
+  scale: 1;
+}
+
+.button-sec .demo-button {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.1vw;
   font-size: 1.2vw;
   font-weight: 600;
-  /* border: 0.1vw solid rgb(0, 238, 255); */
-  background-color: rgba(0, 225, 255, 0.86);
+  background: linear-gradient(
+    to right,
+    rgb(0, 238, 255),
+    rgb(255, 255, 255),
+    rgb(0, 136, 255)
+  );
+  background-size: 200% auto;
+  background-position: left center;
   color: rgb(3, 3, 3);
-  padding: 0.7vw;
+  padding: 0.8vw;
   border: none;
-  width: 76%;
-  border-radius: 0.5vw;
-  transition: all 0.3s ease;
+  width: 50%;
+  border-radius: 20px;
+  transition: background-position 0.5s ease;
   cursor: pointer;
-  margin-top: 1vw;
 }
-.section-11 button:hover {
-  background-color: #00eeff;
+.button-sec .demo-button:hover {
+  background-position: right center;
 }
-.landing_page-message {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 95vw;
-  gap: 2vw;
-  /* border: solid red 3px; */
-}
+
 .scroll-down {
   color: white;
   position: absolute;
-  top: 80%;
+  top: 82%;
   /* font-size: 10px; */
   animation: bounce 1.5s infinite;
 }
@@ -445,47 +545,22 @@
 
 /* <------------------------------------------------ Section-1 Complete -------------------------------------------------> */
 
-/* <------------------------------------------------ Section-beta starts -------------------------------------------------> */
-
-.section-beta {
-  margin-top: 2vw;
-  margin-bottom: 3vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* border-top: 1px solid rgba(177, 177, 177, 0.497); */
-  border-bottom: 1px solid rgba(177, 177, 177, 0.497);
-  width: 99%;
-  padding: 3vw 0;
-}
-.section-beta .title {
-  text-transform: uppercase;
-  color: white;
-  font-size: 3vw;
-  margin-bottom: 3vw;
-  font-family: sans-serif;
-}
-
-/* <------------------------------------------------ Section-beta Complete -------------------------------------------------> */
-
 /* <------------------------------------------------ Section-2 starts -------------------------------------------------> */
 
 .section-2 {
-  margin-top: 5vw;
-  padding-bottom: 5vw;
+  margin-top: 8vw;
+  padding-bottom: 3vw;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  border-bottom: 1px solid rgba(160, 160, 160, 0.287);
 }
 .section-21 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 7vw;
+  gap: 5vw;
   margin: 2vw;
 }
 .section-211 {
@@ -499,12 +574,10 @@
   /* box-shadow: 0vw 0vw 1.8vw rgba(2, 185, 194, 0.633); */
   /* background: linear-gradient(135deg, #667eea8d, #f8f8f861); */
   /* gap: 3vw; */
-  padding: 2vw;
-  border-radius: 1vw;
   position: relative;
-  border: rgba(246, 246, 246, 0.948) 1px solid;
-  height: 50vh;
-  width: 40vw;
+  /* border: rgba(246, 246, 246, 0.948) 1px solid; */
+  /* height: 50vh; */
+  /* width: 40vw; */
 }
 .section-211 img {
   z-index: 0;
@@ -520,9 +593,12 @@
 .section-211 h1 {
   font-family: sans-serif;
   color: white;
-  font-size: 2.5vw;
+  font-size: 1.2vw;
   z-index: 1;
-  font-weight: 600;
+  font-weight: 100;
+  font-family: "PPMori", sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
 }
 .section-211 p {
   margin-top: 1vw;
@@ -532,25 +608,140 @@
   line-height: 1.6vw;
 }
 .section-211 h2 {
-  margin-top: 1.5vw;
+  margin-bottom: 1.5vw;
   color: #00eeff;
-  font-size: 4vw;
+  font-size: 3vw;
   z-index: 1;
+  font-family: "PPMori", sans-serif;
 }
 
 /* <------------------------------------------------ Section-2 Complete -------------------------------------------------> */
 
+/* <------------------------------------------------ Section-movingStripe starts -------------------------------------------------> */
+
+.section-movingStripe {
+  margin-top: 3vw;
+  height: 30vh;
+  /* border: 1px solid rgb(222, 17, 174); */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 5vw;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+}
+.section-movingStripe-1 {
+  width: 105%;
+  border-top: 2px solid rgba(255, 255, 255, 0.464);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.446);
+  box-shadow: 0px 0px 20px rgba(0, 251, 255, 0.619);
+  transform: rotate(-3deg);
+  /* opacity: 0.7; */
+}
+
+/* <------------------------------------------------ Section-movingStripe Complete -------------------------------------------------> */
+
+/* <------------------------------------------------ Section-compare starts -------------------------------------------------> */
+
+.section-compare {
+  width: 100%;
+  /* height: 60vh; */
+  margin: 8vw 0 0vw 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid rgba(248, 97, 16, 0.972); */
+  gap: 3vw;
+  font-family: "PPMori", sans-serif;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.472);
+  padding-bottom: 8vw;
+  overflow-x: hidden;
+  padding-top: 2vw;
+}
+.section-compare h1 {
+  font-size: 4vw;
+  color: #00eeff;
+}
+.section-compare-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  border: 1px solid rgb(152, 152, 152);
+  gap: 2vw;
+  padding: 2vw;
+  border-radius: 20px;
+  width: 40%;
+  height: 70vh;
+}
+.section-compare-1 h2 {
+  color: white;
+  font-size: 2vw;
+  letter-spacing: 1.5px;
+  /* border: 1px solid red; */
+}
+.section-compare-1-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2vw;
+}
+.section-compare-1-1 span {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  /* align-items: center; */
+}
+.section-compare-1-1 span p {
+  font-family: "Inconsolata", serif;
+  color: rgb(255, 255, 255);
+  font-size: 1.2vw;
+  line-height: 2vw;
+}
+.weAre {
+  border: 1px solid gold;
+  /* border: none; */
+  box-shadow: 0px 0px 15px rgba(255, 217, 0, 0.771);
+  /* transition: all 0.3s ease-in-out; */
+}
+.weAre:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 20px rgb(255, 217, 0);
+}
+
+/* <------------------------------------------------ Section-compare Complete -------------------------------------------------> */
+
 /* <------------------------------------------------ Section-3 starts -------------------------------------------------> */
 
 .section-3 {
-  margin: 7vw 0vw 6vw 0vw;
+  margin: 7vw 0vw 7vw 0vw;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid rgba(160, 160, 160, 0.287);
-  padding-bottom: 6vw;
+  padding-bottom: 8vw;
 }
 .section-31 {
   /* border: 1px solid lightgreen; */
@@ -583,9 +774,9 @@
   margin: 4vw 0vw 0vw 0vw;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  gap: 10vw;
+  gap: 8vw;
   /* border: 1px solid rgb(231, 225, 53); */
 }
 .section-32 .imgs {
@@ -610,7 +801,7 @@
 .section-321 p {
   text-align: center;
   color: white;
-  font-size: 1.2vw;
+  font-size: 1.1vw;
   line-height: 2vw;
   /* border: 1px solid rgb(231, 225, 53); */
 }
@@ -716,13 +907,13 @@
   color: white;
   font-size: 1.1vw;
   border: 1px solid white;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 0.8vw 1.8vw;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .section-4 .explore button:hover {
-  background-color: #00eeff;
+  background: linear-gradient(to right, rgb(0, 238, 255), white);
   color: black;
   border: 1px solid #00eeff;
 }
@@ -731,6 +922,144 @@
 }
 
 /* <------------------------------------------------ Section-4 Complete -------------------------------------------------> */
+
+/* <------------------------------------------------ Section-testi starts -------------------------------------------------> */
+
+.section-testi {
+  margin-top: 8vw;
+  padding-bottom: 8vw;
+  width: 100%;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.471);
+}
+.section-testi h1 {
+  margin-bottom: 2vw;
+  font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 3.7vw;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: transparent;
+}
+.columns-container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  overflow: hidden;
+  /* border: 1px solid blueviolet; */
+}
+
+.marquee-column {
+  width: 30%;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+
+  mask-image: linear-gradient(
+    to top,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  /* border: 1px solid red; */
+}
+
+.marquee-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+  animation: moving-up 20s linear infinite;
+  /* Optional but improves performance */
+  will-change: transform;
+}
+.marquee-column:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.moving-down .marquee-track {
+  animation: moving-down 20s linear infinite;
+}
+
+.testi-card {
+  height: auto;
+  padding: 20px;
+  /* border: 1px solid cyan; */
+  border-radius: 20px;
+  /* border: 1px solid #00eeff; */
+  background-color: #00eeffa9;
+  background: linear-gradient(
+    -30deg,
+    rgba(0, 238, 255, 0),
+    rgba(255, 255, 255, 0.387)
+  );
+}
+
+.testi-text {
+  color: white;
+  font-size: 15px;
+  font-style: italic;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.testi-text::before,
+.testi-text::after {
+  content: "“";               
+  font-family: Georgia, serif;
+  font-size: 4vw;          
+  color: rgb(246, 255, 0);
+  line-height: 1;
+}
+.testi-text::after {
+  content: "”";
+  margin-top: 15px;
+}
+
+.testi-name {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: right;
+}
+
+@keyframes moving-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moving-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
 
 /* <------------------------------------------------ Section-5 starts -------------------------------------------------> */
 
@@ -797,8 +1126,6 @@
 }
 
 .faq-answer {
-  max-height: 0;
-  height: 0;
   overflow: hidden;
   margin-top: 2vw;
   font-size: 16px;
@@ -878,7 +1205,7 @@
 
 @media (max-width: 480px) {
   .navibar h4 {
-    font-size: 4.5vw;
+    font-size: 5vw;
   }
 
   /*?------------------------ Section - 1 ------------------------- */
@@ -894,46 +1221,65 @@
     justify-content: center;
     /* border: 1px solid yellow; */
     margin: 10vw 0vw 0vw 0vw;
-    width: 80%;
+    width: 100%;
+  }
+  .section-11 h3 {
+    margin-top: 8vw;
+    font-size: 4vw;
+    width: 90%;
+    /* border: 1px solid red; */
   }
   .section-11 h1 svg {
     /* border: 1px solid red; */
     height: 20vw;
     width: 110%;
-    margin-top: 20vw;
+    margin-top: 10vw;
     margin-left: -4vw;
   }
   .section-11 p {
-    font-size: 4.5vw;
+    font-size: 4vw;
     font-weight: 100;
-    width: 95%;
+    width: 90%;
     line-height: 5.5vw;
     color: rgba(255, 255, 255, 0.783);
     /* border: 1px solid yellow; */
   }
-  .section-11 button {
-    width: 90%;
-    border-radius: 6px;
-    font-size: 4vw;
-    padding: 3vw 0;
-    margin-top: 10vw;
+  .button-sec {
+    margin-top: 7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+    gap: 6vw;
   }
-  .section-11 .darrow {
-    font-size: 6vw;
+  .button-sec .journey-button {
+    padding: 2.5vw 0vw;
+    font-size: 3.5vw;
+    width: 80%;
+    margin: 0;
+  }
+  .button-sec .demo-button {
+    padding: 2.6vw 0vw;
+    font-size: 3.5vw;
+    width: 80%;
+  }
+  .button-sec .darrow {
+    font-size: 5vw;
     vertical-align: middle;
   }
-  .scroll-down {
-    top: 85%;
+  .button-sec .upleftArrow {
+    font-size: 5vw;
+    vertical-align: middle;
   }
-  .landing_page-message {
-    height: 60vh;
+
+  .scroll-down {
+    top: 90%;
   }
   .section-1 video {
     height: 100%;
   }
-  .navibar h4 {
-    font-size: 6vw;
-  }
+
   /*?------------------------ Section - beta ------------------------- */
 
   .section-beta {
@@ -975,22 +1321,50 @@
     gap: 3vw;
   }
   .section-211 h1 {
-    font-size: 8vw;
+    font-size: 6vw;
     text-align: center;
   }
   .section-211 h2 {
     margin-top: 7vw;
-    font-size: 12vw;
+    font-size: 9vw;
   }
-  .section-211 p {
-    margin-top: 5vw;
-    font-size: 5vw;
-    line-height: 7vw;
-    text-align: center;
-  }
-  .landing_page-message {
+
+  /*?------------------------ Section - compare ------------------------- */
+
+  .section-compare {
+    padding: 8vw 0;
+    /* margin-bottom: 8vw; */
+    display: flex;
     flex-direction: column;
+    gap: 10vw;
   }
+  .section-compare h1 {
+    font-size: 10vw;
+  }
+  .section-compare-1 {
+    width: 80%;
+    height: auto;
+    padding: 7vw 4vw;
+    display: flex;
+    gap: 5vw;
+  }
+  .section-compare-1 h2 {
+    font-size: 6vw;
+  }
+  .section-compare-1-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+  }
+  .section-compare-1-1 span p {
+    font-size: 4vw;
+    line-height: 5.5vw;
+  }
+  .weAre {
+    margin-bottom: 10vw;
+    transform: scale(1);
+  }
+
   /*?------------------------ Section - 3 ------------------------- */
   .section-3 {
     margin-top: 15vw;
@@ -1018,6 +1392,7 @@
     flex-direction: column;
     gap: 20vw;
     /* border: 1px solid orange; */
+    align-items: center;
   }
   .section-321 {
     display: flex;
@@ -1038,10 +1413,15 @@
   }
 
   /*?------------------------ Section - 4 ------------------------- */
+  .section-4 {
+    margin-bottom: 5vw;
+    padding-bottom: 5vw;
+  }
   .section-4 h1 {
     width: 90%;
     font-size: 10vw;
-    margin: 5vw 0 20vw 0;
+    margin: 5vw 0 15vw 0;
+    /* border: 1px solid burlywood; */
   }
   .section-41 {
     display: flex;
@@ -1050,7 +1430,7 @@
     justify-content: center;
     /* border: 1px solid red; */
     gap: 10vw;
-    margin-bottom: 20vw;
+    margin-bottom: 17vw;
   }
   .section-411 {
     /* border: 1px solid green; */
@@ -1062,12 +1442,12 @@
   }
   .section-411 h2 {
     /* border: 1px solid red; */
-    font-size: 7vw;
+    font-size: 6vw;
     text-align: center;
     margin-bottom: 2vw;
   }
   .section-411 p {
-    margin-top: 3vw;
+    margin-top: 2vw;
     width: 85%;
     text-align: center;
     font-size: 4vw;
@@ -1084,12 +1464,12 @@
     margin: 0 0 10vw 0;
   }
   .section-411-2 h2 {
-    font-size: 7vw;
+    font-size: 6vw;
     text-align: center;
     margin-bottom: 2vw;
   }
   .section-411-2 p {
-    margin-top: 3vw;
+    margin-top: 2vw;
     width: 85%;
     text-align: center;
     font-size: 4vw;
@@ -1105,6 +1485,55 @@
   }
   .section-4 .explore button .double-arrow {
     font-size: 6vw;
+  }
+
+  /*?------------------------ Section - testi ------------------------- */
+
+  .section-testi {
+    padding-bottom: 20vw;
+    /* border: 1px solid red; */
+  }
+  .section-testi h1 {
+    /* width: 90%; */
+    font-size: 9vw;
+    margin: 5vw 0 5vw 0;
+  }
+  .marquee-column {
+    display: none;
+  }
+
+  /* Show only first two columns */
+  .marquee-column:nth-child(1),
+  .marquee-column:nth-child(2) {
+    display: block;
+    width: 45%; /* Adjust to fit two columns nicely */
+  }
+
+  .columns-container {
+    gap: 3vw; /* Add some spacing between the two visible columns */
+  }
+  .marquee-track {
+    gap: 2vw;
+  }
+
+  .testi-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .testi-text::before,
+  .testi-text::after {
+    content: "“";
+    font-family: Georgia, serif;
+    font-size: 10vw;
+    color: rgb(246, 255, 0);
+    line-height: 1;
+  }
+  .testi-text::after {
+    content: "”";
+    margin-top: 12px;
+  }
+  .testi-card {
+    height: auto;
   }
 
   /*?------------------------ Section - 5 ------------------------- */

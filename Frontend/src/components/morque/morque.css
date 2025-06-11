@@ -1,19 +1,23 @@
-
-
-.morqueC1-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 8vh;
-    overflow: hidden;
+.morqueC1-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 14vh;
+  overflow: hidden;
 }
 .morqueC1-img {
-    width: 30px; /* smaller than 100px */
-    margin: 0 15px;
-    transform: scale(0.8);
-    transition: transform 0.3s ease;
-    filter: grayscale(100);
+  width: 8vw; /* smaller than 100px */
+  margin: 0 5vw;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+  filter: grayscale(0%);
+  /* border: 1px solid red; */
+}
+
+/* <------------------------------------ Responsive design --------------------------------------> */
+
+@media (max-width: 480px){
+  .morqueC1-img{
+    width: 15vw;
   }
-  
- 
-  
+}
