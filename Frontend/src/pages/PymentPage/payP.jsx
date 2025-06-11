@@ -14,11 +14,11 @@ const PaymentPage = () => {
     "/labelPlan": 2999,
   };
 
-  // Extract the base route from pathname, ignoring params
-  // e.g. /freemium/123 => /freemium
-  const baseRoute = location.pathname.split("/").slice(0, 2).join("/");
+  // Extract the full pathname, e.g. "/freemium/67cf231b6ecb1651b542617a"
+  const pathSegments = location.pathname.split("/"); // ['', 'freemium', '67cf231b6ecb1651b542617a']
+  const baseRoute = `/${pathSegments[1]}`; // '/freemium'
+  const userId = pathSegments[2]; // '67cf231b6ecb1651b542617a'
 
-  // Get the amount for the matched base route or default to 1
   const amountt = amountMap[baseRoute] || 1;
 
   const initiatePayment = async () => {
@@ -28,7 +28,7 @@ const PaymentPage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           amount: amountt,
-          userId: "user_12345", // Replace with actual user id
+          userId: userId, // now dynamically extracted
         }),
       });
 

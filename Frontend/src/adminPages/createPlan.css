@@ -1,0 +1,67 @@
+/* AdminCreatePlan.css */
+
+.admin-plan-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-plan-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.admin-plan-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-plan-container input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.admin-plan-container input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.admin-plan-container button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-plan-container button:hover {
+  background-color: #0056b3;
+}
+
+.admin-plan-container .message {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.admin-plan-container .message.success {
+  color: green;
+}
+
+.admin-plan-container .message.error {
+  color: red;
+}

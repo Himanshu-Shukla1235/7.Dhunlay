@@ -17,9 +17,7 @@ const SubscriptionSchema = new mongoose.Schema({
     required: true
   },
   
-  renewalDate: {
-    type: Date
-  },
+ 
   paymentId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Payment'

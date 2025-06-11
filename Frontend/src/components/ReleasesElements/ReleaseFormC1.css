@@ -253,18 +253,25 @@ border-top: solid 3px rgba(48, 47, 47, 0.404) ;
   
 }
 .file-upload {
-  width: 120px;
-  height: 120px;
-  background-image: url(""); /* Replace with your image */
-  background-size: cover;
-  background-position: center;
+  width: 130px;
+  height: 130px;
+  
+ 
+ 
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border: 2px dashed #ccc;
+  background-image: url("/vector/Handdrawn Circle Logo.png");
+   background-size: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   transition: all 0.3s ease-in-out;
+  opacity:0.5;
+  filter: grayscale(1);
 }
 
 .file-upload:hover {

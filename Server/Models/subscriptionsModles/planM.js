@@ -21,10 +21,7 @@ const PlanSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  revenueShare: {
-    type: Number, // Percentage for artists
-    required: false
-  }
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('Plan', PlanSchema);

@@ -5,11 +5,7 @@ const router = express.Router();
 const authenticateUser = require("../Middlewares/authenticationM");
 
 router.post("/initiate",  paymentController.initiatePayment);
-router.post(
-  "/create-sdk-order",
-  authenticateUser,
-  paymentController.createSdkOrder
-);
+
 router.get(
   "/status/:orderId",
   authenticateUser,

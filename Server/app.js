@@ -19,6 +19,7 @@ const authRouter = require("./Routes/authR");
 const MetaData = require("./Routes/MetaDataR");
 const upsertPrimaryArtist = require("./Routes/PrimaryAtistR");
 const getAllPrimaryArtists = require("./Routes/PrimaryAtistR");
+const subPlansR=require("./Routes/subPlansR")
 const userData = require("./Routes/UserDataR");
 const getReleaseData = require("./Routes/MetaDataR");
 const SubPay=require("./Routes/transactionR")
@@ -54,6 +55,7 @@ app.use(cookieParser()); // Ensure cookies can be parsed
 //  Apply auth middleware before routes if authentication is required
 // app.use(authenticateUser)
 //..... Routes
+app.use("/api", subPlansR);
 app.use("/api/auth", authRouter);
 
 // app.use(authMiddleware);

@@ -36,6 +36,7 @@ import PolicyPage from "./pages/Policies/policyP";
 import ContactUs from "./pages/contactUsP";
 import OurPlansGeneral from "./pages/OurPlans/ourPlansPublic";
 import PaymentPage from "./pages/PymentPage/payP";
+import AdminCreatePlan from "./adminPages/createPlanP";
 
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
@@ -159,6 +160,7 @@ function MainApp() {
     >
       <Routes>
         <Route path="/" element={<LandinP></LandinP>}></Route>
+        <Route path="/create_Plan" element={<AdminCreatePlan></AdminCreatePlan>}></Route>
         {/* This is about page */}
         <Route path="/about" element={<About />} />
         <Route path="features_Artist" element={<FeaturesArtist />} />

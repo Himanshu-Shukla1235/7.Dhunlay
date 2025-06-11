@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
-
+const SubsDoc = require("../../Models/subscriptionsModles/subscriptionM");
 const {
   StandardCheckoutPayRequest,
   StandardCheckoutClient,
@@ -22,15 +22,16 @@ const client = StandardCheckoutClient.getInstance(
   env
 );
 const initiatePayment = async (req, res) => {
+  console.log("✅ Backend hit:initiate payment triggered");
   try {
-    const { amount, userId } = req.body;
+    const { amount, userId, planId, startDate } = req.body;
 
     if (!amount || amount <= 0) {
       return res.status(400).json({ error: "Invalid amount" });
     }
 
     const merchantOrderId = `ORDER_${uuidv4()}`;
-    const redirectUrl = `https://dhunlay.com/check-status?orderId=${merchantOrderId}`;
+    const redirectUrl = `https://dhunlay.com/${userId}`;
 
     const request = StandardCheckoutPayRequest.builder()
       .merchantOrderId(merchantOrderId)
@@ -39,16 +40,19 @@ const initiatePayment = async (req, res) => {
       .build();
 
     const response = await client.pay(request);
-    console.log("response of pay ",response);
+    console.log("response of pay ", response);
 
     // In a real application, you would save the order details to your database here
     // await saveOrderToDatabase(merchantOrderId, amount, userId, 'PENDING');
-
+    const NewSubsDoc = await SubsDoc.create({
+      userId,
+      planId,
+      startDate,
+    });
     res.json({
       success: true,
       checkoutUrl: response.redirectUrl,
       orderId: merchantOrderId,
- 
     });
   } catch (error) {
     console.error("Payment initiation error:", error);
@@ -59,40 +63,6 @@ const initiatePayment = async (req, res) => {
 };
 
 //----------------------------------------------------------------------
-
-const createSdkOrder = async (req, res) => {
-  try {
-    const { amount, userId } = req.body;
-
-    if (!amount || amount <= 0) {
-      return res.status(400).json({ error: "Invalid amount" });
-    }
-
-    const merchantOrderId = `ORDER_${uuidv4()}`;
-    const redirectUrl = `${process.env.MERCHANT_REDIRECT_URL}?orderId=${merchantOrderId}`;
-
-    const request = CreateSdkOrderRequest.StandardCheckoutBuilder()
-      .merchantOrderId(merchantOrderId)
-      .amount(amount * 100)
-      .redirectUrl(redirectUrl)
-      .build();
-
-    const response = await phonePeClient.getClient().createSdkOrder(request);
-
-    // TODO: Save order to DB here with status = 'PENDING' and details
-
-    res.json({
-      success: true,
-      token: response.token,
-      orderId: merchantOrderId,
-    });
-  } catch (error) {
-    console.error("SDK order creation error:", error);
-    res
-      .status(500)
-      .json({ error: "Order creation failed", details: error.message });
-  }
-};
 
 //-----------------------------------------------------------------
 const checkPaymentStatus = async (req, res) => {
@@ -169,7 +139,7 @@ const handleCallback = async (req, res) => {
 
 module.exports = {
   initiatePayment,
-  createSdkOrder,
+  
   checkPaymentStatus,
   handleCallback,
 };

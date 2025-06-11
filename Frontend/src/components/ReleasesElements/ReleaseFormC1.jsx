@@ -29,6 +29,11 @@ import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
 import ArticleIcon from "@mui/icons-material/Article";
 import FileOpenIcon from "@mui/icons-material/FileOpen";
 import { useUser } from "../../pages/User/UserData";
+import CircularProgress from "@mui/material/CircularProgress";
+import { blackA } from "@radix-ui/colors";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
+import { FileUpload } from "@mui/icons-material";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 //!_________________________________________________ FUNCITON : ReleaseUserForm __________________________________
 
 const ReleaseUserForm = () => {
@@ -68,18 +73,19 @@ const ReleaseUserForm = () => {
     distributionPlatform: [],
     //
     userId: userId,
+    songUrl: null,
+    coverArtUrl: null,
   });
 
-  
-
-
+  const [loader, setloader] = useState(false);
 
   //*--------------- FILE UPLOAD TO CLOUDINARRY -------------------------------
   const handleUploadCloud = async (file, type) => {
-    if (!file) {
-      alert(`Please select a ${type} file first!`);
-      return;
-    }
+    // if (!file) {
+    //   alert(`Please select a ${type} file first!`);
+    //   return;
+    // }
+    setloader(true);
 
     const formData = new FormData();
     formData.append("file", file);
@@ -98,9 +104,11 @@ const ReleaseUserForm = () => {
 
       if (type === "image") {
         formDataPost.coverArt = String(data.secure_url);
+        formDataPost.coverArtUrl = String(data.secure_url);
         console.log("this is image url :", formDataPost.coverArt);
       } else {
         formDataPost.songFile = `${data.secure_url}`;
+        formDataPost.songUrl = `${data.secure_url}`;
         console.log("this is song url :", formDataPost.songFile);
       }
 
@@ -108,6 +116,7 @@ const ReleaseUserForm = () => {
     } catch (error) {
       console.error(`❌ Upload failed for ${type}:`, error);
     }
+    setloader(false);
   };
 
   //*--------------------------SUBMIT DATA TO SERVER -----------------------
@@ -202,8 +211,16 @@ const ReleaseUserForm = () => {
       C_line: "",
       p_line: "", // changed to lowercase for consistency
     });
-    
 
+    const checkRequired = () => {
+      if (localData.songName == "") {
+        alert("songName Required");
+      } else if (localData.primaryArtists == [""]) {
+        alert("primaryArtists Required");
+      } else {
+        setActiveStep(activeStep + 1);
+      }
+    };
 
     const handleChange = (field, value) => {
       setLocalData((prev) => ({ ...prev, [field]: value }));
@@ -232,9 +249,12 @@ const ReleaseUserForm = () => {
 
     const handleNextClick = () => {
       setFormDataPost((prev) => ({ ...prev, ...localData }));
-
+      checkRequired();
       if (onNext) onNext();
     };
+    //    useEffect(() => {
+
+    // }, [handleNextClick]);
     const references = [
       { que: "What is the name of the song?" },
       { que: "Who is the main artist or band?" },
@@ -294,20 +314,19 @@ const ReleaseUserForm = () => {
           {/* Song Title */}
           <label className="step1-label-1">Song Name:</label>
           <InputC1
-            placeholder="Enter the Title"
+            placeholder="* Enter the Title"
             value={localData.songName || formDataPost.songName}
             onChange={(e) => handleChange("songName", e.target.value)}
-          />
+          ></InputC1>
           <br />
-
           {/* Dynamic Fields */}
           {[
-            { label: "Primary Artist", field: "primaryArtists" },
-            { label: "Featuring Artist", field: "featuringArtists" },
-            { label: "Author", field: "authors" },
-            { label: "Composer", field: "composers" },
-            { label: "Music Producer", field: "musicProducers" },
-            { label: "Music Director", field: "musicDirectors" },
+            { label: "* Enter Primary Artist", field: "primaryArtists" },
+            { label: "Enter Featuring Artist", field: "featuringArtists" },
+            { label: "Enter Author", field: "authors" },
+            { label: "Enter Composer", field: "composers" },
+            { label: "Enter Music Producer", field: "musicProducers" },
+            { label: "Enter Music Director", field: "musicDirectors" },
           ].map(({ label, field }) => (
             <div key={field}>
               <label className="step1-label-2">{label}(s):</label>
@@ -322,7 +341,7 @@ const ReleaseUserForm = () => {
                   }}
                 >
                   <InputC1
-                    placeholder={`Enter ${label} Name`}
+                    placeholder={` ${label} Name`}
                     value={value}
                     required={true}
                     onChange={(e) => {
@@ -346,7 +365,6 @@ const ReleaseUserForm = () => {
               </IconButton>
             </div>
           ))}
-
           {/* Lyrics Section */}
           <label className="step1-label" style={{ color: "white" }}>
             <p style={{ fontFamily: "sans-serif" }}>Lyrics (if any):</p>
@@ -376,8 +394,7 @@ const ReleaseUserForm = () => {
             }}
             style={{ marginBottom: "1vw" }}
           />
-
-          {/* Lyrics File Upload */}
+          Lyrics File Upload
           <input
             type="file"
             accept=".txt,.doc,.pdf"
@@ -385,7 +402,7 @@ const ReleaseUserForm = () => {
             style={{ display: "none" }}
             onChange={handleLyricsUpload}
           />
-          <label htmlFor="upload-lyrics">
+          {/* <label htmlFor="upload-lyrics">
             <Button
               variant="contained"
               component="span"
@@ -394,9 +411,8 @@ const ReleaseUserForm = () => {
             >
               Upload Lyrics File
             </Button>
-          </label>
+          </label> */}
           <br />
-
           {/* Label Name */}
           <p style={{ fontFamily: "sans-serif" }}>Label Name</p>
           <InputC1
@@ -405,7 +421,6 @@ const ReleaseUserForm = () => {
             onChange={(e) => handleChange("labelName", e.target.value)}
           />
           <br />
-
           {/* C_line */}
           <p style={{ fontFamily: "sans-serif" }}>C_line</p>
           <InputC1
@@ -414,7 +429,6 @@ const ReleaseUserForm = () => {
             onChange={(e) => handleChange("C_line", e.target.value)}
           />
           <br />
-
           {/* p_line */}
           <p style={{ fontFamily: "sans-serif" }}>P_line</p>
           <InputC1
@@ -423,16 +437,13 @@ const ReleaseUserForm = () => {
             onChange={(e) => handleChange("p_line", e.target.value)}
           />
           <br />
-
           {/* Navigation */}
           {activeStep < stepContent.length - 1 ? (
             <ButtonC1
               content={"Next"}
               onClick={() => {
-              
-                  handleNextClick();
-                  setActiveStep(activeStep + 1);
-                
+                handleNextClick();
+                // setActiveStep(activeStep + 1);
               }}
             />
           ) : (
@@ -447,6 +458,8 @@ const ReleaseUserForm = () => {
   const Step2 = () => {
     const [songFile, setSongFile] = useState(null);
     const [coverFile, setCoverFile] = useState(null);
+    const [loading, setLoading] = useState("a");
+    const [loading1, setLoading1] = useState("a");
 
     // File size & resolution constraints
     const MAX_SONG_SIZE_MB = 100;
@@ -455,35 +468,49 @@ const ReleaseUserForm = () => {
     const MAX_COVER_RESOLUTION = { width: 3000, height: 3000 };
 
     const handleSongUpload = (file) => {
-      if (!file) return;
+      if (!file) {
+        alert(" Please upload a songFile first ");
+        setLoading("a");
+        return;
+      }
       const fileSizeMB = file.size / (1024 * 1024);
       if (!file.name.toLowerCase().endsWith(".wav")) {
         alert("Invalid format! Please upload a .wav file.");
+        setLoading("a");
         return;
       }
       if (fileSizeMB > MAX_SONG_SIZE_MB) {
         alert(
           `Song file is too large! Max allowed size is ${MAX_SONG_SIZE_MB}MB.`
         );
+        setLoading("a");
         return;
       }
+
       setSongFile(file);
     };
 
     const handleCoverUpload = (file) => {
-      if (!file) return;
+      if (!file) {
+        setLoading1("a");
+        alert(" Please upload a coverArt first.");
+        return;
+      }
+
       const fileSizeMB = file.size / (1024 * 1024);
       if (
         !file.name.toLowerCase().endsWith(".jpeg") &&
         !file.name.toLowerCase().endsWith(".jpg")
       ) {
         alert("Invalid format! Please upload a .jpeg file.");
+        setLoading1("a");
         return;
       }
       if (fileSizeMB > MAX_COVER_SIZE_MB) {
         alert(
           `Cover image is too large! Max allowed size is ${MAX_COVER_SIZE_MB}MB.`
         );
+        setLoading1("a");
         return;
       }
 
@@ -501,11 +528,26 @@ const ReleaseUserForm = () => {
             `Invalid resolution! Cover image must be between ${MIN_COVER_RESOLUTION.width}x${MIN_COVER_RESOLUTION.height}px and ${MAX_COVER_RESOLUTION.width}x${MAX_COVER_RESOLUTION.height}px.`
           );
           URL.revokeObjectURL(objectURL);
+          setLoading1("a");
           return;
         }
         setCoverFile(file);
+
         URL.revokeObjectURL(objectURL);
       };
+    };
+    const checkRequired = () => {
+      if (songFile == null) {
+        alert("songFile Required");
+      } else if (coverFile == null) {
+        alert("coverart Required");
+      } else if (formDataPost.coverArtUrl == null) {
+        alert("please submit the coverArt by clicking submit buttom ");
+      } else if (formDataPost.songUrl == null) {
+        alert("please submit the songFile by clicking submit buttom ");
+      } else {
+        setActiveStep(activeStep + 1);
+      }
     };
 
     const handleNextClick = () => {
@@ -514,6 +556,7 @@ const ReleaseUserForm = () => {
         songFile: songFile,
         coverArt: coverFile,
       }));
+      checkRequired();
     };
 
     return (
@@ -556,14 +599,25 @@ const ReleaseUserForm = () => {
               className="step-2-main1-right-button1"
               onClick={async () => {
                 try {
+                  setLoading("b");
+                  handleSongUpload(songFile);
                   const result = await handleUploadCloud(songFile, "wav");
+                  setLoading("c");
                   console.log("song-Upload success:", result);
                 } catch (error) {
                   console.error("song-Upload failed:", error);
                 }
               }}
             >
-              submit
+              {loading == "a" ? (
+                <p style={{ color: "black" }}>Submit</p>
+              ) : loading == "b" ? (
+                <p>
+                  <CircularProgress></CircularProgress>
+                </p>
+              ) : (
+                <p style={{ color: "black" }}>Submitted</p>
+              )}
             </button>
           </div>
 
@@ -617,14 +671,25 @@ const ReleaseUserForm = () => {
               className="step-2-main1-right-button1"
               onClick={async () => {
                 try {
+                  setLoading1("b");
+                  handleCoverUpload(coverFile);
                   const result = await handleUploadCloud(coverFile, "image");
+                  setLoading1("c");
                   console.log("Cover-Upload success:", result);
                 } catch (error) {
                   console.error("cover-Upload failed:", error);
                 }
               }}
             >
-              submit
+              {loading1 == "a" ? (
+                <p style={{ color: "black" }}>Submit</p>
+              ) : loading1 == "b" ? (
+                <p>
+                  <CircularProgress></CircularProgress>
+                </p>
+              ) : (
+                <p style={{ color: "black" }}>Submitted</p>
+              )}
             </button>
           </div>
         </div>
@@ -639,7 +704,7 @@ const ReleaseUserForm = () => {
             content={"Next"}
             onClick={() => {
               handleNextClick();
-              setActiveStep(activeStep + 1);
+              // setActiveStep(activeStep + 1);
             }}
           />
         </div>
