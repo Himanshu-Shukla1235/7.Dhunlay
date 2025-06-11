@@ -48,7 +48,7 @@ const test = () => {
   useEffect(() => {
     // Skip animation on mobile (adjust width as needed)
     if (window.innerWidth <= 768) return;
-    
+
     if (!wrapperRef.current || !box1Ref.current || !box2Ref.current) return;
 
     const tl = gsap.timeline({
@@ -263,7 +263,7 @@ const test = () => {
 
           <main className={`navbar-elems ${navOpen ? "show" : ""}`}>
             <ul className="all-elems">
-              <li className="service-button" ref={serviceDropdownRef}>
+              {/* <li className="service-button" ref={serviceDropdownRef}>
                 <a
                   className="button"
                   onClick={() => setserviceDropdownOpen(!serviceDropdownOpen)}
@@ -280,7 +280,7 @@ const test = () => {
                   <a href="#">Promotion</a>
                   <a href="#">Cover Art</a>
                 </div>
-              </li>
+              </li> */}
               <li className="feature-button" ref={featureDropdownRef}>
                 <a
                   className="button"

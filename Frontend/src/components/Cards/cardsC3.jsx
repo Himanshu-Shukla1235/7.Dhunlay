@@ -12,19 +12,19 @@ const CardC3 = ({
   card_dot_bg = "rgb(255, 255, 255)",
 }) => {
   return (
-    <div className="cardsC1-card_box" style={{ background: cardBg }}>
+    <div className="cardsC3-card_box" style={{ background: cardBg }}>
       <div
-        className="cardsC1-card_circle"
+        className="cardsC3-card_circle"
         style={{ background: card_dot_bg }}
       ></div>
-      <div className="cardsC1-label">
+      <div className="cardsC3-label">
         <h4 style={{ color: labelTC }}>{title}</h4>
       </div>
-      <div className="cardsC1-card_content">
-        <h2 className="cardsC1-card_price">{price}</h2>
-        <p className="cardsC1-card_description">{description}</p>
+      <div className="cardsC3-card_content">
+        <h2 className="cardsC3-card_price">{price}</h2>
+        <p className="cardsC3-card_description">{description}</p>
 
-        <ul className="cardsC1-card_features">
+        <ul className="cardsC3-card_features">
           {features.map((feature, index) => (
             <li key={index}>{feature}</li>
           ))}

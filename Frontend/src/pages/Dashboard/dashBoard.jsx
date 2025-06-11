@@ -11,24 +11,19 @@ import {
   useUserSongs,
 } from "../../data/All released songs/getAllReleasedSongsByUser";
 
-// const YourComponent = () => {
-//   const { userSongs } = useUserSongs();
+const getUserSongsData = () => {
+ 
 
-//   return (
-//     <div>
-//       {userSongs.length}
-//     </div>
-//   );
-// };
+  return (
+ <UserSongsProvider><Dashboard></Dashboard></UserSongsProvider>
+  );
+};
 
-// // Then wrap it like:
-// <UserSongsProvider >
-//   <YourComponent />
-// </UserSongsProvider>
 
 const Dashboard = () => {
   const [hovered, setHovered] = useState(false);
   const [hovered2, setHovered2] = useState(false);
+  const { userSongsData} = useUserSongs([]);
 
   const backendAppUrl = import.meta.env.VITE_API_URL;
   const handleClick = () => {
@@ -169,7 +164,7 @@ const Dashboard = () => {
           </div>
           <Tooltip title="Click to see more.">
             <div className="dashboard-main-sec-222">
-              <h2>0</h2>
+              {/* <h2><UserSongsProvider></UserSongsProvider></h2> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -197,6 +192,7 @@ const Dashboard = () => {
                   />
                 </g>
               </svg>
+              <h2>{userSongsData.total}</h2>
             </div>
           </Tooltip>
         </div>
@@ -238,5 +234,6 @@ const Dashboard = () => {
     </div>
   );
 };
+// Then wrap it like:
 
-export default Dashboard;
+export default getUserSongsData ;

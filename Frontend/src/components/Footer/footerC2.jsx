@@ -25,15 +25,15 @@ const footerC2 = () => {
           </p>
         </div>
         <div className="outer">
-          <div className="foot-2C2 servicesC2">
-            <h3>Services</h3>
+          {/* <div className="foot-2C2 servicesC2">
+            <h3>Features</h3>
             <div className="foot-2-1C2">
-              <a href="#">Music Production</a>
-              <a href="#">Mixing and Mastering</a>
-              <a href="#">Promotion</a>
-              <a href="#">Cover Art</a>
+              <p>Music Production</p>
+              <p>Mixing and Mastering</p>
+              <p>Promotion</p>
+              <p>Cover Art</p>
             </div>
-          </div>
+          </div> */}
           <div className="foot-2C2">
             <h3>Company</h3>
             <div className="foot-2-1C2">
@@ -45,16 +45,9 @@ const footerC2 = () => {
           <div className="foot-3-1C2">
             <h3>Get In Touch.</h3>
             <div className="socialsC2">
+            
               <a
-                href="https://github.com"
-                className="icon-githubC2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faGithub} />
-              </a>
-              <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/dhunlay/"
                 className="icon-linkedinC2"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -62,7 +55,7 @@ const footerC2 = () => {
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://youtube.com/@dhunlayofficial?si=mEtFGMK57ZCppRQG"
                 className="icon-youtubeC2"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -78,7 +71,7 @@ const footerC2 = () => {
                 <FontAwesomeIcon icon={faXTwitter} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/dhunlay?igsh=YXNoY2NhYTFneWdj"
                 className="icon-instagramC2"
                 target="_blank"
                 rel="noopener noreferrer"

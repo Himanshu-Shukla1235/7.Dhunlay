@@ -1,18 +1,22 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { useUser } from "../../pages/User/UserData";
+import { useUser } from "../../pages/User/UserData"; // adjust path as needed
 
 const UserSongsContext = createContext(null);
 
+// Context Provider
 export const UserSongsProvider = ({ children }) => {
-  const [userSongs, setUserSongs] = useState([]);
+  
+  const [userSongsData, setUserSongsData] = useState([]);
   const backendAppUrl = import.meta.env.VITE_API_URL;
-  const { userData } = useUser();
-  const userId = userData._id;
+  const { userData } = useUser(); // pulls from user context
+  const userId = userData?._id; // safely access userId
+  
+
   useEffect(() => {
-    if (!userId) return; // ⬅️ important: don't fetch if no userId
+    if (!userId) return;
 
     const fetchUserSongs = async () => {
-        console.log("working",userid);
+      console.log("Fetching songs for user:", userId);
       try {
         const response = await fetch(
           `${backendAppUrl}/api/getAllSongsByUser?userId=${userId}`,
@@ -26,10 +30,10 @@ export const UserSongsProvider = ({ children }) => {
         );
 
         const result = await response.json();
-        console.log(result);
+        console.log("🎵 Songs uploaded by user:", result);
 
         if (result.success) {
-          setUserSongs(result.data);
+          setUserSongsData(result);
         } else {
           console.warn("⚠️ Failed to fetch user songs:", result.message);
         }
@@ -42,12 +46,13 @@ export const UserSongsProvider = ({ children }) => {
   }, [userId, backendAppUrl]);
 
   return (
-    <UserSongsContext.Provider value={{ userSongs, setUserSongs }}>
+    <UserSongsContext.Provider value={{ userSongsData, setUserSongsData }}>
       {children}
     </UserSongsContext.Provider>
   );
 };
 
+// Custom Hook
 export const useUserSongs = () => {
   const context = useContext(UserSongsContext);
   if (!context) {

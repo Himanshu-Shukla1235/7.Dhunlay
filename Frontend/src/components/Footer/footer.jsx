@@ -25,22 +25,20 @@ const footer = () => {
           </p>
         </div>
         <div className="outer">
-          <div className="foot-2 services">
+          {/* <div className="foot-2 services">
             <h3>Services</h3>
             <div className="foot-2-1">
-              <a href="#">Music Production</a>
-              <a href="#">Mixing and Mastering</a>
-              <a href="#">Promotion</a>
-              <a href="#">Cover Art</a>
+              <p>Music Production</p>
+              <p>Mixing and Mastering</p>
+              <p>Promotion</p>
+              <p>Cover Art</p>
             </div>
-          </div>
-          <div className="foot-2">
-            <h3>Company</h3>
-            <div className="foot-2-1">
-              <a href="#">policy-1</a>
-              <a href="#">policy-1</a>
-              <a href="#">terms & conditions-1</a>
-            </div>
+          </div> */}
+        </div>
+        <div className="foot-2">
+          <h3>Company</h3>
+          <div className="foot-2-1">
+            <a href="/policy">policy / Terms and Conditions</a>
           </div>
         </div>
         <div className="foot-3">
@@ -48,24 +46,16 @@ const footer = () => {
             <h3>Get In Touch.</h3>
             <div className="socials">
               <a
-                href="https://github.com"
-                className="icon-github"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon icon={faGithub} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                className="icon-linkedin"
+                href="https://www.linkedin.com/company/dhunlay/"
+                className="icon-linkedinC2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
               <a
-                href="https://youtube.com"
-                className="icon-youtube"
+                href="https://youtube.com/@dhunlayofficial?si=mEtFGMK57ZCppRQG"
+                className="icon-youtubeC2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -73,15 +63,15 @@ const footer = () => {
               </a>
               <a
                 href="https://twitter.com"
-                className="icon-twitter"
+                className="icon-twitterC2"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon icon={faXTwitter} />
               </a>
               <a
-                href="https://instagram.com"
-                className="icon-instagram"
+                href="https://www.instagram.com/dhunlay?igsh=YXNoY2NhYTFneWdj"
+                className="icon-instagramC2"
                 target="_blank"
                 rel="noopener noreferrer"
               >

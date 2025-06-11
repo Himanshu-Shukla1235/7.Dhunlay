@@ -122,7 +122,7 @@ const HomeP = () => {
               <div className="Home-p-section-1131">
                 <a href="/ourPlans">
                   {" "}
-                  <StarIcon sx={{ fontSize: 15 }} className="star-icon" />
+                
                   OurPlans
                 </a>
               </div>

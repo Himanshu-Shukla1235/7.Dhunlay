@@ -79,7 +79,7 @@ const About = () => {
 
           <main className={`navbar-elems ${navOpen ? "show" : ""}`}>
             <ul className="all-elems">
-              <li className="service-button" ref={serviceDropdownRef}>
+              {/* <li className="service-button" ref={serviceDropdownRef}>
                 <a
                   className="button"
                   onClick={() => setserviceDropdownOpen(!serviceDropdownOpen)}
@@ -96,7 +96,7 @@ const About = () => {
                   <a href="#">Promotion</a>
                   <a href="#">Cover Art</a>
                 </div>
-              </li>
+              </li> */}
               <li className="feature-button" ref={featureDropdownRef}>
                 <a
                   className="button"
@@ -111,7 +111,7 @@ const About = () => {
                 >
                   <a href="./features_artist">Features for artists</a>
                   <a href="./features_label">Features for labels</a>
-                  <a href="#">Feature 3</a>
+                
                 </div>
               </li>
               <li>

@@ -35,6 +35,7 @@ import ReleaseUserForm from "./components/ReleasesElements/ReleaseFormC1";
 import PolicyPage from "./pages/Policies/policyP";
 import ContactUs from "./pages/contactUsP";
 import OurPlansGeneral from "./pages/OurPlans/ourPlansPublic";
+import PaymentPage from "./pages/PymentPage/payP";
 
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
@@ -105,6 +106,18 @@ function MainApp() {
             if (window.location.pathname === "/releases") {
               navigate(`/releases/${data._id}`);
             }
+            if (window.location.pathname === "/freemium") {
+              navigate(`/freemium/${data._id}`);
+            }
+            if (window.location.pathname === "/perRelease") {
+              navigate(`/perRelease/${data._id}`);
+            }
+            if (window.location.pathname === "/ep-album") {
+              navigate(`/ep-album/${data._id}`);
+            }
+            if (window.location.pathname === "/labelPlan") {
+              navigate(`/labelPlan/${data._id}`);
+            }
             //   if (window.location.pathname === "/about") {
             //   navigate(`/about/${data._id}`);
             // }
@@ -156,7 +169,11 @@ function MainApp() {
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />
-          <Route path="/meta/:id" element={<Meta />} />
+          <Route path="/meta/:id" element={<Meta />} />{" "}
+          <Route path="/freemium/:id" element={<PaymentPage />} />{" "}
+          <Route path="perRelease/:id" element={<PaymentPage />} />{" "}
+          <Route path="/ep-album/:id" element={<PaymentPage />} />{" "}
+          <Route path="/labelPlan/:id" element={<PaymentPage />} />{" "}
           <Route path="/" element={<Home />}>
             <Route path="dashboard/:id" element={<Dashboard />} />
             <Route path="analytics/:id" element={<Analytics />} />

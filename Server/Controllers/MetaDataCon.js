@@ -101,7 +101,7 @@ const saveSong = async (req, res) => {
       fileUrl: songFile,
     };
     const submittedBy = {
-     userId:userId,
+      userId: userId,
     };
 
     // Create a new song instance
@@ -124,9 +124,9 @@ const saveSong = async (req, res) => {
       songFile: Songfile,
       explicitContent: explicitContentBool, // Convert properly
       distributionPlatforms: distributionPlatform, // Mapping correctly
-      metadata:metadata, // Assigning the metadata object
+      metadata: metadata, // Assigning the metadata object
       releaseDate,
-      submittedBy:submittedBy,
+      submittedBy: submittedBy,
     });
 
     res.status(201).json({
@@ -217,7 +217,8 @@ const getAllSongsByUser = async (req, res) => {
       });
     }
 
-    const songs = await Song.find({ createdBy: userId }); // Assuming "createdBy" stores userId
+    const songs = await Song.find({ "submittedBy.userId": userId });
+    // Assuming "createdBy" stores userId
 
     res.status(200).json({
       success: true,
@@ -234,5 +235,9 @@ const getAllSongsByUser = async (req, res) => {
   }
 };
 
-
-module.exports = { saveSong, getReleasedSongsByArtist ,getAllSongs,getAllSongsByUser};
+module.exports = {
+  saveSong,
+  getReleasedSongsByArtist,
+  getAllSongs,
+  getAllSongsByUser,
+};

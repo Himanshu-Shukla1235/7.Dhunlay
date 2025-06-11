@@ -1,5 +1,5 @@
 /* Container */
-.cardsC1-container {
+.cardsC3-container {
   /* border: red solid 3px; */
   height: auto;
   display: flex;
@@ -10,10 +10,10 @@
 }
 
 /* Card Box */
-.cardsC1-card_box {
+.cardsC3-card_box {
   width: 20vw; /* Responsive width */
   min-width: 250px; /* Prevents the card from becoming too small */
-  height: 90vh;
+  height: auto;
   border-radius: 2vw; /* Responsive border-radius */
   padding: 2vw;
   text-align: center;
@@ -25,14 +25,14 @@
   /* border: red solid 3px; */
 }
 
-.cardsC1-card_circle {
+.cardsC3-card_circle {
   width: 1vw;
   height: 1vw;
   background-color: white;
   border-radius: 100vw;
 }
 
-.cardsC1-card-label {
+.cardsC3-card-label {
   width: 1vw;
   height: 1vw;
   /* background-color: rgba(255, 4, 4, 0.726); */
@@ -45,12 +45,12 @@
 }
 
 /* Hover Effect */
-.cardsC1-card_box:hover {
+.cardsC3-card_box:hover {
   transform: scale(1.05);
 }
 
 /* Label */
-.cardsC1-label {
+.cardsC3-label {
   position: absolute;
   top: -2vw; /* Position slightly above the card */
   left: 50%; /* Move to the center horizontally */
@@ -67,45 +67,45 @@
 }
 
 /* Card Content */
-.cardsC1-card_content {
+.cardsC3-card_content {
   height: 80vh;
   /* border: red solid 3px; */
 }
 
 /* Title */
-.cardsC1-card_content h2 {
+.cardsC3-card_content h2 {
   font-size: 2vw;
   margin: 1vw 0;
 }
 
 /* Price */
-.cardsC1-card_price {
+.cardsC3-card_price {
   font-size: 1.8vw;
   font-weight: bold;
 }
 
 /* Description */
-.cardsC1-card_description {
+.cardsC3-card_description {
   font-size: 1.2vw;
   margin: 1vw 0;
 }
 
 /* Features */
-.cardsC1-card_features {
+.cardsC3-card_features {
   margin-top: 1vw;
   list-style: none;
   padding: 0;
   font-size: 1vw;
 }
 
-.cardsC1-card_features li {
+.cardsC3-card_features li {
   margin: 0.5vw 0;
   padding: 0.5vw;
   border-bottom: 0.1vw solid rgba(255, 255, 255, 0.2);
 }
 
 /* Subscribe Button */
-.cardsC1-subscribe_btn {
+.cardsC3-subscribe_btn {
   width: 13vw;
   height: 8vh;
   margin-top: 1.5vw;
@@ -119,17 +119,17 @@
   color: white;
   transition: 0.3s;
 }
-.cardsC1-subscribe_btn h4 {
+.cardsC3-subscribe_btn h4 {
   font-size: 1.2vw;
   color: rgb(255, 255, 255);
 }
 
 /* When hovering over the button, change h4 text color */
-.cardsC1-subscribe_btn:hover h4 {
+.cardsC3-subscribe_btn:hover h4 {
   color: rgb(0, 0, 0);
 }
 
-.cardsC1-subscribe_btn:hover {
+.cardsC3-subscribe_btn:hover {
   background: gold;
   transform: scale(1.05);
 }
@@ -137,18 +137,18 @@
 
 /*?------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
-  .cardsC1-container {
+  .cardsC3-container {
     height: 10vh;
     border: solid 3px red;
   }
-  .cardsC1-card_box {
+  .cardsC3-card_box {
 
   
   height: 30vh;
   
   /* border: red solid 3px; */
 }
-.cardsC1-label {
+.cardsC3-label {
   position: absolute;
   top: -4vw; /* Position slightly above the card */
   left: 50%; /* Move to the center horizontally */
@@ -163,24 +163,24 @@
   border-radius: 0.5vw; /* Optional: Round edges */
   margin-top: 1.5vw;
 }
-.cardsC1-card_content{
+.cardsC3-card_content{
     margin-top: 4vw;
 }
-.cardsC1-card_price {
+.cardsC3-card_price {
   font-size: 1.8vw;
   font-weight: bold;
   margin:3vw ;
 }
-.cardsC1-card_features{
+.cardsC3-card_features{
     font-size: 2vw;
     
     
 }
-.cardsC1-card_features li{
+.cardsC3-card_features li{
     margin: 2vw;
 
 }
-.cardsC1-card_description{
+.cardsC3-card_description{
     font-size: 2vw;
 }
 }

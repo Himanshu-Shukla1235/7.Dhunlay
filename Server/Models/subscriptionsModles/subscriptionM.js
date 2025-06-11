@@ -11,26 +11,25 @@ const SubscriptionSchema = new mongoose.Schema({
     ref: 'Plan',
     required: true
   },
-  status: {
-    type: String,
-    enum: ['active', 'canceled', 'expired'],
-    required: true
-  },
+
   startDate: {
     type: Date,
     required: true
   },
-  endDate: {
-    type: Date,
-    required: true
-  },
+  
   renewalDate: {
     type: Date
   },
   paymentId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Payment'
+  },
+  expiresAt: {
+    type: Date,
+    default: () => new Date(Date.now() + 31536000000) // 1 year TTL
   }
 }, { timestamps: true });
+
+SubscriptionSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
 module.exports = mongoose.model('Subscription', SubscriptionSchema);
