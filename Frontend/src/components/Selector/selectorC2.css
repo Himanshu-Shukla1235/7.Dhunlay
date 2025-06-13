@@ -1,0 +1,305 @@
+/* Basic styling for the selector container */
+.selector-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex;
+  align-items: center;
+  background-color: #0f0f0f00;
+  border-radius: 1vw;
+  height: 50vh;
+  padding: 1vw;
+  width: 20vw;
+  overflow: hidden;
+  /* border: 3px red solid; */
+}
+.selectorC2-artist-select{
+    width: auto;
+}
+/* Styling the label */
+.selector-container label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2vw;
+  font-weight: bold;
+  margin-bottom: 1vh;
+  color: #ecf0f1;
+ 
+}
+.selector-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+.selector-search-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  outline: none;
+  padding-inline-start: 2vw;
+  height: 2vw;
+  border-radius: 0.5vw;
+  border: none;
+  transition: background-color 0.3s ease; /* smooth transition */
+  width: 10vw;
+}
+
+.selector-search-input:focus {
+  background-color: #f0f0f0; /* light grey on focus */
+  outline: none;
+}
+
+.selector-search-input:hover {
+  background-color: #fafafa; /* slightly different on hover */
+  cursor: text; /* shows text cursor when hovering over input */
+}
+/* Placeholder */
+.selector-search-input::placeholder {
+  color: #aaa; /* light gray color for placeholder text */
+  font-size: 0.9vw; /* slightly smaller font */
+  opacity: 1; /* ensure it's fully visible */
+}
+
+.search-icon {
+  display: flex;
+  justify-content: center;
+  font-size: 2vw;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  color: #00eeff;
+}
+
+.search-icon:hover {
+  color: #00eeff;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 2vw;
+  gap: 1vw;
+  z-index: 1;
+  height: auto;
+  /* border: solid yellow 2px; */
+}
+
+/* Dropdown button */
+.dropdown-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #75747482;
+  color: #00eeff;
+  padding: 0.5vw;
+  font-size: 1vw;
+  width: 100%;
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  height: auto;
+  transition: background-color 0.3s ease;
+  border-radius: 1.5vw;
+}
+
+.dropdown-button:hover {
+  background-color: #ffffff1d;
+}
+
+/* Dropdown content area */
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #2e2e2e;
+  width: 100%;
+  height: 20vh;
+  overflow-y: auto;
+  padding: 1.5vw;
+  gap: 0.8vw;
+  border-radius: 0.8vw;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #999 #2e2e2e; /* Firefox */
+  /* border: solid red 3px; */
+}
+
+/* Chrome, Edge, and Safari scrollbars */
+.dropdown-content::-webkit-scrollbar {
+  width: 0.8vw;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 0.8vw;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background-color: #2e2e2e;
+}
+
+/* Individual dropdown item */
+.dropdown-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 5vh;
+  background-color: transparent;
+  color: #e2e2e2;
+  cursor: pointer;
+  border-radius: 0.5vw;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 1vw;
+  flex-shrink: 0;
+  width: 20vw;
+  z-index: 1;
+}
+
+.dropdown-item:hover {
+  background-color: #ffffff1f;
+  color: #ffffff;
+}
+
+.dropdown-item.selected {
+
+  background-color: #15efffd1;
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Selected items label */
+.selector-container .selected-artists {
+  margin-top: 1vh;
+  font-size: 1.2vw;
+  color: #ecf0f1;
+  font-weight: bold;
+}
+
+/* Submit Button styling */
+.submit-button {
+  margin-top: 2vh;
+  padding: 1vh 1.5vw;
+  background-color: #00eeffdd;
+  color: white;
+  border: none;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  font-size: 1.2vw;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #16a085;
+}
+
+/* Search bar wrapper */
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Search input styling */
+.dropdown-search {
+  width: 100%;
+  padding: 0.5vh 2.5vw 0.5vh 0.5vw;
+  font-size: 1vw;
+  margin-bottom: 1vh;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  background-color: #fffbfb;
+  color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+/* ✅ Fixed hover effect for search */
+.dropdown-search:hover {
+  background-color: white;
+}
+
+/* Search icon styling */
+.selector-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
+  margin-left: 0.7vw;
+}
+
+.search-icon {
+  position: absolute;
+  right: 0.8vw;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 1.2vw;
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .selector-container {
+    height: 50vh;
+    width: 80vw;
+    gap: 2vw;
+    /* border: 3px solid yellow; */
+    padding: 1vw;
+  }
+  .selector-container label {
+    font-size: 5vw;
+    margin-bottom: 5vw;
+  }
+  .dropdown {
+    justify-content: flex-start;
+    width: 60vw;
+    gap: 0.5vw;
+    padding: 3vw;
+    height: 46vh;
+  }
+  .dropdown-button {
+    margin: 4vw;
+    width: 62vw;
+    font-size: 4vw;
+    padding: 2vw;
+    background-color: rgba(0, 0, 0, 0.949);
+    border-radius: 1vw;
+  }
+  .selector-search {
+    width: 90vw;
+    height: 7vh;
+    gap: 2vw;
+    /* border: 1px red solid; */
+  }
+  .selector-search-input {
+    width: 48vw;
+    height: 5vh;
+  }
+
+  .selector-search-input::placeholder {
+    font-size: 3vw;
+  }
+
+  .dropdown-content {
+    height: 30vh;
+    width: 95%;
+    gap: 1vw;
+
+    /* border: 3px solid yellow; */
+  }
+  .dropdown-item {
+    height: 5vh;
+    font-size: 4vw;
+   width: 50vw;
+  }
+}

@@ -27,7 +27,7 @@ export const ReleasedSongsProvider = ({ artistNames, children }) => {
         );
 
         const result = await response.json();
-        console.log(result);
+        console.log("resulting song data:",result);
 
         if (result.success) {
           setSongs(result.data);

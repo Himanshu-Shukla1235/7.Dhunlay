@@ -34,9 +34,26 @@ import { blackA } from "@radix-ui/colors";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { FileUpload } from "@mui/icons-material";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-//!_________________________________________________ FUNCITON : ReleaseUserForm __________________________________
+import { useNavigate } from "react-router-dom";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
 
+import {
+  PrimaryArtistsProvider,
+  usePrimaryArtists,
+} from "../../components/primaryatistActions/getTotalPrimaryArtist";
+import PrimaryArtistSelector2 from "../../components/Selector/selectorC2";
+import UpsertPrimaryArtistForm from "../../components/primaryatistActions/addPrimaryArtist";
+import { useParams } from "react-router-dom";
+//!_________________________________________________ FUNCITON : ReleaseUserForm __________________________________
+// datas
 const ReleaseUserForm = () => {
+  return (
+    <PrimaryArtistsProvider>
+      <ReleaseUserFormD />
+    </PrimaryArtistsProvider>
+  );
+};
+const ReleaseUserFormD = () => {
   const [activeStep, setActiveStep] = useState(0);
   const [uploadUrl, setUploadedUrl] = useState(null);
   const backendAppUrl = import.meta.env.VITE_API_URL;
@@ -48,6 +65,7 @@ const ReleaseUserForm = () => {
   //*--------------- GLOBAL FORM DATA STATE (data to be posted to the server)--------------------
   const [formDataPost, setFormDataPost] = useState({
     // Step 1
+    releaseType: "",
     songName: "",
     primaryArtists: [""],
     featuringArtists: [""],
@@ -63,7 +81,7 @@ const ReleaseUserForm = () => {
     language: "",
     genere: "",
     // Step 2
-    songFile: "",
+    songFile: [""],
     coverArt: "",
     // Step 3
     releaseDate: null,
@@ -73,16 +91,25 @@ const ReleaseUserForm = () => {
     distributionPlatform: [],
     //
     userId: userId,
-    songUrl: null,
+    songUrl: [""],
     coverArtUrl: null,
   });
+
+  useEffect(() => {
+    if (userId) {
+      setFormDataPost((prev) => ({
+        ...prev,
+        userId: userId,
+      }));
+    }
+  }, [userId]);
 
   const [loader, setloader] = useState(false);
 
   //*--------------- FILE UPLOAD TO CLOUDINARRY -------------------------------
-  const handleUploadCloud = async (file, type) => {
+  const handleUploadCloudCover = async (file, type) => {
     // if (!file) {
-    //   alert(`Please select a ${type} file first!`);
+    //   alert(Please select a ${type} file first!);
     //   return;
     // }
     setloader(true);
@@ -94,7 +121,7 @@ const ReleaseUserForm = () => {
 
     try {
       const response = await fetch(
-        `https://api.cloudinary.com/v1_1/dysuiz4wn/upload`,
+        "https://api.cloudinary.com/v1_1/dysuiz4wn/upload",
         {
           method: "POST",
           body: formData,
@@ -118,15 +145,89 @@ const ReleaseUserForm = () => {
     }
     setloader(false);
   };
+  const handleUploadCloud = async (file, type) => {
+    setloader(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "Himanshu");
+    formData.append("chunk_size", 6000000); // 6MB
 
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/dysuiz4wn/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      const data = await response.json();
+
+      setloader(false);
+      return data.secure_url;
+    } catch (error) {
+      console.error(`❌ Upload failed for ${type}:`, error);
+      setloader(false);
+      return null;
+    }
+  };
+
+  // UPLOAD N SONGS
+  const handleUploadAllSongs = async () => {
+    setloader(true);
+
+    // make sure we actually have File objects
+    const filesToUpload = formDataPost.songFile.filter(
+      (f) => f instanceof File
+    );
+    const uploadedUrls = [];
+
+    for (let file of filesToUpload) {
+      const url = await handleUploadCloud(file, "wav"); // your existing helper
+      if (url) uploadedUrls.push(url);
+    }
+
+    // update state immutably
+    setFormDataPost((prev) => ({
+      ...prev,
+      songUrls: uploadedUrls,
+    }));
+
+    console.log("✅ Uploaded song URLs:", uploadedUrls);
+    setloader(false);
+    return uploadedUrls;
+  };
+
+  //*-----------------------------------  subscription check funtion----------------
+
+  const fetchSubscription = async () => {
+    const name = "perRelease";
+
+    try {
+      const res = await fetch(
+        `${backendAppUrl}/api/getUserSub/${userId}/${name}`
+      );
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to fetch subscription");
+      }
+
+      return data.data; // array of subscriptions
+    } catch (error) {
+      console.error("❌ Subscription fetch error:", error.message);
+      return null;
+    }
+  };
+  const navigate = useNavigate();
   //*--------------------------SUBMIT DATA TO SERVER -----------------------
   const handleSubmit = async () => {
     // validateFormDataPost();
-    formDataPost.songFile = await handleUploadCloud(
+
+    formDataPost.songFile = await handleUploadAllSongs(
       formDataPost.songFile,
       "wav"
     );
-    formDataPost.coverArt = await handleUploadCloud(
+    formDataPost.coverArt = await handleUploadCloudCover(
       formDataPost.coverArt,
       "image"
     );
@@ -157,6 +258,10 @@ const ReleaseUserForm = () => {
       if (!response.ok) {
         const errorText = await response.text();
         console.error(`❌ HTTP Error ${response.status}: ${errorText}`);
+        alert(`Please Subscribe a valid plan to continue  `);
+
+        // After the alert, navigate
+        navigate("/ourPlans"); // or the correct route in your frontend
         return;
       }
 
@@ -165,6 +270,7 @@ const ReleaseUserForm = () => {
         console.log("✅ Song uploaded successfully:", data);
         // Reset form data after successful submission
         setFormDataPost({
+          releaseType: "",
           songName: "",
           primaryArtists: [""],
           featuringArtists: [""],
@@ -179,7 +285,7 @@ const ReleaseUserForm = () => {
           lyricsFile: "",
           language: "",
           genere: "",
-          songFile: "",
+          songFile: [""],
           coverArt: "",
           releaseDate: "",
           isrc: "",
@@ -187,17 +293,35 @@ const ReleaseUserForm = () => {
           explicitContent: "no",
           distributionPlatform: [],
         });
+        alert("Process Completed!");
+        navigate("/releases")
       } else {
         console.error("❌ Error uploading song:", data.message);
+        alert(" Error uploading song:");
       }
     } catch (error) {
-      console.error("❌ Network error:", error.message);
+      console.error(" Network error:", error.message);
+      alert("❌ Error uploading song:");
     }
   };
 
   //*------------------------ Step 1 Component: Song Details-----------------------
+
+  // Main Page
+  const Step1D = () => {
+    return (
+      <PrimaryArtistsProvider>
+        <Step1 />
+      </PrimaryArtistsProvider>
+    );
+  };
   const Step1 = ({ setFormDataPost, onNext }) => {
+    const [selectedArtists, setSelectedArtists] = useState([]);
+    const { artists, loading } = usePrimaryArtists();
+    const navigate = useNavigate();
+
     const [localData, setLocalData] = useState({
+      releaseType: "Single",
       songName: "",
       primaryArtists: [""],
       featuringArtists: [""],
@@ -212,11 +336,25 @@ const ReleaseUserForm = () => {
       p_line: "", // changed to lowercase for consistency
     });
 
+    useEffect(() => {
+      console.log("Selected Artists:", selectedArtists);
+
+      setLocalData((prevData) => ({
+        ...prevData,
+        primaryArtists: selectedArtists,
+      }));
+    }, [selectedArtists]);
+
+    // Extract artist names as an array of strings (not objects)
+    const artistNames = artists.map((a) => a.primaryArtistName);
+
     const checkRequired = () => {
       if (localData.songName == "") {
         alert("songName Required");
       } else if (localData.primaryArtists == [""]) {
         alert("primaryArtists Required");
+      } else if (localData.releaseType == "") {
+        alert("releaseType Required");
       } else {
         setActiveStep(activeStep + 1);
       }
@@ -312,16 +450,48 @@ const ReleaseUserForm = () => {
             Enter Song Details
           </h2> */}
           {/* Song Title */}
-          <label className="step1-label-1">Song Name:</label>
+          <select
+            className="ReleaseForm-releaseType"
+            value={localData.releaseType || formDataPost.releaseType}
+            onChange={(e) => handleChange("releaseType", e.target.value)}
+            style={{}}
+          >
+            <option className="ReleaseForm-releaseType-option" value="Single">
+              Single
+            </option>
+            <option className="ReleaseForm-releaseType-option" value="EP">
+              EP
+            </option>
+            <option className="ReleaseForm-releaseType-option" value="Album">
+              Album
+            </option>
+          </select>
+          <br></br>
+          <div className="ReleaseForm-primaryartistinput">
+            <PrimaryArtistSelector2
+              artistNames={artistNames} // Pass the artist names (strings)
+              selectedArtists={selectedArtists}
+              onChange={setSelectedArtists}
+            />
+            <p>
+              {" "}
+              If primary artist not exist please add / upsert{" "}
+              <AddCircleIcon
+                style={{ cursor: "pointer", color: "#00EEFF" }}
+                onClick={() => navigate("/releases")}
+              ></AddCircleIcon>
+            </p>
+            <div></div>
+          </div>{" "}
+          <label className="step1-label"></label>
+          <br /> <br></br>
           <InputC1
             placeholder="* Enter the Title"
             value={localData.songName || formDataPost.songName}
             onChange={(e) => handleChange("songName", e.target.value)}
           ></InputC1>
-          <br />
           {/* Dynamic Fields */}
           {[
-            { label: "* Enter Primary Artist", field: "primaryArtists" },
             { label: "Enter Featuring Artist", field: "featuringArtists" },
             { label: "Enter Author", field: "authors" },
             { label: "Enter Composer", field: "composers" },
@@ -329,7 +499,7 @@ const ReleaseUserForm = () => {
             { label: "Enter Music Director", field: "musicDirectors" },
           ].map(({ label, field }) => (
             <div key={field}>
-              <label className="step1-label-2">{label}(s):</label>
+              <label className="step1-label">{label}(s):</label>
               {localData[field]?.map((value, index) => (
                 <div
                   key={index}
@@ -456,7 +626,9 @@ const ReleaseUserForm = () => {
 
   // Step 2 Component: Upload Song & Cover Art
   const Step2 = () => {
-    const [songFile, setSongFile] = useState(null);
+    const [songFiles, setSongFiles] = useState([]); // array to hold all uploaded songs
+    const [currentSongFile, setCurrentSongFile] = useState(null); // single selected file before adding
+
     const [coverFile, setCoverFile] = useState(null);
     const [loading, setLoading] = useState("a");
     const [loading1, setLoading1] = useState("a");
@@ -469,25 +641,33 @@ const ReleaseUserForm = () => {
 
     const handleSongUpload = (file) => {
       if (!file) {
-        alert(" Please upload a songFile first ");
-        setLoading("a");
+        alert("Please select a song file first.");
         return;
       }
+
       const fileSizeMB = file.size / (1024 * 1024);
       if (!file.name.toLowerCase().endsWith(".wav")) {
         alert("Invalid format! Please upload a .wav file.");
-        setLoading("a");
         return;
       }
       if (fileSizeMB > MAX_SONG_SIZE_MB) {
         alert(
           `Song file is too large! Max allowed size is ${MAX_SONG_SIZE_MB}MB.`
         );
-        setLoading("a");
         return;
       }
 
-      setSongFile(file);
+      setCurrentSongFile(file); // temporarily store the selected file
+    };
+    const handleAddSong = () => {
+      if (formDataPost.releaseType == "Single" && songFiles.length == 1) {
+        alert("ReleaseType is : single , no more than one song selected");
+      } else if (currentSongFile) {
+        setSongFiles((prev) => [...prev, currentSongFile]);
+        setCurrentSongFile(null); // clear for next
+      } else {
+        alert("Please select a valid song file before adding.");
+      }
     };
 
     const handleCoverUpload = (file) => {
@@ -536,27 +716,25 @@ const ReleaseUserForm = () => {
         URL.revokeObjectURL(objectURL);
       };
     };
-    const checkRequired = () => {
-      if (songFile == null) {
-        alert("songFile Required");
-      } else if (coverFile == null) {
-        alert("coverart Required");
-      } else if (formDataPost.coverArtUrl == null) {
-        alert("please submit the coverArt by clicking submit buttom ");
-      } else if (formDataPost.songUrl == null) {
-        alert("please submit the songFile by clicking submit buttom ");
-      } else {
-        setActiveStep(activeStep + 1);
-      }
-    };
 
     const handleNextClick = () => {
+      if (songFiles.length === 0) {
+        alert("Please add at least one song.");
+        return;
+      }
+
+      if (!coverFile) {
+        alert("Cover art is required.");
+        return;
+      }
+
       setFormDataPost((prev) => ({
         ...prev,
-        songFile: songFile,
+        songFile: songFiles, // array
         coverArt: coverFile,
       }));
-      checkRequired();
+
+      setActiveStep(activeStep + 1);
     };
 
     return (
@@ -582,20 +760,30 @@ const ReleaseUserForm = () => {
             <label className="file-upload">
               <input
                 type="file"
-                accept="audio/*"
+                accept="audio/wav"
                 onChange={(e) => handleSongUpload(e.target.files[0])}
               />
-            </label>
-            {/* Display the uploaded song file name */}
-            {songFile && (
-              <div
-                className="uploaded-file-name"
-                style={{ marginTop: "0.5rem", color: "white" }}
-              >
-                {songFile.name}
+            </label>{" "}
+            {currentSongFile && (
+              <div style={{ color: "white", marginTop: "0.5rem" }}>
+                Selected: {currentSongFile.name}
+                <button onClick={handleAddSong} style={{ marginLeft: "1rem" }}>
+                  Add Track
+                </button>
               </div>
             )}
-            <button
+            {/* Display the uploaded song file name */}
+            {/* {songFiles.length > 0 && (
+              <div style={{ marginTop: "0.5rem", color: "white" }}>
+                <h4>Added Tracks:</h4>
+                <ul>
+                  {songFiles.map((file, index) => (
+                    <li key={index}>{file.name}</li>
+                  ))}
+                </ul>
+              </div>
+            )} */}
+            {/* <button
               className="step-2-main1-right-button1"
               onClick={async () => {
                 try {
@@ -618,7 +806,54 @@ const ReleaseUserForm = () => {
               ) : (
                 <p style={{ color: "black" }}>Submitted</p>
               )}
-            </button>
+            </button>  */}
+          </div>
+          <div className="ReleaseForm-step2-main1-reviwTracs">
+            {" "}
+            <h4 style={{ color: "#00eeffd4" }}>Added Tracks:</h4>
+            {songFiles.length > 0 && (
+              <div style={{ marginTop: "0.5rem" }}>
+                <ul style={{ listStyleType: "none", padding: 0 }}>
+                  {songFiles.map((file, index) => (
+                    <li
+                      key={index}
+                      style={{
+                        color: "white",
+                        background: "#1e1e1e",
+                        marginBottom: "0.5rem",
+                        padding: "0.5rem 1rem",
+                        borderRadius: "8px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                      }}
+                    >
+                      <div>
+                        {file.name} ({(file.size / (1024 * 1024)).toFixed(2)}{" "}
+                        MB)
+                      </div>
+                      <button
+                        onClick={() => {
+                          const updated = [...songFiles];
+                          updated.splice(index, 1);
+                          setSongFiles(updated);
+                        }}
+                        style={{
+                          background: "red",
+                          color: "white",
+                          border: "none",
+                          padding: "0.3rem 0.7rem",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Remove
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}{" "}
           </div>
 
           {/* //----------------------------- */}
@@ -667,7 +902,7 @@ const ReleaseUserForm = () => {
                 {coverFile.name}
               </div>
             )}
-            <button
+            {/* <button
               className="step-2-main1-right-button1"
               onClick={async () => {
                 try {
@@ -690,7 +925,7 @@ const ReleaseUserForm = () => {
               ) : (
                 <p style={{ color: "black" }}>Submitted</p>
               )}
-            </button>
+            </button> */}
           </div>
         </div>
         <div>
@@ -715,13 +950,20 @@ const ReleaseUserForm = () => {
   // Step 3 Component: Additional Details
   const Step3 = () => {
     const [localData, setLocalData] = useState({
-      releaseDate: formDataPost.releaseDate,
+      releaseDate: "",
       isrc: formDataPost.isrc,
       upc: formDataPost.upc,
       explicitContent: formDataPost.explicitContent,
       distributionPlatform: formDataPost.distributionPlatform,
     });
-
+    const check = () => {
+      if (localData.releaseDate == "") {
+        alert("Release Date is required");
+        return;
+      } else {
+        setActiveStep(activeStep + 1);
+      }
+    };
     const handleChange = (field, value) => {
       setLocalData((prev) => ({ ...prev, [field]: value }));
     };
@@ -736,6 +978,7 @@ const ReleaseUserForm = () => {
     ];
 
     const handleNextClick = () => {
+      check();
       setFormDataPost((prev) => ({ ...prev, ...localData }));
     };
 
@@ -762,7 +1005,7 @@ const ReleaseUserForm = () => {
         <br />
         <div className="step3-main-datepicker">
           <Typography variant="body1" color="#bbb">
-            Enter Release Date
+            * Enter Release Date
           </Typography>
           <CustomDatePicker
             value={localData.releaseDate}
@@ -794,7 +1037,7 @@ const ReleaseUserForm = () => {
         </FormControl>
         <br />
         <br />
-        <Typography variant="body1" color="#bbb">
+        {/* <Typography variant="body1" color="#bbb">
           Select Distribution Platforms
         </Typography>
         <br />
@@ -803,7 +1046,7 @@ const ReleaseUserForm = () => {
           value={localData.distributionPlatform}
           onChange={(value) => handleChange("distributionPlatform", value)}
         />
-        <br />
+        <br /> */}
         <div className="step-3-next-button">
           {/* {activeStep > 0 && (
             <ButtonC1
@@ -816,7 +1059,6 @@ const ReleaseUserForm = () => {
               content={"Next"}
               onClick={() => {
                 handleNextClick();
-                setActiveStep(activeStep + 1);
               }}
             />
           ) : (
@@ -834,7 +1076,9 @@ const ReleaseUserForm = () => {
         <h2>
           Review Your <span style={{ color: "white" }}>Submission</span>{" "}
         </h2>
-
+        <div className="step-4-main-label">
+          <h4>Release Type:</h4> <span>{formDataPost.releaseType || "NA"}</span>
+        </div>
         <div className="step-4-main-label">
           <h4>Song Name:</h4> <span>{formDataPost.songName || "NA"}</span>
         </div>
@@ -898,12 +1142,12 @@ const ReleaseUserForm = () => {
           <span>{formDataPost.lyrics || "NA"}</span>
         </div>
 
-        <div className="step-4-main-label">
+        {/* <div className="step-4-main-label">
           <h4>Lyrics File:</h4>
           <span>
             {formDataPost.lyricsFile ? formDataPost.lyricsFile.name : "NA"}
           </span>
-        </div>
+        </div> */}
 
         <div className="step-4-main-label">
           <h4>Label Name:</h4>
@@ -913,8 +1157,14 @@ const ReleaseUserForm = () => {
         <div className="step-4-main-label">
           <h4>Song File:</h4>
           <span>
-            {formDataPost.songFile
-              ? formDataPost.songFile.name || formDataPost.songFile
+            {formDataPost.songFile.length > 0
+              ? formDataPost.songFile.map((file, index) => (
+                  <span key={index}>
+                    {file.name || file}{" "}
+                    {/* file.name for File objects, file for URLs */}
+                    {index !== formDataPost.songFile.length - 1 && ", "}
+                  </span>
+                ))
               : "NA"}
           </span>
         </div>
@@ -952,14 +1202,14 @@ const ReleaseUserForm = () => {
           <span>{formDataPost.explicitContent || "NA"}</span>
         </div>
 
-        <div className="step-4-main-label">
+        {/* <div className="step-4-main-label">
           <h4>Distribution Platforms:</h4>
           <span>
             {formDataPost.distributionPlatform?.length
               ? formDataPost.distributionPlatform.join(", ")
               : "NA"}
           </span>
-        </div>
+        </div> */}
 
         <div className="step-4-main-button-finish">
           {/* {activeStep > 0 && (
@@ -968,16 +1218,27 @@ const ReleaseUserForm = () => {
           onClick={() => setActiveStep(activeStep - 1)}
         />
       )} */}
+
           <button
             className="finish-button"
             onClick={() => {
-              alert("Process Completed!");
               handleSubmit();
             }}
           >
-            Finish
+            {loader == true ? (
+              <p>
+                <CircularProgress></CircularProgress>
+              </p>
+            ) : (
+              <p style={{ color: "black" }}>Submit</p>
+            )}
           </button>
         </div>
+        {loader == true ? (
+          <p className="ReleaseForm-main-finalsubmit-massage">Submitting your release, please wait... 🎶</p>
+        ) : (
+          <p style={{ color: "black" }}></p>
+        )}
       </div>
     );
   };

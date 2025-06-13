@@ -1,15 +1,15 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import "./payP.css";
-
+import { useUser } from "../User/UserData";
 const PaymentPage = () => {
   const backendAppUrl = import.meta.env.VITE_API_URL;
   const location = useLocation();
-
+  const { userData } = useUser();
   // Define amounts per route base path
   const amountMap = {
     "/freemium": 0,
-    "/perRelease": 1,
+    "/perRelease": 399,
     "/ep-album": 999,
     "/labelPlan": 2999,
   };
@@ -18,8 +18,9 @@ const PaymentPage = () => {
   const pathSegments = location.pathname.split("/"); // ['', 'freemium', '67cf231b6ecb1651b542617a']
   const baseRoute = `/${pathSegments[1]}`; // '/freemium'
   const userId = pathSegments[2]; // '67cf231b6ecb1651b542617a'
+  const typeOfPlan=`${pathSegments[1]}`;
 
-  const amountt = amountMap[baseRoute] || 1;
+  const amountt = amountMap[baseRoute] || 0;
 
   const initiatePayment = async () => {
     try {
@@ -28,7 +29,8 @@ const PaymentPage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           amount: amountt,
-          userId: userId, // now dynamically extracted
+          userId: userData._id, // now dynamically extracted
+          name:typeOfPlan
         }),
       });
 

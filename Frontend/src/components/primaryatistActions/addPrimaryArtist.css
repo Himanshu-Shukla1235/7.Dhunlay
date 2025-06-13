@@ -48,7 +48,7 @@
 }
 
 .artist-input::placeholder {
-  color: black;
+  color: rgba(0, 0, 0, 0.32);
   opacity: 1;
 }
 
@@ -108,5 +108,20 @@
   }
   .artist-form-title{
     font-size: 5vw;
+  }
+  .artist-input{
+    font-size: 3vw;
+  }
+  .artist-button{
+    font-size: 3vw;
+  }
+  .artist-created{
+font-size: 3vw;
+  }
+  .artist-exists {
+    font-size: 3vw;
+  }
+  .artist-response p{
+    font-size: 3vw;
   }
 }

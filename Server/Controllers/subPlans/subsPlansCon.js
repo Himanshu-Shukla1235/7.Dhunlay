@@ -6,7 +6,7 @@ const Plan = require('../../Models/subscriptionsModles/planM');
 const createPlan = async (req, res) => {
     console.log("backend Hit ✅ : create plan hits")
   try {
-    const { name, price, duration, features, maxSongs, revenueShare } = req.body;
+    const { name, price, duration, features, maxSongs, revenueShare,planType } = req.body;
 
     if (!name || !price || !features || !maxSongs) {
       return res.status(400).json({ error: 'Required fields missing' });
@@ -18,6 +18,7 @@ const createPlan = async (req, res) => {
       duration,
       features,
       maxSongs,
+      planType
      
     });
 

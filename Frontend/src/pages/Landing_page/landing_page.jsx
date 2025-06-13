@@ -332,7 +332,7 @@ const test = () => {
 
         <div className="section-1">
           <video autoPlay muted loop>
-            <source src="/videos/video1.mp4" type="video/mp4" />
+            <source src="https://cdn.pixabay.com/video/2015/11/07/1275-145116912_tiny.mp4" type="video/mp4" />
           </video>
           <div className="section-11">
             <h3>

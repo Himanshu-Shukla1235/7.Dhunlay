@@ -92,13 +92,21 @@ const UpsertPrimaryArtistForm = () => {
           {" "}
           {/* ✅ attach the ref here */}
           {alreadyExists ? (
-            <p className="artist-exists">✅ Primary artist already exists.</p>
+            <h4 className="artist-exists">
+              ✅ Primary artist already exists.
+              <p style={{ color: "black", fontWeight: "600" }}>
+                {responseData.primaryArtistName}
+              </p>
+            </h4>
           ) : (
-            <p className="artist-created">🎉 New primary artist added.</p>
+            <h4 className="artist-created">
+              🎉 New primary artist  added. :{" "}
+              
+                {responseData.primaryArtistName}
+           
+             
+            </h4>
           )}
-          <p style={{ color: "black", fontSize: "1vw",fontWeight:"600" }}>
-            <strong style={{fontSize:'1.1vw'}}>Artist:</strong> {responseData.primaryArtistName}
-          </p>
         </div>
       )}
     </div>

@@ -20,10 +20,10 @@ import { useUser } from "../../pages/User/UserData";
 // Total Releases Component
 const TotalReleases = () => {
   const { songs } = useReleasedSongs();
-  
+
   return (
     <div className="ReleasesP-main-sec-22">
-      <p>Total Releases</p>
+      <p>Total Uploads</p>
       <h2 style={{ zIndex: "1", fontSize: "5vw" }}>{songs.length}</h2>
     </div>
   );
@@ -118,13 +118,10 @@ const ReleasesPContent = () => {
 
       {/* Section 4 */}
       <div className="ReleasesP-main-sec-4">
-        <h4>Released Songs</h4>
-  
-          {" "}
-          <ReleasedSongsProvider artistNames={selectedArtists}>
-            <SongsList />
-          </ReleasedSongsProvider>
-      
+        <h4>Your Uploads</h4>{" "}
+        <ReleasedSongsProvider artistNames={selectedArtists}>
+          <SongsList />
+        </ReleasedSongsProvider>
       </div>
     </div>
   );

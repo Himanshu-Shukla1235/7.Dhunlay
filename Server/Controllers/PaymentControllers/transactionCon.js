@@ -13,7 +13,7 @@ const {
 const clientId = process.env.PHONEPE_CLIENT_ID;
 const clientSecret = process.env.PHONEPE_CLIENT_SECRET;
 const clientVersion = process.env.PHONEPE_CLIENT_VERSION;
-const env = Env.PRODUCTION;
+const env = Env.SANDBOX;
 
 const client = StandardCheckoutClient.getInstance(
   clientId,
@@ -24,14 +24,29 @@ const client = StandardCheckoutClient.getInstance(
 const initiatePayment = async (req, res) => {
   console.log("✅ Backend hit:initiate payment triggered");
   try {
-    const { amount, userId, planId, startDate } = req.body;
+    const { amount, userId, name, startDate } = req.body;
+
+    const merchantOrderId = `ORDER_${uuidv4()}`;
+    if (amount == 0 && name == "freemium") {
+      const NewSubsDoc = await SubsDoc.create({
+        userId,
+        name,
+        orderId: merchantOrderId,
+      });
+      res.json({
+        success: true,
+        checkoutUrl: "https://dhunlay.com/dashboard",
+        orderId: merchantOrderId,
+        userId: userId,
+        planName: name,
+      });
+      return;
+    }
 
     if (!amount || amount <= 0) {
       return res.status(400).json({ error: "Invalid amount" });
     }
-
-    const merchantOrderId = `ORDER_${uuidv4()}`;
-    const redirectUrl = `https://dhunlay.com/${userId}`;
+    const redirectUrl = `https://dhunlay.com/dashboard/${userId}`;
 
     const request = StandardCheckoutPayRequest.builder()
       .merchantOrderId(merchantOrderId)
@@ -46,13 +61,15 @@ const initiatePayment = async (req, res) => {
     // await saveOrderToDatabase(merchantOrderId, amount, userId, 'PENDING');
     const NewSubsDoc = await SubsDoc.create({
       userId,
-      planId,
-      startDate,
+      name,
+      orderId: merchantOrderId,
     });
     res.json({
       success: true,
       checkoutUrl: response.redirectUrl,
       orderId: merchantOrderId,
+      userId: userId,
+      planName: name,
     });
   } catch (error) {
     console.error("Payment initiation error:", error);
@@ -139,7 +156,7 @@ const handleCallback = async (req, res) => {
 
 module.exports = {
   initiatePayment,
-  
+
   checkPaymentStatus,
   handleCallback,
 };

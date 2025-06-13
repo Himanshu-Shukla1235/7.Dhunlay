@@ -1,6 +1,6 @@
 const { validationResult } = require("express-validator");
 const Song = require("../Models/songsDataModle/MetaData");
-
+const SubsDoc = require("../Models/subscriptionsModles/subscriptionM");
 const mongoose = require("mongoose");
 /**
  * @desc    Save song metadata for distribution
@@ -60,39 +60,38 @@ const mongoose = require("mongoose");
 // Save Song Metadata
 
 const saveSong = async (req, res) => {
-  console.log("new song upload triggred");
+  console.log("new song upload triggered");
   try {
     const {
-      songName, // Corrected from songTitle
-      primaryArtists, // Corrected from primaryArtist
+      releaseType,
+      songName,
+      primaryArtists,
       featuringArtists,
-      authors, // Corrected from author
-      composers, // Corrected from composer
-      musicProducers, // Corrected from musicProducer
-      musicDirectors, // Corrected from musicDirector
+      authors,
+      composers,
+      musicProducers,
+      musicDirectors,
       C_line,
-      p_line, // Corrected from P_line
+      p_line,
       labelName,
       lyrics,
       lyricsFile,
       language,
-      genere, // Corrected from genres
-      //----------------------------step2
+      genere,
+      // Step 2
       songFile,
       coverArt,
-      //----------------------------step3
+      // Step 3
       releaseDate,
       userId,
       isrc,
       upc,
       explicitContent,
-      distributionPlatform, // Corrected from distributionPlatforms
+      distributionPlatform,
     } = req.body;
 
-    // Convert explicitContent to boolean
-    const explicitContentBool = explicitContent === "yes" ? true : false;
+    const explicitContentBool = explicitContent === "yes";
 
-    // Creating metadata object properly
     const metadata = {
       isrc,
       upc,
@@ -104,8 +103,63 @@ const saveSong = async (req, res) => {
       userId: userId,
     };
 
-    // Create a new song instance
+    let subsName = "";
+    if (releaseType == "Single") {
+      subsName = "perRelease";
+    } else if (releaseType === "EP" || releaseType === "Album") {
+      subsName = "ep-album";
+    }
+
+    const latestDoc = await SubsDoc.findOne({
+      name: subsName,
+      userId: userId,
+    }).sort({ createdAt: -1 });
+
+    if (latestDoc) {
+      await latestDoc.deleteOne();
+      console.log("✅ Document deleted:", latestDoc._id);
+    } else {
+      let subsplanfind1 = null;
+      let subsplanfind2 = null;
+      let numberOfSongsfind1 = await song.findOne({
+        subscriptionType: "freemium",
+        userId: userId,
+      });
+
+      subsplanfind2 = await SubsDoc.findOne({
+        name: "labelPlan",
+        userId: userId,
+      }).sort({ createdAt: -1 });
+
+      if (subsplanfind2) {
+        subsName = "labelPlan";
+      } else if (releaseType == "Single") {
+        subsplanfind1 = await SubsDoc.findOne({
+          name: "freemium",
+          userId: userId,
+        }).sort({ createdAt: -1 });
+
+        if (subsplanfind1) {
+          subsName = "freemium";
+        }
+      }
+
+      if (
+        (!subsplanfind1 && !subsplanfind2) ||
+        (subsplanfind1 && numberOfSongsfind1.length > 3)
+      ) {
+        console.log("⚠️ No matching paymentUser Subscription document found");
+        res.status(403).json({
+          success: false,
+          message: "Please subscribe a plan to continue",
+        });
+        return;
+      }
+    }
+
     const newSong = await Song.create({
+      subscriptionType: subsName,
+      releaseType,
       songTitle: songName,
       primaryArtist: primaryArtists,
       featuringArtists,
@@ -116,15 +170,15 @@ const saveSong = async (req, res) => {
       lyrics,
       lyricsFile,
       C_line,
-      P_line: p_line, // Mapping correctly
+      P_line: p_line,
       labelName,
-      genres: genere, // Mapping correctly
+      genres: genere,
       language,
       coverArt,
-      songFile: Songfile,
-      explicitContent: explicitContentBool, // Convert properly
-      distributionPlatforms: distributionPlatform, // Mapping correctly
-      metadata: metadata, // Assigning the metadata object
+      songFiles: Songfile,
+      explicitContent: explicitContentBool,
+      distributionPlatforms: distributionPlatform,
+      metadata: metadata,
       releaseDate,
       submittedBy: submittedBy,
     });
@@ -217,7 +271,11 @@ const getAllSongsByUser = async (req, res) => {
       });
     }
 
-    const songs = await Song.find({ "submittedBy.userId": userId });
+    const songs = await Song.find({
+      status: "Released", // or whatever status you want
+      "submittedBy.userId": userId, // assuming this is nested
+    });
+
     // Assuming "createdBy" stores userId
 
     res.status(200).json({

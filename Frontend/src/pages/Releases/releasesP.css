@@ -302,13 +302,14 @@ padding-top: 2vw;
   align-items: center;
   min-height: 100vh;
   height: auto;
-  width: 77vw;
+  width: 100%;
 
   background-color: rgba(0, 0, 0, 0.185);
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
   gap: 1vw;
   padding-top: 1vw;
+  /* border: solid red 3px; */
   
   
 }
@@ -322,7 +323,7 @@ padding-top: 2vw;
   justify-content: center;
   align-items: center;
   height: auto;
-  width: 74vw;
+  width: auto;
 
   background-color: rgba(0, 0, 0, 0);
   border-radius: 0.5vw;
@@ -330,6 +331,7 @@ padding-top: 2vw;
   gap: 1vw;
   padding-top: 2vw;
   padding-bottom: 2vw;
+   /* border: solid red 3px; */
 }
 .ReleasesP-main-sec-41{
   
@@ -340,7 +342,7 @@ padding-top: 2vw;
   justify-content: center;
   align-items: center;
   height: 5vw;
-  width:15vw;
+  width:auto;
   background-color: rgba(0, 0, 0, 0.386);
 }
 
@@ -408,6 +410,9 @@ padding-top: 2vw;
     height: auto;
     padding: 2vw;
 
+  }
+  .ReleasesP-main-sec-4 h4{
+    font-size: 4vw;
   }
 }
 

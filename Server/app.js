@@ -19,10 +19,11 @@ const authRouter = require("./Routes/authR");
 const MetaData = require("./Routes/MetaDataR");
 const upsertPrimaryArtist = require("./Routes/PrimaryAtistR");
 const getAllPrimaryArtists = require("./Routes/PrimaryAtistR");
-const subPlansR=require("./Routes/subPlansR")
+const subPlansR = require("./Routes/subPlansR");
+const userSubPlansR = require("./Routes/UserSubsR");
 const userData = require("./Routes/UserDataR");
 const getReleaseData = require("./Routes/MetaDataR");
-const SubPay=require("./Routes/transactionR")
+const SubPay = require("./Routes/transactionR");
 
 const authenticateUser = require("./Middlewares/authenticationM");
 
@@ -63,10 +64,9 @@ app.use("/api/metadata", MetaData);
 app.use("/api", getReleaseData);
 app.use("/api", upsertPrimaryArtist);
 app.use("/api", getAllPrimaryArtists);
-
+app.use("/api", userSubPlansR);
 app.use("/api/userData", userData);
 app.use("/api", SubPay);
-
 
 //-------------------------
 // At bottom of your server file

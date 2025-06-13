@@ -1,22 +1,20 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext(null);
 
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
- const backendAppUrl =import.meta.env.VITE_API_URL; 
- 
+  const backendAppUrl = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(
-          `${backendAppUrl}/api/userData/me`,
-          {
-            method: "GET",
-            credentials: "include",
-            headers: { "Content-Type": "application/json" },
-          }
-        );
+        const response = await fetch(`${backendAppUrl}/api/userData/me`, {
+          method: "GET",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+        });
 
         const data = await response.json();
 

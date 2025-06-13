@@ -137,7 +137,7 @@ const Dashboard = () => {
                   />
                 </g>
               </svg>
-              <h2>$30</h2>
+              <h2>$0</h2>
             </div>
           </Tooltip>
         </div>
@@ -159,7 +159,7 @@ const Dashboard = () => {
             ></div>
             <div className="dashBoard-main-sec-221-ToUploads">
               {" "}
-              <p>Total Uploads</p>
+              <p>Total Releases</p>
             </div>
           </div>
           <Tooltip title="Click to see more.">

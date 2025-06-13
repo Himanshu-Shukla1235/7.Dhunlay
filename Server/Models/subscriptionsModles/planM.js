@@ -1,27 +1,32 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const PlanSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    enum: ['Free', 'A-plan-1', 'A-plan-2','L-plan-1'],
-    required: true
-  },
-  price: {
-    type: Number,
-    required: true
-  },
-  duration: {
-    type: Number, // In months
-    required: false  },
-  features: {
-    type: [String], // Array of strings
-    required: true
-  },
-  maxSongs: {
-    type: Number,
-    required: true
-  },
+const PlanSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
 
-}, { timestamps: true });
+      required: true,
+      unique: true, // ensures name is unique
+    },
+    planType: {
+      type: String,
 
-module.exports = mongoose.model('Plan', PlanSchema);
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    duration: {
+      type: Number, // In months
+      required: true,
+    },
+    features: {
+      type: [String], // Array of strings
+      required: false,
+    },
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Plan", PlanSchema);

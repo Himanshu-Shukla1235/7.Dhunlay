@@ -7,16 +7,17 @@
 
   border-radius: 15px;
 
-  width: auto;
+  width: 100%;
   /* border: solid red 3px; */
   gap: 1vw;
-  padding: 1vw;
+  
+  
 }
 
 .cardC2-loader {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   min-height: 7vh;
   height: auto;
@@ -29,7 +30,7 @@
   border: solid rgb(0, 0, 0) 3px;
   background-color: black;
   width: auto;
-  padding: 1vw;
+  padding: 1.5vw;
 }
 
 .cardC2-currentplaying {
@@ -188,5 +189,17 @@
 
   100% {
     height: 0.2em;
+  }
+}
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .cardC2-loader{
+    width: 100%;
+    padding-left: 1vw;
+    gap: 2.8vw;
+  }
+  .cardC2-albumcover{
+    display: none;
   }
 }

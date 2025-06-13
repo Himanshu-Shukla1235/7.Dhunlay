@@ -194,4 +194,10 @@ min-height: 90vh;
   .cardsC1-card_description {
     font-size: 2vw;
   }
+  .cardsC1-subscribe_btn{
+    width: auto;
+  }
+  .cardsC1-subscribe_btn h4{
+    font-size: 3vw;
+  }
 }

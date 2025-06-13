@@ -9,6 +9,7 @@ const AdminCreatePlan = () => {
     features: '',
     maxSongs: '',
     revenueShare: '',
+    planType: '', // ✅ Added planType to state
   });
 
   const [message, setMessage] = useState('');
@@ -17,7 +18,9 @@ const AdminCreatePlan = () => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
- const backendAppUrl =import.meta.env.VITE_API_URL; 
+
+  const backendAppUrl = import.meta.env.VITE_API_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
@@ -34,6 +37,7 @@ const AdminCreatePlan = () => {
           features: form.features.split(',').map((f) => f.trim()),
           maxSongs: Number(form.maxSongs),
           revenueShare: form.revenueShare ? Number(form.revenueShare) : undefined,
+          planType: form.planType, // ✅ Send planType
         }),
       });
 
@@ -48,6 +52,7 @@ const AdminCreatePlan = () => {
           features: '',
           maxSongs: '',
           revenueShare: '',
+          planType: '', // ✅ Reset
         });
       } else {
         setMessage(`Error: ${data.error || 'Something went wrong'}`);
@@ -112,6 +117,16 @@ const AdminCreatePlan = () => {
           onChange={handleChange}
           placeholder="Revenue Share % (optional)"
         />
+
+        {/* ✅ planType input */}
+        <select name="planType" value={form.planType} onChange={handleChange} required>
+          <option value="">Select Plan Type</option>
+          <option value="Label">Label</option>
+          <option value="Artist">Artist</option>
+           <option value="Both">Both</option>
+         
+        </select>
+
         <button type="submit" disabled={loading}>
           {loading ? 'Creating...' : 'Create Plan'}
         </button>

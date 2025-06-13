@@ -1,11 +1,50 @@
-import React, { useState } from "react";
-import "./ourPlans.css"; // Import the CSS file
+import React, { useState, useEffect } from "react";
+import "./ourPlans.css";
 
 import Card from "../../components/Cards/cardsC1";
-import InfoIcon from "@mui/icons-material/Info";
-import Tooltip from "@mui/material/Tooltip";
+import { useUser } from "../User/UserData"; // adjust path as needed
 
-const ourPlans = () => {
+const OurPlans = () => {
+  const [subscription, setSubscription] = useState([]);
+  const { userData } = useUser(); // pulls from user context
+  const userId = userData?._id; // safely access userId
+  const backendAppUrl = import.meta.env.VITE_API_URL;
+
+  const fetchSubscription = async () => {
+    const name = "labelPlan";
+    console.log("fetching the userSubscription", userId);
+    try {
+      const res = await fetch(
+        `${backendAppUrl}/api/getUserSub?userId=${userId}&name=${name}`,
+        {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message || "Failed to fetch subscription");
+      }
+
+      console.log("✅ Subscription data:", result);
+      setSubscription(result.data); // optional: store it if needed
+    } catch (error) {
+      console.error("❌ Subscription fetch error:", error.message);
+      setSubscription(null);
+    }
+  };
+
+  useEffect(() => {
+    if (userId) {
+      fetchSubscription();
+    }
+  }, [userId]);
+
   return (
     <>
       <div className="ourPlans-main">
@@ -18,6 +57,17 @@ const ourPlans = () => {
         <div className="ourPlans-main-sec-2">
           <div className="ourPlans-main-sec-21">
             <p>Your Current Plan</p>
+            {subscription && subscription.length > 0 ? (
+              <div className="ourPlans-main-sec-21-name" style={{ color: "white", marginTop: "1rem" }}>
+                <ul>
+                  {subscription.map((sub, index) => (
+                    <li key={index}>✨ {sub.name}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <p style={{ color: "gray" }}>No active subscriptions found.</p>
+            )}
           </div>
           <div className="ourPlans-main-sec-22">
             <p> Running Offers</p>
@@ -28,7 +78,6 @@ const ourPlans = () => {
             <h2>Artists Plan</h2>
           </div>
           <div className="ourPlans-main-sec-32">
-            {" "}
             <Card
               card_dot_bg="#FFFFFF"
               labelTC="#FFFFFF"
@@ -72,7 +121,6 @@ const ourPlans = () => {
                 "* All-in-one analytics dashboard",
                 "* Schedule exact release time",
                 "* Create custom fan links",
-
                 "* Free ISRC & UPC codes",
               ]}
               tooltipContents={[
@@ -87,7 +135,7 @@ const ourPlans = () => {
                 "We provide required music codes (ISRC/UPC) for free.",
               ]}
               navigation="perRelease"
-            ></Card>
+            />
             <Card
               card_dot_bg="#FFD700"
               labelTC="#FFD700"
@@ -102,7 +150,6 @@ const ourPlans = () => {
                 "* All-in-one analytics dashboard",
                 "* Schedule exact release time",
                 "* Create custom fan links",
-
                 "* Free ISRC & UPC codes",
               ]}
               tooltipContents={[
@@ -117,13 +164,13 @@ const ourPlans = () => {
                 "We generate music codes (ISRC/UPC) for you at no cost.",
               ]}
               navigation="ep-album"
-            ></Card>
+            />
           </div>
+
           <div className="ourPlans-main-sec-31">
             <h2> Label Plan</h2>
           </div>
           <div className="ourPlans-main-sec-32">
-            {" "}
             <Card
               card_dot_bg="#FFFFFF"
               labelTC="#FFFFFF"
@@ -138,7 +185,6 @@ const ourPlans = () => {
                 "* All-in-one analytics dashboard",
                 "* Schedule exact release time",
                 "* Create custom fan links",
-
                 "* Free ISRC & UPC codes",
               ]}
               tooltipContents={[
@@ -152,13 +198,13 @@ const ourPlans = () => {
                 "Promote using customizable, smart fan links.",
                 "We provide ISRC & UPC codes at no extra cost.",
               ]}
+              navigation="labelPlan"
             />
           </div>
         </div>
-        {/* --------------------------------------------------- */}
       </div>
     </>
   );
 };
 
-export default ourPlans;
+export default OurPlans;

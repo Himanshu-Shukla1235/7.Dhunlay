@@ -71,9 +71,12 @@ function MainApp() {
             data.message || "Unknown error"
           );
           setUser(null);
+          console.log("user",user);
+         
+
         } else {
           setUser(data);
-
+        
           // Introduce a delay of 1.5 seconds before navigation
           setTimeout(() => {
             if (window.location.pathname === "/home") {
@@ -95,9 +98,9 @@ function MainApp() {
               navigate(`/features_artist/${data._id}`);
             }
 
-            // if (window.location.pathname === "/features/features_label") {
-            //   navigate(`/features_label/${data._id}`);
-            // }
+            if (window.location.pathname === "/features/features_label") {
+              navigate(`/features_label/${data._id}`);
+            }
             if (window.location.pathname === "/features") {
               navigate(`/features/${data._id}`);
             }
@@ -160,11 +163,14 @@ function MainApp() {
     >
       <Routes>
         <Route path="/" element={<LandinP></LandinP>}></Route>
-        <Route path="/create_Plan" element={<AdminCreatePlan></AdminCreatePlan>}></Route>
+        <Route
+          path="/create_Plan"
+          element={<AdminCreatePlan></AdminCreatePlan>}
+        ></Route>
         {/* This is about page */}
         <Route path="/about" element={<About />} />
         <Route path="features_Artist" element={<FeaturesArtist />} />
-        <Route path="features_label" element={<FeaturesLabel />} />{" "}
+        <Route path="features_Label" element={<FeaturesLabel />} />{" "}
         <Route path="policy" element={<PolicyPage />} />{" "}
         <Route path="contact" element={<ContactUs />} />{" "}
         <Route path="plans" element={<OurPlansGeneral />} />{" "}
@@ -193,6 +199,7 @@ function MainApp() {
             path="/release/:id"
             element={<ReleaseUserForm></ReleaseUserForm>}
           ></Route>
+        
         </Route>
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />
@@ -205,7 +212,7 @@ function MainApp() {
         {/* Color palette */}
         <Route path="/palette" element={<Palette />} />
         {/* Catch-all 404 Page */}
-        <Route path="*" element={<div></div>} />
+        <Route path="*" element={<></>} />
       </Routes>
     </Suspense>
   );

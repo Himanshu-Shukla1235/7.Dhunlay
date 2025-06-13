@@ -36,6 +36,11 @@ const ListComponent = () => {
       href: "/features",
       icon: <StarIcon className="menu-icon" />,
     },
+    {
+      name: "OurPlans",
+      href: "/ourPlans",
+      icon: <StarIcon className="menu-icon" />,
+    },
     // {
     //   name: "Finance",
     //   href: "/finance",
