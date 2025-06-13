@@ -13,7 +13,7 @@ const {
 const clientId = process.env.PHONEPE_CLIENT_ID;
 const clientSecret = process.env.PHONEPE_CLIENT_SECRET;
 const clientVersion = process.env.PHONEPE_CLIENT_VERSION;
-const env = Env.SANDBOX;
+const env = Env.PRODUCTION;
 
 const client = StandardCheckoutClient.getInstance(
   clientId,
