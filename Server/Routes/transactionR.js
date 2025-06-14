@@ -4,13 +4,9 @@ const paymentController = require("../Controllers/PaymentControllers/transaction
 const router = express.Router();
 const authenticateUser = require("../Middlewares/authenticationM");
 
-router.post("/initiate",  paymentController.initiatePayment);
+router.post("/initiate", paymentController.initiatePayment);
 
-router.get(
-  "/status/:orderId",
-  authenticateUser,
-  paymentController.checkPaymentStatus
-);
+router.get("/status", paymentController.checkPaymentStatus);
 router.post("/callback", authenticateUser, paymentController.handleCallback);
 // router.post("/payCallBack", paymentCallback);
 

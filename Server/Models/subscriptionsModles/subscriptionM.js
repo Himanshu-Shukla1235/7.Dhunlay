@@ -8,6 +8,12 @@ const SubscriptionSchema = new mongoose.Schema(
       required: true,
       unique: true, // ensures name is unique
     },
+    status: {
+      type: String,
+
+      required: false,
+      // ensures name is unique
+    },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

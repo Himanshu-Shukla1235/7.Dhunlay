@@ -9,6 +9,7 @@
     "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "express-validator": "^7.2.1",
     "framer-motion": "^12.6.2",
     "gsap": "^3.12.7",

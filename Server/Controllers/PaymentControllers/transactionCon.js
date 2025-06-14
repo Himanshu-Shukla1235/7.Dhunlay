@@ -1,5 +1,7 @@
 // controllers/paymentController.js
 const express = require("express");
+const crypto = require("crypto");
+const axios = require("axios");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 const SubsDoc = require("../../Models/subscriptionsModles/subscriptionM");
@@ -21,6 +23,8 @@ const client = StandardCheckoutClient.getInstance(
   clientVersion,
   env
 );
+
+//-------------------------------------------------------
 const initiatePayment = async (req, res) => {
   console.log("✅ Backend hit:initiate payment triggered");
   try {
@@ -46,8 +50,7 @@ const initiatePayment = async (req, res) => {
     if (!amount || amount <= 0) {
       return res.status(400).json({ error: "Invalid amount" });
     }
-    const redirectUrl = `https://dhunlay.com/dashboard/${userId}`;
-
+    const redirectUrl = `https://dhunlay.com/api/status?orderId=${merchantOrderId}&name=${name}&userId=${userId}`;
     const request = StandardCheckoutPayRequest.builder()
       .merchantOrderId(merchantOrderId)
       .amount(amount * 100) // PhonePe expects amount in paise
@@ -59,17 +62,14 @@ const initiatePayment = async (req, res) => {
 
     // In a real application, you would save the order details to your database here
     // await saveOrderToDatabase(merchantOrderId, amount, userId, 'PENDING');
-    const NewSubsDoc = await SubsDoc.create({
-      userId,
-      name,
-      orderId: merchantOrderId,
-    });
+
     res.json({
       success: true,
       checkoutUrl: response.redirectUrl,
       orderId: merchantOrderId,
       userId: userId,
       planName: name,
+      status: response.state,
     });
   } catch (error) {
     console.error("Payment initiation error:", error);
@@ -83,27 +83,32 @@ const initiatePayment = async (req, res) => {
 
 //-----------------------------------------------------------------
 const checkPaymentStatus = async (req, res) => {
+  console.log("checkpaymentStatus triggered ");
   try {
-    const { orderId } = req.params;
+    const { orderId, name, userId } = req.query;
+    console.log(orderId);
 
-    if (!orderId) {
-      return res.status(400).json({ error: "Order ID is required" });
+    const response = await client.getOrderStatus(orderId);
+    const status = response.state;
+    console.log("PaymentCheck Status", response);
+
+    if (status == "COMPLETED") {
+      const NewSubsDoc = await SubsDoc.create({
+        userId,
+        name,
+        orderId: orderId,
+        status: status,
+      });
+      res.redirect("https://dhunlay.com/dashboard");
+    } else {
+      res.json("https://dhunlay.com/ourPlans");
     }
-
-    const response = await phonePeClient.getClient().getOrderStatus(orderId);
-
-    // TODO: Update your DB order status with response.state
-
-    res.json({
-      success: true,
-      status: response.state,
-      data: response,
+  } catch (err) {
+    console.error("❌ Error checking payment status:", err);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error while checking status",
     });
-  } catch (error) {
-    console.error("Payment status check error:", error);
-    res
-      .status(500)
-      .json({ error: "Status check failed", details: error.message });
   }
 };
 
@@ -150,7 +155,7 @@ const handleCallback = async (req, res) => {
     console.error("Callback handling error:", error);
     res
       .status(500)
-      .json({ error: "Callback processing failed", details: error.message });
+      .json({ error: "Callback processing failed", details: error });
   }
 };
 

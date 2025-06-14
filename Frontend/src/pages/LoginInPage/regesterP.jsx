@@ -64,7 +64,7 @@ const RegisterPage = () => {
       }
 
       // localStorage.setItem("token", data.token);
-      window.location.href = `/home/${data.user._id}`;
+      window.location.href = `/dashboard/${data.user._id}`;
     } catch (err) {
       setLoading(false);
       setError(err.message || "Something went wrong(Frontend)");
