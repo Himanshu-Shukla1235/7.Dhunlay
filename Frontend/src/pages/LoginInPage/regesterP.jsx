@@ -15,14 +15,53 @@ const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
 
   // List of countries and states
-  const countries = ["USA", "India", "Canada", "UK", "Australia"];
-  const statesByCountry = {
-    USA: ["New York", "California", "Texas"],
-    India: ["Madhya Pradesh", "Maharashtra", "Delhi"],
-    Canada: ["Ontario", "Quebec", "British Columbia"],
-    UK: ["England", "Scotland", "Wales"],
-    Australia: ["New South Wales", "Queensland", "Victoria"],
-  };
+  const countries = ["USA", "India", , "UK", "Australia"];
+const statesByCountry = {
+  USA: ["New York", "California", "Texas"],
+  India: [
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+    // Union Territories (Optional, remove if not needed)
+  
+    "Chandigarh",
+   
+    "Delhi",
+    "Jammu and Kashmir",
+    "Ladakh",
+    "Lakshadweep",
+    "Puducherry"
+  ],
+  Canada: ["Ontario", "Quebec", "British Columbia"],
+  UK: ["England", "Scotland", "Wales"],
+  Australia: ["New South Wales", "Queensland", "Victoria"],
+};
+
   const backendAppUrl = import.meta.env.VITE_API_URL;
   const handleRegister = async (e) => {
     e.preventDefault();

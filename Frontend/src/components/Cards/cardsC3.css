@@ -7,12 +7,14 @@
   padding: 2vw;
 
   border-radius: 1vw;
+  width: 100%;
 }
 
 /* Card Box */
 .cardsC3-card_box {
-  width: 20vw; /* Responsive width */
+  width: 30vw; /* Responsive width */
   min-width: 250px; /* Prevents the card from becoming too small */
+  
   height: auto;
   border-radius: 2vw; /* Responsive border-radius */
   padding: 2vw;
@@ -52,7 +54,7 @@
 /* Label */
 .cardsC3-label {
   position: absolute;
-  top: -2vw; /* Position slightly above the card */
+  top: -1vw; /* Position slightly above the card */
   left: 50%; /* Move to the center horizontally */
   transform: translateX(-50%); /* Adjust back by half of its width */
   padding: 1vw 1.5vw;
@@ -68,14 +70,18 @@
 
 /* Card Content */
 .cardsC3-card_content {
-  height: 80vh;
-  /* border: red solid 3px; */
+  height: auto;
+min-height: 90vh;
+  border: rgba(39, 39, 39, 0) solid 1px;
+  margin: 3%;
+  border-radius: 0.5vw;
 }
 
 /* Title */
 .cardsC3-card_content h2 {
   font-size: 2vw;
   margin: 1vw 0;
+  font-family: sans-serif;
 }
 
 /* Price */
@@ -86,8 +92,10 @@
 
 /* Description */
 .cardsC3-card_description {
-  font-size: 1.2vw;
+  font-family: sans-serif;
+  font-size: 1.3vw;
   margin: 1vw 0;
+  color: rgba(255, 255, 255, 0.799);
 }
 
 /* Features */
@@ -99,9 +107,17 @@
 }
 
 .cardsC3-card_features li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  color: rgba(255, 255, 255, 0.737);
   margin: 0.5vw 0;
   padding: 0.5vw;
+
   border-bottom: 0.1vw solid rgba(255, 255, 255, 0.2);
+  gap: 3vw;
 }
 
 /* Subscribe Button */
@@ -138,49 +154,50 @@
 /*?------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
   .cardsC3-container {
-    height: 10vh;
-    border: solid 3px red;
+    height: auto;
+    /* border: solid 3px red; */
   }
   .cardsC3-card_box {
+    height: 30vh;
 
-  
-  height: 30vh;
-  
-  /* border: red solid 3px; */
-}
-.cardsC3-label {
-  position: absolute;
-  top: -4vw; /* Position slightly above the card */
-  left: 50%; /* Move to the center horizontally */
-  transform: translateX(-50%); /* Adjust back by half of its width */
-  padding: 1vw 1.5vw;
-  font-size: 3vw;
-  font-weight: bold;
-  text-transform: uppercase;
+    /* border: red solid 3px; */
+  }
+  .cardsC3-label {
+    position: absolute;
+    top: -4vw; /* Position slightly above the card */
+    left: 50%; /* Move to the center horizontally */
+    transform: translateX(-50%); /* Adjust back by half of its width */
+    padding: 1vw 1.5vw;
+    font-size: 3vw;
+    font-weight: bold;
+    text-transform: uppercase;
 
-  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.23);
-  background-color: rgba(187, 15, 15, 0); /* Ensure it has a background */
-  border-radius: 0.5vw; /* Optional: Round edges */
-  margin-top: 1.5vw;
-}
-.cardsC3-card_content{
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.23);
+    background-color: rgba(187, 15, 15, 0); /* Ensure it has a background */
+    border-radius: 0.5vw; /* Optional: Round edges */
+    margin-top: 1.5vw;
+  }
+  .cardsC3-card_content {
     margin-top: 4vw;
-}
-.cardsC3-card_price {
-  font-size: 1.8vw;
-  font-weight: bold;
-  margin:3vw ;
-}
-.cardsC3-card_features{
+  }
+  .cardsC3-card_price {
+    font-size: 1.8vw;
+    font-weight: bold;
+    margin: 3vw;
+  }
+  .cardsC3-card_features {
     font-size: 2vw;
-    
-    
-}
-.cardsC3-card_features li{
+  }
+  .cardsC3-card_features li {
     margin: 2vw;
-
-}
-.cardsC3-card_description{
+  }
+  .cardsC3-card_description {
     font-size: 2vw;
-}
+  }
+  .cardsC3-subscribe_btn{
+    width: auto;
+  }
+  .cardsC3-subscribe_btn h4{
+    font-size: 3vw;
+  }
 }
