@@ -67,6 +67,7 @@ app.use("/api", getAllPrimaryArtists);
 app.use("/api", userSubPlansR);
 app.use("/api/userData", userData);
 app.use("/api", SubPay);
+app.use("/api", authRouter);
 
 //-------------------------
 // At bottom of your server file

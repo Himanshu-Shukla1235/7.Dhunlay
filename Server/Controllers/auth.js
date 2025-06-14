@@ -1,4 +1,5 @@
 const User = require("../Models/UserDetailsModels/user"); // Adjust path as necessary
+const UserMailVeri = require("../Models/UserEmailVarification/emailVerificationM"); // Adjust path as necessary
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken"); // Ensure JWT is required at the top of your file
 const nodemailer = require("nodemailer");
@@ -31,33 +32,39 @@ const nodemailer = require("nodemailer");
 //=================================================================================
 
 // ============================================================================================Function to send an email
-
-
+//send welcome email
 const sendEmail = async (to, subject, message) => {
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp.hostinger.com",
-      port: 465,
-      secure: true, // use SSL
+      service: "gmail",
       auth: {
-        user: process.env.BUSINESS_EMAIL,      // full email address, e.g. contact@yourdomain.com
-        pass: process.env.BUSINESS_EMAIL_PASS, // the password you set in Hostinger
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
       },
     });
 
     const mailOptions = {
-      from: process.env.BUSINESS_EMAIL,
+      from: `"DhunLay" <${process.env.GMAIL_USER}>`,
       to,
       subject,
       html: `<p>${message}</p>`,
     };
 
-    await transporter.sendMail(mailOptions);
-    console.log("📧 Email sent successfully!");
+    const info = await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent:", info.messageId);
   } catch (error) {
-    console.error("❌ Error sending email:", error);
+    console.error("❌ Failed to send email:", error.message);
   }
 };
+
+// email verification
+const transporter = nodemailer.createTransport({
+  service: "Gmail", // or SMTP settings
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS,
+  },
+});
 
 // Register User
 //=================================================================================
@@ -112,7 +119,9 @@ const registerUser = async (req, res) => {
         message: "Email already in use. Please use a different email.",
       });
     }
-
+    //email verification
+    // UserMailVeri.findOne({ email ,password});
+    //----------------------
     const user = await User.create({
       username,
       email,
@@ -166,6 +175,20 @@ const registerUser = async (req, res) => {
       message: "Internal server error",
       error: error.message,
     });
+  }
+};
+// Email verification to regester
+const verifyEmail = async (req, res) => {
+  try {
+    const { token } = req.query;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    user.isVerified = true;
+    await user.save();
+
+    res.send("Email verified successfully!");
+  } catch (err) {
+    res.status(400).send("Invalid or expired token");
   }
 };
 
@@ -295,4 +318,4 @@ const logoutUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser, logoutUser };
+module.exports = { registerUser, loginUser, logoutUser, verifyEmail };

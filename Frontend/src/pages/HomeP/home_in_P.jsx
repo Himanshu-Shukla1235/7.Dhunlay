@@ -20,10 +20,10 @@ const HomeP = () => {
   const navigate = useNavigate();
   const { userData } = useUser();
   const [open, setOpen] = React.useState(false);
-
+  const backendAppUrl = import.meta.env.VITE_API_URL;
   const handleClick = () => {
     // Navigate to the desired URL when the icon is clicked
-    window.location.href = '/about';  // Replace '/info' with your desired path
+    window.location.href = "/about"; // Replace '/info' with your desired path
   };
   // Redirect to /dashboard if at root "/"
   useEffect(() => {
@@ -39,6 +39,28 @@ const HomeP = () => {
 
   const toggleDrawer = () => {
     setOpen((prev) => !prev);
+  };
+
+  // function to signout
+
+  const handleLogout = async () => {
+    try {
+      const res = await fetch(`${backendAppUrl}/api/logout`, {
+        method: "GET", // or "POST" if your route is POST
+        credentials: "include", // IMPORTANT: sends the cookie along
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        navigate("/");
+        // alert(data.message); // Logout successful.
+        // Redirect or update UI here
+      } else {
+        alert("Logout failed.");
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
   };
 
   return (
@@ -67,15 +89,17 @@ const HomeP = () => {
             </span>
           </Tooltip>
           <Tooltip title="About Us">
-          
-            <span onClick={handleClick} >
-              <InfoIcon className="icon2" sx={{
+            <span onClick={handleClick}>
+              <InfoIcon
+                className="icon2"
+                sx={{
                   fontSize: {
                     xs: "1.5rem", // phones
                     sm: "1.2rem", // small tablets
                     md: "1.7vw", // desktops and up
                   },
-                }}   />
+                }}
+              />
             </span>
           </Tooltip>
         </div>
@@ -98,7 +122,7 @@ const HomeP = () => {
             </LeftDrawer>
           </div>
           <div className="Home-nav-signout">
-            <button onClick={() => navigate("/")}>
+            <button onClick={handleLogout}>
               <h4>SignOut</h4>
             </button>
           </div>
@@ -120,11 +144,7 @@ const HomeP = () => {
             </div>
             <div className="Home-p-section-113">
               <div className="Home-p-section-1131">
-                <a href="/ourPlans">
-                  {" "}
-                
-                  OurPlans
-                </a>
+                <a href="/ourPlans"> OurPlans</a>
               </div>
             </div>
           </div>
