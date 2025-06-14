@@ -58,7 +58,10 @@ const OurPlans = () => {
           <div className="ourPlans-main-sec-21">
             <p>Your Current Plan</p>
             {subscription && subscription.length > 0 ? (
-              <div className="ourPlans-main-sec-21-name" style={{ color: "white", marginTop: "1rem" }}>
+              <div
+                className="ourPlans-main-sec-21-name"
+                style={{ color: "white", marginTop: "1rem" }}
+              >
                 <ul>
                   {subscription.map((sub, index) => (
                     <li key={index}>✨ {sub.name}</li>
@@ -174,8 +177,8 @@ const OurPlans = () => {
             <Card
               card_dot_bg="#FFFFFF"
               labelTC="#FFFFFF"
-              title="Label Plan"
-              price="₹ 2999"
+              title="Label Plan "
+              price="₹ 2999 / Year"
               features={[
                 "* Keep 93% of your earnings",
                 "* Add Artist as many you want",

@@ -125,8 +125,8 @@ const ourPlans = () => {
             <CardC1
               card_dot_bg="#FFFFFF"
               labelTC="#FFFFFF"
-              title="Label Plan"
-              price="₹ 2999"
+              title="Label Plan "
+              price="₹ 2999 / Year"
               features={[
                 "* Keep 93% of your earnings",
                 "* Add Artist as many you want",
@@ -137,6 +137,7 @@ const ourPlans = () => {
                 "* Schedule exact release time",
                 "* Create custom fan links",
                 "* Free ISRC & UPC codes",
+                 
               ]}
               tooltipContents={[
                 "Keep 93% of all your music revenue.",
