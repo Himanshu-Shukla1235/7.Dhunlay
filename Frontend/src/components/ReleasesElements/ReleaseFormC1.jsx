@@ -408,7 +408,7 @@ const ReleaseUserFormD = () => {
       <div className="step-1-prev-main">
         <div className="step-1-prev-main-sec1">
           <div className="step-1-prev-main-sec11">
-            <VideoPageC2 vid_src="https://www.youtube.com/embed/u5CVsCnxyXg?si=sAxP6ViM-gq6yoWl"></VideoPageC2>
+            <VideoPageC2 vid_src=""></VideoPageC2>
             <h4 style={{ opacity: "1" }}>
               <SlowMotionVideoIcon
                 sx={{ color: "whitesmoke", fontSize: "1.3vw" }}
