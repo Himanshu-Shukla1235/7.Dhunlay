@@ -101,10 +101,11 @@ const transporter = nodemailer.createTransport({
  */
 
 const registerUser = async (req, res) => {
-  console.log("regestring new user detected");
+  console.log("Registering new user detected");
   try {
     const { username, password, email, country, state, location } = req.body;
 
+    // Basic validation
     if (!username || !password || !email || !country || !state) {
       return res.status(400).json({
         success: false,
@@ -112,6 +113,7 @@ const registerUser = async (req, res) => {
       });
     }
 
+    // Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({
@@ -119,54 +121,37 @@ const registerUser = async (req, res) => {
         message: "Email already in use. Please use a different email.",
       });
     }
-    //email verification
-    // UserMailVeri.findOne({ email ,password});
-    //----------------------
-    const user = await User.create({
-      username,
-      email,
-      password: password,
-      location,
-      country,
-      state,
+
+    // Optional: Clean up old entry if it exists (to avoid duplicate keys in UserMailVeri)
+    await UserMailVeri.deleteOne({ email });
+
+    // Store temporary data for verification
+    await UserMailVeri.create({ email, password });
+
+    // Create a signed token with user info (not password)
+    const payload = { username, email, location, country, state };
+    const E_V_token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "1d",
     });
 
-    // Generate JWT token
-    const token = jwt.sign(
-      { userId: user._id, username: user.username },
-      process.env.JWT_SECRET,
-      { expiresIn: process.env.JWT_LIFETIME }
-    );
+    // Use production URL if deployed
+    const verificationLink = `https://dhunlay.com/api/verify-email?token=${E_V_token}`;
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      maxAge: 3600000, // 1 hour expiration
-    });
-    // Send Welcome Email
+    // Send email
     await sendEmail(
       email,
-      "Welcome to Dhunlay - Let's Amplify Your Music! 🎵",
+      "Dhunlay - Please Verify Your Email",
       `<h3>Hey ${username},</h3>
-
-   <br>
-   <img src="https://c0.wallpaperflare.com/path/171/92/918/man-standing-beside-black-dynamic-microphone-ee2e13ae57d8cc569246fb6e50236e17.jpg" alt="Dhunlay Banner" width="100%" style="max-width:600px; margin-top:10px;"/>
-   <p>Welcome to <b>Dhunlay</b> - your ultimate music distribution partner! 🚀</p>
-   <p>We empower independent artists like you to distribute your music seamlessly across top streaming platforms worldwide. Whether it's Spotify, Apple Music, or YouTube Music - we've got you covered!</p>
-   <p>🌟 <b>What's next?</b> Upload your tracks, reach millions of listeners, and start earning from your passion!</p>
-   <p>If you need any support, we're just a message away. Let's make your music heard!</p>
-   <p>🎶 <b>Let's create something extraordinary together!</b></p>
-   <p><b>Team Dhunlay</b></p>`
+      <p>Welcome to <b>Dhunlay</b> – your trusted music distribution partner! 🎶</p>
+      <p>Please verify your email address to activate your account and unlock full access to our platform.</p>
+      <p>👉 <a href="${verificationLink}"><b>Click here to verify your email</b></a></p>
+      <p>If you didn’t sign up for Dhunlay, please ignore this message.</p>
+      <p><b>– Team Dhunlay</b></p>`
     );
-
-    const { password: _, ...userData } = user.toObject();
 
     return res.status(201).json({
       success: true,
-      message: "User registered successfully 🎉",
-      user: userData,
-      token,
+      message: "Verification email sent",
     });
   } catch (error) {
     console.error("Error in registerUser:", error.message);
@@ -177,18 +162,68 @@ const registerUser = async (req, res) => {
     });
   }
 };
+
 // Email verification to regester
 const verifyEmail = async (req, res) => {
+  console.log("verifyEmail hit");
   try {
     const { token } = req.query;
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET); // verify & decode token
 
-    user.isVerified = true;
-    await user.save();
+    const emailFind = await UserMailVeri.findOne({ email: decoded.email });
+    if (!emailFind) {
+      return res.redirect(
+        "https://dhunlay.com/?error=Email verification failed"
+      );
+    }
 
-    res.send("Email verified successfully!");
+    // Create user using the decoded + temp stored password
+    const user = await User.create({
+      username: decoded.username,
+      email: decoded.email, // ❗ Fix this line (was jwt.decoded.email which is wrong)
+      password: emailFind.password,
+      location: decoded.location,
+      country: decoded.country,
+      state: decoded.state,
+    });
+
+    // Create auth token
+    const authToken = jwt.sign(
+      { userId: user._id, username: user.username },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_LIFETIME }
+    );
+
+    // Set cookie
+    res.cookie("token", authToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      maxAge: 3600000, // 1 hour
+    });
+
+    // Send Welcome Email
+    await sendEmail(
+      decoded.email,
+      "Welcome to Dhunlay – Let's Amplify Your Music! 🎵",
+      `<h3>Hey ${decoded.username},</h3>
+      <p>Welcome to <b>Dhunlay</b> – your trusted music distribution partner! 🎶</p>
+      <p>You're now verified and ready to upload tracks and go global!</p>
+      <p>🎵 Let’s make your music heard around the world!</p>
+      <p><b>– Team Dhunlay</b></p>
+      <img src="https://c0.wallpaperflare.com/path/171/92/918/man-standing-beside-black-dynamic-microphone-ee2e13ae57d8cc569246fb6e50236e17.jpg" alt="Dhunlay Banner" width="100%" style="max-width:600px; margin-top:20px;"/>`
+    );
+
+    // Optional: Remove temporary verification entry
+    await UserMailVeri.deleteOne({ email: decoded.email });
+    console.log("user regestered succesfully");
+    // Redirect after success
+    return res.redirect("https://dhunlay.com/dashboard");
   } catch (err) {
-    res.status(400).send("Invalid or expired token");
+    console.error("❌ Email verification error:", err.message);
+    return res.redirect(
+      "https://dhunlay.com/?error=Verification link expired or invalid"
+    );
   }
 };
 

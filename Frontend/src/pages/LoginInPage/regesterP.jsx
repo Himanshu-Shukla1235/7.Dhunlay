@@ -16,51 +16,51 @@ const RegisterPage = () => {
 
   // List of countries and states
   const countries = ["USA", "India", , "UK", "Australia"];
-const statesByCountry = {
-  USA: ["New York", "California", "Texas"],
-  India: [
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chhattisgarh",
-    "Goa",
-    "Gujarat",
-    "Haryana",
-    "Himachal Pradesh",
-    "Jharkhand",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh",
-    "Maharashtra",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Nagaland",
-    "Odisha",
-    "Punjab",
-    "Rajasthan",
-    "Sikkim",
-    "Tamil Nadu",
-    "Telangana",
-    "Tripura",
-    "Uttar Pradesh",
-    "Uttarakhand",
-    "West Bengal",
-    // Union Territories (Optional, remove if not needed)
-  
-    "Chandigarh",
-   
-    "Delhi",
-    "Jammu and Kashmir",
-    "Ladakh",
-    "Lakshadweep",
-    "Puducherry"
-  ],
-  Canada: ["Ontario", "Quebec", "British Columbia"],
-  UK: ["England", "Scotland", "Wales"],
-  Australia: ["New South Wales", "Queensland", "Victoria"],
-};
+  const statesByCountry = {
+    USA: ["New York", "California", "Texas"],
+    India: [
+      "Andhra Pradesh",
+      "Arunachal Pradesh",
+      "Assam",
+      "Bihar",
+      "Chhattisgarh",
+      "Goa",
+      "Gujarat",
+      "Haryana",
+      "Himachal Pradesh",
+      "Jharkhand",
+      "Karnataka",
+      "Kerala",
+      "Madhya Pradesh",
+      "Maharashtra",
+      "Manipur",
+      "Meghalaya",
+      "Mizoram",
+      "Nagaland",
+      "Odisha",
+      "Punjab",
+      "Rajasthan",
+      "Sikkim",
+      "Tamil Nadu",
+      "Telangana",
+      "Tripura",
+      "Uttar Pradesh",
+      "Uttarakhand",
+      "West Bengal",
+      // Union Territories (Optional, remove if not needed)
+
+      "Chandigarh",
+
+      "Delhi",
+      "Jammu and Kashmir",
+      "Ladakh",
+      "Lakshadweep",
+      "Puducherry",
+    ],
+    Canada: ["Ontario", "Quebec", "British Columbia"],
+    UK: ["England", "Scotland", "Wales"],
+    Australia: ["New South Wales", "Queensland", "Victoria"],
+  };
 
   const backendAppUrl = import.meta.env.VITE_API_URL;
   const handleRegister = async (e) => {
@@ -103,7 +103,10 @@ const statesByCountry = {
       }
 
       // localStorage.setItem("token", data.token);
-      window.location.href = `/dashboard/${data.user._id}`;
+      // window.location.href = `/dashboard/${data.user._id}`;
+      alert(
+        `A verification email has been sent to ${email}. Please check your inbox to complete the registration.`
+      );
     } catch (err) {
       setLoading(false);
       setError(err.message || "Something went wrong(Frontend)");
@@ -134,12 +137,11 @@ const statesByCountry = {
       <div className="registerP-main">
         <div className="registerP-main-sec1"></div>
         <div className="registerP-container">
-        {/* <div className="regesterP-container-logo"></div> */}
-          <div className="registerP-container-title"> 
-          <h2>You Bring the Passion. We Bring the Platform.</h2><p >
-
-            
-          </p></div>
+          {/* <div className="regesterP-container-logo"></div> */}
+          <div className="registerP-container-title">
+            <h2>You Bring the Passion. We Bring the Platform.</h2>
+            <p></p>
+          </div>
           <form className="registerP-form" onSubmit={handleRegister}>
             <div className="registerP-form-sec1">
               {" "}
@@ -236,14 +238,17 @@ const statesByCountry = {
 
             {error && <p className="registerP-error">{error}</p>}
           </form>
-           <div className="registerP-policy"> <p >
-            By logging in, you agree to our <a href="/policy">Terms</a> and{" "}
-            <a href="/policy">Privacy Policy</a>
-          </p>
+          <div className="registerP-policy">
+            {" "}
+            <p>
+              By logging in, you agree to our <a href="/policy">Terms</a> and{" "}
+              <a href="/policy">Privacy Policy</a>
+            </p>
           </div>
-          <div className="registerP-morque"><MusicPlatformMarquee logos={logos} ></MusicPlatformMarquee></div>
+          <div className="registerP-morque">
+            <MusicPlatformMarquee logos={logos}></MusicPlatformMarquee>
+          </div>
         </div>
-      
       </div>
     </>
   );
