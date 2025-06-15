@@ -99,7 +99,7 @@ const checkPaymentStatus = async (req, res) => {
         orderId: orderId,
         status: status,
       });
-      res.redirect("https://dhunlay.com/dashboard");
+      res.redirect("https://dhunlay.com/ourPlans");
     } else {
       res.json("https://dhunlay.com/ourPlans");
     }
