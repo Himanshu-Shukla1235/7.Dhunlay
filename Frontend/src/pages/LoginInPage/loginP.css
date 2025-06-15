@@ -1,9 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background-color: black;
-}
+
 /*_____________________________________________________________________________loginP-nav  */
 .loginP-nav {
   display: flex;
@@ -95,6 +90,8 @@ overflow: hidden;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  /* border: solid red 3px; */
+  height: auto;
 }
 
 .loginP-container-sec-1 h7 {
@@ -102,7 +99,7 @@ overflow: hidden;
   color: #a8a6a6;
   font-family: sans-serif;
   font-family: "Inconsolata", serif;
-  font-size: 2vw;
+  font-size: 1.3vw;
   padding: 1vw;
   overflow: hidden;
 }

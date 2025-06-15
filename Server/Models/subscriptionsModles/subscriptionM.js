@@ -6,7 +6,6 @@ const SubscriptionSchema = new mongoose.Schema(
       type: String,
 
       required: true,
-      unique: true, // ensures name is unique
     },
     status: {
       type: String,
@@ -41,6 +40,8 @@ const SubscriptionSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+// Add this line **after** the schema definition
+SubscriptionSchema.index({ name: 1, userId: 1 }, { unique: true });
 
 SubscriptionSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 

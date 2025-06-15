@@ -64,7 +64,7 @@ const HomeP = () => {
   };
 
   return (
-    <>
+    <div className="whole">
       <header className="navbar">
         <div className="logoD">
           <div className="logo"></div>
@@ -159,7 +159,7 @@ const HomeP = () => {
       </main>
 
       <footer></footer>
-    </>
+    </div>
   );
 };
 

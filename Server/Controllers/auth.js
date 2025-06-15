@@ -173,7 +173,7 @@ const verifyEmail = async (req, res) => {
     const emailFind = await UserMailVeri.findOne({ email: decoded.email });
     if (!emailFind) {
       return res.redirect(
-        "https://dhunlay.com/?error=Email verification failed"
+        "https://dhunlay.com/?error=Email "
       );
     }
 

@@ -9,6 +9,7 @@ import StarIcon from "@mui/icons-material/Star";
 import ArticleIcon from "@mui/icons-material/Article";
 import WorkIcon from "@mui/icons-material/Work";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const ListComponent = () => {
   const [activeName, setActiveName] = useState("");
@@ -39,7 +40,7 @@ const ListComponent = () => {
     {
       name: "OurPlans",
       href: "/ourPlans",
-      icon: <StarIcon className="menu-icon" />,
+      icon: <ShoppingCartIcon className="menu-icon" />,
     },
    
     // {

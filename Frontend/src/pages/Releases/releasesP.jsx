@@ -67,7 +67,7 @@ const ReleasesPContent = () => {
   const artistNames = artists.map((a) => a.primaryArtistName);
 
   return (
-    <div className="ReleasesP-main">
+    <div className="whole"><div className="ReleasesP-main">
       {/* Section 1 */}
       <div className="ReleasesP-main-sec-1">
         <div className="ReleasesP-main-sec-11">
@@ -123,7 +123,8 @@ const ReleasesPContent = () => {
           <SongsList />
         </ReleasedSongsProvider>
       </div>
-    </div>
+    </div></div>
+    
   );
 };
 

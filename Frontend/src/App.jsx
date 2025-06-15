@@ -125,10 +125,10 @@ function MainApp() {
             //   if (window.location.pathname === "/about") {
             //   navigate(`/about/${data._id}`);
             // }
-            //for public routes
-            // if (window.location.pathname === "/login" && data._id != null) {
-            //   navigate(`/dashboard/${data._id}`);
-            // }
+            // for public routes
+            if (window.location.pathname === "/login" && data._id != null) {
+              navigate(`/dashboard/${data._id}`);
+            }
           }, 100);
         }
       } catch (error) {
