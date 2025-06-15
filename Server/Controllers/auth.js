@@ -126,7 +126,11 @@ const registerUser = async (req, res) => {
     await UserMailVeri.deleteOne({ email });
 
     // Store temporary data for verification
-    await UserMailVeri.create({ email, password });
+    await UserMailVeri.findOneAndUpdate(
+      { email }, // search condition
+      { email, password }, // new data
+      { upsert: true, new: true } // options: create if not found
+    );
 
     // Create a signed token with user info (not password)
     const payload = { username, email, location, country, state };
@@ -170,11 +174,12 @@ const verifyEmail = async (req, res) => {
     const { token } = req.query;
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // verify & decode token
 
-    const emailFind = await UserMailVeri.findOne({ email: decoded.email });
+    const emailFind = await UserMailVeri.findOne({ email: decoded.email }).sort(
+      { createdAt: -1 }
+    ); // descending order, so latest comes first
+
     if (!emailFind) {
-      return res.redirect(
-        "https://dhunlay.com/?error=Email "
-      );
+      return res.redirect("https://dhunlay.com/?error=Email ");
     }
 
     // Create user using the decoded + temp stored password
