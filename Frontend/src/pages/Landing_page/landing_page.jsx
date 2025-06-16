@@ -56,8 +56,8 @@ const test = () => {
         trigger: wrapperRef.current,
         start: "top 100%",
         end: "bottom 90%",
-        scrub: .3,
-        toggleActions: "play reverse play reverse", 
+        scrub: 0.3,
+        toggleActions: "play reverse play reverse",
         // markers: true,
       },
     });
@@ -74,7 +74,6 @@ const test = () => {
       { x: 0, opacity: 1, ease: "power1.inOut", immediateRender: false },
       0.001
     );
-
   }, []);
 
   const [serviceDropdownOpen, setserviceDropdownOpen] = useState(false);
@@ -181,14 +180,14 @@ const test = () => {
   //------------------ Testimonials data --------------------//
   const testimonials = [
     {
-      name: "Alice Johnson",
-      photo: "https://randomuser.me/api/portraits/women/44.jpg",
+      name: "Aarav Mehta",
+      photo: "https://randomuser.me/api/portraits/men/33.jpg",
       testimonial:
         "Using this platform has been a game-changer for our team. It's intuitive and super efficient!",
     },
     {
-      name: "Michael Smith",
-      photo: "https://randomuser.me/api/portraits/men/45.jpg",
+      name: "Sneha Reddy",
+      photo: "https://randomuser.me/api/portraits/women/68.jpg",
       testimonial:
         "Customer support was fantastic and helped us integrate it smoothly into our workflow.",
     },
@@ -198,34 +197,36 @@ const test = () => {
       testimonial: "I can't imagine going back to our old process.",
     },
     {
-      name: "Carlos Vega",
-      photo: "https://randomuser.me/api/portraits/men/75.jpg",
+      name: "Rohan Verma",
+      photo: "https://randomuser.me/api/portraits/men/22.jpg",
       testimonial:
         "Clean UI, great performance, and reliable. It's everything we needed in a solution.",
     },
     {
-      name: "Priya Kumar",
-      photo: "https://randomuser.me/api/portraits/women/65.jpg",
-      testimonial: "I can't imagine going back to our old process.",
+      name: "Ananya Sharma",
+      photo: "https://randomuser.me/api/portraits/women/51.jpg",
+      testimonial:
+        "Smooth experience from start to finish. Truly a helpful product.",
     },
     {
-      name: "Carlos Vega",
-      photo: "https://randomuser.me/api/portraits/men/75.jpg",
+      name: "Ravi Desai",
+      photo: "https://randomuser.me/api/portraits/men/48.jpg",
       testimonial:
         "Clean UI, great performance, and reliable. It's everything we needed in a solution. I can't imagine going back to our old process. This tool has saved us hours every week.",
     },
     {
-      name: "Priya Kumar",
-      photo: "https://randomuser.me/api/portraits/women/65.jpg",
+      name: "Neha Kapoor",
+      photo: "https://randomuser.me/api/portraits/women/49.jpg",
       testimonial:
         "I can't imagine going back to our old process. This tool has saved us hours every week.",
     },
     {
-      name: "Carlos Vega",
-      photo: "https://randomuser.me/api/portraits/men/75.jpg",
+      name: "Aditya Iyer",
+      photo: "https://randomuser.me/api/portraits/men/53.jpg",
       testimonial: "heyyy.",
     },
   ];
+
   //--------------------------- For testimonials ---------------------------//
   const getColumns = (data, columnCount = 3) => {
     const columns = Array.from({ length: columnCount }, () => []);
@@ -332,7 +333,10 @@ const test = () => {
 
         <div className="section-1">
           <video autoPlay muted loop>
-            <source src="https://cdn.pixabay.com/video/2015/11/07/1275-145116912_tiny.mp4" type="video/mp4" />
+            <source
+              src="https://cdn.pixabay.com/video/2015/11/07/1275-145116912_tiny.mp4"
+              type="video/mp4"
+            />
           </video>
           <div className="section-11">
             <h3>
@@ -1335,7 +1339,7 @@ const test = () => {
 
         <div className="section-testi">
           <motion.h1
-          ref={testiRef}
+            ref={testiRef}
             // className="section-51"
             initial={{
               y: 50,
