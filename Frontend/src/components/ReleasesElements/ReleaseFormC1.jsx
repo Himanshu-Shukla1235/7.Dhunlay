@@ -502,7 +502,7 @@ const ReleaseUserFormD = () => {
           <div className="step-1-fields2">
             {" "}
             <InputC1
-              placeholder="* Enter the Title"
+              placeholder="* Title"
               value={localData.songName || formDataPost.songName}
               onChange={(e) => handleChange("songName", e.target.value)}
             ></InputC1>
@@ -1109,143 +1109,145 @@ const ReleaseUserFormD = () => {
 
   // Step 4 Component: Review Submission
   const Step4 = () => {
-    return (<>   <h2>
+    return (
+      <>
+        {" "}
+        <h2>
           Review Your <span style={{ color: "white" }}>Submission</span>{" "}
         </h2>{" "}
-      <div className="step-4">
-     
-        <div
-          className="step-4-main"
-          style={{ color: "white", padding: "1rem" }}
-        >
-          <div className="step-4-main-label">
-            <h4>Release Type:</h4>{" "}
-            <span>{formDataPost.releaseType || "NA"}</span>
-          </div>
-          <div className="step-4-main-label">
-            <h4>Song Name:</h4> <span>{formDataPost.songName || "NA"}</span>
-          </div>
+        <div className="step-4">
+          <div
+            className="step-4-main"
+            style={{ color: "white", padding: "1rem" }}
+          >
+            <div className="step-4-main-label">
+              <h4>Release Type:</h4>{" "}
+              <span>{formDataPost.releaseType || "NA"}</span>
+            </div>
+            <div className="step-4-main-label">
+              <h4>Song Name:</h4> <span>{formDataPost.songName || "NA"}</span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Primary Artists:</h4>
-            <span>
-              {formDataPost.primaryArtists?.length
-                ? formDataPost.primaryArtists.join(", ")
-                : "NA"}
-            </span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Primary Artists:</h4>
+              <span>
+                {formDataPost.primaryArtists?.length
+                  ? formDataPost.primaryArtists.join(", ")
+                  : "NA"}
+              </span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Featuring Artists:</h4>
-            <span>
-              {formDataPost.featuringArtists?.length
-                ? formDataPost.featuringArtists.join(", ")
-                : "NA"}
-            </span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Featuring Artists:</h4>
+              <span>
+                {formDataPost.featuringArtists?.length
+                  ? formDataPost.featuringArtists.join(", ")
+                  : "NA"}
+              </span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Authors:</h4>
-            <span>
-              {formDataPost.authors?.length
-                ? formDataPost.authors.join(", ")
-                : "NA"}
-            </span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Authors:</h4>
+              <span>
+                {formDataPost.authors?.length
+                  ? formDataPost.authors.join(", ")
+                  : "NA"}
+              </span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Composers:</h4>
-            <span>
-              {formDataPost.composers?.length
-                ? formDataPost.composers.join(", ")
-                : "NA"}
-            </span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Composers:</h4>
+              <span>
+                {formDataPost.composers?.length
+                  ? formDataPost.composers.join(", ")
+                  : "NA"}
+              </span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Music Producers:</h4>
-            <span>
-              {formDataPost.musicProducers?.length
-                ? formDataPost.musicProducers.join(", ")
-                : "NA"}
-            </span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Music Producers:</h4>
+              <span>
+                {formDataPost.musicProducers?.length
+                  ? formDataPost.musicProducers.join(", ")
+                  : "NA"}
+              </span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Music Directors:</h4>
-            <span>
-              {formDataPost.musicDirectors?.length
-                ? formDataPost.musicDirectors.join(", ")
-                : "NA"}
-            </span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Music Directors:</h4>
+              <span>
+                {formDataPost.musicDirectors?.length
+                  ? formDataPost.musicDirectors.join(", ")
+                  : "NA"}
+              </span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Lyrics:</h4>
-            <span>{formDataPost.lyrics || "NA"}</span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Lyrics:</h4>
+              <span>{formDataPost.lyrics || "NA"}</span>
+            </div>
 
-          {/* <div className="step-4-main-label">
+            {/* <div className="step-4-main-label">
           <h4>Lyrics File:</h4>
           <span>
             {formDataPost.lyricsFile ? formDataPost.lyricsFile.name : "NA"}
           </span>
         </div> */}
 
-          <div className="step-4-main-label">
-            <h4>Label Name:</h4>
-            <span>{formDataPost.labelName || "NA"}</span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Label Name:</h4>
+              <span>{formDataPost.labelName || "NA"}</span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Song File:</h4>
-            <span>
-              {formDataPost.songFile.length > 0
-                ? formDataPost.songFile.map((file, index) => (
-                    <span key={index}>
-                      {file.name || file}{" "}
-                      {/* file.name for File objects, file for URLs */}
-                      {index !== formDataPost.songFile.length - 1 && ", "}
-                    </span>
-                  ))
-                : "NA"}
-            </span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Song File:</h4>
+              <span>
+                {formDataPost.songFile.length > 0
+                  ? formDataPost.songFile.map((file, index) => (
+                      <span key={index}>
+                        {file.name || file}{" "}
+                        {/* file.name for File objects, file for URLs */}
+                        {index !== formDataPost.songFile.length - 1 && ", "}
+                      </span>
+                    ))
+                  : "NA"}
+              </span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Cover Art:</h4>
-            <span>
-              {formDataPost.coverArt
-                ? formDataPost.coverArt.name || formDataPost.coverArt
-                : "NA"}
-            </span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Cover Art:</h4>
+              <span>
+                {formDataPost.coverArt
+                  ? formDataPost.coverArt.name || formDataPost.coverArt
+                  : "NA"}
+              </span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Release Date:</h4>
-            <span>
-              {formDataPost.releaseDate
-                ? formDataPost.releaseDate.toString()
-                : "NA"}
-            </span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Release Date:</h4>
+              <span>
+                {formDataPost.releaseDate
+                  ? formDataPost.releaseDate.toString()
+                  : "NA"}
+              </span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>ISRC:</h4>
-            <span>{formDataPost.isrc || "NA"}</span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>ISRC:</h4>
+              <span>{formDataPost.isrc || "NA"}</span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>UPC:</h4>
-            <span>{formDataPost.upc || "NA"}</span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>UPC:</h4>
+              <span>{formDataPost.upc || "NA"}</span>
+            </div>
 
-          <div className="step-4-main-label">
-            <h4>Explicit Content:</h4>
-            <span>{formDataPost.explicitContent || "NA"}</span>
-          </div>
+            <div className="step-4-main-label">
+              <h4>Explicit Content:</h4>
+              <span>{formDataPost.explicitContent || "NA"}</span>
+            </div>
 
-          {/* <div className="step-4-main-label">
+            {/* <div className="step-4-main-label">
           <h4>Distribution Platforms:</h4>
           <span>
             {formDataPost.distributionPlatform?.length
@@ -1254,37 +1256,32 @@ const ReleaseUserFormD = () => {
           </span>
         </div> */}
 
-          <div className="step-4-main-button-finish">
-            {/* {activeStep > 0 && (
+            <div className="step-4-main-button-finish">
+              {/* {activeStep > 0 && (
         <ButtonC1
           content={"Back"}
           onClick={() => setActiveStep(activeStep - 1)}
         />
       )} */}
-          </div>
-        </div>{" "}
-        <button
-          className="finish-button"
-          onClick={() => {
-          
-          }}
-        >
+            </div>
+          </div>{" "}
+          <button className="finish-button" onClick={() => {}}>
+            {loader == true ? (
+              <p>
+                <CircularProgress></CircularProgress>
+              </p>
+            ) : (
+              <p style={{ color: "black" }}>Submit</p>
+            )}
+          </button>
           {loader == true ? (
-            <p>
-              <CircularProgress></CircularProgress>
+            <p className="ReleaseForm-main-finalsubmit-massage">
+              Submitting your release, please wait... 🎶
             </p>
           ) : (
-            <p style={{ color: "black" }}>Submit</p>
+            <p style={{ color: "black" }}></p>
           )}
-        </button>
-        {loader == true ? (
-          <p className="ReleaseForm-main-finalsubmit-massage">
-            Submitting your release, please wait... 🎶
-          </p>
-        ) : (
-          <p style={{ color: "black" }}></p>
-        )}
-      </div>
+        </div>
       </>
     );
   };
