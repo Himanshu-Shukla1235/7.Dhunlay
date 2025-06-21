@@ -25,7 +25,7 @@
   padding: 1vh 2vw; /* Responsive padding */
   box-shadow: 0 0.5vh 0.8vh rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  z-index: 1000;
+  z-index: 10000;
 
 
   /* Responsive border thickness */

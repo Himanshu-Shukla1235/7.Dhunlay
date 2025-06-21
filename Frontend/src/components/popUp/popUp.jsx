@@ -7,7 +7,7 @@ const PopupModal = ({ isOpen, onClose, children }) => {
   return (
     <div className="popup-overlay">
       <div className="popup-content">
-        <button className="close-button" onClick={onClose}>×</button>
+        <button className="popup-close-button " onClick={onClose}>×</button>
         {children}
       </div>
     </div>
