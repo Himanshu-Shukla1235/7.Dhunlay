@@ -115,8 +115,13 @@ opacity: 1;
   gap: 1vw;
 }
 .step1-main {
+  position: relative;
   font-family: sans-serif;
   /* color: white; */
+  border: solid #00EEFF 1.5px;
+  padding: 30px;
+  border-radius: 10px;
+
 }
 /* .step1-main label{
   color: white;
@@ -126,6 +131,7 @@ opacity: 1;
   color: white;
 }
 .ReleaseForm-primaryartistinput {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,6 +139,8 @@ opacity: 1;
   width: 34vw;
   border: solid rgb(105, 105, 105) 2px;
   margin-bottom: 5vw;
+  z-index: 999;
+  height: 30vh;
 }
 .ReleaseForm-primaryartistinput p {
   color: rgb(170, 170, 170);
@@ -164,6 +172,33 @@ opacity: 1;
 }
 .ReleaseForm-releaseType-option:hover {
   background-color: #00eeff;
+}
+
+.step-1-fields{
+   display: flex;
+  flex-direction: column;
+ border: solid rgb(58, 57, 57) 0.8px;
+ justify-content: flex-start;
+ margin-bottom: 40px;
+ padding: 8px;
+ 
+border-radius: 7px;
+ 
+}
+.step-1-fields2{
+   display: flex;
+  flex-direction: column;
+ border: solid rgb(58, 57, 57) 0.8px;
+ justify-content: flex-start;
+ margin-top: 40px;
+ padding: 15px;
+ 
+border-radius: 7px;
+ 
+}
+.step-1-fields-sec1{
+  display: flex;
+  flex-direction: row;
 }
 /* -------------------------------------------------step-2------------------------------- */
 .step2-main {
@@ -278,6 +313,7 @@ opacity: 1;
   width: 25vw;
   padding: 2vw;
   background-color: #000000;
+     line-height: 1.8;
 }
 .step-2-main1-right {
   display: flex;
@@ -320,6 +356,8 @@ opacity: 1;
   padding: 2vw;
   height: 30vh;
   background-color: #000000;
+     line-height: 1.8;
+  
 }
 .step2-main2-right {
   padding: 1vw;
@@ -332,6 +370,7 @@ opacity: 1;
   width: 25vw;
   gap: 1vw;
   padding: 2vw;
+
 }
 .file-upload {
   width: 130px;
@@ -369,7 +408,12 @@ opacity: 1;
   padding: 5px;
   border-radius: 4px;
 }
-
+.step-2-main1-addTracks{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 /* ----------------------------------------------------------- STEP-3 ---------------------------- */
 .step-3-main {
   background-color: #000000;
@@ -448,6 +492,15 @@ opacity: 1;
 }
 
 /* ------------------------------------------------------step-4 */
+.step-4{
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:1vw ;
+  /* border: red 3px  solid; */
+  width: 100%;
+}
 .step-4-main {
   display: flex;
   flex-direction: column;
@@ -456,15 +509,42 @@ opacity: 1;
   max-width: 600px;
   margin: auto;
   padding: 30vh;
-  background-color: #d0171700;
+  background-color: #252424;
   color: #ffffff;
   border-radius: 10px;
   border: dotted grey 3px;
   font-family: "Inconsolata", serif;
   width: 100%;
-  gap: 3vw;
+  gap: 1vw;
   font-size: 1.5vw;
+  height: 80vh;
+  overflow-y: scroll;
+
+  /* Scrollbar Decoration */
+  scrollbar-width: thin;
+  scrollbar-color: #888 #222; /* thumb color and track color */
 }
+
+/* For Chrome, Edge, Safari */
+.step-4-main::-webkit-scrollbar {
+  width: 10px;
+}
+
+.step-4-main::-webkit-scrollbar-track {
+  background: #222;         /* Track background */
+  border-radius: 5px;
+}
+
+.step-4-main::-webkit-scrollbar-thumb {
+  background-color: #888;   /* Thumb color */
+  border-radius: 10px;
+  border: 2px solid #222;   /* Space around thumb */
+}
+
+.step-4-main::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;   /* On hover */
+}
+
 .step-4-main h2 {
   color: #00eeff;
   padding: 3vw;
@@ -478,6 +558,8 @@ opacity: 1;
   /* border: solid red 3px; */
   gap: 1.5vw;
   padding-left: 5vw;
+  background-color: #000000;
+  border-radius: 10px;
 }
 .step-4-main-label h4 {
   color: #00eeff;
@@ -564,6 +646,9 @@ opacity: 1;
   .step1-main {
     width: 100%;
     /* border: solid red 1px; */
+    /* padding: 20px; */
+    border: none;
+    padding: 0px;
   }
   .step-1-prev-main {
     /* border: solid red 1px; */
@@ -574,6 +659,7 @@ opacity: 1;
     flex-direction: column-reverse;
     width: 98%;
     height: auto;
+
   }
   .step-2-main1-left,
   .step2-main2-left {
@@ -611,6 +697,7 @@ opacity: 1;
   .step-3-main {
     /* border: solid red 2px; */
     width: 100%;
+    margin-top: 9vw;
   }
   .step3-main-datepicker {
     width: 100%;

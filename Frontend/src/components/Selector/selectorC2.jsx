@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./selectorC2.css";
 import SearchIcon from "@mui/icons-material/Search";
-
-const PrimaryArtistSelector2 = ({ artistNames, selectedArtists, onChange }) => {
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
   const didInit = useRef(false);
   const selectedCount = selectedArtists.length;
+  const wrapperRef = useRef(null);
 
   // Auto-select all on first non-empty artistNames
   useEffect(() => {
     if (!didInit.current && artistNames.length > 0) {
-      onChange("");
+      onChange(artistNames);
       didInit.current = true;
     }
   }, [artistNames, onChange]);
@@ -19,7 +20,7 @@ const PrimaryArtistSelector2 = ({ artistNames, selectedArtists, onChange }) => {
   // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (!e.target.closest(".dropdown")) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
@@ -51,33 +52,35 @@ const PrimaryArtistSelector2 = ({ artistNames, selectedArtists, onChange }) => {
   const displayLabel = () => {
     if (selectedCount === 0) return "None";
     if (selectedCount === artistNames.length) return "All";
-    return `${selectedCount } selected`;
+    return `${selectedCount - 1} selected`;
   };
 
   return (
     <div className="selector-container">
       <label htmlFor="artist-select">Select Primary Artists:</label>
       <div className="dropdown">
-        <h4
-          
-          type="button"
-          className="dropdown-button"
-          onClick={toggleOpen}
+        <div
+          ref={wrapperRef}
+          className="selector-search"
+          onClick={openDropdown}
         >
-          {displayLabel()}
-        </h4>
-
-        <div className="selector-search" onClick={openDropdown}>
+          <h4
+            id="artist-select"
+            type="button"
+            className="dropdown-button"
+            onClick={toggleOpen}
+          >
+            {displayLabel()}
+          </h4>
           <input
             type="text"
-            placeholder="Search artists..."
+            placeholder="Select Artists..."
             className="selector-search-input"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
           <SearchIcon
             sx={{
-                color:"#00EEFF",
               fontSize: {
                 xs: "6vw", // ✅ Phones (extra small)
                 sm: "4vw", // ✅ Tablets (small)
@@ -131,4 +134,4 @@ const PrimaryArtistSelector2 = ({ artistNames, selectedArtists, onChange }) => {
   );
 };
 
-export default PrimaryArtistSelector2;
+export default PrimaryArtistSelector;

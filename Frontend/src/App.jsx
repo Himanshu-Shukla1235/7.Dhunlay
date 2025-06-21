@@ -37,7 +37,11 @@ import ContactUs from "./pages/contactUsP";
 import OurPlansGeneral from "./pages/OurPlans/ourPlansPublic";
 import PaymentPage from "./pages/PymentPage/payP";
 import AdminCreatePlan from "./adminPages/createPlanP";
-
+import SpotifyArtistSearch from "./data/Spotify/artist search/spotifyArtistSeach";
+import MusicSmartLinks from "./data/Odesli/OdesliAllAongLinks";
+import UpsertPrimaryArtistForm from "./components/primaryatistActions/addPrimaryArtist";
+import AddPrimaryArtistPage from "./pages/AddPrimaryArtist/addPrimArtist";
+import PopupModal from "./components/popUp/popUp";
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
@@ -71,12 +75,10 @@ function MainApp() {
             data.message || "Unknown error"
           );
           setUser(null);
-          console.log("user",user);
-         
-
+          console.log("user", user);
         } else {
           setUser(data);
-        
+
           // Introduce a delay of 1.5 seconds before navigation
           setTimeout(() => {
             if (window.location.pathname === "/home") {
@@ -121,6 +123,9 @@ function MainApp() {
             }
             if (window.location.pathname === "/labelPlan") {
               navigate(`/labelPlan/${data._id}`);
+            }
+             if (window.location.pathname === "/addArtist") {
+              navigate(`/addArtist/${data._id}`);
             }
             //   if (window.location.pathname === "/about") {
             //   navigate(`/about/${data._id}`);
@@ -174,6 +179,9 @@ function MainApp() {
         <Route path="policy" element={<PolicyPage />} />{" "}
         <Route path="contact" element={<ContactUs />} />{" "}
         <Route path="plans" element={<OurPlansGeneral />} />{" "}
+        <Route path="/artist_search" element={<SpotifyArtistSearch />}></Route>
+        <Route path="/Song_links" element={<MusicSmartLinks />}></Route>
+        <Route path="/popUp" element={<PopupModal />}></Route>
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />
@@ -189,17 +197,18 @@ function MainApp() {
             <Route path="features_artist/:id" element={<FeaturesArtist />} />
             <Route path="features_label/:id" element={<FeaturesLabel />} />{" "}
             <Route path="features/:id" element={<Features />} />{" "}
+         
             <Route
               path="/releases/:id"
               element={<ReleasesP></ReleasesP>}
             ></Route>
             {/* <Route path="analytics" element={<Analytics />} /> */}
           </Route>
+             <Route path="addArtist/:id" element={<AddPrimaryArtistPage />} />{" "}
           <Route
             path="/release/:id"
             element={<ReleaseUserForm></ReleaseUserForm>}
           ></Route>
-        
         </Route>
         {/* Public Routes */}
         <Route path="/login" element={<Login />} />

@@ -76,7 +76,6 @@
   padding: 1vw;
   gap: 1.5vw;
   height: auto;
-  
 }
 
 .ReleasesP-main-sec-21::before {
@@ -96,13 +95,12 @@
 
   z-index: -1;
 }
-.ReleasesP-main-sec-21 h4{
+.ReleasesP-main-sec-21 h4 {
   font-size: 2vw;
   font-weight: 600;
-  color: #00EEFF;
-  
+  color: #00eeff;
 }
-.ReleasesP-main-sec-21 p{
+.ReleasesP-main-sec-21 p {
   font-size: 1vw;
 }
 .ReleasesP-main-sec-21-button-1 {
@@ -130,7 +128,7 @@
   height: auto;
   background-color: black;
   position: relative; /* Needed to position the pseudo-element */
-  overflow: hidden;   /* Optional: prevents ::before from spilling outside */
+  overflow: hidden; /* Optional: prevents ::before from spilling outside */
   border: black solid 0.2vw;
   gap: 1vw;
   padding: 2vw;
@@ -150,22 +148,18 @@
   background-repeat: no-repeat;
 
   opacity: 0.1; /* Optional: makes background more subtle */
-  z-index: 0;   /* Make sure it's behind the content */
+  z-index: 0; /* Make sure it's behind the content */
   filter: grayscale(1) blur(1.5px);
-  
-
 }
 
 .ReleasesP-main-sec-22 > * {
   position: relative;
   z-index: 1; /* Ensure child content is above the ::before */
 }
-.ReleasesP-main-sec-22 p{
+.ReleasesP-main-sec-22 p {
   font-size: 2vw;
   font-weight: 600;
-  color: #00EEFF;
- 
-
+  color: #00eeff;
 }
 
 /* ?____________________________________ \ SECTION 3 \_______________________________ */
@@ -182,7 +176,7 @@
   border-radius: 0.5vw;
   font-family: "Inconsolata", serif;
   gap: 1vw;
-padding: 2vw;
+  padding: 2vw;
 }
 
 .ReleasesP-main-sec-31 {
@@ -235,34 +229,31 @@ padding: 2vw;
   padding: 0.5vw;
   border-radius: 1vw;
   gap: 0.5vw;
-padding-top: 2vw;
+  padding-top: 2vw;
 }
-.ReleasesP-main-sec-321{
+.ReleasesP-main-sec-321 {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width:15vw;
+  width: 15vw;
   height: 30vh;
   /* border-right: grey 3px solid; */
   padding: 1vw;
-
-  
 }
-.ReleasesP-main-sec-3211{
+.ReleasesP-main-sec-3211 {
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  width:100%;
+  width: 100%;
   height: 100%;
   background-color: #ffffff04;
   border-radius: 0.3vw;
   padding: 0.5vw;
   gap: 2vw;
-
 }
-.ReleasesP-main-sec-3211 p{
+.ReleasesP-main-sec-3211 p {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -293,10 +284,10 @@ padding-top: 2vw;
   z-index: 1;
 }
 
-
 /* ?____________________________________ \ SECTION 4 \_______________________________ */
 
 .ReleasesP-main-sec-4 {
+    position: relative; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -311,14 +302,40 @@ padding-top: 2vw;
   gap: 1vw;
   padding-top: 1vw;
   /* border: solid red 3px; */
-  
-  
 }
-.ReleasesP-main-sec-4 h4{
+.ReleasesP-main-sec-4 h4 {
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   font-size: 1.5vw;
   font-family: sans-serif;
+  gap: 1vw;
+  color: #00EEFF;
 }
-.releasesP-songs-list{
+.ReleasesP-main-sec-41 {
+  position: absolute; /* positions relative to parent */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 1vw;
+  overflow: hidden;
+ /* border: solid grey 1px;  */
+  background-color: transparent;
+  z-index: 9999;
+  margin-top: 7vh;
+  
+}
+
+
+
+.releasesP-songs-list {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -332,18 +349,17 @@ padding-top: 2vw;
   gap: 1vw;
   padding-top: 2vw;
   padding-bottom: 2vw;
-   /* border: solid red 3px; */
+  /* border: solid red 3px; */
+  margin-top: 11vh;
 }
-.ReleasesP-main-sec-41{
-  
-}
-.ReleasesP-main-sec-412{
+
+.ReleasesP-main-sec-412 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 5vw;
-  width:auto;
+  width: auto;
   background-color: rgba(0, 0, 0, 0.386);
 }
 
@@ -353,32 +369,29 @@ padding-top: 2vw;
   .ReleasesP-main {
     gap: 5vw;
   }
-  .ReleasesP-main-sec-1 h2{
+  .ReleasesP-main-sec-1 h2 {
     font-size: 4.8vw;
-
   }
-  .ReleasesP-main-sec-2{
+  .ReleasesP-main-sec-2 {
     flex-direction: column;
     width: 95%;
- 
   }
-  .ReleasesP-main-sec-21{
-    width:80vw;
+  .ReleasesP-main-sec-21 {
+    width: 80vw;
     height: 25vh;
     gap: 5vw;
     padding: 4vw;
-    
   }
-  .ReleasesP-main-sec-21 h4{
+  .ReleasesP-main-sec-21 h4 {
     font-size: 4vw;
   }
-  .ReleasesP-main-sec-21 p{
+  .ReleasesP-main-sec-21 p {
     font-size: 2vw;
   }
-  .ReleasesP-main-sec-21-button-1{
+  .ReleasesP-main-sec-21-button-1 {
     font-size: 2.2vw;
   }
-  .ReleasesP-main-sec-22{
+  .ReleasesP-main-sec-22 {
     align-items: center;
     justify-content: center;
     flex-direction: row;
@@ -386,48 +399,51 @@ padding-top: 2vw;
     height: 4vh;
     gap: 5vw;
   }
-  .ReleasesP-main-sec-22 p{
+  .ReleasesP-main-sec-22 p {
     font-size: 5vw;
-    
   }
-  .ReleasesP-main-sec-3{
+  .ReleasesP-main-sec-3 {
     flex-direction: column;
     height: auto;
     width: 91%;
-
   }
-  .ReleasesP-main-sec-31{
+  .ReleasesP-main-sec-31 {
     justify-content: center;
     align-items: center;
     width: 94%;
     height: 50vh;
-    
-   
-    
-
   }
-  .ReleasesP-main-sec-32{
+  .ReleasesP-main-sec-32 {
     width: 94%;
     height: auto;
     padding: 2vw;
-
   }
-  .ReleasesP-main-sec-4 h4{
+  .ReleasesP-main-sec-4 h4 {
     font-size: 4vw;
+    margin-top: 3vw;
+  }
+  .ReleasesP-main-sec-41{
+   
+   margin-left: none;
+   margin-top: 5vw;
+    width: 94%;
+    /* border: solid 1px red; */
+  }
+  .releasesP-songs-list{
+    width: 95%;
+
+    align-items: flex-start;
   }
 }
 
 /*?------------------------ | TABLETS |------------------------- */
 @media (min-width: 481px) and (max-width: 768px) {
- 
 }
 
 /*?------------------------ | SMALL LAPTOPS |------------------------- */
 @media (min-width: 769px) and (max-width: 1024px) {
-  
 }
 
 /*?------------------------ | LAPTOPS AND DESKTOPS |------------------------- */
 @media (min-width: 1025px) {
-  
 }

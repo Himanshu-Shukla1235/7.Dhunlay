@@ -81,9 +81,9 @@ const CardC2 = ({ songs }) => {
         const isActive = index === currentIndex;
         return (
           <div className="cardC2-loader" key={index}>
-            <div className="cardC2-boxes1">
+            {/* <div className="cardC2-boxes1">
               {new Date(song.createdAt).toLocaleTimeString()}
-            </div>
+            </div> */}
             <div className="cardC2-boxes1">
               {new Date(song.createdAt).toLocaleDateString()}
             </div>
@@ -112,7 +112,7 @@ const CardC2 = ({ songs }) => {
             ) : (
               <Tooltip title={"Play"}>
                 <PlayCircleIcon
-                  style={{ color: "white", cursor: "pointer" }}
+                  style={{ color: "white", cursor: "pointer", opacity:"0.5" }}
                   onClick={() => togglePlay(index)}
                 />
               </Tooltip>

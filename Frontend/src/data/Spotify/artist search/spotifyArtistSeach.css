@@ -1,0 +1,92 @@
+/* spotifyArtistSeach.css */
+
+body {
+  background-color: #0a0a0a;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: #f1f1f1;
+}
+
+.spotifyArtistSeach-search-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #161616;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 255, 128, 0.1);
+  text-align: center;
+}
+
+.spotifyArtistSeach-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #1db954;
+}
+
+.spotifyArtistSeach-input-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+  font-size: 16px;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.spotifyArtistSeach-search-button {
+  padding: 10px 24px;
+  background-color: #1db954;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.spotifyArtistSeach-search-button:hover {
+  background-color: #1ed760;
+}
+
+.spotifyArtistSeach-artist-card {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.2);
+}
+
+.spotifyArtistSeach-artist-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #1db954;
+}
+
+.spotifyArtistSeach-spotify-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1db954;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.spotifyArtistSeach-spotify-link:hover {
+  color: #1ed760;
+}
+
+.spotifyArtistSeach-info-text,
+.spotifyArtistSeach-error-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.spotifyArtistSeach-error-text {
+  color: red;
+}

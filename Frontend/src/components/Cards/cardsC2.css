@@ -10,8 +10,6 @@
   width: 100%;
   /* border: solid red 3px; */
   gap: 1vw;
-  
-  
 }
 
 .cardC2-loader {
@@ -121,16 +119,25 @@
   font-size: 1.1vw;
 }
 .cardC2-artist {
-  color: rgb(255, 255, 255);
+  color: rgb(185, 185, 185);
   font-size: 1vw;
+  font-family: "Inconsolata", serif;
+  width: 12vw;
 }
 .cardC2-progress-wrapper {
   position: fixed;
   bottom: 3%;
   left: 30%;
-  transform: translateX(20%); /* positive = shift right, negative = shift left */
+  transform: translateX(
+    20%
+  ); /* positive = shift right, negative = shift left */
   width: 40%;
-  background-color: rgba(0, 0, 0, 0.461); /* semi-transparent for blur visibility */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.461
+  ); /* semi-transparent for blur visibility */
   backdrop-filter: blur(7px); /* background blur effect */
   -webkit-backdrop-filter: blur(10px); /* Safari support */
   z-index: 1000;
@@ -139,7 +146,6 @@
   border-radius: 1vw;
   border: solid 1px rgba(160, 159, 159, 0.304);
 }
-
 
 .cardC2-timestamp {
   display: flex;
@@ -173,6 +179,8 @@
   min-width: 5vw;
   background-color: rgba(0, 0, 0, 0.386);
   transform: rotate(180deg);
+  color: rgb(240, 239, 239);
+  font-family: "Inconsolata", serif;
 }
 @keyframes cardC2-move6 {
   0% {
@@ -194,14 +202,34 @@
 /*! ________________________________________| Responsive Designs |___________________________________________________ */
 /*?------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
-  .cardC2-loader{
+  .cardC2-main {
+    width: 100%;
+    padding-left: 1.7vw;
+    height: auto;
+    padding-right: 1.7vw;
+    border-radius: 3px;
+    overflow-y: hidden;
+  }
+  .cardC2-loader {
     width: 100%;
     padding-left: 1vw;
     gap: 2.8vw;
   }
-  .cardC2-albumcover{
-    display: none;
+  .cardC2-albumcover {
+    height: 8vw;
+    width: 9vw;
+    border: solid 1px rgb(86, 85, 85);
+    margin-left: 2vw;
+  }
+  .cardC2-boxes1 {
+    font-size: 3vw;
+    margin-left: 2vw;
+  }
+  .cardC2-name,
+  .cardC2-artist {
+    font-size: 2.7vw;
+  }
+  .cardC2-artist {
+    font-size: 2.4vw;
   }
 }
-
-

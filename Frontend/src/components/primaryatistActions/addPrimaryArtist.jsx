@@ -77,7 +77,7 @@ const UpsertPrimaryArtistForm = () => {
       <form onSubmit={handleSubmit} className="artist-form">
         <input
           type="text"
-          placeholder="Enter primary artist name"
+          placeholder=" Artist name"
           value={artistName}
           onChange={(e) => setArtistName(e.target.value)}
           className="artist-input"

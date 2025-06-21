@@ -1,0 +1,67 @@
+.artist-selector {
+  width: 100%;
+  max-width: 400px;
+  background: #1e1e1e;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.selector-label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.artist-select {
+  width: 100%;
+  height: 150px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: #2e2e2e;
+  color: #fff;
+  border: 1px solid #444;
+  font-size: 1rem;
+  outline: none;
+}
+
+.artist-select option {
+  padding: 0.5rem;
+}
+
+.selected-info {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background: #333;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tag button {
+  background: transparent;
+  border: none;
+  color: #ff5c5c;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tag button:hover {
+  color: #ff2e2e;
+}

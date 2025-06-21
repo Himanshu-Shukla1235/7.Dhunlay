@@ -122,7 +122,7 @@ const saveSong = async (req, res) => {
     } else {
       let subsplanfind1 = null;
       let subsplanfind2 = null;
-      let numberOfSongsfind1 = await song.findOne({
+      let numberOfSongsfind1 = await Song.find({
         subscriptionType: "freemium",
         userId: userId,
       });
@@ -147,7 +147,9 @@ const saveSong = async (req, res) => {
 
       if (
         (!subsplanfind1 && !subsplanfind2) ||
-        (subsplanfind1 && numberOfSongsfind1.length > 3)
+        (subsplanfind1 &&
+          numberOfSongsfind1 != null &&
+          numberOfSongsfind1.length > 3)
       ) {
         console.log("⚠️ No matching paymentUser Subscription document found");
         res.status(403).json({

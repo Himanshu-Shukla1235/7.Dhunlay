@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./selectorC1.css";
 import SearchIcon from "@mui/icons-material/Search";
-
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
   const didInit = useRef(false);
   const selectedCount = selectedArtists.length;
+  const wrapperRef = useRef(null);
 
   // Auto-select all on first non-empty artistNames
   useEffect(() => {
@@ -19,7 +20,7 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
   // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (!e.target.closest(".dropdown")) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
@@ -56,21 +57,24 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
 
   return (
     <div className="selector-container">
-      <label htmlFor="artist-select">Select Artists:</label>
+      {/* <label htmlFor="artist-select">Select Artists:</label> */}
       <div className="dropdown">
-        <h4
-          id="artist-select"
-          type="button"
-          className="dropdown-button"
-          onClick={toggleOpen}
+        <div
+          ref={wrapperRef}
+          className="selector-search"
+          onClick={openDropdown}
         >
-          {displayLabel()}
-        </h4>
-
-        <div className="selector-search" onClick={openDropdown}>
+          <h4
+            id="artist-select"
+            type="button"
+            className="dropdown-button"
+            onClick={toggleOpen}
+          >
+            {displayLabel()}
+          </h4>
           <input
             type="text"
-            placeholder="Search artists..."
+            placeholder="Select Artists..."
             className="selector-search-input"
             value={search}
             onChange={(e) => setSearch(e.target.value)}

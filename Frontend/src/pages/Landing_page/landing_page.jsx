@@ -264,7 +264,7 @@ const test = () => {
 
           <main className={`navbar-elems ${navOpen ? "show" : ""}`}>
             <ul className="all-elems">
-              {/* <li className="service-button" ref={serviceDropdownRef}>
+              <li className="service-button" ref={serviceDropdownRef}>
                 <a
                   className="button"
                   onClick={() => setserviceDropdownOpen(!serviceDropdownOpen)}
@@ -276,12 +276,14 @@ const test = () => {
                     serviceDropdownOpen ? "yes" : ""
                   }`}
                 >
+                  {" "}
+                  <a href="#">Music Distribution</a>
                   <a href="#">Music Production</a>
                   <a href="#">Mixing and Mastering</a>
                   <a href="#">Promotion</a>
                   <a href="#">Cover Art</a>
                 </div>
-              </li> */}
+              </li>
               <li className="feature-button" ref={featureDropdownRef}>
                 <a
                   className="button"
@@ -301,10 +303,15 @@ const test = () => {
               <li>
                 <a href="/plans">Subscription</a>
               </li>
+                <li>
+                <a href="/about">About</a>
+              </li>
               <li>
                 <a href="/contact">Contact</a>
               </li>
-              <li>{/* <a href="/contact">FAQs</a> */}</li>
+              {/* <li>
+                <a href="">FAQs</a>
+              </li> */}
               <li>
                 <button
                   className="loginbtnn"

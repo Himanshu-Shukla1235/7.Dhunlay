@@ -17,6 +17,7 @@ import UpsertPrimaryArtistForm from "../../components/primaryatistActions/addPri
 import InfoIcon from "@mui/icons-material/Info";
 import SearchIcon from "@mui/icons-material/Search";
 import { useUser } from "../../pages/User/UserData";
+import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 // Total Releases Component
 const TotalReleases = () => {
   const { songs } = useReleasedSongs();
@@ -67,64 +68,77 @@ const ReleasesPContent = () => {
   const artistNames = artists.map((a) => a.primaryArtistName);
 
   return (
-    <div className="whole"><div className="ReleasesP-main">
-      {/* Section 1 */}
-      <div className="ReleasesP-main-sec-1">
-        <div className="ReleasesP-main-sec-11">
-          <div className="ReleasesP-main-sec-11-steping"></div>
-          <h2>
-            Relea<span style={{ color: "white" }}>ses</span>
-          </h2>
-        </div>
-      </div>
-
-      {/* Section 2 */}
-      <div className="ReleasesP-main-sec-2">
-        <div className="ReleasesP-main-sec-21">
-          <h4>Make a new release</h4>
-          <p style={{ color: "white" }}>Feel the vibe. Live the rhythm.</p>
-          <p style={{ color: "white" }}>
-            Release your song to various platforms worldwide...
-          </p>
-          <button
-            className="ReleasesP-main-sec-21-button-1"
-            onClick={() => (window.location.href = "/release")}
-          >
-            Release
-          </button>
-        </div>
-
-        {/* Wrap TotalReleases inside provider */}
-        <ReleasedSongsProvider artistNames={selectedArtists}>
-          <TotalReleases />
-        </ReleasedSongsProvider>
-      </div>
-
-      {/* Section 3 */}
-      <div className="ReleasesP-main-sec-3">
-        <div className="ReleasesP-main-sec-31">
-          <div>
-            <PrimaryArtistSelector
-              artistNames={artistNames} // Pass the artist names (strings)
-              selectedArtists={selectedArtists}
-              onChange={setSelectedArtists}
-            />
+    <div className="whole">
+      <div className="ReleasesP-main">
+        {/* Section 1 */}
+        <div className="ReleasesP-main-sec-1">
+          <div className="ReleasesP-main-sec-11">
+            <div className="ReleasesP-main-sec-11-steping"></div>
+            <h2>
+           Relea<span style={{ color: "white" }}>ses</span>
+            </h2>
           </div>
         </div>
-        <div className="ReleasesP-main-sec-32">
-          <UpsertPrimaryArtistForm></UpsertPrimaryArtistForm>
+
+        {/* Section 2 */}
+        <div className="ReleasesP-main-sec-2">
+          <div className="ReleasesP-main-sec-21">
+            <h4>Make a new release</h4>
+            <p style={{ color: "white" }}>Feel the vibe. Live the rhythm.</p>
+            <p style={{ color: "white" }}>
+              Release your song to various platforms worldwide...
+            </p>
+            <button
+              className="ReleasesP-main-sec-21-button-1"
+              onClick={() => (window.location.href = "/release")}
+            >
+              Release
+            </button>
+          </div>
+
+          {/* Wrap TotalReleases inside provider */}
+          <ReleasedSongsProvider artistNames={selectedArtists}>
+            <TotalReleases />
+          </ReleasedSongsProvider>
+        </div>
+
+        {/* Section 3 */}
+        {/* <div className="ReleasesP-main-sec-3">
+          <div className="ReleasesP-main-sec-31">
+            <div>
+              <PrimaryArtistSelector
+                artistNames={artistNames} // Pass the artist names (strings)
+                selectedArtists={selectedArtists}
+                onChange={setSelectedArtists}
+              />
+            </div>{" "}
+            
+          </div>
+          <div className="ReleasesP-main-sec-32">
+            <UpsertPrimaryArtistForm></UpsertPrimaryArtistForm>
+          </div>
+        </div> */}
+
+        {/* Section 4 */}
+        <div className="ReleasesP-main-sec-4">
+        <div className="ReleasesP-main-sec-41">
+            <div>
+              <PrimaryArtistSelector
+                artistNames={artistNames} // Pass the artist names (strings)
+                selectedArtists={selectedArtists}
+                onChange={setSelectedArtists}
+              />
+            </div>{" "}
+            {/* <p>hellooooooooooooo</p> */}
+          </div>
+          <h4>   <LibraryMusicIcon></LibraryMusicIcon>  Your Uploads</h4>{" "}
+          
+          <ReleasedSongsProvider artistNames={selectedArtists}>
+            <SongsList />
+          </ReleasedSongsProvider>
         </div>
       </div>
-
-      {/* Section 4 */}
-      <div className="ReleasesP-main-sec-4">
-        <h4>Your Uploads</h4>{" "}
-        <ReleasedSongsProvider artistNames={selectedArtists}>
-          <SongsList />
-        </ReleasedSongsProvider>
-      </div>
-    </div></div>
-    
+    </div>
   );
 };
 
