@@ -6,11 +6,14 @@
   align-items: center;
   background-color: #0f0f0f00;
   border-radius: 1vw;
-  height: 50vh;
+  
+  height: auto;
   padding: 1vw;
   width: 100%;
   overflow: hidden;
   /* border: 3px red solid; */
+ 
+  
 }
 
 /* Styling the label */
@@ -76,15 +79,15 @@
 
 /* Dropdown container */
 .dropdown {
-  position: absolute;
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50vw;
+  width: 35vw;
   padding: 2vw;
   gap: 1vw;
-  z-index: 1;
+  z-index: 999;
   height: auto;
   /* border: solid yellow 2px; */
 }
@@ -162,7 +165,7 @@
   transition: background-color 0.2s ease, color 0.2s ease;
   font-size: 1vw;
   flex-shrink: 0;
-  width: 20vw;
+  width: 15vw;
   z-index: 1;
 }
 
@@ -250,7 +253,7 @@
 
 @media (max-width: 480px) {
   .selector-container {
-    height: 50vh;
+    height: auto;
     width: 100%;
     gap: 2vw;
     /* border: 3px solid yellow; */
@@ -265,7 +268,7 @@
     width: 100%;
     gap: 0.5vw;
     padding: 3vw;
-    height: 46vh;
+    height: auto;
   }
   .dropdown h4 {
     width: 10vw;

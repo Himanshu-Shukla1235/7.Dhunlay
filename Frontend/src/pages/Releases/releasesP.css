@@ -312,13 +312,20 @@
   font-family: sans-serif;
   gap: 1vw;
   color: #00EEFF;
+  
 }
 .ReleasesP-main-sec-41 {
   position: absolute; /* positions relative to parent */
+
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  bottom: -1;
+  left: 50%;
+  transform: translateX(-50%);
+
 
   display: flex;
   justify-content: center;
@@ -326,10 +333,12 @@
 
   border-radius: 1vw;
   overflow: hidden;
- /* border: solid grey 1px;  */
+ border: solid rgb(5, 218, 255) 1px; 
   background-color: transparent;
   z-index: 9999;
+  width: 25vw;
   margin-top: 7vh;
+
   
 }
 

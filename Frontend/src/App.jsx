@@ -42,6 +42,7 @@ import MusicSmartLinks from "./data/Odesli/OdesliAllAongLinks";
 import UpsertPrimaryArtistForm from "./components/primaryatistActions/addPrimaryArtist";
 import AddPrimaryArtistPage from "./pages/AddPrimaryArtist/addPrimArtist";
 import PopupModal from "./components/popUp/popUp";
+import SpotifyArtistAnalytics from "./data/Spotify/artist analytics/ArtistAnalytics";
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
@@ -182,6 +183,7 @@ function MainApp() {
         <Route path="/artist_search" element={<SpotifyArtistSearch />}></Route>
         <Route path="/Song_links" element={<MusicSmartLinks />}></Route>
         <Route path="/popUp" element={<PopupModal />}></Route>
+         <Route path="/artistAnalytics" element={<SpotifyArtistAnalytics />}></Route>
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./selectorC2.css";
 import SearchIcon from "@mui/icons-material/Search";
-import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+
 const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -56,18 +56,18 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
   };
 
   return (
-    <div className="selector-container">
+    <div className="selector-c2-container">
       <label htmlFor="artist-select">Select Primary Artists:</label>
-      <div className="dropdown">
+      <div className="selector-c2-dropdown">
         <div
           ref={wrapperRef}
-          className="selector-search"
+          className="selector-c2-search"
           onClick={openDropdown}
         >
           <h4
             id="artist-select"
             type="button"
-            className="dropdown-button"
+            className="selector-c2-dropdown-button"
             onClick={toggleOpen}
           >
             {displayLabel()}
@@ -75,16 +75,16 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
           <input
             type="text"
             placeholder="Select Artists..."
-            className="selector-search-input"
+            className="selector-c2-search-input"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
           <SearchIcon
             sx={{
               fontSize: {
-                xs: "6vw", // ✅ Phones (extra small)
-                sm: "4vw", // ✅ Tablets (small)
-                md: "2vw", // ✅ Desktops (medium and up)
+                xs: "6vw",
+                sm: "4vw",
+                md: "2vw",
               },
               cursor: "pointer",
               transition: "color 0.2s ease",
@@ -97,9 +97,9 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
         </div>
 
         {isOpen && (
-          <div className="dropdown-content">
+          <div className="selector-c2-dropdown-content">
             <div
-              className={`dropdown-item ${
+              className={`selector-c2-dropdown-item ${
                 selectedCount === artistNames.length ? "selected" : ""
               }`}
               onClick={() => handleSelect("All")}
@@ -108,7 +108,7 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
               All
             </div>
             <div
-              className={`dropdown-item ${
+              className={`selector-c2-dropdown-item ${
                 selectedCount === 0 ? "selected" : ""
               }`}
               onClick={() => handleSelect("None")}
@@ -119,7 +119,7 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
             {filteredArtists.map((name) => (
               <div
                 key={name}
-                className={`dropdown-item ${
+                className={`selector-c2-dropdown-item ${
                   selectedArtists.includes(name) ? "selected" : ""
                 }`}
                 onClick={() => handleSelect(name)}

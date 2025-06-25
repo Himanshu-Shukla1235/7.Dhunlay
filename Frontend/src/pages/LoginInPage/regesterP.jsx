@@ -199,6 +199,7 @@ const RegisterPage = () => {
                       setState(""); // Reset state when country changes
                     }}
                     required
+                    className="styled-dropdown"
                   >
                     <option value="">Select Country</option>
                     {countries.map((c) => (

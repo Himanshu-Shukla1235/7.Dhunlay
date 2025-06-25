@@ -1,0 +1,60 @@
+.sa-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #161616;
+  border-radius: 12px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.sa-input {
+  width: 70%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+}
+.sa-btn {
+  padding: 10px 20px;
+  background: #1db954;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.sa-error {
+  color: #f44;
+  margin-top: 15px;
+}
+.sa-artist-card {
+  margin-top: 20px;
+  background: #222;
+  padding: 15px;
+  border-radius: 8px;
+}
+.sa-artist-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.sa-tracks {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+.sa-tracks li {
+  margin: 10px 0;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 6px;
+}
+.sa-tracks a {
+  color: #1db954;
+  text-decoration: none;
+}
+.sa-tracks a:hover {
+  text-decoration: underline;
+}

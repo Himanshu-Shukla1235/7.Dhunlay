@@ -163,7 +163,7 @@
 .loginbtnn {
   color: white;
   /* border: 0.13vw solid rgb(255, 255, 255); */
-  border: 2px solid rgb(39, 89, 225);
+  border: 2px solid #00EEFF;
   background-color: transparent;
   margin-left: 13vw;
   padding: 0.6vw 1.3vw;
@@ -179,7 +179,7 @@
   cursor: pointer;
   position: relative;
   padding: 0.7vw 1.5vw;
-  color: #00eeff;
+  color: #00EEFF;
   border: 2px solid rgba(128, 128, 128, 0.705);
   /* border: none; */
   border-radius: 20px;

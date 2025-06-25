@@ -197,6 +197,12 @@
   width: 100%;
   box-sizing: border-box;
 }
+.registerP-input-group option{
+  background-color: black;
+}
+.registerP-input-group-country{
+border: red solid 3px;
+}
 
 /* Placeholder styling */
 .registerP-input-group input::placeholder {
