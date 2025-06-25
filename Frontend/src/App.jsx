@@ -42,7 +42,7 @@ import MusicSmartLinks from "./data/Odesli/OdesliAllAongLinks";
 import UpsertPrimaryArtistForm from "./components/primaryatistActions/addPrimaryArtist";
 import AddPrimaryArtistPage from "./pages/AddPrimaryArtist/addPrimArtist";
 import PopupModal from "./components/popUp/popUp";
-import SpotifyArtistAnalytics from "./data/Spotify/artist analytics/ArtistAnalytics";
+import SpotifyArtistAnalytics from "./data/Spotify/artist-analytics/artistAnalytics";
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
