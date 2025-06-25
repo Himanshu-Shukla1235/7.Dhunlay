@@ -287,7 +287,7 @@
 /* ?____________________________________ \ SECTION 4 \_______________________________ */
 
 .ReleasesP-main-sec-4 {
-    position: relative; 
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -304,19 +304,17 @@
   /* border: solid red 3px; */
 }
 .ReleasesP-main-sec-4 h4 {
-    display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: 1.5vw;
   font-family: sans-serif;
   gap: 1vw;
-  color: #00EEFF;
-  
+  color: #00eeff;
 }
 .ReleasesP-main-sec-41 {
   position: absolute; /* positions relative to parent */
-
 
   top: 50%;
   left: 50%;
@@ -326,23 +324,18 @@
   left: 50%;
   transform: translateX(-50%);
 
-
   display: flex;
   justify-content: center;
   align-items: center;
 
   border-radius: 1vw;
   overflow: hidden;
- border: solid rgb(5, 218, 255) 1px; 
+  /* border: solid rgb(5, 218, 255) 1px;  */
   background-color: transparent;
   z-index: 9999;
   width: 25vw;
   margin-top: 7vh;
-
-  
 }
-
-
 
 .releasesP-songs-list {
   display: flex;
@@ -431,14 +424,13 @@
     font-size: 4vw;
     margin-top: 3vw;
   }
-  .ReleasesP-main-sec-41{
-   
-   margin-left: none;
-   margin-top: 5vw;
+  .ReleasesP-main-sec-41 {
+    margin-left: none;
+    margin-top: 5vw;
     width: 94%;
     /* border: solid 1px red; */
   }
-  .releasesP-songs-list{
+  .releasesP-songs-list {
     width: 95%;
 
     align-items: flex-start;
