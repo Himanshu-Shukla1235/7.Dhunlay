@@ -232,6 +232,96 @@ const verifyEmail = async (req, res) => {
   }
 };
 
+// Forget Password
+
+const ForgetPasswordHit = async (req, res) => {
+  const { email } = req.body;
+  console.log("backendHit: forget Password | email:", email);
+
+  try {
+    // Check if user exists
+    const existingUser = await User.findOne({ email });
+    if (!existingUser) {
+      return res.status(404).json({
+        success: false,
+        message: "Email not found.",
+      });
+    }
+
+    // Create JWT token
+    const payload = { email };
+    const E_V_token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
+
+    // Reset password link
+    const ForgotPasswordPageLink = `https://dhunlay.com/forgotPassword?token=${E_V_token}`;
+
+    // Extract name or default to "there"
+    const username = existingUser.username || "there";
+
+    // Send email
+    await sendEmail(
+      email,
+      "Dhunlay - Password Reset Request",
+      `<h3>Hey ${username},</h3>
+      <p>We received a request to reset your <b>Dhunlay</b> account password. 🔐</p>
+      <p>If you made this request, please click the link below to reset your password:</p>
+      <p>👉 <a href="${ForgotPasswordPageLink}"><b>Click here to reset your password</b></a></p>
+      <p>This link will expire after a limited time for security reasons.</p>
+      <p>If you didn’t request a password reset, you can safely ignore this message.</p>
+      <p><b>– Team Dhunlay</b></p>`
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Password reset email sent successfully.",
+    });
+  } catch (error) {
+    console.error("Error in ForgetPasswordHit:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Something went wrong while processing the request.",
+    });
+  }
+};
+//Reset Password
+const ResetPassword = async (req, res) => {
+  console.log("backend: hiting the reset password ")
+  const { token } = req.params;
+  const { newPassword } = req.body;
+
+  if (!token || !newPassword) {
+    return res
+      .status(400)
+      .json({ message: "Token and new password are required." });
+  }
+
+  try {
+    // ✅ Verify token and extract email
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const email = decoded.email;
+
+    // ✅ Find the user by email
+    const user = await User.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found." });
+
+    // ✅ Hash the new password
+ 
+
+    // ✅ Save new password
+    user.password = newPassword;
+    await user.save();
+    console.log("Incoming email:", email);
+    console.log("Token from URL:", token);
+    console.log("New password:", newPassword);
+
+    return res.json({ message: "Password has been reset successfully." });
+  } catch (err) {
+    console.error("Reset password error:", err);
+    return res.status(400).json({ message: "Invalid or expired token." });
+  }
+};
 //=================================================================================
 // Login User
 //=================================================================================
@@ -358,4 +448,11 @@ const logoutUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser, logoutUser, verifyEmail };
+module.exports = {
+  registerUser,
+  loginUser,
+  logoutUser,
+  verifyEmail,
+  ForgetPasswordHit,
+  ResetPassword,
+};

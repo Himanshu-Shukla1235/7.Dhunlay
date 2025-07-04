@@ -7,6 +7,8 @@ const {
   loginUser,
   logoutUser,
   verifyEmail,
+  ForgetPasswordHit,
+  ResetPassword,
 } = require("../Controllers/auth");
 
 const authenticateUser = require("../Middlewares/authenticationM");
@@ -15,7 +17,8 @@ const authenticateUser = require("../Middlewares/authenticationM");
 router.route("/register").post(registerUser);
 router.route("/login").post(loginUser);
 router.route("/verify-email").get(verifyEmail);
+router.route("/forgotPassword/request").post(ForgetPasswordHit);
 router.route("/logout").get(logoutUser);
-
+router.route("/forgotPassword/reset/:token").post(ResetPassword);
 // Exporting the router
 module.exports = router;

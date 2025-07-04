@@ -1,0 +1,80 @@
+.resetP-container {
+  background-color: #0e0e0e;
+  color: #ffffff;
+  max-width: 420px;
+  margin: 4rem auto;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 238, 255, 0.1);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.resetP-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #00eeff;
+  background-color: transparent;
+  font-weight: 600;
+}
+
+.resetP-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.resetP-input {
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  transition: box-shadow 0.2s ease;
+}
+
+.resetP-input::placeholder {
+  color: #999;
+}
+
+.resetP-input:focus {
+  box-shadow: 0 0 8px #00eeff;
+  outline: none;
+}
+
+.resetP-button {
+  background-color: #00eeff;
+  color: #000000;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.resetP-button:hover {
+  background-color: #00c8d8;
+}
+
+.resetP-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.resetP-success {
+  color: #00ff88;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.resetP-error {
+  color: #ff4c4c;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
