@@ -16,6 +16,11 @@ const SignInPage = () => {
   const [loading, setLoading] = useState(false);
   const backendAppUrl = import.meta.env.VITE_API_URL;
   const [isForgotOpen, setIsForgotOpen] = useState(false);
+
+  const googleLogin = () => {
+    window.location.href = `${backendAppUrl}/auth/google`; // or localhost:5000
+  };
+
   const handleSignIn = async (e) => {
     e.preventDefault();
     setError("");
@@ -97,7 +102,6 @@ const SignInPage = () => {
               Your Sound
             </span>{" "}
           </h6>
-         
 
           <div className="input-group">
             <label htmlFor="loginP-email">Email</label>
@@ -122,9 +126,12 @@ const SignInPage = () => {
           <button type="submit" className="loginP-button" disabled={loading}>
             {loading ? <Loading></Loading> : "Log In"}
           </button>
-            <a onClick={() => setIsForgotOpen(true)} style={{cursor:"pointer"}}>
-              Forgot Password?
-            </a>
+          <a
+            onClick={() => setIsForgotOpen(true)}
+            style={{ cursor: "pointer" }}
+          >
+            Forgot Password?
+          </a>
           <div className="loginP-From-sec-4">
             <p
               style={{
@@ -136,18 +143,24 @@ const SignInPage = () => {
               or
             </p>
             <a href="/register">Register</a>
-          
-           
+            <p onClick={googleLogin} className="google-login-btn">
+              <img
+                src="https://marketplace.canva.com/WQTtY/MAGUrVWQTtY/1/tl/canva-google-logo.-MAGUrVWQTtY.png"
+                alt="Google"
+                className="google-icon"
+              />
+              Continue with Google
+            </p>
           </div>
 
           {error && <p className="loginP-error">{error}</p>}
         </form>
-         <PopupModal
-              isOpen={isForgotOpen}
-              onClose={() => setIsForgotOpen(false)}
-            >
-              <ForgotPasswordDialog></ForgotPasswordDialog>{" "}
-            </PopupModal>
+        <PopupModal
+          isOpen={isForgotOpen}
+          onClose={() => setIsForgotOpen(false)}
+        >
+          <ForgotPasswordDialog></ForgotPasswordDialog>{" "}
+        </PopupModal>
       </div>
     </>
   );

@@ -104,7 +104,6 @@ const sendEmail = async (to, subject, htmlMessage) => {
  * }
  */
 
-
 const registerUser = async (req, res) => {
   console.log("📥 Registering new user");
 
@@ -462,6 +461,9 @@ const logoutUser = async (req, res) => {
     });
   }
 };
+
+//----------- regester with google ------------------------
+
 
 module.exports = {
   registerUser,

@@ -280,7 +280,7 @@
   font-weight: 600;
   border-top: 2px inset #ffffff68;
   width: 100%;
-  margin-top: 8px;
+  margin-top: 20px;
   padding-top: 8px;
 }
 .loginP-From-sec-4 a {
@@ -292,6 +292,34 @@
 .loginP-From-sec-4 a:hover {
   color: #7df0ff;
 }
+.google-login-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  width: fit-content;
+  margin-top: 3vh;
+}
+
+.google-login-btn:hover {
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
 
 /*! ________________________________________| Responsive Designs |___________________________________________________ */
 /*?------------------------ | MOBILE |------------------------- */

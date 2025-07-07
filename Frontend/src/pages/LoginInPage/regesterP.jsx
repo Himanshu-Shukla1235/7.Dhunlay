@@ -14,6 +14,9 @@ const RegisterPage = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const googleLogin = () => {
+    window.location.href = `${backendAppUrl}/auth/google`; // or localhost:5000
+  };
   // List of countries and states
   const countries = ["USA", "India", , "UK", "Australia"];
   const statesByCountry = {
@@ -239,6 +242,14 @@ const RegisterPage = () => {
 
             {error && <p className="registerP-error">{error}</p>}
           </form>
+          <p onClick={googleLogin} className="google-login-btn">
+            <img
+              src="https://marketplace.canva.com/WQTtY/MAGUrVWQTtY/1/tl/canva-google-logo.-MAGUrVWQTtY.png"
+              alt="Google"
+              className="google-icon"
+            />
+            Continue with Google
+          </p>
           <div className="registerP-policy">
             {" "}
             <p>

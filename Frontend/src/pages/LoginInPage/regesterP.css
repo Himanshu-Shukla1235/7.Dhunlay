@@ -123,7 +123,7 @@
 }
 .registerP-form {
   width: 37em;
-  height: auto;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -138,6 +138,8 @@
   margin-top: 1vh;
   border: solid 1.5px rgb(0, 0, 0);
   border-radius: 0.5vw;
+  /* border: solid red 3px; */
+  height: auto;
 }
 
 .registerP-form h2 {
@@ -274,7 +276,7 @@ border: red solid 3px;
 }
 .registerP-morque {
   width: 90%;
-  margin-top: 10vh;
+  margin-top: 2vh;
 }
 .registerP-error {
   background-color: transparent;
@@ -318,6 +320,35 @@ border: red solid 3px;
   background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
 }
+.google-login-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  width: fit-content;
+  margin-top: 0.5vh;
+  margin-bottom: 0.6vh;
+}
+
+.google-login-btn:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+
+.google-icon {
+  width: 16px;
+  height: 16px;
+}
+
 /*! ________________________________________| Responsive Designs |___________________________________________________ */
 /*?------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
