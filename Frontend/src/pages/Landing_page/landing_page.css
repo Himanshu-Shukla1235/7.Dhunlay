@@ -9,16 +9,11 @@
   src: url("/src/assets/fonts/PPMori-SemiBold.otf") format("truetype");
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* color: white; */
-}
 
-/* html,body{
+
+html,body{
   max-width: 100%;
-} */
+}
 
 .test-main {
   display: flex;

@@ -53,7 +53,7 @@
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents the image from repeating */
-  height: 95vh; /* Matches the viewport height */
+  height: 100vh; /* Matches the viewport height */
   width: 100%; /* Matches the full width of the viewport */
   margin: 0; /* Removes default margins */
   padding: 0; /* Removes default padding */
@@ -129,7 +129,7 @@
 .loginP-container-sec-1-morquee {
   opacity: 0.5;
 
-  width: 65vw;
+  width: 100%;
   margin-top: 3vw;
 }
 
@@ -280,6 +280,8 @@
   font-weight: 600;
   border-top: 2px inset #ffffff68;
   width: 100%;
+  margin-top: 8px;
+  padding-top: 8px;
 }
 .loginP-From-sec-4 a {
   color: white;

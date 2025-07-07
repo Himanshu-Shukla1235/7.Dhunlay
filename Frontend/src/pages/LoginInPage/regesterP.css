@@ -90,8 +90,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: auto;
-  width: auto;
+  height: 100vh;
+  width: 150vh;
   margin: 0;
   padding: 1%;
   overflow: hidden;
