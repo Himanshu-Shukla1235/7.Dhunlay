@@ -33,38 +33,42 @@ const nodemailer = require("nodemailer");
 
 // ============================================================================================Function to send an email
 //send welcome email
-const sendEmail = async (to, subject, message) => {
-  try {
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS,
-      },
-    });
 
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_PASS, // Must be an App Password, not real password
+  },
+});
+
+// Verify connection configuration (on server startup)
+transporter.verify(function (error, success) {
+  if (error) {
+    console.error("❌ Email transporter error:", error.message);
+  } else {
+    console.log("📬 Email transporter is ready");
+  }
+});
+
+const sendEmail = async (to, subject, htmlMessage) => {
+  try {
     const mailOptions = {
       from: `"DhunLay" <${process.env.GMAIL_USER}>`,
       to,
       subject,
-      html: `<p>${message}</p>`,
+      text: htmlMessage.replace(/<[^>]+>/g, ""), // Fallback plain text
+      html: htmlMessage,
     };
 
     const info = await transporter.sendMail(mailOptions);
     console.log("✅ Email sent:", info.messageId);
+    return true;
   } catch (error) {
     console.error("❌ Failed to send email:", error.message);
+    return false;
   }
 };
-
-// email verification
-const transporter = nodemailer.createTransport({
-  service: "Gmail", // or SMTP settings
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS,
-  },
-});
 
 // Register User
 //=================================================================================
@@ -100,12 +104,14 @@ const transporter = nodemailer.createTransport({
  * }
  */
 
+
 const registerUser = async (req, res) => {
-  console.log("Registering new user detected");
+  console.log("📥 Registering new user");
+
   try {
     const { username, password, email, country, state, location } = req.body;
 
-    // Basic validation
+    // Validation
     if (!username || !password || !email || !country || !state) {
       return res.status(400).json({
         success: false,
@@ -113,7 +119,7 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // Check if user already exists
+    // Check for existing user
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(409).json({
@@ -122,43 +128,52 @@ const registerUser = async (req, res) => {
       });
     }
 
-    // Optional: Clean up old entry if it exists (to avoid duplicate keys in UserMailVeri)
+    // Cleanup and save to temporary verification DB
     await UserMailVeri.deleteOne({ email });
-
-    // Store temporary data for verification
     await UserMailVeri.findOneAndUpdate(
-      { email }, // search condition
-      { email, password }, // new data
-      { upsert: true, new: true } // options: create if not found
+      { email },
+      { email, password },
+      { upsert: true, new: true }
     );
 
-    // Create a signed token with user info (not password)
+    // Generate JWT token
     const payload = { username, email, location, country, state };
-    const E_V_token = jwt.sign(payload, process.env.JWT_SECRET, {
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
 
-    // Use production URL if deployed
-    const verificationLink = `https://dhunlay.com/api/verify-email?token=${E_V_token}`;
+    // Verification link
+    const verificationLink = `https://dhunlay.com/api/verify-email?token=${token}`;
 
-    // Send email
-    await sendEmail(
-      email,
-      "Dhunlay - Please Verify Your Email",
-      `<h3>Hey ${username},</h3>
+    const htmlMessage = `
+      <h3>Hey ${username},</h3>
       <p>Welcome to <b>Dhunlay</b> – your trusted music distribution partner! 🎶</p>
       <p>Please verify your email address to activate your account and unlock full access to our platform.</p>
       <p>👉 <a href="${verificationLink}"><b>Click here to verify your email</b></a></p>
       <p>If you didn’t sign up for Dhunlay, please ignore this message.</p>
-      <p><b>– Team Dhunlay</b></p>`
+      <p><b>– Team Dhunlay</b></p>
+    `;
+
+    // Send verification email
+    const emailSent = await sendEmail(
+      email,
+      "Dhunlay - Please Verify Your Email",
+      htmlMessage
     );
+
+    if (!emailSent) {
+      return res.status(500).json({
+        success: false,
+        message: "Failed to send verification email",
+      });
+    }
 
     return res.status(201).json({
       success: true,
-      message: "Verification email sent",
+      message: "Verification email sent successfully",
     });
   } catch (error) {
-    console.error("Error in registerUser:", error.message);
+    console.error("❌ Error in registerUser:", error.message);
     return res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -285,9 +300,10 @@ const ForgetPasswordHit = async (req, res) => {
     });
   }
 };
+
 //Reset Password
 const ResetPassword = async (req, res) => {
-  console.log("backend: hiting the reset password ")
+  console.log("backend: hiting the reset password ");
   const { token } = req.params;
   const { newPassword } = req.body;
 
@@ -307,7 +323,6 @@ const ResetPassword = async (req, res) => {
     if (!user) return res.status(404).json({ message: "User not found." });
 
     // ✅ Hash the new password
- 
 
     // ✅ Save new password
     user.password = newPassword;

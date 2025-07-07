@@ -1,5 +1,8 @@
 /*_____________________________________________________________________________registerP-nav  */
-
+* {
+  margin: 0;
+  padding: 0;
+}
 /*_____________________________________________________________________________registerP-nav  */
 .registerP-nav {
   display: flex;
@@ -64,14 +67,15 @@
   align-items: flex-start;
 
   /* border: solid red 3px; */
-  height: auto;
+  height: 100vh;
+  overflow-y: hidden;
   gap: 0%;
 }
 /*_______________________________________________________________________________registerP-main-sec1  */
 .registerP-main-sec1 {
   /* border: solid rgb(0, 238, 255) 1px; */
-  width: 55%;
-  height: 87vh;
+  width: 65%;
+  height: 100vh;
   background-image: url("/img13.png"); /* change the path */
   background-size: cover; /* makes the image cover the entire container */
   background-position: center; /* centers the image */
