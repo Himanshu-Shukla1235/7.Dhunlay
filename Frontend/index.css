@@ -1,0 +1,10 @@
+/* styles.css */
+
+/* 1. CSS Reset */
+
+
+/* 7. Image responsiveness */
+img {
+  max-width: 100%;
+  display: block;
+}

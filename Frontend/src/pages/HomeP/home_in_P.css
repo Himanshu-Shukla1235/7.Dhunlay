@@ -2,10 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  
 }
-
 
 /* !_________________________________________|| HEADER ||____________________________________________*/
 
@@ -26,7 +23,6 @@
   box-shadow: 0 0.5vh 0.8vh rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
   z-index: 10000;
-
 
   /* Responsive border thickness */
   border-radius: 0.5vw;
@@ -89,7 +85,7 @@
 }
 .centerEl {
   display: flex;
-  gap: 15px; /* Adds spacing between icons */
+  gap: 25px; /* Adds spacing between icons */
 }
 
 .icon1:hover {
@@ -102,8 +98,37 @@
   transition: color 0.3s ease-in-out;
   cursor: pointer;
 }
+.home_in_P-message-Icon {
+  position: relative; /* Required so alert dot positions relative to this */
+  display: inline-block;
+  margin-top: 4.5px;
+
+  /* border :solid 2px red; */
+
+  padding: 5px;
+}
+
+/* Red dot positioned at top-right of icon */
+.home_in_P-message-Icon-alert {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(0, 238, 255);
+  color: rgb(51, 255, 0); /* Hide the '.' text itself */
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
 
 /**.......................................................................Signin*/
+.Home-nav-signout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
 
 .signIn {
   display: flex;
@@ -120,7 +145,7 @@
   background-color: transparent;
   font-family: "Inconsolata", serif;
   font-size: 1.2vw; /* Responsive font size */
-  padding: 1vh 2vw;
+  padding: 1vh 1.5vw;
   border-radius: 0.5vw;
   cursor: pointer;
   width: auto;
@@ -137,6 +162,9 @@
 .signIn h4:hover {
   color: rgb(0, 238, 255);
 }
+.Home-nav-signout-button {
+  border: solid 1.7px aqua;
+}
 
 /*! ________________________________________| MAIN |___________________________________________________ */
 
@@ -152,6 +180,10 @@
   box-sizing: border-box;
   padding: 0;
   gap: 0.4vw; /* Responsive gap */
+  /* border: red solid 0.3vw; */
+  overflow-x: hidden;
+  max-width: 100%;
+  overflow-y: hidden;
 }
 
 .content h2 {
@@ -167,7 +199,7 @@
 /**-------------------- Home-p-section-11 ...............*/
 
 .Home-p-section-11 {
-  /* border: red solid 0.3vw; */
+  /* border: rgb(0, 255, 4) solid 0.3vw; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -305,12 +337,17 @@
 
 /**-------------------- Home-p-section-21 ...............*/
 .Home-p-section-2 {
+  /* border: red solid 0.3vw; */
+
+  height: 100vh;
 }
 .Home-p-section-21 {
   margin-top: 9vh;
   /* border: red solid 0.3vw; */
   height: 90vh;
-  width: 81vw; /* Responsive width */
+  width: 168vh; /* Responsive width */
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 /*! ________________________________________| Responsive Designs |___________________________________________________ */
@@ -350,17 +387,17 @@
     color: #00eeff; /* Change color on hover */
     transform: scale(1.2); /* Slightly enlarge */
   }
-    .Home-nav-signout{
-      display: none;
-    }
-  .Home-nav-signout h4{
+  .Home-nav-signout {
     display: none;
   }
-  .logoD h5{
- font-size: 4.2vw;
- 
+  .Home-nav-signout h4 {
+    display: none;
   }
-  .centerEl{
+  .logoD h5 {
+    font-size: 4.2vw;
+    display: none;
+  }
+  .centerEl {
     font: 4vw;
   }
 }

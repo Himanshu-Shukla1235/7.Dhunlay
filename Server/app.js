@@ -26,6 +26,9 @@ const getReleaseData = require("./Routes/MetaDataR");
 const SubPay = require("./Routes/transactionR");
 
 const authenticateUser = require("./Middlewares/authenticationM");
+const passport = require("passport");
+const googleAuthMidd = require("./Middlewares/passportGoogle");
+const googleAuthRoute = require("./Routes/googleAuth");
 
 const PORT = process.env.PORT || 3000;
 
@@ -56,9 +59,10 @@ app.use(cookieParser()); // Ensure cookies can be parsed
 //  Apply auth middleware before routes if authentication is required
 // app.use(authenticateUser)
 //..... Routes
+app.use(passport.initialize()); // important for passport to work
 app.use("/api", subPlansR);
 app.use("/api/auth", authRouter);
-
+app.use("/", googleAuthRoute);
 // app.use(authMiddleware);
 app.use("/api/metadata", MetaData);
 app.use("/api", getReleaseData);
