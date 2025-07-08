@@ -30,7 +30,7 @@ router.get(
     });
 
     // ✅ Redirect to your frontend dashboard with user ID
-    res.redirect(`https://dhunlay.com/dashboard/`);
+    res.redirect(`https://dhunlay.com/dashboard`);
   }
 );
 
