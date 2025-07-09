@@ -14,24 +14,13 @@ const UserSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "Password is required"],
       minlength: [6, "Password must be at least 6 characters long"],
-      // select: false, // Excludes password field from query results by default
+      // Optional if using Google login
     },
-    location: {
+    googleId: {
       type: String,
-      trim: true,
-      default: "Not specified",
-    },
-    country: {
-      type: String,
-      required: [true, "Country is required"],
-      trim: true,
-    },
-    state: {
-      type: String,
-      required: [true, "State is required"],
-      trim: true,
+      unique: true,
+      sparse: true, // Allows multiple null values
     },
     email: {
       type: String,
@@ -46,31 +35,40 @@ const UserSchema = new mongoose.Schema(
         message: (props) => `${props.value} is not a valid email address!`,
       },
     },
+    location: {
+      type: String,
+      trim: true,
+      default: "Not specified",
+    },
+    country: {
+      type: String,
+      trim: true,
+      default: "Not specified",
+    },
+    state: {
+      type: String,
+      trim: true,
+      default: "Not specified",
+    },
   },
   {
-    timestamps: true, // Automatically adds createdAt and updatedAt fields
+    timestamps: true,
   }
 );
 
-// Hash password before saving the document
+// Hash password if present and modified
 UserSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) {
-    return next();
+  if (this.password && this.isModified("password")) {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
   }
-
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
   next();
 });
 
-// Method to compare password during authentication
-UserSchema.methods.comparePassword = async function(candidatePassword) {
-  console.log("comparing password form user model")
-  console.log("Hashed password from DB:", this.password);
-    console.log("Candidate password:", candidatePassword);
+// Password compare method (used only for non-Google users)
+UserSchema.methods.comparePassword = async function (candidatePassword) {
+  if (!this.password) return false;
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
-
-// Export the model
 module.exports = mongoose.model("User", UserSchema);

@@ -15,7 +15,12 @@ import { Toc } from "@mui/icons-material";
 import LeftDrawer from "../../components/drawer/drawerleftC1";
 import CancelIcon from "@mui/icons-material/Cancel";
 import FeaturesP from "../Features/featuresP";
-
+import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";
+import Badge from "@mui/material/Badge";
+import MailIcon from "@mui/icons-material/Mail";
+import { Mail } from "lucide-react";
+import NotificationButton from "../../components/Elements/signoutbutton/signOutButton";
+import MessageIcon from "@mui/icons-material/Message";
 const HomeP = () => {
   const navigate = useNavigate();
   const { userData } = useUser();
@@ -102,6 +107,14 @@ const HomeP = () => {
               />
             </span>
           </Tooltip>
+          <Tooltip title="Messages ">
+            {" "}
+            <div className="home_in_P-message-Icon" style={{cursor:"pointer"}}>
+              {" "}
+              <div className="home_in_P-message-Icon-alert"></div>
+              <MessageIcon></MessageIcon>
+            </div>
+          </Tooltip>
         </div>
         <div className="signIn">
           <div className="drawerbutton">
@@ -122,7 +135,7 @@ const HomeP = () => {
             </LeftDrawer>
           </div>
           <div className="Home-nav-signout">
-            <button onClick={handleLogout}>
+            <button className="Home-nav-signout-button" onClick={handleLogout}>
               <h4>SignOut</h4>
             </button>
           </div>

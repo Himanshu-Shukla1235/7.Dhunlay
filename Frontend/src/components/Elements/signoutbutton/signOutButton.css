@@ -1,0 +1,71 @@
+.notification-btn {
+  position: relative;
+  cursor: pointer;
+  padding: 12px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s linear, filter 0.1s ease;
+}
+
+.notification-btn:hover {
+  background-color: #d1d5db;
+}
+
+.notification-btn:active {
+  filter: brightness(90%);
+}
+
+.notification-icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* Red Dot Container */
+.notification-dot {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 14px;
+  height: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Visible red dot circle */
+.notification-dot::before {
+  content: "";
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: #f87171;
+  border-radius: 50%;
+}
+
+/* Ping animation underneath */
+.ping-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #f87171;
+  border-radius: 50%;
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  z-index: 1;
+  opacity: 0.75;
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
