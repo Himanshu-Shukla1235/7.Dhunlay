@@ -44,6 +44,7 @@ import AddPrimaryArtistPage from "./pages/AddPrimaryArtist/addPrimArtist";
 import PopupModal from "./components/popUp/popUp";
 import SpotifyArtistAnalytics from "./data/Spotify/artist-analytics/artistAnalytics";
 import MessageList from "./pages/Message/Message";
+import Bar from "./adminPages/Bar"
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
@@ -186,6 +187,7 @@ function MainApp() {
         <Route path="/popUp" element={<PopupModal />}></Route>
          <Route path="/artistAnalytics" element={<SpotifyArtistAnalytics />}></Route>
          <Route path="/message" element={<MessageList />} ></Route>
+         <Route path="/bar" element={<Bar />} ></Route>
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />

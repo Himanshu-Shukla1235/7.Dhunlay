@@ -1,0 +1,12 @@
+.main{
+    height: 100%;
+    width: 100vh;
+    padding: 10px;
+   
+}
+.head{
+    width: 1500px;
+    height: 80px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
