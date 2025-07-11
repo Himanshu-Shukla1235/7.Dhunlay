@@ -116,7 +116,7 @@
   justify-content: center;
   align-items: flex-start;
   height: auto; /* Let height adjust dynamically */
-  gap: 1.5vw;
+  gap: 3vw;
   padding-top: 1vw;
   padding-bottom: 3vw;
 
@@ -138,16 +138,33 @@
 @media (max-width: 480px) {
   .ourPlans-main {
     width: 100%;
+    height: auto;
+    width: 97.5vw;
+ 
+  }
+  .ourPlans-main-sec-2 {
+    height: auto;
+     
   }
   .ourPlans-main-sec-22 {
     display: none;
+    gap: 3vw;
+      
   }
   .ourPlans-main-sec-3 {
     gap: 1vw;
+      
+        height: auto;
   }
   .ourPlans-main-sec-32 {
-    gap: 3vw;
+    gap: 7vw;
+    
+
   }
+   .ourPlans-main-sec-31{
+    /* border: solid red 3px; */
+    margin-top: 10px;
+   }
   .ourPlans-main-sec-2{
     display: none;
   }

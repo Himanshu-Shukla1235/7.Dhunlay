@@ -45,13 +45,10 @@ import PopupModal from "./components/popUp/popUp";
 import SpotifyArtistAnalytics from "./data/Spotify/artist-analytics/artistAnalytics";
 
 import MessageList from "./pages/Message/Message";
-<<<<<<< HEAD
 import Bar from "./adminPages/Bar"
-=======
 
 import ResetPasswordPage from "./pages/Reset/resetPassP";
 
->>>>>>> ad239d6cbbefaca3ec251edffb310735e8b7f5ef
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
@@ -195,13 +192,10 @@ function MainApp() {
          <Route path="/artistAnalytics" element={<SpotifyArtistAnalytics />}></Route>
 
          <Route path="/message" element={<MessageList />} ></Route>
-<<<<<<< HEAD
          <Route path="/bar" element={<Bar />} ></Route>
-=======
 
           <Route path="/forgotPassword" element={<ResetPasswordPage />}></Route>
 
->>>>>>> ad239d6cbbefaca3ec251edffb310735e8b7f5ef
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />

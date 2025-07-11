@@ -10,38 +10,51 @@ import ArticleIcon from "@mui/icons-material/Article";
 import WorkIcon from "@mui/icons-material/Work";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const ListComponent = () => {
   const [activeName, setActiveName] = useState("");
 
-  const menuItems = [
-    {
-      name: "Dashboard",
-      href: "/dashboard",
-      icon: <SpaceDashboardIcon className="menu-icon" />,
-    },
-    {
-      name: "Releases",
-      href: "/releases",
-      icon: <LibraryMusicIcon className="menu-icon" />,
-    },
-    {
-      name: "Analytics",
-      href: "/analytics",
-      icon: <AnalyticsIcon className="menu-icon" />,
-    },
+const menuItems = [
+  {
+    id: "dashboard",
+    name: "Dashboard",
+    href: "/dashboard",
+    icon: <SpaceDashboardIcon className="menu-icon" />,
+  },
+  {
+    id: "releases",
+    name: "Releases",
+    href: "/releases",
+    icon: <LibraryMusicIcon className="menu-icon" />,
+  },
+  {
+    id: "analytics",
+    name: "Analytics",
+    href: "/analytics",
+    icon: <AnalyticsIcon className="menu-icon" />,
+  },
+  {
+    id: "features",
+    name: "Features",
+    href: "/features",
+    icon: <StarIcon className="menu-icon" />,
+    hidden: true, // will be hidden
+  },
+  {
+    id: "ourPlans",
+    name: "OurPlans",
+    href: "/ourPlans",
+    icon: <ShoppingCartIcon className="menu-icon" />,
+  },
+  {
+    id: "signOut",
+    name: "signOut",
+    href: "/signOut",
+    icon: <LogoutIcon className="menu-icon" />,
+  },
+];
 
-    // { name: "Call-Support", href: "/call-support", icon: <CallIcon className="menu-icon" /> },
-    {
-      name: "Features",
-      href: "/features",
-      icon: <StarIcon className="menu-icon" />,
-    },
-    {
-      name: "OurPlans",
-      href: "/ourPlans",
-      icon: <ShoppingCartIcon className="menu-icon" />,
-    },
    
     // {
     //   name: "Finance",
@@ -64,7 +77,7 @@ const ListComponent = () => {
     //   href: "/support",
     //   icon: <SupportAgentIcon className="menu-icon" />,
     // },
-  ];
+  
 
   // Set active item based on the current URL
   useEffect(() => {
@@ -81,6 +94,7 @@ const ListComponent = () => {
     <div className="listItems-sec-1">
       {menuItems.map((item) => (
         <a
+         id={`menu-${item.id}`}
           key={item.name}
           href={item.href}
           className={`listItems-sec-1-items ${

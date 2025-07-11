@@ -157,7 +157,7 @@ const HomeP = () => {
             </div>
             <div className="Home-p-section-113">
               <div className="Home-p-section-1131">
-                <a href="/ourPlans"> OurPlans</a>
+                <a className="Home-p-section-1131" href="/ourPlans"> OurPlans</a>
               </div>
             </div>
           </div>

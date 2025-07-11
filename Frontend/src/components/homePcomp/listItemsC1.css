@@ -70,6 +70,16 @@
 .listItems-sec-1-items:hover .menu-icon {
   color: #00eeff;
 }
+
+
+#menu-ourPlans{
+  display: none;
+  
+}
+#menu-signOut{
+  display: none;
+  
+}
 /*! ________________________________________| Responsive Designs |___________________________________________________ */
 /*?------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
@@ -92,5 +102,21 @@
         gap: 5vw;
         font-weight: 300;
     }
+#menu-ourPlans{
+  display: flex;
+  
+}
+#menu-signOut{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+background-color: #000000;
+  margin-top: 5vw;
+  width: auto;
+  padding: 1vw 5vw 1vw;
+  border-radius: 5px;
 
+  color: #ffffff;
+  
+}
 }
