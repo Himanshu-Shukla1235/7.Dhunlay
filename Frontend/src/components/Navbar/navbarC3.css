@@ -1,0 +1,276 @@
+/* ? ____________________________________ \ navbar \_______________________________ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 5vh;  */
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vh 2vw; /* Responsive padding */
+  box-shadow: 0 0.5vh 0.8vh rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10000;
+
+  /* Responsive border thickness */
+  border-radius: 0.5vw;
+  /* border-bottom: solid rgb(4, 255, 0) 0.2vw; */
+}
+
+.navbar-show {
+  transform: translateY(0);
+}
+
+.navbar-hide {
+  transform: translateY(-100%);
+}
+
+/** -------------------------------------------------------------------------logo */
+.logo {
+  width: 2vw; /* Responsive width */
+  height: 2vw; /* Responsive height */
+  background-image: url("/logo/logo1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  margin: 0.5vw;
+}
+
+.logoD {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: -0.5vw;
+  font-family: sans-serif;
+  font-weight: 5000;
+  font-size: 1.6vw; /* Responsive font size */
+}
+
+.logoD h5 {
+  color: rgb(0, 238, 255);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logo {
+    width: 7vw;
+    height: 7vw;
+  }
+}
+/**.......................................................................centerEl*/
+.centerEl {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  width: 40vw;
+  background-color: rgba(107, 106, 106, 0);
+}
+.centerEl {
+  display: flex;
+  gap: 25px; /* Adds spacing between icons */
+}
+
+.icon1:hover {
+  color: #00eeff; /* Light blue color on hover */
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.icon2:hover {
+  color: #00eeff; /* Light blue color on hover */
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.home_in_P-message-Icon {
+  position: relative; /* Required so alert dot positions relative to this */
+  display: inline-block;
+  margin-top: 4.5px;
+
+  /* border :solid 2px red; */
+
+  padding: 5px;
+}
+
+/* Red dot positioned at top-right of icon */
+.home_in_P-message-Icon-alert {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(0, 238, 255);
+  color: rgb(51, 255, 0); /* Hide the '.' text itself */
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/**.......................................................................Signin*/
+.Home-nav-signout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.signIn {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3vw;
+  width: auto;
+  margin-right: 2vw;
+}
+
+.signIn button {
+  all: unset;
+  background-color: transparent;
+  font-family: "Inconsolata", serif;
+  font-size: 1.2vw; /* Responsive font size */
+  padding: 1vh 1.5vw;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  width: auto;
+}
+
+.signIn h4 {
+  font-family: "Inconsolata", serif;
+  font-size: 1vw;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.signIn h4:hover {
+  color: rgb(0, 238, 255);
+}
+.Home-nav-signout-button {
+  border: solid 1.7px aqua;
+}
+/*! ________________________________________| Responsive Designs |___________________________________________________ */
+/*?------------------------ | MOBILE |------------------------- */
+@media (max-width: 480px) {
+  .navbar {
+    /* border-bottom: solid rgb(255, 247, 0) 0.2vw; */
+  }
+  .Home-p-section-11 {
+    display: none;
+  }
+  .Home-p-section-2 {
+    width: 100%;
+    /* border: red solid 3px; */
+  }
+  .Home-p-section-21 {
+    /* border: red solid 3px; */
+    width: 100%;
+  }
+  .Home-p-main-DrawerIcon {
+    width: 5vw;
+  }
+  .Home-p-section-112 {
+    width: 75vw;
+  }
+  .left-drawer-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+  }
+  .left-drawer-close-button:hover {
+    color: #00eeff; /* Change color on hover */
+    transform: scale(1.2); /* Slightly enlarge */
+  }
+  .Home-nav-signout {
+    display: none;
+  }
+  .Home-nav-signout h4 {
+    display: none;
+  }
+  .logoD h5 {
+    font-size: 4.2vw;
+    display: none;
+  }
+  .centerEl {
+    font: 4vw;
+  }
+}
+
+/*?------------------------ | TABLETS |------------------------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    /* border-bottom: solid rgb(255, 145, 0) 0.2vw; */
+  }
+  .Home-p-main-DrawerIcon {
+    display: none;
+  }
+  .drawerbutton {
+    display: none;
+  }
+
+  .drawerleft {
+    display: none;
+  }
+}
+
+/*?------------------------ | SMALL LAPTOPS |------------------------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    /* border-bottom: solid rgb(4, 255, 0) 0.2vw; */
+  }
+  .Home-p-main-DrawerIcon {
+    display: none;
+  }
+  .drawerbutton {
+    display: none;
+  }
+  .drawerleft {
+    display: none;
+  }
+}
+
+/*?------------------------ | LAPTOPS AND DESKTOPS |------------------------- */
+@media (min-width: 1025px) {
+  .navbar {
+    border-bottom: solid rgba(0, 238, 255, 0) min(0.05vw, 0.3px);
+  }
+  .drawerbutton {
+    display: none;
+  }
+  .drawerleft {
+    display: none;
+  }
+}
+
+/*! ________________________________________| scroll bar css |___________________________________________________ */
+/* Scrollbar styling for Webkit browsers */
+.Home-p-section-21::-webkit-scrollbar {
+  width: 0.5vw; /* Responsive width based on viewport width */
+}
+
+.Home-p-section-21::-webkit-scrollbar-track {
+  background: transparent; /* Keeping it transparent */
+  border-radius: 1vw; /* Responsive border-radius */
+}
+
+.Home-p-section-21::-webkit-scrollbar-thumb {
+  background: rgb(1, 238, 255); /* Thumb color */
+  border-radius: 1vw; /* Responsive border-radius */
+}
+
+.Home-p-section-21::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 200, 230); /* Slightly darker color on hover */
+}

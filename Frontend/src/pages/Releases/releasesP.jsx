@@ -18,6 +18,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import SearchIcon from "@mui/icons-material/Search";
 import { useUser } from "../../pages/User/UserData";
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+import NavbarC3 from "../../components/Navbar/navbarC3";
 // Total Releases Component
 const TotalReleases = () => {
   const { songs } = useReleasedSongs();

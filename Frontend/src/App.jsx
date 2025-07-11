@@ -48,6 +48,7 @@ import MessageList from "./pages/Message/Message";
 import Bar from "./adminPages/Bar"
 
 import ResetPasswordPage from "./pages/Reset/resetPassP";
+import NavbarC3 from "./components/Navbar/navbarC3";
 
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
@@ -195,6 +196,7 @@ function MainApp() {
          <Route path="/bar" element={<Bar />} ></Route>
 
           <Route path="/forgotPassword" element={<ResetPasswordPage />}></Route>
+          <Route path="/test1" element={<NavbarC3></NavbarC3>}></Route>
 
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>

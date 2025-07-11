@@ -2,14 +2,16 @@
 
 /* Stepper Container */
 .custom-stepper {
- 
-  background-color: #1e1e1e00; /* Dark background */
+  
+
+
+  background-color: #bc212100; /* Dark background */
   padding: 20px;
   border-radius: 10px;
-  width: 100vw;
-  min-height: 170vh;
+  width: 99vw;
+
   height: auto;
-  overflow: hidden;
+ 
 }
 
 /* Stepper Connector Lines */
@@ -42,7 +44,7 @@
 
 /* Active Step Icon */
 .custom-step.active .MuiStepIcon-root {
-  color: #00eeffc3!important; /* Orange for active step icon */
+  color: #00eeffc3 !important; /* Orange for active step icon */
 }
 
 /* Completed Step Icon */
@@ -52,28 +54,29 @@
 
 /* Change Hover Effect */
 .custom-step .MuiStepLabel-label:hover {
-  color: #ffcc00 !important; /* Yellow on hover */
+  color: #c6c6c6 !important; /* Yellow on hover */
 }
 
-.step-content{
+.step-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   /* border: #4caf50 3px solid; */
   padding: 1vw;
-
-
+  background-color: transparent;
 }
-.step-content-heading{
-  color: #00EEFF;
-
+.step-content-heading {
+  color: #00eeff;
 }
 
 /*! ________________________________________| Responsive Designs |___________________________________________________ */
 /*?------------------------ | MOBILE |------------------------- */
 @media (max-width: 480px) {
-  .custom-stepper{
+  .custom-stepper {
     width: 85vw;
+  }
+  .custom-step .MuiStepLabel-label {
+    font-size: 3vw;
   }
 }
