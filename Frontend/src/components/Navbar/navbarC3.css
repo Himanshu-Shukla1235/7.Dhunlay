@@ -206,6 +206,7 @@
   }
   .centerEl {
     font: 4vw;
+    gap: 15px;
   }
 }
 

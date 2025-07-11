@@ -21,6 +21,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import { Mail } from "lucide-react";
 import NotificationButton from "../../components/Elements/signoutbutton/signOutButton";
 import MessageIcon from "@mui/icons-material/Message";
+import HomeIcon from "@mui/icons-material/Home";
 const HomeP = () => {
   const navigate = useNavigate();
   const { userData } = useUser();
@@ -79,6 +80,18 @@ const HomeP = () => {
           </h5>
         </div>
         <div className="centerEl">
+          <Tooltip title="Home">
+            <HomeIcon
+              style={{
+                fontSize: {
+                  xs: "1.5rem", // phones
+                  sm: "1.2rem", // small tablets
+                  md: "1.7vw", // desktops and up
+                },
+                cursor: "pointer",
+              }}
+            ></HomeIcon>
+          </Tooltip>
           <Tooltip title="Support">
             <span>
               <SupportAgentIcon
@@ -89,6 +102,7 @@ const HomeP = () => {
                     sm: "1.2rem", // small tablets
                     md: "1.7vw", // desktops and up
                   },
+                  color: "grey",
                 }}
               />
             </span>
@@ -109,9 +123,20 @@ const HomeP = () => {
           </Tooltip>
           <Tooltip title="Messages ">
             {" "}
-            <div className="home_in_P-message-Icon" style={{cursor:"pointer"}}>
+            <div
+              className="home_in_P-message-Icon"
+              style={{
+                fontSize: {
+                  xs: "1.5rem", // phones
+                  sm: "1.2rem", // small tablets
+                  md: "1.7vw", // desktops and up
+                },
+                cursor: "pointer",
+                color: "grey",
+              }}
+            >
               {" "}
-              <div className="home_in_P-message-Icon-alert"></div>
+              <div className="home_in_P-message-Icon-alert" ></div>
               <MessageIcon></MessageIcon>
             </div>
           </Tooltip>
@@ -157,7 +182,10 @@ const HomeP = () => {
             </div>
             <div className="Home-p-section-113">
               <div className="Home-p-section-1131">
-                <a className="Home-p-section-1131" href="/ourPlans"> OurPlans</a>
+                <a className="Home-p-section-1131" href="/ourPlans">
+                  {" "}
+                  OurPlans
+                </a>
               </div>
             </div>
           </div>

@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import "./navbarC3.css"
+import "./navbarC3.css";
 import Tooltip from "@mui/material/Tooltip";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import InfoIcon from "@mui/icons-material/Info";
@@ -10,15 +9,16 @@ import { Toc } from "@mui/icons-material";
 import LeftDrawer from "../../components/drawer/drawerleftC1";
 import CancelIcon from "@mui/icons-material/Cancel";
 import ListComponent from "../../components/homePcomp/listItemsC1";
+import HomeIcon from "@mui/icons-material/Home";
 const NavbarC3 = () => {
-     const navigate = useNavigate();
-     const [open, setOpen] = React.useState(false);
-       const backendAppUrl = import.meta.env.VITE_API_URL;
-     const handleClick = () => {
+  const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const backendAppUrl = import.meta.env.VITE_API_URL;
+  const handleClick = () => {
     // Navigate to the desired URL when the icon is clicked
     window.location.href = "/about"; // Replace '/info' with your desired path
   };
-   const toggleDrawer = () => {
+  const toggleDrawer = () => {
     setOpen((prev) => !prev);
   };
 
@@ -54,6 +54,19 @@ const NavbarC3 = () => {
           </h5>
         </div>
         <div className="centerEl">
+          <Tooltip title="Home">
+            <HomeIcon
+              onClick={() => navigate("/dashboard")}
+              style={{
+                fontSize: {
+                  xs: "1.5rem", // phones
+                  sm: "1.2rem", // small tablets
+                  md: "1.7vw", // desktops and up
+                },
+                cursor: "pointer",
+              }}
+            ></HomeIcon>
+          </Tooltip>
           <Tooltip title="Support">
             <span>
               <SupportAgentIcon
@@ -64,6 +77,7 @@ const NavbarC3 = () => {
                     sm: "1.2rem", // small tablets
                     md: "1.7vw", // desktops and up
                   },
+                    color: "grey",
                 }}
               />
             </span>
@@ -86,7 +100,15 @@ const NavbarC3 = () => {
             {" "}
             <div
               className="home_in_P-message-Icon"
-              style={{ cursor: "pointer" }}
+              style={{
+                fontSize: {
+                  xs: "1.5rem", // phones
+                  sm: "1.2rem", // small tablets
+                  md: "1.7vw", // desktops and up
+                },
+                cursor: "pointer",
+                  color: "grey",
+              }}
             >
               {" "}
               <div className="home_in_P-message-Icon-alert"></div>
@@ -123,6 +145,4 @@ const NavbarC3 = () => {
   );
 };
 
-
-
-export default NavbarC3 ;
+export default NavbarC3;
