@@ -1,4 +1,4 @@
-🎵 Music Distribution Platform
+🎵 Dhunlay : A Music Distribution Platform
 A modern, scalable platform for artists to distribute their music to major streaming services (Spotify, Apple Music, YouTube Music, etc.). Built with a focus on artist empowerment, fair royalties, and seamless distribution, this platform simplifies the process of getting music to global audiences.
 
 ✨ Key Features
