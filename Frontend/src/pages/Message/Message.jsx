@@ -30,7 +30,11 @@ export default function MessageList() {
           padding: "20px",
         }}
       >
-      <div className="message-main-sec-2"></div>
+      <div className="message-main-sec-2">
+        <div className="div">
+          MESSages
+        </div>
+      </div>
         <div className="message-main-sec-1">
           {" "}
           {messages.map((item) => {
