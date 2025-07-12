@@ -3,6 +3,7 @@ import "./ourPlans.css";
 
 import Card from "../../components/Cards/cardsC1";
 import { useUser } from "../User/UserData"; // adjust path as needed
+import CustomTooltip from "../../components/Elements/tooltip/tooltip";
 
 const OurPlans = () => {
   const [subscription, setSubscription] = useState([]);
@@ -108,6 +109,17 @@ const OurPlans = () => {
                 "Make smart links to share with fans everywhere.",
                 "We provide ISRC & UPC codes at no cost.",
               ]}
+              tooltipImage={[
+                "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg",
+                "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/09/uverworld.jpg",
+                "https://t4.ftcdn.net/jpg/06/27/14/71/360_F_627147103_GXwL1f3FudE9NHCfMNKN5Asq2ZYaCeXm.jpg",
+                "https://images.pexels.com/photos/3182764/pexels-photo-3182764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "https://soundiiz.com/blog/wp-content/uploads/2023/10/tips_for_music_distribution_article_image-1024x640.png",
+                "https://www.weka.io/wp-content/uploads/files/2021/09/modern-analytic.jpg",
+                "https://media.istockphoto.com/id/1357236672/video/live-streaming-icon-animation.jpg?s=640x640&k=20&c=H1PNCamHmioeyVOIv64upDAqPVUaUOXFDzE2cT-HbnA=",
+                "https://blog.push.fm/wp-content/uploads/2024/09/gut-Fan-Link-1024x576.png",
+                "https://res.cloudinary.com/jerrick/image/upload/v1727613458/66f94a129c1020001d4ed9d4.jpg",
+              ]}
               navigation="freemium"
             />
             <Card
@@ -137,6 +149,17 @@ const OurPlans = () => {
                 "Generate smart links to promote your release anywhere.",
                 "We provide required music codes (ISRC/UPC) for free.",
               ]}
+              tooltipImage={[
+                "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg",
+                "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/09/uverworld.jpg",
+                "https://t4.ftcdn.net/jpg/06/27/14/71/360_F_627147103_GXwL1f3FudE9NHCfMNKN5Asq2ZYaCeXm.jpg",
+                "https://images.pexels.com/photos/3182764/pexels-photo-3182764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "https://soundiiz.com/blog/wp-content/uploads/2023/10/tips_for_music_distribution_article_image-1024x640.png",
+                "https://www.weka.io/wp-content/uploads/files/2021/09/modern-analytic.jpg",
+                "https://media.istockphoto.com/id/1357236672/video/live-streaming-icon-animation.jpg?s=640x640&k=20&c=H1PNCamHmioeyVOIv64upDAqPVUaUOXFDzE2cT-HbnA=",
+                "https://blog.push.fm/wp-content/uploads/2024/09/gut-Fan-Link-1024x576.png",
+                "https://res.cloudinary.com/jerrick/image/upload/v1727613458/66f94a129c1020001d4ed9d4.jpg",
+              ]}
               navigation="perRelease"
             />
             <Card
@@ -165,6 +188,17 @@ const OurPlans = () => {
                 "Set the exact date and time your music goes live.",
                 "Share your release using smart, trackable links.",
                 "We generate music codes (ISRC/UPC) for you at no cost.",
+              ]}
+              tooltipImage={[
+                "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg",
+                "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/09/uverworld.jpg",
+                "https://t4.ftcdn.net/jpg/06/27/14/71/360_F_627147103_GXwL1f3FudE9NHCfMNKN5Asq2ZYaCeXm.jpg",
+                "https://images.pexels.com/photos/3182764/pexels-photo-3182764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "https://soundiiz.com/blog/wp-content/uploads/2023/10/tips_for_music_distribution_article_image-1024x640.png",
+                "https://www.weka.io/wp-content/uploads/files/2021/09/modern-analytic.jpg",
+                "https://media.istockphoto.com/id/1357236672/video/live-streaming-icon-animation.jpg?s=640x640&k=20&c=H1PNCamHmioeyVOIv64upDAqPVUaUOXFDzE2cT-HbnA=",
+                "https://blog.push.fm/wp-content/uploads/2024/09/gut-Fan-Link-1024x576.png",
+                "https://res.cloudinary.com/jerrick/image/upload/v1727613458/66f94a129c1020001d4ed9d4.jpg",
               ]}
               navigation="ep-album"
             />
@@ -200,6 +234,17 @@ const OurPlans = () => {
                 "Choose the exact date and time for your release.",
                 "Promote using customizable, smart fan links.",
                 "We provide ISRC & UPC codes at no extra cost.",
+              ]}
+              tooltipImage={[
+                "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg",
+                "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/09/uverworld.jpg",
+                "https://t4.ftcdn.net/jpg/06/27/14/71/360_F_627147103_GXwL1f3FudE9NHCfMNKN5Asq2ZYaCeXm.jpg",
+                "https://images.pexels.com/photos/3182764/pexels-photo-3182764.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "https://soundiiz.com/blog/wp-content/uploads/2023/10/tips_for_music_distribution_article_image-1024x640.png",
+                "https://www.weka.io/wp-content/uploads/files/2021/09/modern-analytic.jpg",
+                "https://media.istockphoto.com/id/1357236672/video/live-streaming-icon-animation.jpg?s=640x640&k=20&c=H1PNCamHmioeyVOIv64upDAqPVUaUOXFDzE2cT-HbnA=",
+                "https://blog.push.fm/wp-content/uploads/2024/09/gut-Fan-Link-1024x576.png",
+                "https://res.cloudinary.com/jerrick/image/upload/v1727613458/66f94a129c1020001d4ed9d4.jpg",
               ]}
               navigation="labelPlan"
             />
