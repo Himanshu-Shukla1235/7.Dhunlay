@@ -30,7 +30,14 @@ export default function MessageList() {
           padding: "20px",
         }}
       >
-      <div className="message-main-sec-2"></div>
+      <div className="message-main-sec-2">
+        {/* remove this himahsu */}
+        <div>
+          <h1>message</h1>
+          <h3>message</h3>
+          <h5>message</h5>
+        </div>
+      </div>
         <div className="message-main-sec-1">
           {" "}
           {messages.map((item) => {
