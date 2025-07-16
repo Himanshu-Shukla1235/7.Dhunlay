@@ -50,6 +50,10 @@ import Board from "./adminPages/Board";
 
 import ResetPasswordPage from "./pages/Reset/resetPassP";
 
+
+import ResetPasswordPage from "./pages/Reset/resetPassP";
+import NavbarC3 from "./components/Navbar/navbarC3";
+import TooltipC1 from "./components/Elements/tooltip/tooltip";
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
@@ -197,6 +201,7 @@ function MainApp() {
          <Route path="board" element={<Board /> } />
 
           <Route path="/forgotPassword" element={<ResetPasswordPage />}></Route>
+          <Route path="/test1" element={<TooltipC1></TooltipC1>}></Route>
 
         {/* Protected Routes: Home & Meta */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>

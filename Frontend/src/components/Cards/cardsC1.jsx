@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./cardsC1.css"; // Import the CSS file
 import InfoIcon from "@mui/icons-material/Info";
 import Tooltip from "@mui/material/Tooltip";
+import CustomTooltip from "../Elements/tooltip/tooltip";
 
 const Card = ({
   title = "Premium",
@@ -15,6 +16,7 @@ const Card = ({
   card_dot_bg = "rgb(255, 255, 255)",
   tooltipContents = [],
   navigation = "",
+  tooltipImage=[],
 }) => {
   const navigate = useNavigate();
 
@@ -38,7 +40,14 @@ const Card = ({
           {features.map((feature, index) => (
             <li key={index}>
               {feature}{" "}
-              <Tooltip title={tooltipContents[index] || "info"}>
+              <Tooltip
+                title={
+                  <CustomTooltip
+                    text={tooltipContents[index] || "info"}
+                   image={tooltipImage && tooltipImage[index] ? tooltipImage[index] : ""}
+                  ></CustomTooltip>
+                }
+              >
                 <span>
                   <InfoIcon
                     className="cardsC1-icon2"

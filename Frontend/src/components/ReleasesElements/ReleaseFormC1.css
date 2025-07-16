@@ -1,13 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Quicksand:wght@300..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures consistent sizing */
+}
 .ReleaseForm-main {
-  /* display: flex;
+  
+  display: flex;
     flex-direction: column;
-    justify-content: center; */
+    justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   /* border: solid 3px red; */
-  width: 100vw;
-  margin-right: 3vw;
+  width: auto;
+  
+  margin-top: 6vh;
+  height: auto;
 }
 .step-1-prev-main {
   display: flex;
@@ -17,8 +25,10 @@
   /* border: solid green 3px; */
   gap: 4vw;
   padding: 5vw;
-  width: auto;
-  width: 90vw;
+  width: 100%;
+  height: auto;
+ 
+  background-color: transparent;
 }
 .step-1-prev-main-sec1 {
   display: flex;
@@ -28,12 +38,13 @@
   width: 45vw;
   height: auto;
 
-  border: solid rgb(0, 0, 0) 3px;
+  border: solid rgba(0, 0, 0, 0) 3px;
   /* height: 100vh; */
   background-color: rgba(65, 64, 64, 0.29);
   border-radius: 1vw;
   padding: 2vw;
   gap: 2vw;
+  
 }
 .step-1-prev-main-sec11 {
   display: flex;
@@ -41,7 +52,7 @@
   align-items: center;
 
   justify-content: center;
-  width: 30vw;
+  width: 35vw;
   border: solid rgba(255, 255, 255, 0.443) 1px;
 
   border-radius: 1vw;
@@ -49,6 +60,8 @@
   padding: 1vw;
   height: auto;
   opacity: 1;
+
+  gap: 10px;
 }
 /* .step-1-prev-main-sec11:hover{
 opacity: 1;
@@ -71,7 +84,7 @@ opacity: 1;
   align-items: center;
 
   justify-content: flex-start;
-  width: 42vw;
+  width: 44vw;
 
   height: auto;
   border: solid black 3px;
@@ -80,6 +93,7 @@ opacity: 1;
   padding: 1vw;
   background-color: black;
   gap: 1vw;
+    
 }
 .step-1-prev-main-sec12 h4 {
   display: flex;
@@ -100,9 +114,12 @@ opacity: 1;
   align-items: flex-start;
 
   justify-content: flex-start;
-  width: 42vw;
+  width: 100%;
   border-top: solid 3px rgba(48, 47, 47, 0.404);
   height: auto;
+  gap:1.6vw ;
+  /* border: solid rgb(128, 105, 0) 3px; */
+  padding-top:0.8vw ;
 }
 .step-1-prev-main-sec12-refrences p {
   display: flex;
@@ -118,7 +135,7 @@ opacity: 1;
   position: relative;
   font-family: sans-serif;
   /* color: white; */
-  border: solid #00EEFF 1.5px;
+  border: solid #00EEFF 1px;
   padding: 30px;
   border-radius: 10px;
 
@@ -137,18 +154,20 @@ opacity: 1;
   justify-content: center;
   align-items: center;
   width: 34vw;
-  border: solid rgb(105, 105, 105) 2px;
+  border: solid rgb(105, 105, 105) 1.5px;
   margin-bottom: 5vw;
   z-index: 999;
-  height: 30vh;
+  height: 35vh;
+  padding: 1vw;
+  border-radius: 5px;
 }
 .ReleaseForm-primaryartistinput p {
-  color: rgb(170, 170, 170);
+  color: rgb(247, 247, 247);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 13px;
 }
 
 .ReleaseForm-releaseType {
@@ -242,6 +261,8 @@ border-radius: 7px;
   color: #00eeffd4;
   font-size: 1.5vw;
   width: 100%;
+  margin-bottom: 8px;
+
 }
 .step2-main1 p {
   color: white;
@@ -259,6 +280,8 @@ border-radius: 7px;
   padding-left: 20px;
   padding-right: 20px;
   overflow-y: scroll;
+  /* border: solid red 3px; */
+  padding: 8px;
 
   /* Scrollbar Styling for WebKit */
   scrollbar-width: thin; /* Firefox */
@@ -297,6 +320,7 @@ border-radius: 7px;
   font-size: 1.5vw;
   width: 60%;
   width: 100%;
+  margin-bottom: 8px;
 }
 .step2-main2 p {
   color: white;
@@ -646,20 +670,35 @@ border-radius: 7px;
   }
   .step1-main {
     width: 100%;
-    /* border: solid red 1px; */
+   
     /* padding: 20px; */
     border: none;
     padding: 0px;
+   /* border: solid red 2px; */
+   width: 100%;
   }
   .step-1-prev-main {
     /* border: solid red 1px; */
+    width: 96vw;
+    margin-top: 9px;
+  }
+  .ReleaseForm-primaryartistinput{
     width: 100%;
+  }
+  .ReleaseForm-primaryartistinput p{
+    font-size: 3.5vw;
+    font-weight: lighter;
+    margin-bottom: 5px;
+  }
+  .step2-main{
+    margin-top: 5vw;
   }
   .step2-main1,
   .step2-main2 {
     flex-direction: column-reverse;
     width: 98%;
     height: auto;
+    
 
   }
   .step-2-main1-left,

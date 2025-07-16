@@ -11,24 +11,37 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        const existingUser = await User.findOne({ googleId: profile.id });
+        // 1. Try finding user by Google ID
+        let user = await User.findOne({ googleId: profile.id });
 
-        if (existingUser) return done(null, existingUser);
+        // 2. If not found by googleId, try matching by email
+        if (!user) {
+          const email = profile.emails[0].value;
+          user = await User.findOne({ email });
 
-        const newUser = new User({
-          username: profile.displayName,
-          email: profile.emails[0].value,
-          googleId: profile.id,
-        });
+          if (user) {
+            // ✅ User exists but not linked with Google yet — update googleId
+            user.googleId = profile.id;
+            await user.save();
+          } else {
+            // ❌ No user at all — create new user
+            user = new User({
+              username: profile.displayName,
+              email,
+              googleId: profile.id,
+            });
+            await user.save();
+          }
+        }
 
-        await newUser.save();
-        return done(null, newUser);
+        return done(null, user);
       } catch (err) {
         return done(err, null);
       }
     }
   )
 );
+
 
 // Optional: for sessions (can skip if using JWT only)
 passport.serializeUser((user, done) => {

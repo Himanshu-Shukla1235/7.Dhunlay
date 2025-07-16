@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ReleaseFormC1.css";
+import NavbarC3 from "../Navbar/navbarC3";
 // Material UI & Icons
 import {
   IconButton,
@@ -483,7 +484,7 @@ const ReleaseUserFormD = () => {
             />
             <p>
               {" "}
-              If primary artist not exist please add{" "}
+              * If primary artist not exist please add{" "}
               <AddCircleIcon
                 style={{ cursor: "pointer", color: "#00EEFF" }}
                 onClick={() => setIsPopupOpen(true)}
@@ -845,7 +846,7 @@ const ReleaseUserFormD = () => {
           </div>
           <div className="ReleaseForm-step2-main1-reviwTracs">
             {" "}
-            <h4 style={{ color: "#00eeffd4" }}>Added Tracks:</h4>
+            <h4 style={{ color: "#00eeffd4" }}>Added Tracks</h4>
             {songFiles.length > 0 && (
               <div style={{ marginTop: "0.5rem" }}>
                 <ul style={{ listStyleType: "none", padding: 0 }}>
@@ -1295,9 +1296,13 @@ const ReleaseUserFormD = () => {
   ];
 
   return (
-    <div className="ReleaseForm-main">
-      <StepperComponent activeStep={activeStep} stepContent={stepContent} />
-    </div>
+    <>
+      {" "}
+      <NavbarC3></NavbarC3>{" "}
+      <div className="ReleaseForm-main">
+        <StepperComponent activeStep={activeStep} stepContent={stepContent} />
+      </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 /* Basic styling for the selector container */
+
 .selector-container {
   display: flex;
   flex-direction: column;
@@ -84,12 +85,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 35vw;
+  width: 40vw;
   padding: 2vw;
   gap: 1vw;
   z-index: 999;
   height: auto;
   /* border: solid yellow 2px; */
+  overflow-x: hidden;
 }
 
 /* Dropdown button */
@@ -135,6 +137,7 @@
   border-radius: 0.8vw;
   scrollbar-width: thin; /* Firefox */
   scrollbar-color: #999 #2e2e2e; /* Firefox */
+  overflow-x: hidden;
 }
 
 /* Chrome, Edge, and Safari scrollbars */

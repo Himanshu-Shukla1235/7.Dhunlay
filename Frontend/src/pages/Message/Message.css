@@ -1,29 +1,81 @@
 /* ✅ BASE DESIGN */
-body {
+* {
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg, #2c3e50, #4ca1af); /* soft gradient */
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Inconsolata", serif;
+}
+.message-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* border: solid 3px red; */
+  height: 100vh;
+  overflow-y: hidden;
+  background-color: rgba(75, 75, 75, 0.219);
+  gap: 9px;
+
+  
+}
+.message-main-sec-2{
+    border: solid 1px rgb(102, 102, 102);
+    width: 20%;
+    height: 92.5vh;
+    margin-top: 6.5vh;
+     border-radius: 5px;
+}
+.message-main-sec-1{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: solid 1px rgb(102, 102, 102);
+  height: 93vh;
+  overflow-y: scroll;
+  background-color: rgba(24, 24, 24, 0.557);
+  border-radius: 5px;
+  width: 86%;
+  margin-top: 6.5vh;
+}
+.message-main-sec-1::-webkit-scrollbar {
+  width: 8px; /* width of the scrollbar */
+}
+
+.message-main-sec-1::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.message-main-sec-1::-webkit-scrollbar-thumb {
+  background-color: #4dd0e1; /* Cyan scrollbar thumb */
+  border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.2); /* adds spacing around thumb */
+}
+
+.message-main-sec-1::-webkit-scrollbar-thumb:hover {
+  background-color: #00acc1; /* Darker on hover */
 }
 
 /* ✅ MAIN CARD */
 .message-wrapper {
-  width: 100%;
-  max-width: 720px;
+  width: 80vw;
+  max-width: 820px;
   background: #1f1f1f;
-  border: 1px solid #37474f;
+  border: 1px solid #37474f00;
   border-radius: 16px;
-  margin: 30px auto;
+  margin: 10px auto;
   padding: 20px;
   color: #f0f0f0;
   box-sizing: border-box;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  /* border: solid 3px red; */
+  
 }
 
-.message-wrapper:hover {
+/* .message-wrapper:hover {
   transform: translateY(-4px);
-}
+} */
 
 /* ✅ HEADER */
 .message-header {
@@ -35,21 +87,22 @@ body {
 }
 
 .message-wrapper img {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #6a8efc;
+  border: 2px solid #72727200;
 }
 
 .message-username {
   font-size: 14px;
-  background: #2e86de;
+  background: #adafaf00;
   padding: 6px 12px;
   border-radius: 8px;
   margin-left: 12px;
   font-weight: 500;
-  color: #fff;
+  color: #ffffff;
+  font-family: sans-serif;
 }
 
 .message-date-time {
@@ -72,16 +125,17 @@ body {
 /* ✅ TITLE */
 .message-title {
   padding-top: 18px;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
-  color: #64b5f6;
+  color: #00eeff;
+  letter-spacing: 2px; /* or use em units like 0.05em */
 }
 
 /* ✅ DESCRIPTION - Expandable */
 .message-description {
   width: 100%;
   background: #2a2a2a;
-  border: 1px solid #3d5afe;
+  border: 1px solid #68686800;
   border-radius: 10px;
   margin-top: 14px;
   padding: 16px;
@@ -89,10 +143,12 @@ body {
   font-size: 15px;
   line-height: 1.6;
   color: #f5f5f5;
-  max-height: 90px;
+  max-height: 70px;
   overflow: hidden;
   transition: max-height 0.5s ease;
   box-sizing: border-box;
+  /* border: solid red 3px; */
+
 }
 
 .message-description.expanded {
@@ -104,26 +160,45 @@ body {
 .see-more-btn {
   position: absolute;
   right: 14px;
-  bottom: 14px;
+  bottom: 19px;
   font-size: 13px;
   padding: 6px 12px;
-  background: #6a8efc;
-  color: white;
+  background: #00eeff;
+  color: rgb(0, 0, 0);
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
+  font-family: sans-serif;
 }
 
 .see-more-btn:hover {
-  background: #4c6ef5;
+  background: #00eeff;
 }
 
 /* ✅ RESPONSIVE STYLES */
 
 /* Phones (iPhone 12 Pro, etc.) */
 @media (max-width: 480px) {
+  .message-main{
+    flex-direction: column;
+    gap: 1px;
+    padding:0px;
+  }
+  .message-main-sec-2{
+    width: 100%;
+    height: 10vh;
+    
+  }
+  .message-main-sec-1{
+width: 100%;
+border: none;
+margin: 9px;
+padding:0px;
+/* border: solid red 2px; */
+
+  }
   .message-wrapper {
-    width: 92%;
+    width: 100vw;
     padding: 16px;
   }
 
@@ -145,6 +220,7 @@ body {
   .message-description {
     font-size: 14px;
     padding: 14px;
+    max-height: 30vh;
   }
 
   .see-more-btn {

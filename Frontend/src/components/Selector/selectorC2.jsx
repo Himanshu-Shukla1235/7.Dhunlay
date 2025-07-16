@@ -57,7 +57,7 @@ const PrimaryArtistSelector = ({ artistNames, selectedArtists, onChange }) => {
 
   return (
     <div className="selector-c2-container">
-      <label htmlFor="artist-select">Select Primary Artists:</label>
+      <label htmlFor="artist-select">Select Primary Artists</label>
       <div className="selector-c2-dropdown">
         <div
           ref={wrapperRef}
