@@ -14,6 +14,9 @@ const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
 const LandinP = lazy(() => import("./pages/Landing_page/landing_page"));
 
 const About = lazy(() => import("./pages/About/about"));
+const FeaturesArtistOut = lazy(()=>import("./pages/FeaturesArtistOut/featuresArtistOut"))
+const FeaturesLabelOut = lazy(()=>import("./pages/FeaturesLabelOut/featuresLabelOut"))
+
 const Features = lazy(() => import("./pages/Features/featuresP"));
 
 import LoadingC2 from "./components/Loding/loadingC2";
@@ -182,6 +185,9 @@ function MainApp() {
         ></Route>
         {/* This is about page */}
         <Route path="/about" element={<About />} />
+        <Route path="features_ArtistOut" element={<FeaturesArtistOut />} />
+        <Route path="features_LabelOut" element={<FeaturesLabelOut />} />{" "}
+
         <Route path="features_Artist" element={<FeaturesArtist />} />
         <Route path="features_Label" element={<FeaturesLabel />} />{" "}
         <Route path="policy" element={<PolicyPage />} />{" "}
