@@ -8,7 +8,7 @@ import Stacking from "../../components/stacking element/stacking";
 import Footer from "../../components/Footer/footer";
 import OutNavbar from "../../components/OutNavbar/outNavbar";
 
-const FeaturesArtist = () => {
+const FeaturesArtistOut = () => {
   return (
     <>
         <OutNavbar/>
@@ -55,4 +55,4 @@ const FeaturesArtist = () => {
   );
 };
 
-export default FeaturesArtist;
+export default FeaturesArtistOut;

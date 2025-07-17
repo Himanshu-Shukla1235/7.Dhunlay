@@ -8,7 +8,7 @@ import Stacking from "../../components/stacking element/stacking";
 import Footer from "../../components/Footer/footer";
 import OutNavbar from "../../components/OutNavbar/outNavbar"
 
-const featuresLabel = () => {
+const featuresLabelOut = () => {
   return (
     <>
     <OutNavbar/>
@@ -55,4 +55,4 @@ const featuresLabel = () => {
   );
 };
 
-export default featuresLabel;
+export default featuresLabelOut;
