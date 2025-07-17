@@ -25,7 +25,7 @@
   /* border: yellow 1px solid; */
   gap: 10vw;
 }
-.features-main-sec-11{
+.features-main-sec-11 {
   width: 80%;
   /* border: 1px solid orange; */
   margin: 0vw 0 0 0;
@@ -39,17 +39,17 @@
   overflow: hidden;
 }
 
-.heading{
+.heading {
   display: flex;
   align-items: center;
   justify-content: center;
   /* border:  1px solid blue; */
   gap: 10px;
 }
-.heading-stacking{
+.heading-stacking {
   position: relative;
 }
-.heading h4{
+.heading h4 {
   font-family: "Inconsolata", serif;
   font-size: 1.5vw;
   color: rgb(0, 238, 255);
@@ -63,21 +63,21 @@
   font-size: 3.5vw;
   margin-top: 2vw;
   overflow: hidden;
-  opacity: 0; 
-  transform: translateY(5vw); 
+  opacity: 0;
+  transform: translateY(5vw);
   animation: fadeUp 0.7s ease-out forwards;
 }
-.features-main-sec-11 h3{
-  color: rgba(0, 238, 255, 0.826);
-  font-size: 1vw;
-  font-family: monospace;
-  font-weight: 600;
+.features-main-sec-11 h3 {
+  color: rgb(0, 238, 255);
+  font-size: 1.3vw;
+  font-family: "Inconsolata", serif;
+  font-weight: 500;
   text-transform: capitalize;
   letter-spacing: 1.4px;
   width: 85%;
   line-height: 1.5vw;
-  opacity: 0; 
-  transform: translateY(10vw); 
+  opacity: 0;
+  transform: translateY(10vw);
   animation: fadeUp 1s ease-out forwards;
 }
 @keyframes fadeUp {
@@ -86,8 +86,8 @@
     transform: translateY(0); /* End position at the normal place */
   }
 }
-.features-main-sec-12 {   
-  padding: 2vw 0;                              
+.features-main-sec-12 {
+  padding: 2vw 0;
   width: 100%;
   /* border: 2px solid rgb(227, 47, 255); */
   overflow: hidden;
@@ -96,18 +96,18 @@
   margin-top: -3vw;
 }
 
-.division{
+.division {
   width: 90%;
-  border: .5px solid rgba(128, 128, 128, 0.29);
+  border: 0.5px solid rgba(128, 128, 128, 0.29);
   margin: 5vw;
 }
 
 /* <--------------------------------------- SECTION-2 ----------------------------------------------> */
-.features-main-sec-2{
+.features-main-sec-2 {
   width: 95%;
   /* border: 1px solid red; */
 }
-.features-main-sec-2 h2{
+.features-main-sec-2 h2 {
   font-family: system-ui, "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   text-transform: uppercase;
   font-weight: 900;
@@ -119,7 +119,7 @@
   transform: translateY(5vw); 
   animation: fadeUp 0.7s ease-out forwards; */
 }
-.features-main-sec-21{
+.features-main-sec-21 {
   /* border: 1px solid green; */
   padding: 2vw 0;
   background-color: rgb(24, 24, 24);
@@ -127,7 +127,7 @@
 }
 
 /* <--------------------------------------- SECTION-3 ----------------------------------------------> */
-.features-main-sec-3{
+.features-main-sec-3 {
   margin-top: 5vw;
   height: 100vh;
   width: 88vw;
@@ -171,29 +171,29 @@
   }
 } */
 
-@media (min-width:350px) and (max-width:500px){
-  .heading{
+@media (min-width: 350px) and (max-width: 500px) {
+  .heading {
     margin-bottom: 10vw;
     display: flex;
     gap: 1vw;
   }
-  .heading h4{
+  .heading h4 {
     font-size: 5vw;
   }
   /* .features-main-sec-1{
     border: 1px solid red;
   } */
-  .features-main-sec-11{
+  .features-main-sec-11 {
     width: 100%;
   }
-  .features-main-sec-11 h2{
+  .features-main-sec-11 h2 {
     font-size: 10vw;
     width: 95%;
     padding: 3vw 0;
     line-height: 10vw;
     /* border: 1px solid blueviolet; */
   }
-  .features-main-sec-11 h3{
+  .features-main-sec-11 h3 {
     margin-top: 3vw;
     font-size: 4vw;
     width: 80%;
@@ -203,42 +203,42 @@
     margin-bottom: 4vw;
     /* border: 1px solid green; */
   }
-  .features-main-sec-12{
+  .features-main-sec-12 {
     margin-top: 5vw;
     padding-top: 10vw;
   }
-  .division{
+  .division {
     /* width: 100%; */
     margin: 10vw 0;
   }
-  .features-main-sec-2{
+  .features-main-sec-2 {
     margin-top: 10vw;
   }
-  .features-main-sec-2 h2{
+  .features-main-sec-2 h2 {
     font-size: 9vw;
     margin-bottom: 10vw;
     line-height: 10vw;
   }
-   .features-main-sec-21{
+  .features-main-sec-21 {
     padding-top: 10vw;
     /* margin-top: 20vw; */
-   }
-   .features-main-sec-3{
+  }
+  .features-main-sec-3 {
     width: 100%;
-   }
+  }
 }
 
-@media (min-width:501px) and (max-width:900px){
-  .heading h4{
+@media (min-width: 501px) and (max-width: 900px) {
+  .heading h4 {
     font-size: 2vw;
   }
-  .features-main-sec-11 h2{
+  .features-main-sec-11 h2 {
     font-size: 5vw;
     width: 100%;
     padding: 3vw 0 0 0;
     line-height: 4.5vw;
   }
-  .features-main-sec-11 h3{
+  .features-main-sec-11 h3 {
     font-size: 1.8vw;
     width: 100%;
     line-height: 2.5vw;

@@ -68,10 +68,10 @@
   animation: fadeUp 0.7s ease-out forwards;
 }
 .features-main-sec-11 h3{
-  color: rgba(0, 238, 255, 0.826);
-  font-size: 1vw;
-  font-family: monospace;
-  font-weight: 600;
+  color: rgb(0, 238, 255);
+  font-size: 1.3vw;
+   font-family: "Inconsolata", serif;
+  font-weight: 500;
   text-transform: capitalize;
   letter-spacing: 1.4px;
   width: 85%;
