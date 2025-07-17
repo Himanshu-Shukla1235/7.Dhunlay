@@ -61,7 +61,7 @@
   border-radius: 0.5vw;
   padding: 5vw;
   gap: 1.5vw;
-  height: 55vh;
+  height: 59vh;
   }
   .featuresP-sec-2 header {
     font-size: 8vw;
@@ -85,8 +85,8 @@
     50% { border-color: orange; }
   }
   .featuresP-sec-2 p{
-    font-family: sans-serif;
-    font-size: 01vw;
+       font-family: "Inconsolata", serif;
+    font-size: 1.1vw;
   }
   .featuresP-sec-2 a{
     display: flex;
@@ -99,7 +99,7 @@
     background-color: white;
     padding: 1vw;
     border-radius: 0.5vw;
-    width: 7vw;
+    width: 10vw;
   }
   .featuresP-sec-2 a:hover{
     color:#000000 ;
@@ -163,7 +163,7 @@
   }
   .featuresP-sec-3 p{
     font-family: "Inconsolata", serif;
-    font-size: 1vw;
+    font-size: 1.1vw;
   }
   .featuresP-sec-3 a{
     display: flex;
@@ -176,7 +176,7 @@
     background-color: white;
     padding: 1vw;
     border-radius: 0.5vw;
-    width: 7vw;
+    width: 10vw;
   }
   .featuresP-sec-3 a:hover{
     color:#000000 ;
