@@ -49,8 +49,11 @@ import SpotifyArtistAnalytics from "./data/Spotify/artist-analytics/artistAnalyt
 
 import MessageList from "./pages/Message/Message";
 import Bar from "./adminPages/Bar"
+import Board from "./adminPages/Board";
 
 import ResetPasswordPage from "./pages/Reset/resetPassP";
+
+
 import NavbarC3 from "./components/Navbar/navbarC3";
 import TooltipC1 from "./components/Elements/tooltip/tooltip";
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
@@ -200,6 +203,7 @@ function MainApp() {
 
          <Route path="/message" element={<MessageList />} ></Route>
          <Route path="/bar" element={<Bar />} ></Route>
+         <Route path="board" element={<Board /> } />
 
           <Route path="/forgotPassword" element={<ResetPasswordPage />}></Route>
           <Route path="/test1" element={<TooltipC1></TooltipC1>}></Route>

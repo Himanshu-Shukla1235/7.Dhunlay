@@ -447,17 +447,17 @@ const loginUser = async (req, res) => {
  * @access  Private
  */
 const logoutUser = async (req, res) => {
-  try {
+  try{
     res.clearCookie("token");
     res.status(200).json({
-      success: true,
-      message: "Logout successful.",
+      success : true,
+      message : "Logout Successful."
     });
   } catch (error) {
     console.error("Error in logoutUser:", error);
     res.status(500).json({
-      success: false,
-      message: "Internal server error.",
+      sucess: false,
+      message :"Internal Server Error."
     });
   }
 };
