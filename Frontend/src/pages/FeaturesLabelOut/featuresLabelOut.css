@@ -66,6 +66,8 @@
   opacity: 0; 
   transform: translateY(5vw); 
   animation: fadeUp 0.7s ease-out forwards;
+font-family: "Inconsolata", serif;
+  font-weight: 700;
 }
 .features-main-sec-11 h3{
   color: rgba(0, 238, 255, 0.826);
@@ -115,6 +117,8 @@
   font-size: 3vw;
   margin-bottom: 4vw;
   overflow: hidden;
+   font-family: "Inconsolata", serif;
+  font-weight: 700;
   /* opacity: 0; 
   transform: translateY(5vw); 
   animation: fadeUp 0.7s ease-out forwards; */

@@ -37,6 +37,7 @@
   color: rgb(0, 191, 255);
   font-size: 1.5vw;
   margin-left: 2vw;
+ 
   /* border: 1px solid red; */
   /* margin-right: 8vw; */
 }
@@ -49,7 +50,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 2.5vw;
+  gap: 2.1vw;
   margin-left: 5vw;
 }
 .all-elems li {
@@ -57,13 +58,15 @@
   /* border: 1px solid greenyellow; */
 }
 .all-elems li a {
-  color: rgb(206, 206, 206);
+  color: rgb(201, 200, 200);
   text-decoration: none;
   font-size: 1.1vw;
-  font-family: "PPMori", sans-serif;
+  font-family: "Inconsolata", serif;
+  letter-spacing: 0.7px;
+  font-weight: 600;
 }
 .all-elems li a:hover {
-  color: white;
+  color: #00EEFF;
   /* border-bottom: 1px solid red; */
 }
 .feature-button {

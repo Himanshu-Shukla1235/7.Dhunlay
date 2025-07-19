@@ -4,6 +4,14 @@ import { useNavigate } from "react-router-dom";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import LanIcon from "@mui/icons-material/Lan";
+import { Lan } from "@mui/icons-material";
+import FactCheckIcon from "@mui/icons-material/FactCheck";
+import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
+import {Home, ReceiptIcon } from "lucide-react";
+import SummarizeIcon from "@mui/icons-material/Summarize";
+import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
+
 
 const outNavbar = () => {
   const navigate = useNavigate();
@@ -52,9 +60,10 @@ const outNavbar = () => {
 
   return (
     <div className="navibar">
-      <h4>
+      <h4 >
         {" "}
         <img
+        
           src="/logo/logo1.png"
           alt="Logo"
           className="landing_page_logo"
@@ -74,6 +83,11 @@ const outNavbar = () => {
 
       <main className={`navbar-elems ${navOpen ? "show" : ""}`}>
         <ul className="all-elems">
+          <li>
+            <a href="/">
+            Home
+            </a>
+          </li>
           <li className="service-button" ref={serviceDropdownRef}>
             <a
               className="button"
@@ -102,12 +116,12 @@ const outNavbar = () => {
             <div
               className={`dropdown-content ${featureDropdownOpen ? "yes" : ""}`}
             >
-              <a href="./features_artist">Features for artists</a>
-              <a href="./features_label">Features for labels</a>
+              <a href="./features_ArtistOut">Features for artists</a>
+              <a href="./features_LabelOut">Features for labels</a>
             </div>
           </li>
           <li>
-            <a href="/plans">Subscription</a>
+            <a href="/plans"> Pricing</a>
           </li>
           <li>
             <a href="/about">About</a>

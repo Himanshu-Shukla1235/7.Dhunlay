@@ -25,6 +25,7 @@ html,body{
   /* height: 70px; */
   width: 98.9vw;
   font-family: "Inconsolata", serif;
+  overflow-x: hidden;
 }
 
 

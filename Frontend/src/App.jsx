@@ -53,8 +53,6 @@ import Bar from "./adminPages/Bar"
 import ResetPasswordPage from "./pages/Reset/resetPassP";
 import NavbarC3 from "./components/Navbar/navbarC3";
 import TooltipC1 from "./components/Elements/tooltip/tooltip";
-import FeaturesArtistOut from "./pages/FeaturesArtistOut/featuresArtistOut";
-import FeaturesLabelOut from "./pages/FeaturesLabelOut/featuresLabelOut";
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
@@ -187,8 +185,8 @@ function MainApp() {
         ></Route>
         {/* This is about page */}
         <Route path="/about" element={<About />} />
-        <Route path="/features_ArtistOut" element={<FeaturesArtistOut />} />
-        <Route path="/features_LabelOut" element={<FeaturesLabelOut />} />{" "}
+        <Route path="features_ArtistOut" element={<FeaturesArtistOut />} />
+        <Route path="features_LabelOut" element={<FeaturesLabelOut />} />{" "}
 
         <Route path="features_Artist" element={<FeaturesArtist />} />
         <Route path="features_Label" element={<FeaturesLabel />} />{" "}

@@ -159,7 +159,7 @@ const Dashboard = () => {
             ></div>
             <div className="dashBoard-main-sec-221-ToUploads">
               {" "}
-              <p>Total Releases</p>
+              <p><span style={{color:""}}>Total</span> Releases</p>
             </div>
           </div>
           <Tooltip title="Click to see more.">

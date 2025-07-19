@@ -20,5 +20,10 @@
       "content": "Gain more visibility with artist spotlight features on our homepage, social media, and newsletters. Let us help you stand out and grow your fanbase.",
       "imageUrl": "https://d3lc2v4pocabbd.cloudfront.net/wp-content/uploads/2024/03/world_map_technology_network-min.jpg"
     }
+    ,  {
+      "title": "Blockchain-Based Royalty Contracts",
+      "content": "Ensure transparent and tamper-proof royalty splits using blockchain smart contracts. All contributors are paid automatically based on pre-agreed terms, eliminating disputes and delays.",
+      "imageUrl": "https://cryptologos.cc/logos/ethereum-eth-logo.png" 
+    }
   ]
 }

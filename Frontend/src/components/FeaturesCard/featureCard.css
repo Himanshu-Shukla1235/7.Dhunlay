@@ -23,11 +23,11 @@
   background-color: rgb(20, 20, 20);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid rgba(128, 128, 128, 0.591);
   /* overflow: hidden; */
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); /* teal-blue glow */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.368); /* teal-blue glow */
 
 }
 
