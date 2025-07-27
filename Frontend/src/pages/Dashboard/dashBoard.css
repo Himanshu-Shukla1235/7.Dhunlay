@@ -232,7 +232,7 @@
   width: 37vw;
   background-color: rgba(0, 0, 0, 0.185);
   border-radius: 0.5vw;
-  /* border: rgba(0, 238, 255, 0.672) 1px solid; */
+  border: rgba(0, 238, 255, 0.672) 1px solid;
   font-family: "Inconsolata", serif;
   gap: 4vw;
   transition: box-shadow 0.3s ease-in-out;

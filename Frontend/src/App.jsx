@@ -14,8 +14,12 @@ const OurPlans = lazy(() => import("./pages/OurPlans/ourPlans"));
 const LandinP = lazy(() => import("./pages/Landing_page/landing_page"));
 
 const About = lazy(() => import("./pages/About/about"));
-const FeaturesArtistOut = lazy(()=>import("./pages/FeaturesArtistOut/featuresArtistOut"))
-const FeaturesLabelOut = lazy(()=>import("./pages/FeaturesLabelOut/featuresLabelOut"))
+const FeaturesArtistOut = lazy(() =>
+  import("./pages/FeaturesArtistOut/featuresArtistOut")
+);
+const FeaturesLabelOut = lazy(() =>
+  import("./pages/FeaturesLabelOut/featuresLabelOut")
+);
 
 const Features = lazy(() => import("./pages/Features/featuresP"));
 
@@ -48,14 +52,14 @@ import PopupModal from "./components/popUp/popUp";
 import SpotifyArtistAnalytics from "./data/Spotify/artist-analytics/artistAnalytics";
 
 import MessageList from "./pages/Message/Message";
-import Bar from "./adminPages/Bar"
+import Bar from "./adminPages/Bar";
 import Board from "./adminPages/Board";
 
 import ResetPasswordPage from "./pages/Reset/resetPassP";
 
-
 import NavbarC3 from "./components/Navbar/navbarC3";
 import TooltipC1 from "./components/Elements/tooltip/tooltip";
+
 // import GetSpotifyProfile from "./pages/Analytics/All datas/spotify/getMyProfile";
 // import SpotifySearch from "./pages/Analytics/All datas/spotify/search/searchArtist";
 function App() {
@@ -138,8 +142,11 @@ function MainApp() {
             if (window.location.pathname === "/labelPlan") {
               navigate(`/labelPlan/${data._id}`);
             }
-             if (window.location.pathname === "/addArtist") {
+            if (window.location.pathname === "/addArtist") {
               navigate(`/addArtist/${data._id}`);
+            }
+            if (window.location.pathname === "/message") {
+              navigate(`/message/${data._id}`);
             }
             //   if (window.location.pathname === "/about") {
             //   navigate(`/about/${data._id}`);
@@ -190,7 +197,6 @@ function MainApp() {
         <Route path="/about" element={<About />} />
         <Route path="features_ArtistOut" element={<FeaturesArtistOut />} />
         <Route path="features_LabelOut" element={<FeaturesLabelOut />} />{" "}
-
         <Route path="features_Artist" element={<FeaturesArtist />} />
         <Route path="features_Label" element={<FeaturesLabel />} />{" "}
         <Route path="policy" element={<PolicyPage />} />{" "}
@@ -199,16 +205,17 @@ function MainApp() {
         <Route path="/artist_search" element={<SpotifyArtistSearch />}></Route>
         <Route path="/Song_links" element={<MusicSmartLinks />}></Route>
         <Route path="/popUp" element={<PopupModal />}></Route>
-         <Route path="/artistAnalytics" element={<SpotifyArtistAnalytics />}></Route>
+        <Route
+          path="/artistAnalytics"
+          element={<SpotifyArtistAnalytics />}
+        ></Route>
+        <Route path="/bar" element={<Bar />}></Route>
+        <Route path="board" element={<Board />} />
+        <Route path="/forgotPassword" element={<ResetPasswordPage />}></Route>
+        {/* <Route path="/errorP" element={<ErrorPage />}></Route> */}
 
-         <Route path="/message" element={<MessageList />} ></Route>
-         <Route path="/bar" element={<Bar />} ></Route>
-         <Route path="board" element={<Board /> } />
-
-          <Route path="/forgotPassword" element={<ResetPasswordPage />}></Route>
-          <Route path="/test1" element={<TooltipC1></TooltipC1>}></Route>
-
-        {/* Protected Routes: Home & Meta */}
+        <Route path="/test1" element={<TooltipC1></TooltipC1>}></Route>
+        {/*------------------- Protected Routes: Home & Meta--------------------------------------- */}
         <Route element={<ProtectedRoute isAuthenticated={!!user} />}>
           <Route path="/home/:id" element={<Home />} />
           <Route path="/meta/:id" element={<Meta />} />{" "}
@@ -216,6 +223,7 @@ function MainApp() {
           <Route path="perRelease/:id" element={<PaymentPage />} />{" "}
           <Route path="/ep-album/:id" element={<PaymentPage />} />{" "}
           <Route path="/labelPlan/:id" element={<PaymentPage />} />{" "}
+          <Route path="/message/:id" element={<MessageList />}></Route>
           <Route path="/" element={<Home />}>
             <Route path="dashboard/:id" element={<Dashboard />} />
             <Route path="analytics/:id" element={<Analytics />} />
@@ -223,20 +231,20 @@ function MainApp() {
             <Route path="features_artist/:id" element={<FeaturesArtist />} />
             <Route path="features_label/:id" element={<FeaturesLabel />} />{" "}
             <Route path="features/:id" element={<Features />} />{" "}
-         
             <Route
               path="/releases/:id"
               element={<ReleasesP></ReleasesP>}
             ></Route>
             {/* <Route path="analytics" element={<Analytics />} /> */}
           </Route>
-             <Route path="addArtist/:id" element={<AddPrimaryArtistPage />} />{" "}
+          <Route path="addArtist/:id" element={<AddPrimaryArtistPage />} />{" "}
           <Route
             path="/release/:id"
             element={<ReleaseUserForm></ReleaseUserForm>}
           ></Route>
         </Route>
-        {/* Public Routes */}
+        {/*-------------------------------- Adimin Protectd Routes---------------------------------- */}
+        {/*-------------------------------------------- Public Routes------------------------------- */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         {/* <Route path="/spotify/artist" element={<GetSpotifyArtists />} />
@@ -247,7 +255,7 @@ function MainApp() {
         {/* Color palette */}
         <Route path="/palette" element={<Palette />} />
         {/* Catch-all 404 Page */}
-        <Route path="*" element={<></>} />
+        <Route path="*"  />
       </Routes>
     </Suspense>
   );
