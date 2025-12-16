@@ -230,7 +230,7 @@ const ReleaseUserFormD = () => {
   //*--------------------------SUBMIT DATA TO SERVER -----------------------
   const handleSubmit = async () => {
     // validateFormDataPost();
-
+    console.log("handlesubmitcalled");
     formDataPost.songFile = await handleUploadAllSongs(
       formDataPost.songFile,
       "wav"
@@ -1266,7 +1266,7 @@ const ReleaseUserFormD = () => {
       )} */}
             </div>
           </div>{" "}
-          <button className="finish-button" onClick={() => {}}>
+          <button className="finish-button" onClick={() => handleSubmit()}>
             {loader == true ? (
               <p>
                 <CircularProgress></CircularProgress>
